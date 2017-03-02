@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>advanced_execution_configuration</title>
+<title>z_development_tutorial</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11761,113 +11761,43 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Step-10:-Configuration-options">Step 10: Configuration options<a class="anchor-link" href="#Step-10:-Configuration-options">&#182;</a></h1><p><a href="http://nipype.readthedocs.io/en/latest/users/config_file.html">Configurable options</a> control workflow and node execution options</p>
-<p>At the global level:</p>
+<h1 id="Ideas-for-this-Tutorial">Ideas for this Tutorial<a class="anchor-link" href="#Ideas-for-this-Tutorial">&#182;</a></h1><p>Nipype is so complex that only the first few basics are covered by this tutorial. There are many possible additions still to be written. To organize the development of this guide a bit, here are some ideas for future chapters:</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">config</span><span class="p">,</span> <span class="n">logging</span>
-
-<span class="n">config</span><span class="o">.</span><span class="n">enable_debug_mode</span><span class="p">()</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">update_logging</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-
-<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;execution&#39;</span><span class="p">,</span> <span class="s1">&#39;stop_on_first_crash&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>At the workflow level:</p>
+<ul>
+<li>How to import, clone and reuse workflows</li>
+</ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;execution&#39;</span><span class="p">][</span><span class="s1">&#39;hash_method&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;content&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Configurations can also be set at the node level.</p>
+<ul>
+<li>Have small questions / challenges for the user to solve</li>
+</ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">bet</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;execution&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;keep_unnecessary_outputs&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">}}</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>@dpaniukov - the default workflow configuration for nipype sleeps for 60s between parallel streams of jobs. this is default because most people end up using the workflow script on a cluster.
-try setting the following config option before calling wf.run():
-wf.config['execution']['poll_sleep_duration'] = 2</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
     </div>
   </div>

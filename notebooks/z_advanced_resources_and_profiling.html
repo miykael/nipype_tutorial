@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>overview_nipype</title>
+<title>z_advanced_resources_and_profiling</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11761,112 +11761,23 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="http://nipype.readthedocs.io/en/latest/_static/nipype-banner-bg.png" alt=""></p>
-<h1 id="What-is-Nipype?">What is Nipype?<a class="anchor-link" href="#What-is-Nipype?">&#182;</a></h1><p><a href="http://nipype.readthedocs.io/en/latest/">Nipype</a> (Neuroimaging in Python - Pipelines and Interfaces) is an open-source, user-friendly, community-developed software package under the umbrella of <a href="http://nipy.org/">NiPy</a>. Nipype allows you to pipeline your neuroimaging workflow in an intuitive way and enables you to use the software packages and algorithms you want to use, regardless their programing language. This is possible because Nipype provides an uniform interface to many existing neuroimaging processing and analysis packages like <a href="http://stnava.github.io/ANTs/">ANTS</a>, <a href="http://www.fil.ion.ucl.ac.uk/spm/">SPM</a>, <a href="http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/">FSL</a>, <a href="http://surfer.nmr.mgh.harvard.edu/">FreeSurfer</a>, <a href="http://web4.cs.ucl.ac.uk/research/medic/camino/pmwiki/pmwiki.php">Camino</a>, <a href="http://www.brain.org.au/software/mrtrix/index.html">MRtrix</a>, <a href="https://martinos.org/mne/stable/index.html">MNE</a>, <a href="https://afni.nimh.nih.gov/afni">AFNI</a>, <a href="https://www.slicer.org/">Slicer</a> and many more. Nipype allows you to easily combine all those heterogeneous software packages within a single workflow. This procedure gives you the opportunity to pick the best algorithm there is for the problem at hand and therefore allows you to profit from the advantages of any software package you like.</p>
-<p>Nipype is written in <a href="https://www.python.org/">Python</a>, an easy to learn and very intuitive programming language. This ensures a rather steep learning curve and makes you a Nipype expert in no time. Nipype provides an environment that encourages interactive exploration of algorithms. It allows you to make your research easily reproducible and lets you share your code with the community. And for any problem you can encounter, there's always a community standing behind you.</p>
+<p>Look into: <a href="http://nipype.readthedocs.io/en/latest/users/resource_sched_profiler.html">http://nipype.readthedocs.io/en/latest/users/resource_sched_profiler.html</a></p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Short-Example">Short Example<a class="anchor-link" href="#Short-Example">&#182;</a></h1><p>Let's assume you want to do preprocessing that uses <strong>SPM</strong> for <em>motion correction</em>, <strong>FreeSurfer</strong> for <em>coregistration</em>, <strong>ANTS</strong> for <em>normalization</em> and <strong>FSL</strong> for <em>smoothing</em>. Normally this would be a hell of a mess. Switching between multiple scripts in different programming languages with a lot of manual intervention. On top of all that, you want to do your analysis on multiple subjects, preferably as fast as possible, i.e., processing several subjects in parallel. With Nipype, this is no problem! You can do all this and much more.</p>
-<p>To illustrate the straightforwardness of an Nipype workflow and show how simply it can be created, look at the following example. This figure shows you a simplification of the analysis <em>workflow</em> just outlined.</p>
-<p><img src="../static/images/nipype_example_graph.png" alt=""></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The code to create an Nipype workflow that specifies the steps illustrated in the figure above would look something like this:</p>
-<div class="highlight"><pre><span></span><span class="c1"># Import modules</span>
-<span class="kn">import</span> <span class="nn">nipype</span>
-<span class="kn">import</span> <span class="nn">nipype.interfaces.freesurfer</span> <span class="kn">as</span> <span class="nn">fs</span>
-<span class="kn">import</span> <span class="nn">nipype.interfaces.ants</span>       <span class="kn">as</span> <span class="nn">ants</span>
-<span class="kn">import</span> <span class="nn">nipype.interfaces.fsl</span>        <span class="kn">as</span> <span class="nn">fsl</span>
-<span class="kn">import</span> <span class="nn">nipype.interfaces.spm</span>        <span class="kn">as</span> <span class="nn">spm</span>
-
-<span class="c1"># Specify experiment specifc parameters</span>
-<span class="n">experiment_dir</span> <span class="o">=</span> <span class="s1">&#39;~/experiment_folder&#39;</span>
-<span class="n">nameofsubjects</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject1&#39;</span><span class="p">,</span><span class="s1">&#39;subject2&#39;</span><span class="p">,</span><span class="s1">&#39;subject3&#39;</span><span class="p">]</span>
-
-<span class="c1"># Where can the raw data be found?</span>
-<span class="n">grabber</span> <span class="o">=</span> <span class="n">nipype</span><span class="o">.</span><span class="n">DataGrabber</span><span class="p">()</span>
-<span class="n">grabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="n">experiment_dir</span> <span class="o">+</span> <span class="s1">&#39;/data&#39;</span>
-<span class="n">grabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="n">nameofsubjects</span>
-
-<span class="c1"># Where should the output data be stored at?</span>
-<span class="n">sink</span> <span class="o">=</span> <span class="n">nipype</span><span class="o">.</span><span class="n">DataSink</span><span class="p">()</span>
-<span class="n">sink</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="n">experiment_dir</span> <span class="o">+</span> <span class="s1">&#39;/output_folder&#39;</span>
-
-<span class="c1"># Motion Correction (SPM)</span>
-<span class="n">realign</span> <span class="o">=</span> <span class="n">spm</span><span class="o">.</span><span class="n">Realing</span><span class="p">(</span><span class="n">register_to_mean</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="c1"># Coregistration (FreeSurfer)</span>
-<span class="n">coreg</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">BBRegister</span><span class="p">()</span>
-
-<span class="c1"># Normalization (ANTS)</span>
-<span class="n">normalize</span> <span class="o">=</span> <span class="n">ants</span><span class="o">.</span><span class="n">WarpTimeSeriesImageMultiTransform</span><span class="p">()</span>
-
-<span class="c1"># Smoothing (FSL)</span>
-<span class="n">smooth</span> <span class="o">=</span> <span class="n">fsl</span><span class="o">.</span><span class="n">SUSAN</span><span class="p">(</span><span class="n">fwhm</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
-
-<span class="c1"># Create a workflow to connect all those nodes</span>
-<span class="n">preprocflow</span> <span class="o">=</span> <span class="n">nipype</span><span class="o">.</span><span class="n">Workflow</span><span class="p">()</span>
-
-<span class="c1"># Connect the nodes to each other</span>
-<span class="n">preprocflow</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">grabber</span>   <span class="o">-&gt;</span> <span class="n">realign</span>  <span class="p">),</span>
-                     <span class="p">(</span><span class="n">realign</span>   <span class="o">-&gt;</span> <span class="n">coreg</span>    <span class="p">),</span>
-                     <span class="p">(</span><span class="n">coreg</span>     <span class="o">-&gt;</span> <span class="n">normalize</span><span class="p">),</span>
-                     <span class="p">(</span><span class="n">normalize</span> <span class="o">-&gt;</span> <span class="n">smooth</span>   <span class="p">),</span>
-                     <span class="p">(</span><span class="n">smooth</span>    <span class="o">-&gt;</span> <span class="n">sink</span>     <span class="p">)</span>
-                     <span class="p">])</span>
-
-<span class="c1"># Run the workflow in parallel</span>
-<span class="n">preprocflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;parallel&#39;</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
-<p><strong>Important</strong>: The code above is of course a shortened and simplified version of the real code. But it gives you a good idea of what the code would look like, and how straightforward and readable the programming of a neuroimaging pipeline with Nipype is.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Nipype's-Architecture">Nipype's Architecture<a class="anchor-link" href="#Nipype's-Architecture">&#182;</a></h1><p>Nipype consists of many parts, but the most important ones are <a href="basic_interfaces.html">Interfaces</a>, the <a href="basic_workflow.html">Workflow Engine</a>  and the <a href="basic_plugins.html">Execution Plugins</a>:</p>
-<ul>
-<li><p><strong>Interface</strong>: Wraps a program or function</p>
-</li>
-<li><p><strong>Node/MapNode</strong>: Wraps an <code>Interface</code> for use in a Workflow that provides caching and other goodies (e.g., pseudo-sandbox)</p>
-</li>
-<li><p><strong>Workflow</strong>: A <em>graph</em> or <em>forest of graphs</em> whose nodes are of type <code>Node</code>, <code>MapNode</code> or <code>Workflow</code> and whose edges represent data flow</p>
-</li>
-<li><p><strong>Plugin</strong>: A component that describes how a <code>Workflow</code> should be executed</p>
-</li>
-</ul>
-<p><img src="../static/images/nipype_architecture.png" alt=""></p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Reference">Reference<a class="anchor-link" href="#Reference">&#182;</a></h1><p>Gorgolewski, K., Burns, C. D., Madison, C., Clark, D., Halchenko, Y. O., Waskom, M. L., &amp; Ghosh, S. S. (2011). Nipype: a flexible, lightweight and extensible neuroimaging data processing framework in python. <em>Frontiers in neuroinformatics, 5</em>, 13. <a href="http://journal.frontiersin.org/article/10.3389/fninf.2011.00013">Download paper</a></p>
-
-</div>
-</div>
 </div>
     </div>
   </div>

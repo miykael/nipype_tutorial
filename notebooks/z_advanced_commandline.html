@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>overview_dataset</title>
+<title>z_advanced_commandline</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11756,174 +11756,15 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p style="text-align:center"><font size="20">BRAIN IMAGING</font></p>
-<p style="text-align:center"><font size="20">DATA STRUCTURE</font></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The dataset for this tutorial is structured according to the <a href="http://bids.neuroimaging.io/">Brain Imaging Data Structure (BIDS)</a>. BIDS is a simple and intuitive way to organize and describe your neuroimaging and behavioral data. Neuroimaging experiments result in complicated data that can be arranged in many different ways. So far there is no consensus how to organize and share data obtained in neuroimaging experiments. BIDS tackles this problem by suggesting a new standard for the arrangement of neuroimaging datasets.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The idea of BIDS is that the file and folder names folllow a strict set of rules:</p>
-<p><img src="../static/images/bids.png" alt=""></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Using the same structure for all of your studies will allow you to easily reuse all of your scripts between studies. But additionally, it also has the advantage that sharing code with and using scripts from other researchers will be much easier.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tutorial-Dataset">Tutorial Dataset<a class="anchor-link" href="#Tutorial-Dataset">&#182;</a></h1><p>The dataset for this tutorial is coming from <a href="https://openfmri.org/">https://openfmri.org/</a>, a homepage dedicated to the free and open sharing of raw magnetic resonance imaging (MRI) datasets. We already downloaded the dataset <a href="https://openfmri.org/dataset/ds000102/">ds102</a> into the data folder at the current location. To reduce the size of the total dataset, only the first three subjects (<code>sub-01</code>, <code>sub-02</code> and <code>sub-03</code>) were kept.</p>
-<p>So let's have a look at the tutorial dataset.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>tree data/ds102
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-blue-intense-fg ansi-bold">data/ds102</span>
-├── CHANGES
-├── dataset_description.json
-├── participants.tsv
-├── README
-├── <span class="ansi-blue-intense-fg ansi-bold">sub-01</span>
-│   ├── <span class="ansi-blue-intense-fg ansi-bold">anat</span>
-│   │   └── <span class="ansi-red-intense-fg ansi-bold">sub-01_T1w.nii.gz</span>
-│   └── <span class="ansi-blue-intense-fg ansi-bold">func</span>
-│       ├── <span class="ansi-red-intense-fg ansi-bold">sub-01_task-flankertask_run-01_bold.nii.gz</span>
-│       ├── sub-01_task-flankertask_run-01_events.tsv
-│       ├── <span class="ansi-red-intense-fg ansi-bold">sub-01_task-flankertask_run-02_bold.nii.gz</span>
-│       └── sub-01_task-flankertask_run-02_events.tsv
-├── <span class="ansi-blue-intense-fg ansi-bold">sub-02</span>
-│   ├── <span class="ansi-blue-intense-fg ansi-bold">anat</span>
-│   │   └── <span class="ansi-red-intense-fg ansi-bold">sub-02_T1w.nii.gz</span>
-│   └── <span class="ansi-blue-intense-fg ansi-bold">func</span>
-│       ├── <span class="ansi-red-intense-fg ansi-bold">sub-02_task-flankertask_run-01_bold.nii.gz</span>
-│       ├── sub-02_task-flankertask_run-01_events.tsv
-│       ├── <span class="ansi-red-intense-fg ansi-bold">sub-02_task-flankertask_run-02_bold.nii.gz</span>
-│       └── sub-02_task-flankertask_run-02_events.tsv
-├── <span class="ansi-blue-intense-fg ansi-bold">sub-03</span>
-│   ├── <span class="ansi-blue-intense-fg ansi-bold">anat</span>
-│   │   └── <span class="ansi-red-intense-fg ansi-bold">sub-03_T1w.nii.gz</span>
-│   └── <span class="ansi-blue-intense-fg ansi-bold">func</span>
-│       ├── <span class="ansi-red-intense-fg ansi-bold">sub-03_task-flankertask_run-01_bold.nii.gz</span>
-│       ├── sub-03_task-flankertask_run-01_events.tsv
-│       ├── <span class="ansi-red-intense-fg ansi-bold">sub-03_task-flankertask_run-02_bold.nii.gz</span>
-│       └── sub-03_task-flankertask_run-02_events.tsv
-└── task-flankertask_bold.json
-
-9 directories, 20 files
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can, we have three subjects, each with one anatomical T1w image and with two functional images, <code>run-01</code> and <code>run-02</code>. To each of those functional images, we also have a tab-separated values file (<code>tva</code>), containing information such as stimuli onset, duration, type, etc.</p>
-<p>So let's have a look at one of them:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>cat data/ds102/sub-01/func/sub-01_task-flankertask_run-01_events.tsv
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>onset	duration	trial_type	Rsponse	StimVar	Stimulus	ResponseTime
-0.0	2.0	incongruent_correct	1	2	 incongruent	1095
-10.0	2.0	incongruent_correct	1	2	 incongruent	988
-20.0	2.0	congruent_correct	1	1	 congruent	591
-30.0	2.0	congruent_correct	1	1	 congruent	499
-40.0	2.0	incongruent_correct	1	2	 incongruent	719
-52.0	2.0	congruent_correct	1	1	 congruent	544
-64.0	2.0	congruent_correct	1	1	 congruent	436
-76.0	2.0	incongruent_correct	1	2	 incongruent	470
-88.0	2.0	congruent_correct	1	1	 congruent	409
-102.0	2.0	incongruent_correct	1	2	 incongruent	563
-116.0	2.0	congruent_correct	1	1	 congruent	493
-130.0	2.0	congruent_correct	1	1	 congruent	398
-140.0	2.0	congruent_correct	1	1	 congruent	466
-150.0	2.0	incongruent_correct	1	2	 incongruent	518
-164.0	2.0	incongruent_correct	1	2	 incongruent	560
-174.0	2.0	incongruent_correct	1	2	 incongruent	533
-184.0	2.0	congruent_correct	1	1	 congruent	439
-196.0	2.0	congruent_correct	1	1	 congruent	458
-208.0	2.0	incongruent_correct	1	2	 incongruent	734
-220.0	2.0	incongruent_correct	1	2	 incongruent	479
-232.0	2.0	incongruent_correct	1	2	 incongruent	538
-246.0	2.0	congruent_correct	1	1	 congruent	540
-260.0	2.0	incongruent_correct	1	2	 incongruent	622
-274.0	2.0	congruent_correct	1	1	 congruent	488
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 

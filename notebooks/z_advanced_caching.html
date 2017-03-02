@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>development_tutorial</title>
+<title>z_advanced_caching</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11761,43 +11761,142 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ideas-for-this-Tutorial">Ideas for this Tutorial<a class="anchor-link" href="#Ideas-for-this-Tutorial">&#182;</a></h1><p>Nipype is so complex that only the first few basics are covered by this tutorial. There are many possible additions still to be written. To organize the development of this guide a bit, here are some ideas for future chapters:</p>
+<h1 id="Nipype-caching">Nipype caching<a class="anchor-link" href="#Nipype-caching">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.caching</span> <span class="kn">import</span> <span class="n">Memory</span>
+<span class="n">mem</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>How to import, clone and reuse workflows</li>
-</ul>
+<h3 id="Create-cacheable-objects">Create <code>cacheable</code> objects<a class="anchor-link" href="#Create-cacheable-objects">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="kn">import</span> <span class="n">Realign</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="kn">import</span> <span class="n">MCFLIRT</span>
+
+<span class="n">spm_realign</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">Realign</span><span class="p">)</span>
+<span class="n">fsl_realign</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Have small questions / challenges for the user to solve</li>
-</ul>
+<h3 id="Execute-interfaces">Execute interfaces<a class="anchor-link" href="#Execute-interfaces">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">spm_results</span> <span class="o">=</span> <span class="n">spm_realign</span><span class="p">(</span><span class="n">in_files</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">register_to_mean</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">fsl_results</span> <span class="o">=</span> <span class="n">fsl_realign</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">ref_vol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">);</span><span class="n">plot</span><span class="p">(</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">fsl_results</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">par_file</span><span class="p">)[:,</span> <span class="mi">3</span><span class="p">:])</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">);</span><span class="n">plot</span><span class="p">(</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">spm_results</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">realignment_parameters</span><span class="p">)[:,:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">spm_results</span> <span class="o">=</span> <span class="n">spm_realign</span><span class="p">(</span><span class="n">in_files</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">register_to_mean</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">fsl_results</span> <span class="o">=</span> <span class="n">fsl_realign</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">ref_vol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="More-caching">More caching<a class="anchor-link" href="#More-caching">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span> <span class="k">as</span> <span class="n">opap</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">opap</span><span class="p">(</span><span class="s1">&#39;../ds107/sub001/BOLD/task001_run001/bold.nii.gz&#39;</span><span class="p">),</span>
+         <span class="n">opap</span><span class="p">(</span><span class="s1">&#39;../ds107/sub001/BOLD/task001_run002/bold.nii.gz&#39;</span><span class="p">)]</span>
+<span class="n">converter</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">MRIConvert</span><span class="p">)</span>
+<span class="n">newfiles</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">fname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+    <span class="n">newfiles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">converter</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span>
+                              <span class="n">out_type</span><span class="o">=</span><span class="s1">&#39;nii&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tutorial_dir</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
