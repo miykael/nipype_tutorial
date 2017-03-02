@@ -1,17 +1,12 @@
 # Nipype Tutorial Notebooks
 
-The Nipype tutorial runs on [mybinder.org](http://mybinder.org/) and can be started by clicking on the following button: [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/miykael/nipype_tutorial)
+This is the Nipype Tutorial in Notebooks. There are multiple ways of how you can profit from this tutorial:
 
-The Dockerfile that creates the nipype environment on mybinder is based on the docker image [miykael/nipype_basic](https://hub.docker.com/r/miykael/nipype_basic/).
-
-
-## The Dataset
-
-The data used for this tutorial is from [openfmri.org](https://openfmri.org/) and is structured according the new and fancy [Brain Imaging Data Structure (BIDS)](http://bids.neuroimaging.io/).
-
-The dataset ds102 used for this tutorial was shortened to only three subjects, *sub-01*, *sub-02* and *sub-03*. For more information about the dataset, see the [description on openfmri.org](https://openfmri.org/dataset/ds000102/).
+1. [Nipype Tutorial Homepage](https://miykael.github.io/nipype_tutorial/): You can find all notebooks used in this tutorial on this homepage.
+2. [Nipype Course](https://github.com/miykael/nipype_course): Run the notebooks of this tutorial in an interactive docker image and on real example data. The nipype course is the best interactive way to learn Nipype
+3. [Your own Nipype environment](https://github.com/miykael/nipype_env): The Dockerfiles for the nipype course are based on the [level3](https://github.com/miykael/nipype_env/blob/master/level3/Dockerfile) version of the [Nipype Environment](https://github.com/miykael/nipype_env). If you want to use docker for your own analysis, that is not based on some example dataset, you can adapt the [Dockerfile from the course](https://github.com/miykael/nipype_course/blob/master/Dockerfile) to the level that you need, and than run it on your own data.
 
 
-## Feedback, Help & Support
+# Feedback, Help & Support
 
-If you want to help us with this tutorial or have any questions, fell free to fork our repo [github.com/miykael/nipype_tutorial](https://github.com/miykael/nipype_tutorial) or interact with other contributors on the slack channel [brainhack.slack.com/messages/nipype/](https://brainhack.slack.com/messages/nipype/)
+If you want to help with this tutorial or have any questions, fell free to fork the repo of the [Notebooks](https://github.com/miykael/nipype_tutorial) or interact with other contributors on the slack channel [brainhack.slack.com/messages/nipype/](https://brainhack.slack.com/messages/nipype/). If you have any questions or found a problem, open a new [issue on github](https://github.com/miykael/nipype_tutorial/issues).
