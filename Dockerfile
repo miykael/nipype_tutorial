@@ -1,11 +1,12 @@
 # This Dockerfile is based on the dockerfile 'fmriprep' from the Poldrack
-# Lab (https://github.com/poldracklab/fmriprep).
+# Lab (https://github.com/poldracklab/fmriprep). The jupyter notebook foundation
+# is based on jupyter/docker-stacks's base-notebook.
 #
 # This means that the same copyrights apply to this Dockerfile, as they do for
-# the above mentioned dockerfile. For more information see:
-# https://github.com/miykael/nipype_tutorial
-FROM andrewosh/binder-base
+# the above mentioned dockerfiles. For more information see:
+# https://github.com/miykael/nipype_env
 
+FROM jupyter/base-notebook
 MAINTAINER Michael Notter <michaelnotter@hotmail.com>
 
 # Switch to root user for installation
