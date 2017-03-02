@@ -11796,7 +11796,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.workflows.fmri.fsl.preprocess</span> <span class="kn">import</span> <span class="n">create_susan_smooth</span>
@@ -11844,7 +11844,7 @@ Outputs:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>fslmaths /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz <span class="err">\</span>
@@ -11868,7 +11868,7 @@ Outputs:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">smoothwf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">inputnode</span><span class="o">.</span><span class="n">in_files</span> <span class="o">=</span> <span class="s1">&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;</span>
@@ -11894,7 +11894,7 @@ Outputs:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
@@ -11920,7 +11920,7 @@ Outputs:
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_png output_subarea output_execute_result">
@@ -12978,7 +12978,7 @@ LaUavpAAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">smoothwf</span><span class="o">.</span><span class="n">list_node_names</span><span class="p">())</span>
@@ -13015,7 +13015,7 @@ LaUavpAAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">median</span> <span class="o">=</span> <span class="n">smoothwf</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
@@ -13038,7 +13038,7 @@ LaUavpAAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">median</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">op_string</span> <span class="o">=</span> <span class="s1">&#39;-k </span><span class="si">%s</span><span class="s1"> -p 99&#39;</span>
@@ -13084,7 +13084,7 @@ LaUavpAAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>fslmaths /data/susan_smooth/smooth/mapflow/_smooth0/sub-01_task-flanker_run-1_bold_smooth.nii.gz <span class="err">\</span>
@@ -13105,7 +13105,7 @@ LaUavpAAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">

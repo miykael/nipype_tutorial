@@ -11834,7 +11834,7 @@ XNATSource
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">DataGrabber</span><span class="p">,</span> <span class="n">Node</span>
@@ -11887,7 +11887,7 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-flanker_run-[task_id]_bol
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">template_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">]],</span>
@@ -11911,7 +11911,7 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-flanker_run-[task_id]_bol
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">field_template</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/anat/*_T1w.nii.gz&#39;</span><span class="p">,</span>
@@ -11945,7 +11945,7 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-flanker_run-[task_id]_bol
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Using the IdentityInterface</span>
@@ -11988,7 +11988,7 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-flanker_run-[task_id]_bol
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Specifying the input fields of DataGrabber directly</span>
@@ -12013,7 +12013,7 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-flanker_run-[task_id]_bol
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">dg</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
@@ -12070,7 +12070,7 @@ func = /data/ds102/{subject_id}/func/{subject_id}_task-flanker_run-{task_id}_bol
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
@@ -12108,7 +12108,7 @@ func = /data/ds102/{subject_id}/func/{subject_id}_task-flanker_run-{task_id}_bol
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">sf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
@@ -12158,7 +12158,7 @@ func = /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
@@ -12234,7 +12234,7 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.freesurfer</span> <span class="kn">import</span> <span class="n">FSCommand</span>
@@ -12264,7 +12264,7 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span>
@@ -12292,7 +12292,7 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub001&#39;</span>
@@ -12331,7 +12331,7 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;aparc_aseg: </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">aparc_aseg</span>
@@ -12375,7 +12375,7 @@ inflated: [u&#39;/data/ds102/freesurfer/sub001/surf/rh.inflated&#39;, u&#39;/dat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">hemi</span> <span class="o">=</span> <span class="s1">&#39;lh&#39;</span>
@@ -12414,7 +12414,7 @@ inflated: [u&#39;/data/ds102/freesurfer/sub001/surf/rh.inflated&#39;, u&#39;/dat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">inflated</span>
@@ -12428,7 +12428,7 @@ inflated: [u&#39;/data/ds102/freesurfer/sub001/surf/rh.inflated&#39;, u&#39;/dat
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
