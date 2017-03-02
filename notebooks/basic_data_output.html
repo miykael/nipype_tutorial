@@ -11880,51 +11880,13 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:54:34,886 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:54:34,894 workflow INFO:
-	 Running serially.
-170301-21:54:34,897 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/selectfiles
-170301-21:54:34,919 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:54:34,931 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt
-170301-21:54:34,948 workflow INFO:
-	 Running: mcflirt -in /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz -meanvol -out /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-flanker_run-1_bold_mcf.nii.gz -plots
-170301-21:55:54,718 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/smooth
-170301-21:55:54,734 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-flanker_run-1_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/notebooks/working_dir/preprocWF/smooth/sub-01_task-flanker_run-1_bold_mcf_smooth.nii.gz
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fba909d0f50&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -11994,7 +11956,7 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="kn">import</span> <span class="n">DataSink</span>
@@ -12014,48 +11976,6 @@ XNATSink
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:56:10,134 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:56:10,144 workflow INFO:
-	 Running serially.
-170301-21:56:10,146 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/selectfiles
-170301-21:56:10,163 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:56:10,171 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt
-170301-21:56:10,186 workflow INFO:
-	 Running: mcflirt -in /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz -meanvol -out /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-flanker_run-1_bold_mcf.nii.gz -plots
-170301-21:57:20,195 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/smooth
-170301-21:57:20,228 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-flanker_run-1_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/notebooks/working_dir/preprocWF/smooth/sub-01_task-flanker_run-1_bold_mcf_smooth.nii.gz
-170301-21:57:34,573 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker
-170301-21:57:34,598 workflow INFO:
-	 Runtime memory and threads stats unavailable
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fba9095dad0&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12091,7 +12011,7 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@in_file&#39;</span><span class="p">)]),</span>
@@ -12102,48 +12022,6 @@ XNATSink
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:57:34,617 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:57:34,626 workflow INFO:
-	 Running serially.
-170301-21:57:34,628 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/selectfiles
-170301-21:57:34,644 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:34,649 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt
-170301-21:57:34,662 workflow INFO:
-	 Running: mcflirt -in /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz -meanvol -out /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-flanker_run-1_bold_mcf.nii.gz -plots
-170301-21:58:55,425 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/smooth
-170301-21:58:55,448 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-flanker_run-1_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/notebooks/working_dir/preprocWF/smooth/sub-01_task-flanker_run-1_bold_mcf_smooth.nii.gz
-170301-21:59:10,852 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker
-170301-21:59:10,901 workflow INFO:
-	 Runtime memory and threads stats unavailable
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fba90cace50&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12177,7 +12055,7 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Define substitution strings</span>
@@ -12194,60 +12072,6 @@ XNATSink
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:59:10,932 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:59:10,948 workflow INFO:
-	 Running serially.
-170301-21:59:10,955 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/selectfiles
-170301-21:59:10,998 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:59:11,6 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/mcflirt
-170301-21:59:11,8 workflow INFO:
-	 Collecting precomputed outputs
-170301-21:59:11,22 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/smooth
-170301-21:59:11,24 workflow INFO:
-	 Collecting precomputed outputs
-170301-21:59:11,47 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker
-170301-21:59:11,60 interface INFO:
-	 sub: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_task-flanker_run-1_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_run-1_mean.nii.gz
-170301-21:59:11,62 interface INFO:
-	 sub: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-flanker_run-1_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_run-1_mean.nii.gz
-170301-21:59:11,64 interface INFO:
-	 sub: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-flanker_run-1_bold_mcf_smooth.nii.gz -&gt; /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_run-1_smooth.nii.gz
-170301-21:59:11,66 interface INFO:
-	 sub: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_task-flanker_run-1_bold_mcf_smooth.nii.gz -&gt; /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_run-1_smooth.nii.gz
-170301-21:59:11,68 interface INFO:
-	 sub: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-flanker_run-1_bold_mcf.nii.gz.par -&gt; /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_run-1.par
-170301-21:59:11,69 interface INFO:
-	 sub: /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01_task-flanker_run-1_bold_mcf.nii.gz.par -&gt; /home/jovyan/work/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01_run-1.par
-170301-21:59:11,80 workflow INFO:
-	 Runtime memory and threads stats unavailable
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fbab94d9710&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

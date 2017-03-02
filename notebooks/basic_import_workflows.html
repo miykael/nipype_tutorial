@@ -12913,89 +12913,13 @@ LaUavpAAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">smoothwf</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_procs&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-22:02:29,487 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-22:02:29,495 workflow INFO:
-	 Running in parallel.
-170301-22:02:29,499 workflow INFO:
-	 Executing: mask ID: 0
-170301-22:02:29,503 workflow INFO:
-	 Executing: median ID: 2
-170301-22:02:29,505 workflow INFO:
-	 Executing node mask in dir: /data/susan_smooth/mask
-170301-22:02:29,517 workflow INFO:
-	 Executing node _mask0 in dir: /data/susan_smooth/mask/mapflow/_mask0
-170301-22:02:29,511 workflow INFO:
-	 Executing node median in dir: /data/susan_smooth/median
-170301-22:02:29,525 workflow INFO:
-	 Running: fslmaths /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz -mas /data/ds102/sub-01/func/mask.nii.gz /data/susan_smooth/mask/mapflow/_mask0/sub-01_task-flanker_run-1_bold_mask.nii.gz
-170301-22:02:29,527 workflow INFO:
-	 Executing node _median0 in dir: /data/susan_smooth/median/mapflow/_median0
-170301-22:02:29,536 workflow INFO:
-	 Running: fslstats /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz -k /data/ds102/sub-01/func/mask.nii.gz -p 50 
-170301-22:02:31,94 interface INFO:
-	 stdout 2017-03-01T22:02:31.094723:701.000000 
-170301-22:02:31,608 workflow INFO:
-	 [Job finished] jobname: median jobid: 2
-170301-22:02:34,145 workflow INFO:
-	 [Job finished] jobname: mask jobid: 0
-170301-22:02:34,148 workflow INFO:
-	 Executing: meanfunc2 ID: 1
-170301-22:02:34,157 workflow INFO:
-	 Executing node meanfunc2 in dir: /data/susan_smooth/meanfunc2
-170301-22:02:34,168 workflow INFO:
-	 Executing node _meanfunc20 in dir: /data/susan_smooth/meanfunc2/mapflow/_meanfunc20
-170301-22:02:34,174 workflow INFO:
-	 Running: fslmaths /data/susan_smooth/mask/mapflow/_mask0/sub-01_task-flanker_run-1_bold_mask.nii.gz -Tmean /data/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-01_task-flanker_run-1_bold_mask_mean.nii.gz
-170301-22:02:35,732 workflow INFO:
-	 [Job finished] jobname: meanfunc2 jobid: 1
-170301-22:02:35,735 workflow INFO:
-	 Executing: merge ID: 3
-170301-22:02:35,744 workflow INFO:
-	 Executing node merge in dir: /data/susan_smooth/merge
-170301-22:02:35,758 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-22:02:35,761 workflow INFO:
-	 [Job finished] jobname: merge jobid: 3
-170301-22:02:35,764 workflow INFO:
-	 Executing: smooth ID: 4
-170301-22:02:35,774 workflow INFO:
-	 Executing node smooth in dir: /data/susan_smooth/smooth
-170301-22:02:35,783 workflow INFO:
-	 Executing node _smooth0 in dir: /data/susan_smooth/smooth/mapflow/_smooth0
-170301-22:02:35,790 workflow INFO:
-	 Running: susan /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz 525.7500000000 1.6986436006 3 1 1 /data/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-01_task-flanker_run-1_bold_mask_mean.nii.gz 525.7500000000 /data/susan_smooth/smooth/mapflow/_smooth0/sub-01_task-flanker_run-1_bold_smooth.nii.gz
-170301-22:02:51,642 workflow INFO:
-	 [Job finished] jobname: smooth jobid: 4
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f4fc143f7d0&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13126,77 +13050,13 @@ LaUavpAAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">smoothwf</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_procs&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-22:05:23,503 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-22:05:23,512 workflow INFO:
-	 Running in parallel.
-170301-22:05:23,515 workflow INFO:
-	 Executing: median ID: 0
-170301-22:05:23,520 workflow INFO:
-	 Executing: mask ID: 1
-170301-22:05:23,524 workflow INFO:
-	 [Job finished] jobname: mask jobid: 1
-170301-22:05:23,523 workflow INFO:
-	 Executing node median in dir: /data/susan_smooth/median
-170301-22:05:23,528 workflow INFO:
-	 Executing: meanfunc2 ID: 2
-170301-22:05:23,536 workflow INFO:
-	 [Job finished] jobname: meanfunc2 jobid: 2
-170301-22:05:23,537 workflow INFO:
-	 Executing node _median0 in dir: /data/susan_smooth/median/mapflow/_median0
-170301-22:05:23,545 workflow INFO:
-	 Running: fslstats /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz -k /data/ds102/sub-01/func/mask.nii.gz -p 99 
-170301-22:05:25,103 interface INFO:
-	 stdout 2017-03-01T22:05:25.103097:992.000000 
-170301-22:05:25,614 workflow INFO:
-	 [Job finished] jobname: median jobid: 0
-170301-22:05:25,616 workflow INFO:
-	 Executing: merge ID: 3
-170301-22:05:25,627 workflow INFO:
-	 Executing node merge in dir: /data/susan_smooth/merge
-170301-22:05:25,643 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-22:05:25,645 workflow INFO:
-	 [Job finished] jobname: merge jobid: 3
-170301-22:05:25,649 workflow INFO:
-	 Executing: smooth ID: 4
-170301-22:05:25,662 workflow INFO:
-	 Executing node smooth in dir: /data/susan_smooth/smooth
-170301-22:05:25,674 workflow INFO:
-	 Executing node _smooth0 in dir: /data/susan_smooth/smooth/mapflow/_smooth0
-170301-22:05:25,686 workflow INFO:
-	 Running: susan /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz 744.0000000000 1.6986436006 3 1 1 /data/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-01_task-flanker_run-1_bold_mask_mean.nii.gz 744.0000000000 /data/susan_smooth/smooth/mapflow/_smooth0/sub-01_task-flanker_run-1_bold_smooth.nii.gz
-170301-22:05:40,525 workflow INFO:
-	 [Job finished] jobname: smooth jobid: 4
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f4fa82ca810&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

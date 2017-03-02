@@ -12059,35 +12059,6 @@ func = /data/ds102/{subject_id}/func/{subject_id}_task-flanker_run-{task_id}_bol
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pwd</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>u&#39;/home/jovyan/work/notebooks&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -12252,7 +12223,7 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.freesurfer</span> <span class="kn">import</span> <span class="n">FSCommand</span>
@@ -12282,10 +12253,11 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="kn">import</span> <span class="n">FreeSurferSource</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="kn">import</span> <span class="n">FreeSurferSource</span>
 
 <span class="c1"># Create FreeSurferSource node</span>
 <span class="n">fssource</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">FreeSurferSource</span><span class="p">(</span><span class="n">subjects_dir</span><span class="o">=</span><span class="n">fs_dir</span><span class="p">),</span>
@@ -12309,7 +12281,7 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub001&#39;</span>
@@ -12326,10 +12298,8 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:54:08,669 workflow INFO:
-	 Executing node fssource in dir: /tmp/tmpz6Crpr/fssource
-170301-21:54:08,695 workflow INFO:
-	 Runtime memory and threads stats unavailable
+<pre>170302-17:50:07,668 workflow INFO:
+	 Executing node fssource in dir: /tmp/tmpI0UTIX/fssource
 </pre>
 </div>
 </div>
@@ -12350,7 +12320,7 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;aparc_aseg: </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">aparc_aseg</span>
@@ -12368,11 +12338,11 @@ func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>aparc_aseg: &lt;undefined&gt;
+<pre>aparc_aseg: [u&#39;/data/ds102/freesurfer/sub001/mri/aparc.a2009s+aseg.mgz&#39;, u&#39;/data/ds102/freesurfer/sub001/mri/aparc+aseg.mgz&#39;]
 
-brainmask: &lt;undefined&gt;
+brainmask: /data/ds102/freesurfer/sub001/mri/brainmask.mgz
 
-inflated: &lt;undefined&gt;
+inflated: [u&#39;/data/ds102/freesurfer/sub001/surf/rh.inflated&#39;, u&#39;/data/ds102/freesurfer/sub001/surf/lh.inflated&#39;]
 
 </pre>
 </div>
@@ -12394,7 +12364,7 @@ inflated: &lt;undefined&gt;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">hemi</span> <span class="o">=</span> <span class="s1">&#39;lh&#39;</span>
@@ -12411,10 +12381,8 @@ inflated: &lt;undefined&gt;
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:54:09,879 workflow INFO:
-	 Executing node fssource in dir: /tmp/tmpz6Crpr/fssource
-170301-21:54:09,909 workflow INFO:
-	 Runtime memory and threads stats unavailable
+<pre>170302-17:50:13,835 workflow INFO:
+	 Executing node fssource in dir: /tmp/tmpI0UTIX/fssource
 </pre>
 </div>
 </div>
@@ -12435,7 +12403,7 @@ inflated: &lt;undefined&gt;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">inflated</span>
@@ -12449,11 +12417,11 @@ inflated: &lt;undefined&gt;
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;undefined&gt;</pre>
+<pre>u&#39;/data/ds102/freesurfer/sub001/surf/lh.inflated&#39;</pre>
 </div>
 
 </div>

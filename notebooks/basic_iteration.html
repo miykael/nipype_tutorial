@@ -11851,7 +11851,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create the workflow</span>
@@ -11864,64 +11864,6 @@ div#notebook {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:55:11,819 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:55:11,831 workflow INFO:
-	 Running in parallel.
-170301-21:55:11,836 workflow INFO:
-	 Executing: skullstrip ID: 0
-170301-21:55:11,858 workflow INFO:
-	 Executing node skullstrip in dir: /data/smoothflow/skullstrip
-170301-21:55:11,886 workflow INFO:
-	 Running: bet /data/ds102/sub-01/anat/sub-01_T1w.nii.gz /data/smoothflow/skullstrip/sub-01_T1w_brain.nii.gz -m
-170301-21:55:17,892 workflow INFO:
-	 [Job finished] jobname: skullstrip jobid: 0
-170301-21:55:17,899 workflow INFO:
-	 Executing: iso_smooth.aI.a1 ID: 1
-170301-21:55:17,909 workflow INFO:
-	 Executing: iso_smooth.aI.a0 ID: 2
-170301-21:55:17,918 workflow INFO:
-	 Executing node iso_smooth.aI.a1 in dir: /data/smoothflow/_fwhm_8/iso_smooth
-170301-21:55:17,933 workflow INFO:
-	 Executing: iso_smooth.aI.a2 ID: 3
-170301-21:55:17,937 workflow INFO:
-	 Running: fslmaths /data/smoothflow/skullstrip/sub-01_T1w_brain.nii.gz -s 3.39729 /data/smoothflow/_fwhm_8/iso_smooth/sub-01_T1w_brain_smooth.nii.gz
-170301-21:55:17,931 workflow INFO:
-	 Executing node iso_smooth.aI.a0 in dir: /data/smoothflow/_fwhm_4/iso_smooth
-170301-21:55:17,946 workflow INFO:
-	 Executing node iso_smooth.aI.a2 in dir: /data/smoothflow/_fwhm_16/iso_smooth
-170301-21:55:17,967 workflow INFO:
-	 Running: fslmaths /data/smoothflow/skullstrip/sub-01_T1w_brain.nii.gz -s 1.69864 /data/smoothflow/_fwhm_4/iso_smooth/sub-01_T1w_brain_smooth.nii.gz
-170301-21:55:17,989 workflow INFO:
-	 Running: fslmaths /data/smoothflow/skullstrip/sub-01_T1w_brain.nii.gz -s 6.79457 /data/smoothflow/_fwhm_16/iso_smooth/sub-01_T1w_brain_smooth.nii.gz
-170301-21:55:28,334 workflow INFO:
-	 [Job finished] jobname: iso_smooth.aI.a0 jobid: 2
-170301-21:55:38,802 workflow INFO:
-	 [Job finished] jobname: iso_smooth.aI.a1 jobid: 1
-170301-21:55:58,21 workflow INFO:
-	 [Job finished] jobname: iso_smooth.aI.a2 jobid: 3
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f0cdf4ec090&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

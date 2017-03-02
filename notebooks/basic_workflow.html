@@ -17002,7 +17002,7 @@ ERGR8lhUEhEREZHSWFQSERERkdJYVBIRERGR0v4fuD+JWpzRVkEAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Specify the base directory for the working directory</span>
@@ -17013,44 +17013,6 @@ ERGR8lhUEhEREZHSWFQSERERkdJYVBIRERGR0v4fuD+JWpzRVkEAAAAASUVORK5CYII=
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:45:47,510 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:45:47,516 workflow INFO:
-	 Running serially.
-170301-21:45:47,518 workflow INFO:
-	 Executing node skullstrip in dir: /home/jovyan/work/notebooks/working_dir/smoothflow/skullstrip
-170301-21:45:47,528 workflow INFO:
-	 Running: bet /data/ds102/sub-02/anat/sub-02_T1w.nii.gz /home/jovyan/work/notebooks/working_dir/smoothflow/skullstrip/sub-02_T1w_brain.nii.gz -m
-170301-21:45:53,170 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/notebooks/working_dir/smoothflow/smooth
-170301-21:45:53,177 workflow INFO:
-	 Running: fslmaths /data/ds102/sub-02/anat/sub-02_T1w.nii.gz -s 1.69864 /home/jovyan/work/notebooks/working_dir/smoothflow/smooth/sub-02_T1w_smooth.nii.gz
-170301-21:46:03,433 workflow INFO:
-	 Executing node mask in dir: /home/jovyan/work/notebooks/working_dir/smoothflow/mask
-170301-21:46:03,446 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/notebooks/working_dir/smoothflow/smooth/sub-02_T1w_smooth.nii.gz -mas /home/jovyan/work/notebooks/working_dir/smoothflow/skullstrip/sub-02_T1w_brain_mask.nii.gz /home/jovyan/work/notebooks/working_dir/smoothflow/mask/sub-02_T1w_smooth_masked.nii.gz
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fcdadeafc10&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -21636,81 +21598,13 @@ Soc0/B9LkQ+1VkyMhgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:51:46,300 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:51:46,314 workflow INFO:
-	 Running serially.
-170301-21:51:46,319 workflow INFO:
-	 Executing node skullstrip in dir: /home/jovyan/work/notebooks/working_dir/susanflow/skullstrip
-170301-21:51:46,333 workflow INFO:
-	 Running: bet /data/ds102/sub-02/anat/sub-02_T1w.nii.gz /home/jovyan/work/notebooks/working_dir/susanflow/skullstrip/sub-02_T1w_brain.nii.gz -m
-170301-21:51:50,468 workflow INFO:
-	 Executing node median in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/median
-170301-21:51:50,487 workflow INFO:
-	 Executing node _median0 in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/median/mapflow/_median0
-170301-21:51:50,498 workflow INFO:
-	 Running: fslstats /data/ds102/sub-02/anat/sub-02_T1w.nii.gz -k /home/jovyan/work/notebooks/working_dir/susanflow/skullstrip/sub-02_T1w_brain_mask.nii.gz -p 50 
-170301-21:51:51,579 interface INFO:
-	 stdout 2017-03-01T21:51:51.579625:219.000000 
-170301-21:51:52,102 workflow INFO:
-	 Executing node mask in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/mask
-170301-21:51:52,115 workflow INFO:
-	 Executing node _mask0 in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/mask/mapflow/_mask0
-170301-21:51:52,125 workflow INFO:
-	 Running: fslmaths /data/ds102/sub-02/anat/sub-02_T1w.nii.gz -mas /home/jovyan/work/notebooks/working_dir/susanflow/skullstrip/sub-02_T1w_brain_mask.nii.gz /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/mask/mapflow/_mask0/sub-02_T1w_mask.nii.gz
-170301-21:51:54,214 workflow INFO:
-	 Executing node meanfunc2 in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/meanfunc2
-170301-21:51:54,222 workflow INFO:
-	 Executing node _meanfunc20 in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/meanfunc2/mapflow/_meanfunc20
-170301-21:51:54,231 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/mask/mapflow/_mask0/sub-02_T1w_mask.nii.gz -Tmean /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-02_T1w_mask_mean.nii.gz
-170301-21:51:59,892 workflow INFO:
-	 Executing node merge in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/merge
-170301-21:51:59,909 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:51:59,921 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/smooth
-170301-21:51:59,936 workflow INFO:
-	 Executing node _smooth0 in dir: /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/smooth/mapflow/_smooth0
-170301-21:51:59,946 workflow INFO:
-	 Running: susan /data/ds102/sub-02/anat/sub-02_T1w.nii.gz 164.2500000000 1.6986436006 3 1 1 /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-02_T1w_mask_mean.nii.gz 164.2500000000 /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/smooth/mapflow/_smooth0/sub-02_T1w_smooth.nii.gz
-170301-21:53:00,253 workflow INFO:
-	 Executing node list_extract in dir: /home/jovyan/work/notebooks/working_dir/susanflow/list_extract
-170301-21:53:00,264 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:53:00,274 workflow INFO:
-	 Executing node mask in dir: /home/jovyan/work/notebooks/working_dir/susanflow/mask
-170301-21:53:00,284 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/notebooks/working_dir/susanflow/susan_smooth/smooth/mapflow/_smooth0/sub-02_T1w_smooth.nii.gz -mas /home/jovyan/work/notebooks/working_dir/susanflow/skullstrip/sub-02_T1w_brain_mask.nii.gz /home/jovyan/work/notebooks/working_dir/susanflow/mask/sub-02_T1w_smooth_masked.nii.gz
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fcdae295ad0&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -23006,7 +22900,7 @@ Wall time: 7.15 µs
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">smooth</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">1</span>
@@ -23014,44 +22908,6 @@ Wall time: 7.15 µs
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:53:03,379 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:53:03,385 workflow INFO:
-	 Running serially.
-170301-21:53:03,387 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/notebooks/working_dir/smoothflow/smooth
-170301-21:53:03,399 workflow INFO:
-	 Running: fslmaths /data/ds102/sub-02/anat/sub-02_T1w.nii.gz -s 0.42466 /home/jovyan/work/notebooks/working_dir/smoothflow/smooth/sub-02_T1w_smooth.nii.gz
-170301-21:53:09,556 workflow INFO:
-	 Executing node skullstrip in dir: /home/jovyan/work/notebooks/working_dir/smoothflow/skullstrip
-170301-21:53:09,560 workflow INFO:
-	 Collecting precomputed outputs
-170301-21:53:09,574 workflow INFO:
-	 Executing node mask in dir: /home/jovyan/work/notebooks/working_dir/smoothflow/mask
-170301-21:53:09,590 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/notebooks/working_dir/smoothflow/smooth/sub-02_T1w_smooth.nii.gz -mas /home/jovyan/work/notebooks/working_dir/smoothflow/skullstrip/sub-02_T1w_brain_mask.nii.gz /home/jovyan/work/notebooks/working_dir/smoothflow/mask/sub-02_T1w_smooth_masked.nii.gz
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fcdb4d64c50&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

@@ -12182,7 +12182,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">mcflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;realign_with_spm&#39;</span><span class="p">)</span>
@@ -12192,74 +12192,6 @@ div#notebook {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:57:59,494 workflow INFO:
-	 [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170301-21:57:59,501 workflow INFO:
-	 Running in parallel.
-170301-21:57:59,508 workflow INFO:
-	 Executing: gunzip ID: 0
-170301-21:57:59,513 workflow INFO:
-	 Adding 2 jobs for mapnode gunzip
-170301-21:57:59,519 workflow INFO:
-	 Executing: _gunzip0 ID: 2
-170301-21:57:59,528 workflow INFO:
-	 Executing: _gunzip1 ID: 3
-170301-21:57:59,526 workflow INFO:
-	 Executing node _gunzip0 in dir: /data/realign_with_spm/gunzip/mapflow/_gunzip0
-170301-21:57:59,536 workflow INFO:
-	 Executing node _gunzip1 in dir: /data/realign_with_spm/gunzip/mapflow/_gunzip1
-170301-21:58:00,442 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:58:00,466 workflow INFO:
-	 [Job finished] jobname: _gunzip0 jobid: 2
-170301-21:58:00,657 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:58:00,664 workflow INFO:
-	 [Job finished] jobname: _gunzip1 jobid: 3
-170301-21:58:00,670 workflow INFO:
-	 Executing: gunzip ID: 0
-170301-21:58:00,677 workflow INFO:
-	 Executing node gunzip in dir: /data/realign_with_spm/gunzip
-170301-21:58:00,696 workflow INFO:
-	 Executing node _gunzip0 in dir: /data/realign_with_spm/gunzip/mapflow/_gunzip0
-170301-21:58:00,699 workflow INFO:
-	 Collecting precomputed outputs
-170301-21:58:00,707 workflow INFO:
-	 Executing node _gunzip1 in dir: /data/realign_with_spm/gunzip/mapflow/_gunzip1
-170301-21:58:00,716 workflow INFO:
-	 Collecting precomputed outputs
-170301-21:58:00,732 workflow INFO:
-	 [Job finished] jobname: gunzip jobid: 0
-170301-21:58:00,738 workflow INFO:
-	 Executing: motion_correction ID: 1
-170301-21:58:00,756 workflow INFO:
-	 Executing node motion_correction in dir: /data/realign_with_spm/motion_correction
-170301-22:00:09,582 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-22:00:09,587 workflow INFO:
-	 [Job finished] jobname: motion_correction jobid: 1
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fb5876ac650&gt;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
