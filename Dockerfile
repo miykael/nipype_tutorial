@@ -16,12 +16,18 @@ USER root
 # Update OS dependencies and setup neurodebian
 #---------------------------------------------
 USER root
-RUN ln -snf /bin/bash /bin/sh
-ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
-    apt-get install -yq --no-install-recommends bzip2 ca-certificates curl git tree unzip wget xvfb zip
+    apt-get install -yq --no-install-recommends bzip2 \
+                                                ca-certificates \
+                                                curl \
+                                                git \
+                                                tree \
+                                                unzip \
+                                                wget \
+                                                xvfb \
+                                                zip
 ENV NEURODEBIAN_URL http://neuro.debian.net/lists/jessie.de-md.full
-RUN curl -sSL $NEURODEBIAN_URL | tee /etc/apt/sources.list.d/neurodebian.sources.list && \
+RUN curl -sSL $NEURODEBIAN_URL | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list && \
     apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9 && \
     apt-get update -qq
 
@@ -44,28 +50,45 @@ ENV FSLDIR=/usr/share/fsl/5.0 \
     AFNI_PLUGINPATH=/usr/lib/afni/plugins \
     PATH=/usr/lib/fsl/5.0:/usr/lib/afni/bin:$PATH
 
-#-----------------------------------------------------
-# Update conda and pip dependencies (including Nipype)
-#-----------------------------------------------------
-RUN conda update conda --yes --quiet
-RUN conda config --add channels conda-forge
-RUN conda install --yes --quiet ipython \
-                                pip \
-                                jupyter \
-                                notebook \
-                                nb_conda \
-                                nb_conda_kernels \
-                                matplotlib \
-                                graphviz \
-                                pandas \
-                                seaborn \
-                                nipype
-RUN python -c "from matplotlib import font_manager"
+#-----------------------------------------------------------------------
+# Update and install conda dependencies for python2.7 (including nipype)
+#-----------------------------------------------------------------------
+USER $NB_USER
 
-# Clean up Python3 environment and delete not needed packages
-RUN conda remove --name python3 --all --yes --quiet && \
-    conda remove qt pyqt scikit-image scikit-learn sympy --yes --quiet && \
+# Make sure that necessary packages are installed
+RUN conda create -yq -n python2 python=2.7 ipython \
+                                           pip \
+                                           jupyter \
+                                           notebook \
+                                           nb_conda \
+                                           nb_conda_kernels \
+                                           nilearn \
+                                           matplotlib \
+                                           graphviz \
+                                           pandas \
+                                           seaborn \
+                                           nipype && \
     conda clean -tipsy
+
+# Make sure that Python2 is loaded before Python3
+ENV PATH=/opt/conda/envs/python2/bin:$PATH
+
+# Import matplotlib the first time to build the font cache.
+ENV XDG_CACHE_HOME /home/$NB_USER/.cache/
+RUN MPLBACKEND=Agg $CONDA_DIR/envs/python2/bin/python -c "import matplotlib.pyplot"
+
+# Activate ipywidgets extension in the environment that runs the notebook server
+RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
+
+# Install Python 2 kernel spec globally to avoid permission problems when NB_UID
+# switching at runtime and to allow the notebook server running out of the root
+# environment to find it. Also, activate the python2 environment upon kernel
+# launch.
+USER root
+RUN pip install kernda --no-cache && \
+    $CONDA_DIR/envs/python2/bin/python -m ipykernel install && \
+    kernda -o -y /usr/local/share/jupyter/kernels/python2/kernel.json && \
+    pip uninstall kernda -y
 
 #---------------------------------------------
 # Install graphviz and update pip dependencies
@@ -79,10 +102,9 @@ RUN pip install --upgrade --quiet pip && \
                 --ignore-installed && \
     rm -rf ~/.cache/pip
 
-#-----------------------------------------------------
-# Clear apt cache and delete unnecessary folders
-#-----------------------------------------------------
-RUN apt-get clean remove -y && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /boot /media /mnt /opt /srv
-
-ENV SHELL /bin/bash
+#----------------------------------------
+# Clear apt cache and other empty folders
+#----------------------------------------
+USER root
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /boot /media /mnt /srv
