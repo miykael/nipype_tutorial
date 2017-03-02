@@ -29,7 +29,7 @@ find . -type f -name "*.html" -exec sed -i 's/ipynb\"/html\"/g' {} +
 # Add Google Analytics script to each homepage
 for h in `find -maxdepth 2 -name "*html"`
 do
-    sed '/<\/head>/ {r template_google_analytics.rst.rst
+    sed '/<\/head>/ {r template_google_analytics.rst
     d}' $h > tmp.rst
 
     mv tmp.rst $h
