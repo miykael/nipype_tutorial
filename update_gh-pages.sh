@@ -34,6 +34,7 @@ do
 
     mv tmp.rst $h
 done
+rm template_google_analytics.rst
 
 # Submit changes with current timestamp
 TIMESTAMP=`date +'%Y-%m-%d %H:%M:%S'`
@@ -41,9 +42,8 @@ git add *
 git commit -a -m "Update gh-pages - ${TIMESTAMP}"
 git push origin gh-pages
 
-# Remove temporary folder and google analytics template
+# Remove temporary folder
 rm -rf "$TMP_DIR"
-rm template_google_analytics.rst
 
 # Go back to the master branch
 git checkout master
