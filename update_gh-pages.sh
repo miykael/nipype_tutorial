@@ -12,7 +12,6 @@ jupyter nbconvert --to html --template full notebooks/*ipynb \
 cp -r static $TMP_DIR/.
 cp -r notebooks/reveal.js $TMP_DIR/notebooks/.
 cp -r notebooks/*.html $TMP_DIR/notebooks/.
-cp -r template_google_analytics.rst $TMP_DIR/.
 
 # Switch to gh-pages branch
 git checkout gh-pages
@@ -29,12 +28,12 @@ find . -type f -name "*.html" -exec sed -i 's/ipynb\"/html\"/g' {} +
 # Add Google Analytics script to each homepage
 for h in `find -maxdepth 2 -name "*html"`
 do
-    sed '/<\/head>/ {r template_google_analytics.rst
+    sed '/<\/head>/ {r static/template_google_analytics.rst
     d}' $h > tmp.rst
 
     mv tmp.rst $h
 done
-rm template_google_analytics.rst
+rm static/template_google_analytics.rst
 
 # Submit changes with current timestamp
 TIMESTAMP=`date +'%Y-%m-%d %H:%M:%S'`
