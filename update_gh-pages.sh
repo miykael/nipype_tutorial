@@ -25,6 +25,9 @@ find . -type f -name "*.html" -exec sed -i 's/ipynb\&/html\&/g' {} +
 find . -type f -name "*.html" -exec sed -i 's/ipynb#/html#/g' {} +
 find . -type f -name "*.html" -exec sed -i 's/ipynb\"/html\"/g' {} +
 
+# Delete the Button "Show HTML code" from index.html
+sed -i '/Show HTML code/d' index.html
+
 # Add Google Analytics script to each homepage
 for h in `find -maxdepth 2 -name "*html"`
 do
