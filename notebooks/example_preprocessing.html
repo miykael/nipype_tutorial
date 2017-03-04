@@ -11950,8 +11950,8 @@ div#notebook {
 
 <span class="c1"># Resample - resample anatomy to 3x3x3 voxel resolution</span>
 <span class="n">resample</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Resample</span><span class="p">(</span><span class="n">voxel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-                       <span class="n">outputtype</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">),</span>
-               <span class="n">name</span><span class="o">=</span><span class="s2">&quot;resample&quot;</span><span class="p">)</span>
+                         <span class="n">outputtype</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">),</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;resample&quot;</span><span class="p">)</span>
 
 <span class="c1"># FLIRT - coregister functional images to anatomical images</span>
 <span class="n">coreg_step1</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">FLIRT</span><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;coreg_step1&quot;</span><span class="p">)</span>
@@ -11991,7 +11991,8 @@ div#notebook {
 
 <span class="c1"># SelectFiles - to grab the data (alternativ to DataGrabber)</span>
 <span class="n">anat_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;{subject_id}&#39;</span><span class="p">,</span> <span class="s1">&#39;anat&#39;</span><span class="p">,</span> <span class="s1">&#39;{subject_id}_T1w.nii.gz&#39;</span><span class="p">)</span>
-<span class="n">func_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;{subject_id}&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">,</span> <span class="s1">&#39;{subject_id}_task-flanker_{session_id}_bold.nii.gz&#39;</span><span class="p">)</span>
+<span class="n">func_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;{subject_id}&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;{subject_id}_task-flanker_{session_id}_bold.nii.gz&#39;</span><span class="p">)</span>
 
 <span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="n">anat_file</span><span class="p">,</span>
              <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="n">func_file</span><span class="p">}</span>
@@ -12015,11 +12016,11 @@ div#notebook {
                <span class="k">for</span> <span class="n">sess</span> <span class="ow">in</span> <span class="n">session_list</span>
                <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">]</span>
 <span class="n">subjFolders</span> <span class="o">+=</span> <span class="p">[(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">sess</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-                 <span class="k">for</span> <span class="n">sess</span> <span class="ow">in</span> <span class="n">session_list</span>
-                 <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">sess</span> <span class="ow">in</span> <span class="n">session_list</span>
+                <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">]</span>
 <span class="n">subjFolders</span> <span class="o">+=</span> <span class="p">[(</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">_&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">sub</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-                 <span class="k">for</span> <span class="n">sess</span> <span class="ow">in</span> <span class="n">session_list</span>
-                 <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">sess</span> <span class="ow">in</span> <span class="n">session_list</span>
+                <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">]</span>
 <span class="n">substitutions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">subjFolders</span><span class="p">)</span>
 <span class="n">datasink</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">substitutions</span> <span class="o">=</span> <span class="n">substitutions</span>
 </pre></div>
@@ -12056,13 +12057,14 @@ div#notebook {
 
                  <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">coreg_step1</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
                  <span class="p">(</span><span class="n">resample</span><span class="p">,</span> <span class="n">coreg_step1</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;reference&#39;</span><span class="p">)]),</span>
-                 
+
                  <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">coreg_step2</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
                  <span class="p">(</span><span class="n">resample</span><span class="p">,</span> <span class="n">coreg_step2</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;reference&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">coreg_step1</span><span class="p">,</span> <span class="n">coreg_step2</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_matrix_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_matrix_file&#39;</span><span class="p">)]),</span>
-                 
+                 <span class="p">(</span><span class="n">coreg_step1</span><span class="p">,</span> <span class="n">coreg_step2</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_matrix_file&#39;</span><span class="p">,</span>
+                                              <span class="s1">&#39;in_matrix_file&#39;</span><span class="p">)]),</span>
+
                  <span class="p">(</span><span class="n">coreg_step2</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_files&#39;</span><span class="p">)]),</span>
-                 
+
                  <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@par&#39;</span><span class="p">)]),</span>
                  <span class="p">(</span><span class="n">resample</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@resample&#39;</span><span class="p">)]),</span>
                  <span class="p">(</span><span class="n">coreg_step1</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@coregmean&#39;</span><span class="p">)]),</span>
@@ -15720,15 +15722,19 @@ QtEXD60AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span><span class="p">,</span> <span class="n">plotting</span>
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span><span class="s1">&#39;/output/datasink/preproc/sub-01/run-1_bold_mean_flirt.nii&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 0mm&quot;</span><span class="p">,</span>
-                  <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span> <span class="n">annotate</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">preproc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_procs&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span><span class="p">,</span> <span class="n">plotting</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span>
+    <span class="s1">&#39;/output/datasink/preproc/sub-01/run-1_bold_mean_flirt.nii&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 0mm&quot;</span><span class="p">,</span>
+    <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span> <span class="n">annotate</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 
 <span class="n">mean_img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">mean_img</span><span class="p">(</span><span class="s1">&#39;/output/datasink/preproc/sub-01/run-1_fwhm_4/s_bold_mcf_flirt.nii&#39;</span><span class="p">)</span>
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span><span class="n">mean_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 4mm&quot;</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span> <span class="n">annotate</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span><span class="n">mean_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 4mm&quot;</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span>
+                  <span class="n">annotate</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 
 <span class="n">mean_img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">mean_img</span><span class="p">(</span><span class="s1">&#39;/output/datasink/preproc/sub-01/run-1_fwhm_8/s_bold_mcf_flirt.nii&#39;</span><span class="p">)</span>
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span><span class="n">mean_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 8mm&quot;</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span> <span class="n">annotate</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span><span class="n">mean_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 8mm&quot;</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span>
+                  <span class="n">annotate</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>

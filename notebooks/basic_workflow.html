@@ -11896,7 +11896,8 @@ fslmaths <span class="si">${</span><span class="nv">ANAT</span><span class="si">
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;T1w&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_brain_mask&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth_mask&quot;</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;T1w&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;T1w_brain_mask&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth_mask&quot;</span><span class="p">]):</span>
     <span class="n">f</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">plot_slice</span><span class="p">(</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_</span><span class="si">%s</span><span class="s2">.nii.gz&quot;</span> <span class="o">%</span> <span class="n">img</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
@@ -13377,7 +13378,8 @@ AqXGzQAAAABJRU5ErkJggg==
 <span class="n">mask</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;T1w&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_brain_mask&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth_mask&quot;</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;T1w&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;T1w_brain_mask&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth_mask&quot;</span><span class="p">]):</span>
     <span class="n">f</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">plot_slice</span><span class="p">(</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_</span><span class="si">%s</span><span class="s2">.nii.gz&quot;</span> <span class="o">%</span> <span class="n">img</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
@@ -14805,11 +14807,13 @@ gg==
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces</span> <span class="kn">import</span> <span class="n">fsl</span>
 
 <span class="c1"># Skullstrip process</span>
-<span class="n">skullstrip</span> <span class="o">=</span> <span class="n">fsl</span><span class="o">.</span><span class="n">BET</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&quot;</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">skullstrip</span> <span class="o">=</span> <span class="n">fsl</span><span class="o">.</span><span class="n">BET</span><span class="p">(</span>
+    <span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&quot;</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">bet_result</span> <span class="o">=</span> <span class="n">skullstrip</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c1"># skullstrip object</span>
 
 <span class="c1"># Smooth process</span>
-<span class="n">smooth</span> <span class="o">=</span> <span class="n">fsl</span><span class="o">.</span><span class="n">IsotropicSmooth</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&quot;</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">smooth</span> <span class="o">=</span> <span class="n">fsl</span><span class="o">.</span><span class="n">IsotropicSmooth</span><span class="p">(</span>
+    <span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&quot;</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">smooth_result</span> <span class="o">=</span> <span class="n">smooth</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c1"># smooth object</span>
 
 <span class="c1"># Mask process</span>
@@ -14818,7 +14822,8 @@ gg==
 <span class="n">mask</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;T1w&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_brain_mask&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth_mask&quot;</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;T1w&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;T1w_brain_mask&quot;</span><span class="p">,</span> <span class="s2">&quot;T1w_smooth_mask&quot;</span><span class="p">]):</span>
     <span class="n">f</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">plot_slice</span><span class="p">(</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_</span><span class="si">%s</span><span class="s2">.nii.gz&quot;</span> <span class="o">%</span> <span class="n">img</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
@@ -19627,8 +19632,10 @@ terminal_output = stream</pre>
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Function</span>
 <span class="n">extract_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">list_out</span><span class="p">:</span> <span class="n">list_out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">list_extract</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;list_out&quot;</span><span class="p">],</span> <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;out_file&quot;</span><span class="p">],</span>
-                             <span class="n">function</span><span class="o">=</span><span class="n">extract_func</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;list_extract&quot;</span><span class="p">)</span>
+<span class="n">list_extract</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;list_out&quot;</span><span class="p">],</span>
+                             <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;out_file&quot;</span><span class="p">],</span>
+                             <span class="n">function</span><span class="o">=</span><span class="n">extract_func</span><span class="p">),</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;list_extract&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -19661,12 +19668,14 @@ terminal_output = stream</pre>
 <span class="c1"># Connect the nodes to each other and to the susan workflow</span>
 <span class="n">wf2</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">skullstrip2</span><span class="p">,</span> <span class="n">mask2</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;mask_file&quot;</span><span class="p">,</span> <span class="s2">&quot;mask_file&quot;</span><span class="p">)]),</span>
              <span class="p">(</span><span class="n">skullstrip2</span><span class="p">,</span> <span class="n">susan</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;mask_file&quot;</span><span class="p">,</span> <span class="s2">&quot;inputnode.mask_file&quot;</span><span class="p">)]),</span>
-             <span class="p">(</span><span class="n">susan</span><span class="p">,</span> <span class="n">list_extract</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;outputnode.smoothed_files&quot;</span><span class="p">,</span> <span class="s2">&quot;list_out&quot;</span><span class="p">)]),</span>
+             <span class="p">(</span><span class="n">susan</span><span class="p">,</span> <span class="n">list_extract</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;outputnode.smoothed_files&quot;</span><span class="p">,</span>
+                                     <span class="s2">&quot;list_out&quot;</span><span class="p">)]),</span>
              <span class="p">(</span><span class="n">list_extract</span><span class="p">,</span> <span class="n">mask2</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;out_file&quot;</span><span class="p">,</span> <span class="s2">&quot;in_file&quot;</span><span class="p">)])</span>
-    <span class="p">])</span>
+             <span class="p">])</span>
 
 <span class="c1"># Specify the remaining input variables for the susan workflow</span>
-<span class="n">susan</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">inputnode</span><span class="o">.</span><span class="n">in_files</span> <span class="o">=</span> <span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&quot;</span><span class="p">)</span>
+<span class="n">susan</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">inputnode</span><span class="o">.</span><span class="n">in_files</span> <span class="o">=</span> <span class="n">abspath</span><span class="p">(</span>
+    <span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&quot;</span><span class="p">)</span>
 <span class="n">susan</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">inputnode</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">4</span>
 </pre></div>
 
@@ -21696,7 +21705,8 @@ Soc0/B9LkQ+1VkyMhgAAAABJRU5ErkJggg==
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([[</span><span class="s2">&quot;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&quot;</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">],</span>
-                       <span class="p">[</span><span class="s2">&quot;working_dir/susanflow/mask/sub-02_T1w_smooth_masked.nii.gz&quot;</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">]]):</span>
+                       <span class="p">[</span><span class="s2">&quot;working_dir/susanflow/mask/sub-02_T1w_smooth_masked.nii.gz&quot;</span><span class="p">,</span> 
+                        <span class="s1">&#39;output&#39;</span><span class="p">]]):</span>
     <span class="n">f</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">plot_slice</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>

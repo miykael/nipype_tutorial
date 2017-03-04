@@ -11865,8 +11865,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../static/images/logoNipype.png"  width="250"></p>
-<h1 id="What-is-Nipype?">What is Nipype?<a class="anchor-link" href="#What-is-Nipype?">&#182;</a></h1>
+<p><img src="../static/images/logoNipype_text.png"  width="700"></p>
+
 </div>
 </div>
 </div><div class="fragment">
@@ -11875,7 +11875,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
+<h1 id="What-is-Nipype?">What is Nipype?<a class="anchor-link" href="#What-is-Nipype?">&#182;</a></h1><ul>
 <li><strong><a href="http://nipype.readthedocs.io/en/latest/">Nipype</a></strong> is an open-source, community-developed software package written in <strong>Python</strong>.</li>
 <li>Provides unified way of <strong>interfacing</strong> with heterogeneous neuroimaging software like <a href="http://www.fil.ion.ucl.ac.uk/spm/">SPM</a>, <a href="http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/">FSL</a>, <a href="http://surfer.nmr.mgh.harvard.edu/">FreeSurfer</a>, <a href="https://afni.nimh.nih.gov/afni">AFNI</a>, <a href="http://stnava.github.io/ANTs/">ANTS</a>, <a href="http://web4.cs.ucl.ac.uk/research/medic/camino/pmwiki/pmwiki.php">Camino</a>, <a href="http://www.brain.org.au/software/mrtrix/index.html">MRtrix</a>, <a href="https://martinos.org/mne/stable/index.html">MNE</a>, <a href="https://www.slicer.org/">Slicer</a> and many more.</li>
 <li>Allows users to create <strong>flexible, complex workflows</strong> consisting of multiple processing steps using any software package above</li>
@@ -11891,7 +11891,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="I-don't-need-that,-I'm-happy-with-SPM12!">I don't need that, I'm happy with SPM12!<a class="anchor-link" href="#I-don't-need-that,-I'm-happy-with-SPM12!">&#182;</a></h1><p>I mean, there's no problem with SPM's batch system...</p>
-<p><img src="../static/images/example_SPM12.png"  width="400"></p>
+<p><img src="../static/images/example_SPM12.png"  width="500"></p>
 <p>ok, ok... it get's tiring to have a separate batch script for each subject and MATLAB license issues are sometimes a pain. But hey, the nice looking GUI makes it so easy to use!</p>
 
 </div>
@@ -11967,7 +11967,7 @@ a.anchor-link {
 <span class="n">smoother</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="s2">&quot;{hemi}.func.mgz&quot;</span>
 <span class="n">smoother</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;hemi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;lh&#39;</span><span class="p">,</span> <span class="s1">&#39;rh&#39;</span><span class="p">]),</span>
                       <span class="p">(</span><span class="s2">&quot;fwhm&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]),</span>
-                      <span class="p">(</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sub01&#39;</span><span class="p">,</span> <span class="s1">&#39;sub02&#39;</span><span class="p">,</span> <span class="s1">&#39;sub03&#39;</span><span class="p">,</span> 
+                      <span class="p">(</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sub01&#39;</span><span class="p">,</span> <span class="s1">&#39;sub02&#39;</span><span class="p">,</span> <span class="s1">&#39;sub03&#39;</span><span class="p">,</span>
                                       <span class="s1">&#39;sub04&#39;</span><span class="p">,</span> <span class="s1">&#39;sub05&#39;</span><span class="p">,</span> <span class="s1">&#39;sub06&#39;</span><span class="p">]),</span>
                       <span class="p">]</span>
 <span class="n">smoother</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;parallel&#39;</span><span class="p">)</span>
@@ -11983,7 +11983,7 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="But-I-like-my-neuorimaging-toolbox">But I like my neuorimaging toolbox<a class="anchor-link" href="#But-I-like-my-neuorimaging-toolbox">&#182;</a></h1><ul>
 <li>You can keep it! But instead of being stuck in MATLAB with SPM, or having scripting issues with FreeSurfer, ANTs or FSL,..</li>
-<li><strong>Nipype</strong> gives you the possibility to cherry-pick the algorithms that you prefer from many different sofware packages.</li>
+<li><strong>Nipype</strong> gives you the possibility to select the algorithms that you prefer from many different sofware packages.</li>
 <li>In short, you can have all the advantages without the disadvantage of being stuck with a programming language or software package</li>
 </ul>
 
@@ -12014,15 +12014,6 @@ a.anchor-link {
 <span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span>        <span class="kn">import</span> <span class="n">SUSAN</span>
 <span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span>        <span class="kn">import</span> <span class="n">Realing</span>
 
-<span class="c1"># Where can the raw data be found?</span>
-<span class="n">grabber</span> <span class="o">=</span> <span class="n">nipype</span><span class="o">.</span><span class="n">DataGrabber</span><span class="p">()</span>
-<span class="n">grabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;~/experiment_folder/data&#39;</span>
-<span class="n">grabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject1&#39;</span><span class="p">,</span><span class="s1">&#39;subject2&#39;</span><span class="p">,</span><span class="s1">&#39;subject3&#39;</span><span class="p">]</span>
-
-<span class="c1"># Where should the output data be stored at?</span>
-<span class="n">sink</span> <span class="o">=</span> <span class="n">nipype</span><span class="o">.</span><span class="n">DataSink</span><span class="p">()</span>
-<span class="n">sink</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;~/experiment_folder/output_folder&#39;</span>
-
 <span class="c1"># Motion Correction (SPM)</span>
 <span class="n">realign</span> <span class="o">=</span> <span class="n">Realing</span><span class="p">(</span><span class="n">register_to_mean</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
@@ -12034,6 +12025,24 @@ a.anchor-link {
 
 <span class="c1"># Smoothing (FSL)</span>
 <span class="n">smooth</span> <span class="o">=</span> <span class="n">SUSAN</span><span class="p">(</span><span class="n">fwhm</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1"># Where can the raw data be found?</span>
+<span class="n">grabber</span> <span class="o">=</span> <span class="n">nipype</span><span class="o">.</span><span class="n">DataGrabber</span><span class="p">()</span>
+<span class="n">grabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;~/experiment_folder/data&#39;</span>
+<span class="n">grabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;subject1&#39;</span><span class="p">,</span> <span class="s1">&#39;subject2&#39;</span><span class="p">,</span> <span class="s1">&#39;subject3&#39;</span><span class="p">]</span>
+
+<span class="c1"># Where should the output data be stored at?</span>
+<span class="n">sink</span> <span class="o">=</span> <span class="n">nipype</span><span class="o">.</span><span class="n">DataSink</span><span class="p">()</span>
+<span class="n">sink</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;~/experiment_folder/output_folder&#39;</span>
 </pre></div>
 
 </div>
@@ -12072,26 +12081,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><p><strong>Interface</strong>: Wraps a program or function</p>
-</li>
-<li><p><strong>Node/MapNode</strong>: Wraps an <code>Interface</code> for use in a Workflow that provides caching and other goodies (e.g., pseudo-sandbox)</p>
-</li>
-<li><p><strong>Workflow</strong>: A <em>graph</em> or <em>forest of graphs</em> whose nodes are of type <code>Node</code>, <code>MapNode</code> or <code>Workflow</code> and whose edges represent data flow</p>
-</li>
-<li><p><strong>Plugin</strong>: A component that describes how a <code>Workflow</code> should be executed</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></div></section></section>
+</div></section></section>
 </div>
 </div>
 

@@ -12101,8 +12101,8 @@ func = /data/ds102/{subject_id}/func/{subject_id}_task-flanker_run-{task_id}_bol
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
 
 <span class="c1"># String template with {}-based strings</span>
-<span class="n">templates</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/anat/{subject_id}_T1w.nii.gz&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/func/{subject_id}_task-flanker_run-{task_id}_bold.nii.gz&#39;</span><span class="p">}</span>
+<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/anat/{subject_id}_T1w.nii.gz&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/func/{subject_id}_task-flanker_run-{task_id}_bold.nii.gz&#39;</span><span class="p">}</span>
 
 <span class="c1"># Create SelectFiles node</span>
 <span class="n">sf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">),</span>
@@ -12192,8 +12192,8 @@ func = /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span> <span class="k">as</span> <span class="n">opap</span>
 
 <span class="c1"># String template with {}-based strings</span>
-<span class="n">templates</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/anat/{subject_id}_T1w.nii.gz&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/func/{subject_id}_task-flanker_run-[1,2]_bold.nii.gz&#39;</span><span class="p">}</span>
+<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/anat/{subject_id}_T1w.nii.gz&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/func/{subject_id}_task-flanker_run-[1,2]_bold.nii.gz&#39;</span><span class="p">}</span>
 
 <span class="c1"># Create SelectFiles node</span>
 <span class="n">sf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">),</span>

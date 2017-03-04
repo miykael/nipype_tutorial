@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11672,7 +11672,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11728,14 +11728,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11788,23 +11788,33 @@ div#notebook {
 &lt;style&gt;.container { width:75% !important; }&lt;/style&gt;
 &lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css_backup/mobile-package-094623.css&#39;&gt;
 &lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css_backup/homepage-package-3bd234.css&#39;&gt;
-
+        
 &lt;body&gt;
   &lt;article id=&quot;homepage&quot;&gt;
     &lt;a id=&quot;library-section&quot;&gt;&lt;/a&gt;
     &lt;div class=&quot;library-section&quot;&gt;
       &lt;div class=&quot;section-separator library-section-separator&quot;&gt;
-        &lt;h2&gt;&lt;span class=&quot;section-separator-text&quot;&gt;Nipype Tutorial&lt;/span&gt;&lt;/h2&gt;&lt;hr/&gt;
+        &lt;center&gt;&lt;img src=&quot;static/images/logoNipype_tutorial.png&quot; width=700&gt;&lt;/center&gt;
         &lt;p&gt;Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
-            you everything so that you can start creating your own workflows in no time. For everything that isn&#39;t covered
-            here, check out the main homepage (&lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;nipype.readthedocs.io&lt;/a&gt;),
-            the interactive tutorial (&lt;a href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;github.com/miykael/nipype_tutorial&lt;/a&gt;)
-            or the detailed beginner&#39;s guide (&lt;a href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;miykael.github.io/nipype-beginner-s-guide/&lt;/a&gt;).
+            you everything so that you can start creating your own workflows in no time. We recommend that you start with
+            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
+            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
+            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
             &lt;/p&gt;&lt;p&gt;
-            This tutorial uses Docker (&lt;a href=&quot;www.docker.com/&quot;&gt;www.docker.com&lt;/a&gt;) to provide a fully functional
-            Nipype environment with working FSL, AFNI, SPM12 and ANTs. Docker has the advantage that we can provide
-            the exact same environment for user with Windows, OSX or Linux. For more information about the Dockerfile
-            and data used in this course, see &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;github.com/miykael/nipype_course&lt;/a&gt;.&lt;/p&gt;
+            All of the notebooks used in this tutorial can be found on &lt;a href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;github.com/miykael/nipype_tutorial&lt;/a&gt;.
+            But if you want to have the real experience and want to go through the computations by yourself, we highly
+            recommend you to do the &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Nipype Course&lt;/a&gt;. This course
+            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
+            Nipype yourself. For the tutorial, you need to install a &lt;a href=&quot;www.docker.com/&quot;&gt;Docker&lt;/a&gt; image on your system that provides you a 
+            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
+            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
+            neuroimaging environment is based on the docker images under &lt;a href=&quot;https://github.com/miykael/nipype_env&quot;&gt;github.com/miykael/nipype_env&lt;/a&gt;,
+            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
+            &lt;/p&gt;&lt;p&gt;
+            For everything that isn&#39;t covered in this tutorial, check out the &lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;main homepage&lt;/a&gt;.
+            And if you haven&#39;t had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
+            the &lt;a href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;detailed beginner&#39;s guide&lt;/a&gt;.
+            &lt;/p&gt;
       &lt;/div&gt;
 
       &lt;!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
@@ -11835,7 +11845,7 @@ div#notebook {
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_function_nodes.html&quot;&gt;Function Nodes&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_mapnodes.html&quot;&gt;MapNodes&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_error_and_crashes.html&quot;&gt;Errors &amp; Crashes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_plugins.html&quot;&gt;Plugins / Distributed Computing&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_plugins.html&quot;&gt;Execution Plugins&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_configuration.html&quot;&gt;Execution Configuration&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_import_workflows.html&quot;&gt;Import existing Workflows&lt;/a&gt;
       &lt;/div&gt;
@@ -11873,7 +11883,7 @@ div#notebook {
 &lt;!--The following code will cause the code cell to disappear--&gt;
 
 &lt;script&gt;
-code_show=true;
+code_show=true; 
 function code_toggle() {
  if (code_show){
  $(&#39;div.input&#39;).hide();
@@ -11881,7 +11891,7 @@ function code_toggle() {
  $(&#39;div.input&#39;).show();
  }
  code_show = !code_show
-}
+} 
 $( document ).ready(code_toggle);
 &lt;/script&gt;
 
@@ -11909,23 +11919,33 @@ $( document ).ready(code_toggle);
 <style>.container { width:75% !important; }</style>
 <link rel='stylesheet' type='text/css' href='static/css_backup/mobile-package-094623.css'>
 <link rel='stylesheet' type='text/css' href='static/css_backup/homepage-package-3bd234.css'>
-
+        
 <body>
   <article id="homepage">
     <a id="library-section"></a>
     <div class="library-section">
       <div class="section-separator library-section-separator">
-        <h2><span class="section-separator-text">Nipype Tutorial</span></h2><hr/>
+        <center><img src="static/images/logoNipype_tutorial.png" width=700></center>
         <p>Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
-            you everything so that you can start creating your own workflows in no time. For everything that isn't covered
-            here, check out the main homepage (<a href="http://nipype.readthedocs.io/en/latest/">nipype.readthedocs.io</a>),
-            the interactive tutorial (<a href="https://github.com/miykael/nipype_tutorial">github.com/miykael/nipype_tutorial</a>)
-            or the detailed beginner's guide (<a href="https://miykael.github.io/nipype-beginner-s-guide/">miykael.github.io/nipype-beginner-s-guide/</a>).
+            you everything so that you can start creating your own workflows in no time. We recommend that you start with
+            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
+            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
+            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
             </p><p>
-            This tutorial uses Docker (<a href="www.docker.com/">www.docker.com</a>) to provide a fully functional
-            Nipype environment with working FSL, AFNI, SPM12 and ANTs. Docker has the advantage that we can provide
-            the exact same environment for user with Windows, OSX or Linux. For more information about the Dockerfile
-            and data used in this course, see <a href="https://github.com/miykael/nipype_course">github.com/miykael/nipype_course</a>.</p>
+            All of the notebooks used in this tutorial can be found on <a href="https://github.com/miykael/nipype_tutorial">github.com/miykael/nipype_tutorial</a>.
+            But if you want to have the real experience and want to go through the computations by yourself, we highly
+            recommend you to do the <a href="https://github.com/miykael/nipype_course">Nipype Course</a>. This course
+            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
+            Nipype yourself. For the tutorial, you need to install a <a href="www.docker.com/">Docker</a> image on your system that provides you a 
+            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
+            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
+            neuroimaging environment is based on the docker images under <a href="https://github.com/miykael/nipype_env">github.com/miykael/nipype_env</a>,
+            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
+            </p><p>
+            For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>.
+            And if you haven't had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
+            the <a href="https://miykael.github.io/nipype-beginner-s-guide/">detailed beginner's guide</a>.
+            </p>
       </div>
 
       <!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
@@ -11956,7 +11976,7 @@ $( document ).ready(code_toggle);
         <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_function_nodes.html">Function Nodes</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_mapnodes.html">MapNodes</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_error_and_crashes.html">Errors & Crashes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_plugins.html">Plugins / Distributed Computing</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_plugins.html">Execution Plugins</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_configuration.html">Execution Configuration</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_import_workflows.html">Import existing Workflows</a>
       </div>
@@ -11994,7 +12014,7 @@ $( document ).ready(code_toggle);
 <!--The following code will cause the code cell to disappear-->
 
 <script>
-code_show=true;
+code_show=true; 
 function code_toggle() {
  if (code_show){
  $('div.input').hide();
@@ -12002,7 +12022,7 @@ function code_toggle() {
  $('div.input').show();
  }
  code_show = !code_show
-}
+} 
 $( document ).ready(code_toggle);
 </script>
 
@@ -12020,24 +12040,11 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
     </div>
   </div>
 </body>
 
-
+ 
 
 
 </html>
