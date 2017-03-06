@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_function_nodes</title>
+<title>y_exercise_example</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11761,89 +11761,62 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Function-Node">Function Node<a class="anchor-link" href="#Function-Node">&#182;</a></h1><p>Satra once called the <code>Function</code> module, the "do anything you want card". Which is a perfect description. Because it allows you to put any code you want into an empty node, which you than can put in your workflow exactly where it needs to be.</p>
-<p>You might have already seen the <code>Function</code> module in the <a href="basic_nodes.html#Example-of-a-simple-node">example section in the Node tutorial</a>. Let's take a closer look at it again.</p>
-
+<h1 id="Two-ideas-on-how-to-hide-solutions">Two ideas on how to hide solutions<a class="anchor-link" href="#Two-ideas-on-how-to-hide-solutions">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Idea-1:-Hide-answer-in-base64">Idea 1: Hide answer in base64<a class="anchor-link" href="#Idea-1:-Hide-answer-in-base64">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import Node and Function module</span>
-<span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
-
-<span class="c1"># Create a small example function</span>
-<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">x_input</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x_input</span> <span class="o">+</span> <span class="mi">2</span>
-
-<span class="c1"># Create Node</span>
-<span class="n">addtwo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x_input&quot;</span><span class="p">],</span>
-                       <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;val_output&quot;</span><span class="p">],</span>
-                       <span class="n">function</span><span class="o">=</span><span class="n">add_two</span><span class="p">),</span>
-              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;add_node&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">base64</span>
+<span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;%pylab inline</span>
+<span class="s2">from os.path import join as opj</span>
+<span class="s2">from nipype.interfaces.fsl import MCFLIRT, FLIRT</span>
+<span class="s2">from nipype.interfaces.afni import Resample</span>
+<span class="s2">from nipype.interfaces.spm import Smooth</span>
+<span class="s2">from nipype.interfaces.utility import IdentityInterface</span>
+<span class="s2">from nipype.interfaces.io import SelectFiles, DataSink</span>
+<span class="s2">from nipype.pipeline.engine import Workflow, Node&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Trap-1">Trap 1<a class="anchor-link" href="#Trap-1">&#182;</a></h1><p>There are only two traps that you should be aware when you're using the <code>Function</code> module. The first one is about naming the input variables. The variable name for the node input has to be the exactly the same name as the function input parameter, in this case this is <code>x_input</code>.</p>
-<p>Otherwise you get the following error:</p>
+<div class="output_wrapper">
+<div class="output">
 
-<pre><code>TypeError: add_two() got an unexpected keyword argument 'x_input'
-Interface Function failed to run.</code></pre>
+
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;JXB5bGFiIGlubGluZQpmcm9tIG9zLnBhdGggaW1wb3J0IGpvaW4gYXMgb3BqCmZyb20gbmlweXBlLmludGVyZmFjZXMuZnNsIGltcG9ydCBNQ0ZMSVJULCBGTElSVApmcm9tIG5pcHlwZS5pbnRlcmZhY2VzLmFmbmkgaW1wb3J0IFJlc2FtcGxlCmZyb20gbmlweXBlLmludGVyZmFjZXMuc3BtIGltcG9ydCBTbW9vdGgKZnJvbSBuaXB5cGUuaW50ZXJmYWNlcy51dGlsaXR5IGltcG9ydCBJZGVudGl0eUludGVyZmFjZQpmcm9tIG5pcHlwZS5pbnRlcmZhY2VzLmlvIGltcG9ydCBTZWxlY3RGaWxlcywgRGF0YVNpbmsKZnJvbSBuaXB5cGUucGlwZWxpbmUuZW5naW5lIGltcG9ydCBXb3JrZmxvdywgTm9kZQ==&#39;</pre>
+</div>
 
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Trap-2">Trap 2<a class="anchor-link" href="#Trap-2">&#182;</a></h1><p>If you want to use another module inside a function, you have to import it again inside the function. Let's take a look at the following example:</p>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
-
-<span class="c1"># Create the Function object</span>
-<span class="k">def</span> <span class="nf">get_random_array</span><span class="p">(</span><span class="n">array_shape</span><span class="p">):</span>
-
-    <span class="c1"># Import random function</span>
-    <span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span>
-   
-    <span class="k">return</span> <span class="n">random</span><span class="p">(</span><span class="n">array_shape</span><span class="p">)</span>
-
-<span class="c1"># Create Function Node that executes get_random_array</span>
-<span class="n">rndArray</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;array_shape&quot;</span><span class="p">],</span>
-                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;random_array&quot;</span><span class="p">],</span>
-                         <span class="n">function</span><span class="o">=</span><span class="n">get_random_array</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;rndArray_node&#39;</span><span class="p">)</span>
-
-<span class="c1"># Specify the array_shape of the random array</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">array_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Run node</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
-<span class="c1"># Print output</span>
-<span class="k">print</span> <span class="n">rndArray</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s1">&#39;JXB5bGFiIGlubGluZQpmcm9tIG9zLnBhdGggaW1wb3J0IGpvaW4gYXMgb3BqCmZyb20gbmlweXBlLmludGVyZmFjZXMuZnNsIGltcG9ydCBNQ0ZMSVJULCBGTElSVApmcm9tIG5pcHlwZS5pbnRlcmZhY2VzLmFmbmkgaW1wb3J0IFJlc2FtcGxlCmZyb20gbmlweXBlLmludGVyZmFjZXMuc3BtIGltcG9ydCBTbW9vdGgKZnJvbSBuaXB5cGUuaW50ZXJmYWNlcy51dGlsaXR5IGltcG9ydCBJZGVudGl0eUludGVyZmFjZQpmcm9tIG5pcHlwZS5pbnRlcmZhY2VzLmlvIGltcG9ydCBTZWxlY3RGaWxlcywgRGF0YVNpbmsKZnJvbSBuaXB5cGUucGlwZWxpbmUuZW5naW5lIGltcG9ydCBXb3JrZmxvdywgTm9kZQ==&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11856,15 +11829,14 @@ Interface Function failed to run.</code></pre>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:55:47,598 workflow INFO:
-	 Executing node rndArray_node in dir: /tmp/tmpv4BGTx/rndArray_node
-170301-21:55:47,633 workflow INFO:
-	 Runtime memory and threads stats unavailable
-
-random_array = [[ 0.55392783  0.56238157  0.26244335]
- [ 0.25663815  0.20904142  0.5810782 ]
- [ 0.18068192  0.65697574  0.1218128 ]]
-
+<pre>%pylab inline
+from os.path import join as opj
+from nipype.interfaces.fsl import MCFLIRT, FLIRT
+from nipype.interfaces.afni import Resample
+from nipype.interfaces.spm import Smooth
+from nipype.interfaces.utility import IdentityInterface
+from nipype.interfaces.io import SelectFiles, DataSink
+from nipype.pipeline.engine import Workflow, Node
 </pre>
 </div>
 </div>
@@ -11878,41 +11850,24 @@ random_array = [[ 0.55392783  0.56238157  0.26244335]
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let's see what happens if we move the import of <code>random</code> outside the scope of <code>get_random_array</code>:</p>
-
+<h2 id="Idea-2:-Hide-answer-in-file">Idea 2: Hide answer in file<a class="anchor-link" href="#Idea-2:-Hide-answer-in-file">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
-
-<span class="c1"># Import random function</span>
-<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span>
-
-
-<span class="c1"># Create the Function object</span>
-<span class="k">def</span> <span class="nf">get_random_array</span><span class="p">(</span><span class="n">array_shape</span><span class="p">):</span>
-  
-    <span class="k">return</span> <span class="n">random</span><span class="p">(</span><span class="n">array_shape</span><span class="p">)</span>
-
-<span class="c1"># Create Function Node that executes get_random_array</span>
-<span class="n">rndArray</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;array_shape&quot;</span><span class="p">],</span>
-                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;random_array&quot;</span><span class="p">],</span>
-                         <span class="n">function</span><span class="o">=</span><span class="n">get_random_array</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;rndArray_node&#39;</span><span class="p">)</span>
-
-<span class="c1"># Specify the array_shape of the random array</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">array_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Run node</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
-<span class="c1"># Print output</span>
-<span class="k">print</span> <span class="n">rndArray</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">file</span> answer01.py
+%pylab inline
+from os.path import join as opj
+from nipype.interfaces.fsl import MCFLIRT, FLIRT
+from nipype.interfaces.afni import Resample
+from nipype.interfaces.spm import Smooth
+from nipype.interfaces.utility import IdentityInterface
+from nipype.interfaces.io import SelectFiles, DataSink
+from nipype.pipeline.engine import Workflow, Node
 </pre></div>
 
 </div>
@@ -11925,89 +11880,27 @@ random_array = [[ 0.55392783  0.56238157  0.26244335]
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:55:47,697 workflow INFO:
-	 Executing node rndArray_node in dir: /tmp/tmpFBMKdD/rndArray_node
+<pre>Writing answer01.py
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-738ed8b85d1d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> 
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-red-fg"># Run node</span>
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span>rndArray<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     23</span> 
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-red-fg"># Print output</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(self, updatehash)</span>
-<span class="ansi-green-intense-fg ansi-bold">    392</span>                     self.inputs.get_traitsfree())
-<span class="ansi-green-intense-fg ansi-bold">    393</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 394</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>_run_interface<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    395</span>             <span class="ansi-green-fg">except</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    396</span>                 os<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span>hashfile_unfinished<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">_run_interface</span><span class="ansi-blue-fg">(self, execute, updatehash)</span>
-<span class="ansi-green-intense-fg ansi-bold">    502</span>         old_cwd <span class="ansi-blue-fg">=</span> os<span class="ansi-blue-fg">.</span>getcwd<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    503</span>         os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>output_dir<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 504</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_command<span class="ansi-blue-fg">(</span>execute<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    505</span>         os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>old_cwd<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    506</span> 
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">_run_command</span><span class="ansi-blue-fg">(self, execute, copyfiles)</span>
-<span class="ansi-green-intense-fg ansi-bold">    628</span>                 logger<span class="ansi-blue-fg">.</span>info<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Running: %s&#39;</span> <span class="ansi-blue-fg">%</span> cmd<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    629</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 630</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_interface<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    631</span>             <span class="ansi-green-fg">except</span> Exception <span class="ansi-green-fg">as</span> msg<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 self<span class="ansi-blue-fg">.</span>_result<span class="ansi-blue-fg">.</span>runtime<span class="ansi-blue-fg">.</span>stderr <span class="ansi-blue-fg">=</span> msg
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/base.pyc</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(self, **inputs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1041</span>                         version=self.version)
-<span class="ansi-green-intense-fg ansi-bold">   1042</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1043</span><span class="ansi-red-fg">             </span>runtime <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_wrapper<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1044</span>             outputs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>aggregate_outputs<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1045</span>             runtime<span class="ansi-blue-fg">.</span>endTime <span class="ansi-blue-fg">=</span> dt<span class="ansi-blue-fg">.</span>isoformat<span class="ansi-blue-fg">(</span>dt<span class="ansi-blue-fg">.</span>utcnow<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/base.pyc</span> in <span class="ansi-cyan-fg">_run_wrapper</span><span class="ansi-blue-fg">(self, runtime)</span>
-<span class="ansi-green-intense-fg ansi-bold">    998</span>             runtime<span class="ansi-blue-fg">.</span>environ<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;DISPLAY&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;:%d&#39;</span> <span class="ansi-blue-fg">%</span> vdisp_num
-<span class="ansi-green-intense-fg ansi-bold">    999</span> 
-<span class="ansi-green-fg">-&gt; 1000</span><span class="ansi-red-fg">         </span>runtime <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_interface<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1001</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1002</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_redirect_x<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/utility.pyc</span> in <span class="ansi-cyan-fg">_run_interface</span><span class="ansi-blue-fg">(self, runtime)</span>
-<span class="ansi-green-intense-fg ansi-bold">    497</span>             setattr<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;runtime_threads&#39;</span><span class="ansi-blue-fg">,</span> num_threads<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    498</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 499</span><span class="ansi-red-fg">             </span>out <span class="ansi-blue-fg">=</span> function_handle<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>args<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    500</span> 
-<span class="ansi-green-intense-fg ansi-bold">    501</span>         <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_output_names<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">&lt;string&gt;</span> in <span class="ansi-cyan-fg">get_random_array</span><span class="ansi-blue-fg">(array_shape)</span>
-
-<span class="ansi-red-fg">NameError</span>: global name &#39;random&#39; is not defined
-Interface Function failed to run. </pre>
 </div>
 </div>
 
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, if we don't import <code>random</code> inside the scope of the function, we receive the following error:</p>
-
-<pre><code>NameError: global name 'random' is not defined
-Interface Function failed to run. </code></pre>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">load</span> answer01.py
+</pre></div>
 
 </div>
 </div>
+</div>
+
 </div>
     </div>
   </div>

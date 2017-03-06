@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_function_nodes</title>
+<title>basic_joinnodes</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11761,8 +11761,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Function-Node">Function Node<a class="anchor-link" href="#Function-Node">&#182;</a></h1><p>Satra once called the <code>Function</code> module, the "do anything you want card". Which is a perfect description. Because it allows you to put any code you want into an empty node, which you than can put in your workflow exactly where it needs to be.</p>
-<p>You might have already seen the <code>Function</code> module in the <a href="basic_nodes.html#Example-of-a-simple-node">example section in the Node tutorial</a>. Let's take a closer look at it again.</p>
+<p><img src="../static/images/joinnode.png"  width="240"></p>
+<h1 id="JoinNode">JoinNode<a class="anchor-link" href="#JoinNode">&#182;</a></h1><p>JoinNode have the opposite effect of a <a href="basic_mapnodes.html">MapNode</a> or <a href="basic_iteration.html">iterables</a>. Where they split up the execution workflow into many different branches, a JoinNode merges them back into on node. For a more detailed explanation, check out <a href="http://nipype.readthedocs.io/en/latest/users/joinnode_and_itersource.html">JoinNode, synchronize and itersource</a> from the main homepage.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Simple-example">Simple example<a class="anchor-link" href="#Simple-example">&#182;</a></h2><p>Let's consider the very simple example depicted at the top of this page:</p>
 
 </div>
 </div>
@@ -11772,18 +11782,30 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import Node and Function module</span>
-<span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">JoinNode</span><span class="p">,</span> <span class="n">Workflow</span>
 
-<span class="c1"># Create a small example function</span>
-<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">x_input</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x_input</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="c1"># Specify fake input node A</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">A</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
 
-<span class="c1"># Create Node</span>
-<span class="n">addtwo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x_input&quot;</span><span class="p">],</span>
-                       <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;val_output&quot;</span><span class="p">],</span>
-                       <span class="n">function</span><span class="o">=</span><span class="n">add_two</span><span class="p">),</span>
-              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;add_node&#39;</span><span class="p">)</span>
+<span class="c1"># Iterate over fake node B&#39;s input &#39;in_file?</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">B</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">file1</span><span class="p">,</span> <span class="n">file2</span><span class="p">])</span>
+
+<span class="c1"># Pass results on to fake node C</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">C</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">)</span>
+
+<span class="c1"># Join forked execution workflow in fake node D</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">JoinNode</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">D</span><span class="p">(),</span>
+             <span class="n">joinsource</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span>
+             <span class="n">joinfield</span><span class="o">=</span><span class="s2">&quot;in_files&quot;</span><span class="p">,</span>
+             <span class="n">name</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+
+<span class="c1"># Put everything into a workflow as usual</span>
+<span class="n">workflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;workflow&quot;</span><span class="p">)</span>
+<span class="n">workflow</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;subject&#39;</span><span class="p">)]),</span>
+                  <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)])</span>
+                  <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_files&#39;</span><span class="p">)])</span>
+                  <span class="p">])</span>
 </pre></div>
 
 </div>
@@ -11796,11 +11818,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Trap-1">Trap 1<a class="anchor-link" href="#Trap-1">&#182;</a></h1><p>There are only two traps that you should be aware when you're using the <code>Function</code> module. The first one is about naming the input variables. The variable name for the node input has to be the exactly the same name as the function input parameter, in this case this is <code>x_input</code>.</p>
-<p>Otherwise you get the following error:</p>
-
-<pre><code>TypeError: add_two() got an unexpected keyword argument 'x_input'
-Interface Function failed to run.</code></pre>
+<p>As you can see, setting up a <code>JoinNode</code> is rather simple. The only difference to a normal <code>Node</code> are the <code>joinsource</code> and the <code>joinfield</code>. <code>joinsource</code> specifies from which node the information to join is coming and the <code>joinfield</code> specifies the input field of the JoinNode where the information to join will be entering the node.</p>
 
 </div>
 </div>
@@ -11810,7 +11828,7 @@ Interface Function failed to run.</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Trap-2">Trap 2<a class="anchor-link" href="#Trap-2">&#182;</a></h1><p>If you want to use another module inside a function, you have to import it again inside the function. Let's take a look at the following example:</p>
+<h2 id="More-realistic-example">More realistic example<a class="anchor-link" href="#More-realistic-example">&#182;</a></h2><p>Let's consider another example where we have one node that iterates over 3 different numbers and another node that joins those three different numbers (each coming from a separate branch of the workflow) into one list. To make the whole thing a bit more realistic, the second node will use the <code>Function</code> interface to do something with those numbers, before we spit them out again.</p>
 
 </div>
 </div>
@@ -11820,30 +11838,64 @@ Interface Function failed to run.</code></pre>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">JoinNode</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Workflow</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="kn">import</span> <span class="n">Function</span><span class="p">,</span> <span class="n">IdentityInterface</span>
+</pre></div>
 
-<span class="c1"># Create the Function object</span>
-<span class="k">def</span> <span class="nf">get_random_array</span><span class="p">(</span><span class="n">array_shape</span><span class="p">):</span>
+</div>
+</div>
+</div>
 
-    <span class="c1"># Import random function</span>
-    <span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span>
-   
-    <span class="k">return</span> <span class="n">random</span><span class="p">(</span><span class="n">array_shape</span><span class="p">)</span>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create iteration node</span>
+<span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">IdentityInterface</span>
+<span class="n">iternode</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">IdentityInterface</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;number_id&#39;</span><span class="p">]),</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;iternode&quot;</span><span class="p">)</span>
+<span class="n">iternode</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;number_id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">])]</span>
+</pre></div>
 
-<span class="c1"># Create Function Node that executes get_random_array</span>
-<span class="n">rndArray</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;array_shape&quot;</span><span class="p">],</span>
-                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;random_array&quot;</span><span class="p">],</span>
-                         <span class="n">function</span><span class="o">=</span><span class="n">get_random_array</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;rndArray_node&#39;</span><span class="p">)</span>
+</div>
+</div>
+</div>
 
-<span class="c1"># Specify the array_shape of the random array</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">array_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create join node - compute square root for each element in the joined list</span>
+<span class="k">def</span> <span class="nf">compute_sqrt</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
 
-<span class="c1"># Run node</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">joinnode</span> <span class="o">=</span> <span class="n">JoinNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;numbers&#39;</span><span class="p">],</span>
+                             <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sqrts&#39;</span><span class="p">],</span>
+                             <span class="n">function</span><span class="o">=</span><span class="n">compute_sqrt</span><span class="p">),</span>
+                    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;joinnode&#39;</span><span class="p">,</span>
+                    <span class="n">joinsource</span><span class="o">=</span><span class="s1">&#39;iternode&#39;</span><span class="p">,</span>
+                    <span class="n">joinfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;numbers&#39;</span><span class="p">])</span>
+</pre></div>
 
-<span class="c1"># Print output</span>
-<span class="k">print</span> <span class="n">rndArray</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create the workflow and run it</span>
+<span class="n">joinflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;joinflow&#39;</span><span class="p">)</span>
+<span class="n">joinflow</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">iternode</span><span class="p">,</span> <span class="s1">&#39;number_id&#39;</span><span class="p">,</span> <span class="n">joinnode</span><span class="p">,</span> <span class="s1">&#39;numbers&#39;</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">joinflow</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -11856,15 +11908,12 @@ Interface Function failed to run.</code></pre>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:55:47,598 workflow INFO:
-	 Executing node rndArray_node in dir: /tmp/tmpv4BGTx/rndArray_node
-170301-21:55:47,633 workflow INFO:
-	 Runtime memory and threads stats unavailable
-
-random_array = [[ 0.55392783  0.56238157  0.26244335]
- [ 0.25663815  0.20904142  0.5810782 ]
- [ 0.18068192  0.65697574  0.1218128 ]]
-
+<pre>170306-22:38:22,861 workflow INFO:
+	 Workflow joinflow settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170306-22:38:22,871 workflow INFO:
+	 Running serially.
+170306-22:38:22,873 workflow INFO:
+	 Executing node joinnode in dir: /tmp/tmpm8NCMb/joinflow/joinnode
 </pre>
 </div>
 </div>
@@ -11878,7 +11927,7 @@ random_array = [[ 0.55392783  0.56238157  0.26244335]
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let's see what happens if we move the import of <code>random</code> outside the scope of <code>get_random_array</code>:</p>
+<p>Now, let's look at the input and output of the joinnode:</p>
 
 </div>
 </div>
@@ -11888,31 +11937,7 @@ random_array = [[ 0.55392783  0.56238157  0.26244335]
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
-
-<span class="c1"># Import random function</span>
-<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span>
-
-
-<span class="c1"># Create the Function object</span>
-<span class="k">def</span> <span class="nf">get_random_array</span><span class="p">(</span><span class="n">array_shape</span><span class="p">):</span>
-  
-    <span class="k">return</span> <span class="n">random</span><span class="p">(</span><span class="n">array_shape</span><span class="p">)</span>
-
-<span class="c1"># Create Function Node that executes get_random_array</span>
-<span class="n">rndArray</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;array_shape&quot;</span><span class="p">],</span>
-                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;random_array&quot;</span><span class="p">],</span>
-                         <span class="n">function</span><span class="o">=</span><span class="n">get_random_array</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;rndArray_node&#39;</span><span class="p">)</span>
-
-<span class="c1"># Specify the array_shape of the random array</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">array_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Run node</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
-<span class="c1"># Print output</span>
-<span class="k">print</span> <span class="n">rndArray</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">nodes</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
 </pre></div>
 
 </div>
@@ -11923,91 +11948,54 @@ random_array = [[ 0.55392783  0.56238157  0.26244335]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:55:47,697 workflow INFO:
-	 Executing node rndArray_node in dir: /tmp/tmpFBMKdD/rndArray_node
-</pre>
-</div>
-</div>
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
+
+<div class="output_text output_subarea output_execute_result">
 <pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-738ed8b85d1d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> 
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-red-fg"># Run node</span>
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span>rndArray<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     23</span> 
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-red-fg"># Print output</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(self, updatehash)</span>
-<span class="ansi-green-intense-fg ansi-bold">    392</span>                     self.inputs.get_traitsfree())
-<span class="ansi-green-intense-fg ansi-bold">    393</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 394</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>_run_interface<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    395</span>             <span class="ansi-green-fg">except</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    396</span>                 os<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span>hashfile_unfinished<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">_run_interface</span><span class="ansi-blue-fg">(self, execute, updatehash)</span>
-<span class="ansi-green-intense-fg ansi-bold">    502</span>         old_cwd <span class="ansi-blue-fg">=</span> os<span class="ansi-blue-fg">.</span>getcwd<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    503</span>         os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>output_dir<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 504</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_command<span class="ansi-blue-fg">(</span>execute<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    505</span>         os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>old_cwd<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    506</span> 
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">_run_command</span><span class="ansi-blue-fg">(self, execute, copyfiles)</span>
-<span class="ansi-green-intense-fg ansi-bold">    628</span>                 logger<span class="ansi-blue-fg">.</span>info<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Running: %s&#39;</span> <span class="ansi-blue-fg">%</span> cmd<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    629</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 630</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_interface<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    631</span>             <span class="ansi-green-fg">except</span> Exception <span class="ansi-green-fg">as</span> msg<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 self<span class="ansi-blue-fg">.</span>_result<span class="ansi-blue-fg">.</span>runtime<span class="ansi-blue-fg">.</span>stderr <span class="ansi-blue-fg">=</span> msg
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/base.pyc</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(self, **inputs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1041</span>                         version=self.version)
-<span class="ansi-green-intense-fg ansi-bold">   1042</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1043</span><span class="ansi-red-fg">             </span>runtime <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_wrapper<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1044</span>             outputs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>aggregate_outputs<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1045</span>             runtime<span class="ansi-blue-fg">.</span>endTime <span class="ansi-blue-fg">=</span> dt<span class="ansi-blue-fg">.</span>isoformat<span class="ansi-blue-fg">(</span>dt<span class="ansi-blue-fg">.</span>utcnow<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/base.pyc</span> in <span class="ansi-cyan-fg">_run_wrapper</span><span class="ansi-blue-fg">(self, runtime)</span>
-<span class="ansi-green-intense-fg ansi-bold">    998</span>             runtime<span class="ansi-blue-fg">.</span>environ<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;DISPLAY&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;:%d&#39;</span> <span class="ansi-blue-fg">%</span> vdisp_num
-<span class="ansi-green-intense-fg ansi-bold">    999</span> 
-<span class="ansi-green-fg">-&gt; 1000</span><span class="ansi-red-fg">         </span>runtime <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_interface<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1001</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1002</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_redirect_x<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/utility.pyc</span> in <span class="ansi-cyan-fg">_run_interface</span><span class="ansi-blue-fg">(self, runtime)</span>
-<span class="ansi-green-intense-fg ansi-bold">    497</span>             setattr<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;runtime_threads&#39;</span><span class="ansi-blue-fg">,</span> num_threads<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    498</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 499</span><span class="ansi-red-fg">             </span>out <span class="ansi-blue-fg">=</span> function_handle<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>args<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    500</span> 
-<span class="ansi-green-intense-fg ansi-bold">    501</span>         <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_output_names<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">&lt;string&gt;</span> in <span class="ansi-cyan-fg">get_random_array</span><span class="ansi-blue-fg">(array_shape)</span>
-
-<span class="ansi-red-fg">NameError</span>: global name &#39;random&#39; is not defined
-Interface Function failed to run. </pre>
+sqrts = [1.0, 2.0, 3.0]</pre>
 </div>
+
 </div>
 
 </div>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, if we don't import <code>random</code> inside the scope of the function, we receive the following error:</p>
-
-<pre><code>NameError: global name 'random' is not defined
-Interface Function failed to run. </code></pre>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">nodes</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">inputs</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+function_str = &lt;undefined&gt;
+ignore_exception = &lt;undefined&gt;
+numbers = &lt;undefined&gt;
+numbersJ1 = 1
+numbersJ2 = 4
+numbersJ3 = 9</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>

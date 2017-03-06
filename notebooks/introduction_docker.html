@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_function_nodes</title>
+<title>introduction_docker</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11761,46 +11761,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Function-Node">Function Node<a class="anchor-link" href="#Function-Node">&#182;</a></h1><p>Satra once called the <code>Function</code> module, the "do anything you want card". Which is a perfect description. Because it allows you to put any code you want into an empty node, which you than can put in your workflow exactly where it needs to be.</p>
-<p>You might have already seen the <code>Function</code> module in the <a href="basic_nodes.html#Example-of-a-simple-node">example section in the Node tutorial</a>. Let's take a closer look at it again.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import Node and Function module</span>
-<span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
-
-<span class="c1"># Create a small example function</span>
-<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">x_input</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x_input</span> <span class="o">+</span> <span class="mi">2</span>
-
-<span class="c1"># Create Node</span>
-<span class="n">addtwo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x_input&quot;</span><span class="p">],</span>
-                       <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;val_output&quot;</span><span class="p">],</span>
-                       <span class="n">function</span><span class="o">=</span><span class="n">add_two</span><span class="p">),</span>
-              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;add_node&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Trap-1">Trap 1<a class="anchor-link" href="#Trap-1">&#182;</a></h1><p>There are only two traps that you should be aware when you're using the <code>Function</code> module. The first one is about naming the input variables. The variable name for the node input has to be the exactly the same name as the function input parameter, in this case this is <code>x_input</code>.</p>
-<p>Otherwise you get the following error:</p>
-
-<pre><code>TypeError: add_two() got an unexpected keyword argument 'x_input'
-Interface Function failed to run.</code></pre>
+<center><img src="../static/images/logoDocker.png" width=500></center><h1 id="Docker">Docker<a class="anchor-link" href="#Docker">&#182;</a></h1><p><a href="https://www.docker.com">Docker</a> is an open-source project that automates the deployment of applications inside software containers. Those containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, system tools, software libraries, such as Python, FSL, AFNI, SPM, FreeSurfer, ANTs, etc. This guarantees that it will always run the same, regardless of the environment it is running in.</p>
+<p><font color='red'>Important:</font> <strong>You don't need Docker to run Nipype on your system</strong>. For Mac and Linux users, it probably is much simpler to install Nipype directly on your system. For more information on how to do this see the <a href="resources_installation.html">Installation Section</a> of this tutorial. But for Windows user, or users that don't want to setup all the dependencies themselves, Docker is the way to go.</p>
 
 </div>
 </div>
@@ -11810,201 +11772,123 @@ Interface Function failed to run.</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Trap-2">Trap 2<a class="anchor-link" href="#Trap-2">&#182;</a></h1><p>If you want to use another module inside a function, you have to import it again inside the function. Let's take a look at the following example:</p>
+<h1 id="Docker-Image-for-the-interactive-Nipype-Tutorial">Docker Image for the interactive Nipype Tutorial<a class="anchor-link" href="#Docker-Image-for-the-interactive-Nipype-Tutorial">&#182;</a></h1><p>If you want to run this Nipype Tutorial with the example dataset locally on your own system, you need to use the docker image, provided under <a href="https://github.com/miykael/nipype_course">miykael/nipype_course</a>. This docker image sets up a Linux environment on your system, with functioning Python, Nipype, FSL, AFNI, ANTs and SPM12 software package, some example data and all the tutorial notebooks to learn Nipype.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
-
-<span class="c1"># Create the Function object</span>
-<span class="k">def</span> <span class="nf">get_random_array</span><span class="p">(</span><span class="n">array_shape</span><span class="p">):</span>
-
-    <span class="c1"># Import random function</span>
-    <span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span>
-   
-    <span class="k">return</span> <span class="n">random</span><span class="p">(</span><span class="n">array_shape</span><span class="p">)</span>
-
-<span class="c1"># Create Function Node that executes get_random_array</span>
-<span class="n">rndArray</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;array_shape&quot;</span><span class="p">],</span>
-                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;random_array&quot;</span><span class="p">],</span>
-                         <span class="n">function</span><span class="o">=</span><span class="n">get_random_array</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;rndArray_node&#39;</span><span class="p">)</span>
-
-<span class="c1"># Specify the array_shape of the random array</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">array_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Run node</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
-<span class="c1"># Print output</span>
-<span class="k">print</span> <span class="n">rndArray</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:55:47,598 workflow INFO:
-	 Executing node rndArray_node in dir: /tmp/tmpv4BGTx/rndArray_node
-170301-21:55:47,633 workflow INFO:
-	 Runtime memory and threads stats unavailable
-
-random_array = [[ 0.55392783  0.56238157  0.26244335]
- [ 0.25663815  0.20904142  0.5810782 ]
- [ 0.18068192  0.65697574  0.1218128 ]]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let's see what happens if we move the import of <code>random</code> outside the scope of <code>get_random_array</code>:</p>
+<h1 id="Install-Docker">Install Docker<a class="anchor-link" href="#Install-Docker">&#182;</a></h1><p>Before you can do anything, you first need to install <a href="https://www.docker.com">Docker</a> on your system. The installation process differes per system. Luckily, the docker homepage has nice instructions for...</p>
+<ul>
+<li><a href="https://docs.docker.com/engine/installation/linux/ubuntu/">Ubuntu</a> or <a href="https://docs.docker.com/engine/installation/linux/debian/">Debian</a></li>
+<li><a href="https://docs.docker.com/toolbox/toolbox_install_windows/">Windows 7/8/9/10</a> or <a href="https://docs.docker.com/docker-for-windows/install/">Windows 10Pro</a></li>
+<li><a href="https://docs.docker.com/docker-for-mac/install/">OS X (from El Capitan 10.11 on)</a> or <a href="https://docs.docker.com/toolbox/toolbox_install_mac/">OS X (before El Capitan 10.11)</a>.</li>
+</ul>
+<p>Once Docker is installed, open up the docker terminal and test it works with the command:</p>
+
+<pre><code>docker run hello-world
+
+</code></pre>
+<p><strong>Note:</strong> Mac and Linux users might need to use <code>sudo</code> to run <code>docker</code> commands.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
-
-<span class="c1"># Import random function</span>
-<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span>
-
-
-<span class="c1"># Create the Function object</span>
-<span class="k">def</span> <span class="nf">get_random_array</span><span class="p">(</span><span class="n">array_shape</span><span class="p">):</span>
-  
-    <span class="k">return</span> <span class="n">random</span><span class="p">(</span><span class="n">array_shape</span><span class="p">)</span>
-
-<span class="c1"># Create Function Node that executes get_random_array</span>
-<span class="n">rndArray</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;array_shape&quot;</span><span class="p">],</span>
-                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;random_array&quot;</span><span class="p">],</span>
-                         <span class="n">function</span><span class="o">=</span><span class="n">get_random_array</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;rndArray_node&#39;</span><span class="p">)</span>
-
-<span class="c1"># Specify the array_shape of the random array</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">array_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Run node</span>
-<span class="n">rndArray</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
-<span class="c1"># Print output</span>
-<span class="k">print</span> <span class="n">rndArray</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:55:47,697 workflow INFO:
-	 Executing node rndArray_node in dir: /tmp/tmpFBMKdD/rndArray_node
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-738ed8b85d1d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> 
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-red-fg"># Run node</span>
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span>rndArray<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     23</span> 
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-red-fg"># Print output</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(self, updatehash)</span>
-<span class="ansi-green-intense-fg ansi-bold">    392</span>                     self.inputs.get_traitsfree())
-<span class="ansi-green-intense-fg ansi-bold">    393</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 394</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>_run_interface<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    395</span>             <span class="ansi-green-fg">except</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    396</span>                 os<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span>hashfile_unfinished<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">_run_interface</span><span class="ansi-blue-fg">(self, execute, updatehash)</span>
-<span class="ansi-green-intense-fg ansi-bold">    502</span>         old_cwd <span class="ansi-blue-fg">=</span> os<span class="ansi-blue-fg">.</span>getcwd<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    503</span>         os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>output_dir<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 504</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_command<span class="ansi-blue-fg">(</span>execute<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    505</span>         os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>old_cwd<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    506</span> 
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/pipeline/engine/nodes.pyc</span> in <span class="ansi-cyan-fg">_run_command</span><span class="ansi-blue-fg">(self, execute, copyfiles)</span>
-<span class="ansi-green-intense-fg ansi-bold">    628</span>                 logger<span class="ansi-blue-fg">.</span>info<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Running: %s&#39;</span> <span class="ansi-blue-fg">%</span> cmd<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    629</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 630</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_interface<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    631</span>             <span class="ansi-green-fg">except</span> Exception <span class="ansi-green-fg">as</span> msg<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    632</span>                 self<span class="ansi-blue-fg">.</span>_result<span class="ansi-blue-fg">.</span>runtime<span class="ansi-blue-fg">.</span>stderr <span class="ansi-blue-fg">=</span> msg
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/base.pyc</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(self, **inputs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1041</span>                         version=self.version)
-<span class="ansi-green-intense-fg ansi-bold">   1042</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1043</span><span class="ansi-red-fg">             </span>runtime <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_wrapper<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1044</span>             outputs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>aggregate_outputs<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1045</span>             runtime<span class="ansi-blue-fg">.</span>endTime <span class="ansi-blue-fg">=</span> dt<span class="ansi-blue-fg">.</span>isoformat<span class="ansi-blue-fg">(</span>dt<span class="ansi-blue-fg">.</span>utcnow<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/base.pyc</span> in <span class="ansi-cyan-fg">_run_wrapper</span><span class="ansi-blue-fg">(self, runtime)</span>
-<span class="ansi-green-intense-fg ansi-bold">    998</span>             runtime<span class="ansi-blue-fg">.</span>environ<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;DISPLAY&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;:%d&#39;</span> <span class="ansi-blue-fg">%</span> vdisp_num
-<span class="ansi-green-intense-fg ansi-bold">    999</span> 
-<span class="ansi-green-fg">-&gt; 1000</span><span class="ansi-red-fg">         </span>runtime <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_interface<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1001</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1002</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_redirect_x<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/utility.pyc</span> in <span class="ansi-cyan-fg">_run_interface</span><span class="ansi-blue-fg">(self, runtime)</span>
-<span class="ansi-green-intense-fg ansi-bold">    497</span>             setattr<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;runtime_threads&#39;</span><span class="ansi-blue-fg">,</span> num_threads<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    498</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 499</span><span class="ansi-red-fg">             </span>out <span class="ansi-blue-fg">=</span> function_handle<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>args<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    500</span> 
-<span class="ansi-green-intense-fg ansi-bold">    501</span>         <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_output_names<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">&lt;string&gt;</span> in <span class="ansi-cyan-fg">get_random_array</span><span class="ansi-blue-fg">(array_shape)</span>
-
-<span class="ansi-red-fg">NameError</span>: global name &#39;random&#39; is not defined
-Interface Function failed to run. </pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, if we don't import <code>random</code> inside the scope of the function, we receive the following error:</p>
+<h1 id="How-to-run-miykael/nipype_course">How to run <code>miykael/nipype_course</code><a class="anchor-link" href="#How-to-run-miykael/nipype_course">&#182;</a></h1><p>After installing docker on your system and making sure that the <code>hello-world</code> example was running, we are good to go to start the Nipype Course image. The exact implementation is a bit different for Windows user, but the general command looks as follows:</p>
 
-<pre><code>NameError: global name 'random' is not defined
-Interface Function failed to run. </code></pre>
+<pre><code>docker run -ti --rm -p 8888:8888 -v /home/username/results:/output miykael/nipype_course
+
+</code></pre>
+<p>But what do those flags mean?</p>
+<ul>
+<li>The <code>-ti</code> flag tells docker that it should open an interactive container instance.</li>
+<li>The <code>--rm</code> flag tells docker that the container should automatically be removed after we close docker.</li>
+<li>The <code>-p</code> flag specifies which port we want to make available for docker.</li>
+<li>The <code>-v</code> flag tells docker which folder (here: <code>/home/username/results</code> it should mount to make it accesible inside the container. The second part of the <code>-v</code> flag (here: <code>/output</code>) specifies under which path the mounted folder can be found inside the container. This means that we can use the folder <code>/output</code> inside the tutorial to save data outside the docker container under <code>/home/username/results</code>. <strong>Important</strong>: To use the <code>results</code> folder, you first need to create it on your system!</li>
+<li>The last argument <code>miykael/nipype_course</code> tells docker that we want to run this docker image.</li>
+</ul>
+<p>To run a docker image, docker will look for the specified image on <a href="https://hub.docker.com/r/miykael/nipype_course/">Docker Hub</a>. If the docker image was already download to your system, it will be directly opened. Otherwise, it first needs to download all containers, which might take some time.</p>
+<h2 id="Run-a-docker-image-on-Linux-or-Mac">Run a docker image on Linux or Mac<a class="anchor-link" href="#Run-a-docker-image-on-Linux-or-Mac">&#182;</a></h2><p>Running a docker image on a Linux or Mac OS is very simple. Make sure that you've created a results folder on your system (e.g. <code>mkdir -p /home/username/results</code>). Then just open a new terminal and use the command from above:</p>
+
+<pre><code>docker run -ti --rm -p 8888:8888 -v /home/username/results:/output miykael/nipype_course
+
+</code></pre>
+<p>Once the docker image is downloaded, open the shown URL link in your browser and you are good to go. The URL will look something like:</p>
+
+<pre><code>http://localhost:8888/?token=0312c1ef3b61d7a44ff5346d3d150c23249a548850e13868
+
+
+</code></pre>
+<h2 id="Run-a-docker-image-on-Windows">Run a docker image on Windows<a class="anchor-link" href="#Run-a-docker-image-on-Windows">&#182;</a></h2><p>Running a docker image on Windows is a bit trickier than on Ubuntu. Assuming you've installed the DockerToolbox, open the Docker Quickstart Terminal (encircled in red).</p>
+<center><img src="../static/images/docker_terminal.png" width=600></center><p>Once the docker terminal is ready (when you see the whale), we can execute the following steps (see also figure):</p>
+<ol>
+<li><p>We need to check the IP adress of your docker machine. For this, use the command:</p>
+<p><code>docker-machine ip</code></p>
+<p>In my case, this returned <code>192.168.99.100</code></p>
+</li>
+<li><p>If you haven't already created a new folder to store your container output into, do so. You can create the folder either in the explorer as usual or do it with the command <code>mkdir -p</code> in the docker console. For example like this:</p>
+<p><code>mkdir -p /c/Users/username/results</code></p>
+<p>Please replace <code>username</code> with the name of the current user on your system. <strong>Pay attention</strong> that the folder paths in the docker terminal are not backslash (<code>\</code>) as we usually have in Windows. Also, <code>C:\</code> needs to be specified as <code>/c/</code>.</p>
+</li>
+<li><p>Now, we can open run the container with the command from above:</p>
+<p><code>docker run -ti --rm -p 8888:8888 -v /c/Users/username/outputs:/output miykael/nipype_course</code></p>
+</li>
+<li><p>Once the docker image is downloaded, it will show you an URL that looks something like this:</p>
+<p><code>http://localhost:8888/?token=0312c1ef3b61d7a44ff5346d3d150c23249a548850e13868</code></p>
+<p>This URL will not work on a Windows system. To make it work, you need to replace the string <code>localhost</code> with the IP address of your docker machine, that we acquired under step 1. Afterwards, your URL should look something like this:</p>
+<p><code>http://192.168.99.100:8888/?token=0312c1ef3b61d7a44ff5346d3d150c23249a548850e13868</code></p>
+<p>Copy this link into your webbrowser and you're good to go!</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Docker-tips-and-tricks">Docker tips and tricks<a class="anchor-link" href="#Docker-tips-and-tricks">&#182;</a></h1><h2 id="Access-Docker-Container-with-bash-or-ipython">Access Docker Container with <code>bash</code> or <code>ipython</code><a class="anchor-link" href="#Access-Docker-Container-with-bash-or-ipython">&#182;</a></h2><p>You don't have to open a jupyter notebook when you run <code>miykael/nipype_course</code>. You can also access the docker container directly with <code>bash</code> or <code>ipython</code> by adding it to the end of your command, i.e.:</p>
+
+<pre><code>docker run -ti --rm -v /home/username/results:/output miykael/nipype_course bash
+
+</code></pre>
+<p>This also works with other software commands, such as <code>bet</code> etc.</p>
+<h2 id="Stop-Docker-Container">Stop Docker Container<a class="anchor-link" href="#Stop-Docker-Container">&#182;</a></h2><p>To stop a running docker container, either close the docker terminal or select the terminal and uste the <code>Ctrl-C</code> shortcut multiple times.</p>
+<h2 id="List-all-installed-docker-images">List all installed docker images<a class="anchor-link" href="#List-all-installed-docker-images">&#182;</a></h2><p>To see a list of all installed docker images use:</p>
+
+<pre><code>docker images
+
+
+</code></pre>
+<h2 id="Delete-a-specific-docker-image">Delete a specific docker image<a class="anchor-link" href="#Delete-a-specific-docker-image">&#182;</a></h2><p>To delete a specific docker image, first use the <code>docker images</code> command to list all installed containers and than use the <code>IMAGE ID</code> and the <code>rmi</code> instruction to delete the container:</p>
+
+<pre><code>docker rmi -f 7d9495d03763
+
+
+</code></pre>
+<h2 id="Export-and-Import-a-docker-image">Export and Import a docker image<a class="anchor-link" href="#Export-and-Import-a-docker-image">&#182;</a></h2><p>If you don't want to depend on a internet connection, you can also export an already downloaded docker image and than later on import it on another PC. To do so, use the following two commands:</p>
+
+<pre><code># Export docker image miykael/nipype_course
+docker save -o nipype_course.tar miykael/nipype_course
+
+# Import docker image on another PC
+docker load --input nipype_course.tar
+
+</code></pre>
+<p>It might be possible that you run into administrator privileges isssues because you ran your docker command with <code>sudo</code>. This means that òther users don't have access rights to <code>nipype_course.tar</code>. To avoid this, just change the rights of <code>nipype_course.tar</code> with the command:</p>
+
+<pre><code>sudo chmod 777 nipype_course.tar</code></pre>
 
 </div>
 </div>

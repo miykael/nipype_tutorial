@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>introduction_python</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>introduction_python</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11,8 +13,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1107,6 +1109,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2535,6 +2538,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3025,6 +3029,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8755,9 +8760,6 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
-[dir="rtl"] #ipython_notebook {
-  float: right !important;
-}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8960,14 +8962,8 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8990,16 +8986,6 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
-}
-[dir="rtl"] .list_toolbar .tree-buttons {
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9136,9 +9122,6 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
-[dir="rtl"] #tree-selector a {
-  float: right;
-}
 #button-select-all {
   min-width: 50px;
 }
@@ -9228,9 +9211,6 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
-}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9275,9 +9255,6 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
-}
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9574,7 +9551,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9595,6 +9571,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11265,7 +11246,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 21ex;
+  width: 20ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11577,7 +11558,6 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
-  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11591,9 +11571,6 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
-}
-.terminal-app .terminal .xterm-rows {
-  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11902,9 +11879,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1.0
 </pre>
@@ -11945,9 +11920,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1.0
 </pre>
@@ -11989,9 +11962,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>180.0
 </pre>
@@ -12028,9 +11999,7 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Help on built-in function log in module math:
 
@@ -12064,9 +12033,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12095,9 +12062,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12175,9 +12140,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12229,9 +12192,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12270,9 +12231,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -12315,9 +12274,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12348,9 +12305,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12383,9 +12338,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12417,9 +12370,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12464,9 +12415,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12509,9 +12458,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0
 0.5
@@ -12540,9 +12487,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12583,9 +12528,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12614,9 +12557,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12645,9 +12586,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12688,9 +12627,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12719,9 +12656,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12750,9 +12685,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12782,9 +12715,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12814,9 +12745,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>True
 </pre>
@@ -12860,9 +12789,7 @@ log(...)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>False
 False
@@ -12903,9 +12830,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12934,9 +12859,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12976,9 +12899,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>4
 </pre>
@@ -13017,9 +12938,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>9
 </pre>
@@ -13057,9 +12976,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13089,9 +13006,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13122,9 +13037,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Hello test
 </pre>
@@ -13161,9 +13074,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13203,9 +13114,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13244,9 +13153,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13275,9 +13182,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13306,9 +13211,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13347,9 +13250,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13378,9 +13279,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13428,9 +13327,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>str1str2str3
 </pre>
@@ -13459,9 +13356,7 @@ True
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>str1str2str3
 str1 str2 str3
@@ -13490,9 +13385,7 @@ str1 str2 str3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(&#39;str1&#39;, 1.0, False)
 </pre>
@@ -13519,9 +13412,7 @@ str1 str2 str3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>value = 1.000000
 </pre>
@@ -13560,9 +13451,7 @@ str1 str2 str3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>value1 = 3.14. value2 = 1
 </pre>
@@ -13592,9 +13481,7 @@ str1 str2 str3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>value1 = 3.1415, value2 = 1.5
 </pre>
@@ -13623,9 +13510,7 @@ str1 str2 str3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Newlines are indicated by 
 And tabs by 	.
@@ -13654,9 +13539,7 @@ Newlines are indicated by \nAnd tabs by \t. Printed as rawstring
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Name: Nipype
 Number: 3
@@ -13688,9 +13571,7 @@ String: ---
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>This is
 a multiline
@@ -13719,9 +13600,7 @@ string.
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>This is a test.
 </pre>
@@ -13765,9 +13644,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13810,9 +13687,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;type &#39;list&#39;&gt;
 [1, 2, 3, 4]
@@ -13852,9 +13727,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[1, 2, 3, 4]
 [2, 3]
@@ -13893,9 +13766,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13936,9 +13807,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[1, &#39;a&#39;, 1.0]
 </pre>
@@ -13977,9 +13846,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -14022,9 +13889,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -14059,18 +13924,14 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Hello world
 </pre>
 </div>
 </div>
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -14102,9 +13963,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39; &#39;, &#39;H&#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39;o&#39;, &#39;r&#39;, &#39;w&#39;]
 </pre>
@@ -14148,9 +14007,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;A&#39;, &#39;d&#39;, &#39;d&#39;]
 </pre>
@@ -14190,9 +14047,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;A&#39;, &#39;p&#39;, &#39;t&#39;]
 </pre>
@@ -14221,9 +14076,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;A&#39;, &#39;s&#39;, &#39;m&#39;]
 </pre>
@@ -14267,9 +14120,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;i&#39;, &#39;n&#39;, &#39;s&#39;, &#39;e&#39;, &#39;r&#39;, &#39;t&#39;, &#39;A&#39;, &#39;s&#39;, &#39;m&#39;]
 </pre>
@@ -14308,9 +14159,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;i&#39;, &#39;n&#39;, &#39;s&#39;, &#39;e&#39;, &#39;r&#39;, &#39;t&#39;, &#39;s&#39;, &#39;m&#39;]
 </pre>
@@ -14350,9 +14199,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;i&#39;, &#39;n&#39;, &#39;s&#39;, &#39;e&#39;, &#39;r&#39;, &#39;t&#39;]
 </pre>
@@ -14393,9 +14240,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;type &#39;tuple&#39;&gt;
 (10, 20)
@@ -14433,9 +14278,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -14482,9 +14325,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;type &#39;dict&#39;&gt;
 {&#39;parameter1&#39;: 1.0, &#39;parameter3&#39;: 3.0, &#39;parameter2&#39;: 2.0}
@@ -14522,9 +14363,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -14555,9 +14394,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>parameter1 = 1.0
 parameter2 = 2.0
@@ -14595,9 +14432,7 @@ parameter3 = 3.0
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>parameter1 = A
 parameter2 = B
@@ -14642,9 +14477,7 @@ parameter4 = D
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Value is  5
 I repeat, the value is  5
@@ -14701,9 +14534,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>statement1 and statement2 are False
 </pre>
@@ -14746,9 +14577,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>both statement1 and statement2 are True
 </pre>
@@ -14778,9 +14607,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-79-24d0b29758cc&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">4</span>
@@ -14832,9 +14659,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>now outside the if block
 </pre>
@@ -14872,9 +14697,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1 2 3
 </pre>
@@ -14912,9 +14735,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0 1 2 3
 </pre>
@@ -14952,9 +14773,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>-3 -2 -1 0 1 2
 </pre>
@@ -14982,9 +14801,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>scientific computing with python
 </pre>
@@ -15022,9 +14839,7 @@ I repeat, the value is  5
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>parameter4 = D
 parameter1 = A
@@ -15065,9 +14880,7 @@ parameter2 = B
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(0, -3)
 (1, -2)
@@ -15128,9 +14941,7 @@ parameter2 = B
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 0
@@ -15174,9 +14985,7 @@ parameter2 = B
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[0, 1, 4, 9, 16]
 </pre>
@@ -15220,9 +15029,7 @@ parameter2 = B
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0
 1
@@ -15278,9 +15085,7 @@ done
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>hello world
 </pre>
@@ -15332,9 +15137,7 @@ done
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>4 is maximum
 7 is equal to 7
@@ -15380,9 +15183,7 @@ done
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>x is 50
 Changed local x to 2
@@ -15431,9 +15232,7 @@ x is still 50
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>x is 50
 Changed global x to 2
@@ -15490,9 +15289,7 @@ Value of x is 2
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Help on function func1 in module __main__:
 
@@ -15523,9 +15320,7 @@ func1(s)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>test has 4 characters
 </pre>
@@ -15579,9 +15374,7 @@ func1(s)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -15637,9 +15430,7 @@ func1(s)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -15680,9 +15471,7 @@ func1(s)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>27
 </pre>
@@ -15745,9 +15534,7 @@ func1(s)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -15776,18 +15563,14 @@ func1(s)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>evaluating myfunc for x = 5 using exponent p = 2
 </pre>
 </div>
 </div>
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -15826,18 +15609,14 @@ func1(s)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>evaluating myfunc for x = 7 using exponent p = 3
 </pre>
 </div>
 </div>
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -15881,9 +15660,7 @@ func1(s)
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Formal arg: 1
 additioanl arg: two
@@ -15920,9 +15697,7 @@ additioanl arg: [1, 2, 3]
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>kwargs is now a dictionary...
 Type: &lt;type &#39;dict&#39;&gt;
@@ -15983,9 +15758,7 @@ another keyword arg: myarg3: 3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -16025,9 +15798,7 @@ another keyword arg: myarg3: 3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -16124,9 +15895,7 @@ another keyword arg: myarg3: 3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Point at [0.000000, 0.000000]
 </pre>
@@ -16167,9 +15936,7 @@ another keyword arg: myarg3: 3
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Point at [1.000000, 1.000000]
 Point at [1.250000, 2.500000]
@@ -16211,9 +15978,7 @@ Point at [1.250000, 2.500000]
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0
 Point at [10.000000, 0.000000]
@@ -16283,9 +16048,7 @@ class MyClass:
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Writing mymodule.py
 </pre>
@@ -16346,9 +16109,7 @@ class MyClass:
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Help on module mymodule:
 
@@ -16409,9 +16170,7 @@ DATA
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -16440,9 +16199,7 @@ DATA
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -16473,9 +16230,7 @@ DATA
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -16514,9 +16269,7 @@ DATA
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -16565,9 +16318,7 @@ DATA
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -16641,9 +16392,7 @@ except:
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>test
 Caught an exception
@@ -16690,9 +16439,7 @@ Caught an exception
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>test
 Caught an exception:name &#39;test&#39; is not defined
@@ -16736,9 +16483,7 @@ This block is executed after the try- and except-block.
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Oops, invalid.
 We&#39;re done with that.
@@ -16786,9 +16531,7 @@ ds102,sub010,D,25.24
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Writing demographics.csv
 </pre>
@@ -16825,9 +16568,7 @@ ds102	sub010	D	25.24
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Writing demographics.txt
 </pre>
@@ -16892,9 +16633,7 @@ ds102	sub010	D	25.24
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;ds102&#39;, &#39;sub001&#39;, &#39;F&#39;, &#39;21.94&#39;]
 [&#39;ds102&#39;, &#39;sub002&#39;, &#39;M&#39;, &#39;22.79&#39;]
@@ -16943,9 +16682,7 @@ ds102	sub010	D	25.24
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;sub001&#39;, &#39;F&#39;, &#39;21.94&#39;]
 [&#39;sub002&#39;, &#39;M&#39;, &#39;22.79&#39;]
@@ -17017,9 +16754,7 @@ ds102	sub010	D	25.24
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 
@@ -17076,9 +16811,7 @@ ds102	sub010	D	25.24
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;ds102&#39;, &#39;sub001&#39;, &#39;F&#39;, &#39;21.94&#39;]
 [&#39;ds102&#39;, &#39;sub002&#39;, &#39;M&#39;, &#39;22.79&#39;]
@@ -17161,9 +16894,7 @@ ds102	sub010	D	25.24
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;ds102&#39;, &#39;sub001&#39;, &#39;F&#39;, &#39;21.94&#39;]
 [&#39;ds102&#39;, &#39;sub002&#39;, &#39;M&#39;, &#39;22.79&#39;]
@@ -17186,8 +16917,4 @@ ds102	sub010	D	25.24
     </div>
   </div>
 </body>
-
- 
-
-
 </html>
