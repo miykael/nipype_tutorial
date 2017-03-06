@@ -10,3 +10,8 @@ This is the Nipype Tutorial in Notebooks. There are multiple ways of how you can
 # Feedback, Help & Support
 
 If you want to help with this tutorial or have any questions, fell free to fork the repo of the [Notebooks](https://github.com/miykael/nipype_tutorial) or interact with other contributors on the slack channel [brainhack.slack.com/messages/nipype/](https://brainhack.slack.com/messages/nipype/). If you have any questions or found a problem, open a new [issue on github](https://github.com/miykael/nipype_tutorial/issues).
+
+
+# Thanks and Acknowledgment
+
+A huge thanks to [Michael Waskom](https://github.com/mwaskom), [Oscar Esteban](https://github.com/oesteban), [Chris Gorgolewski](https://github.com/chrisfilo) and [Satrajit Ghosh](https://github.com/satra) for their input to this tutorial!
