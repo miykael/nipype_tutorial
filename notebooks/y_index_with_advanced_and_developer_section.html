@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>y_exercise_example</title>
+<title>y_index_with_advanced_and_developer_section</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11756,67 +11756,150 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Two-ideas-on-how-to-hide-solutions">Two ideas on how to hide solutions<a class="anchor-link" href="#Two-ideas-on-how-to-hide-solutions">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Idea-1:-Hide-answer-in-base64">Idea 1: Hide answer in base64<a class="anchor-link" href="#Idea-1:-Hide-answer-in-base64">&#182;</a></h2>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">base64</span>
-<span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;%pylab inline</span>
-<span class="s2">from os.path import join as opj</span>
-<span class="s2">from nipype.interfaces.fsl import MCFLIRT, FLIRT</span>
-<span class="s2">from nipype.interfaces.afni import Resample</span>
-<span class="s2">from nipype.interfaces.spm import Smooth</span>
-<span class="s2">from nipype.interfaces.utility import IdentityInterface</span>
-<span class="s2">from nipype.interfaces.io import SelectFiles, DataSink</span>
-<span class="s2">from nipype.pipeline.engine import Workflow, Node&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+&lt;style&gt;.container { width:75% !important; }&lt;/style&gt;
+&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;../static/css_backup/mobile-package-094623.css&#39;&gt;
+&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;../static/css_backup/homepage-package-3bd234.css&#39;&gt;
+        
+&lt;body&gt;
+  &lt;article id=&quot;homepage&quot;&gt;
+    &lt;a id=&quot;library-section&quot;&gt;&lt;/a&gt;
+    &lt;div class=&quot;library-section&quot;&gt;
+      &lt;div class=&quot;section-separator library-section-separator&quot;&gt;
+        &lt;center&gt;&lt;img src=&quot;../static/images/logoNipype_tutorial.png&quot; width=700&gt;&lt;/center&gt;
+        &lt;p&gt;Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
+            you everything so that you can start creating your own workflows in no time. We recommend that you start with
+            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
+            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
+            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
+            &lt;/p&gt;&lt;p&gt;
+            All of the notebooks used in this tutorial can be found on &lt;a href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;github.com/miykael/nipype_tutorial&lt;/a&gt;.
+            But if you want to have the real experience and want to go through the computations by yourself, we highly
+            recommend you to do the &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Nipype Course&lt;/a&gt;. This course
+            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
+            Nipype yourself. For the tutorial, you need to install a &lt;a href=&quot;www.docker.com/&quot;&gt;Docker&lt;/a&gt; image on your system that provides you a 
+            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
+            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
+            neuroimaging environment is based on the docker images under &lt;a href=&quot;https://github.com/miykael/nipype_env&quot;&gt;github.com/miykael/nipype_env&lt;/a&gt;,
+            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
+            &lt;/p&gt;&lt;p&gt;
+            For everything that isn&#39;t covered in this tutorial, check out the &lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;main homepage&lt;/a&gt;.
+            And if you haven&#39;t had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
+            the &lt;a href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;detailed beginner&#39;s guide&lt;/a&gt;.
+            &lt;/p&gt;
+      &lt;/div&gt;
 
-</div>
-</div>
-</div>
+      &lt;!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
+            argument to either science, computing, humanities, test-prep or economics-finance-domain--&gt;
 
-<div class="output_wrapper">
-<div class="output">
+      &lt;!--to change the number of rows per column, change the last number in &#39;pure-u-1-3&#39;.
+       For example, to have three columns, change the value to &#39;pure-u-1-3&#39;--&gt;
+        
+      &lt;h2 class=&quot;domain-header economics-finance-domain&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Introduction&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container economics-finance-domain&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_nipype.html&quot;&gt;Nipype&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_jupyter-notebook.html&quot;&gt;Jupyter-Notebook&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_dataset.html&quot;&gt;Tutorial Dataset&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_docker.html&quot;&gt;Docker&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_python.html&quot;&gt;Python&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;This section is meant as a general overview. It should give you a short introduction to the main topics that
+          you need to understand to use Nipype and this tutorial.&lt;/p&gt;
 
+      &lt;h2 class=&quot;domain-header humanities&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Basic Concepts&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container humanities&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_interfaces.html&quot;&gt;Interfaces&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_nodes.html&quot;&gt;Nodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_workflow.html&quot;&gt;Workflow&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_graph_visualization.html&quot;&gt;Graph Visualization&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_data_input.html&quot;&gt;Data Input&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_data_output.html&quot;&gt;Data Output&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_iteration.html&quot;&gt;Iteration / Iterables&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_mapnodes.html&quot;&gt;MapNodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_function_nodes.html&quot;&gt;Function Nodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_joinnodes.html&quot;&gt;JoinNodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_model_specification.html&quot;&gt;Model Specification&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_import_workflows.html&quot;&gt;Import existing Workflows&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_plugins.html&quot;&gt;Execution Plugins&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_configuration.html&quot;&gt;Execution Configuration&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_error_and_crashes.html&quot;&gt;Errors &amp; Crashes&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
+          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
+          to create any kind of Nipype workflow.&lt;/p&gt;
 
-<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+      &lt;h2 class=&quot;domain-header science&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Workflow Examples&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container science&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_preprocessing.html&quot;&gt;Preprocessing&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_1stlevel.html&quot;&gt;1st-level Analysis&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_normalize.html&quot;&gt;Normalize Data&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_2ndlevel.html&quot;&gt;2nd-level Analysis&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;In this section you will find some practical examples that show you how to use Nipype in a &quot;real world&quot; scenario.&lt;/p&gt;
 
+      &lt;h2 class=&quot;domain-header computing&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Advanced Concepts&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container computing&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_commandline.html&quot;&gt;Commandline Interface*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_caching.html&quot;&gt;Caching*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_databases.html&quot;&gt;Import from Database*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_export_workflow.html&quot;&gt;Save Workflow to File*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_resources_and_profiling.html&quot;&gt;Resources &amp; Profiling*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_debug.html&quot;&gt;Debug*&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.&lt;/p&gt;
+        
+      &lt;h2 class=&quot;domain-header math&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;For Developer&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container math&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_report_issue.html&quot;&gt;Report Issues*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_github.html&quot;&gt;Help via Github*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_interface.html&quot;&gt;Create your own Interface*&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.&lt;/p&gt;
+        
+      &lt;h2 class=&quot;domain-header test-prep&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container test-prep&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_installation.html&quot;&gt;Install Nipype&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_resources.html&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_help.html&quot;&gt;Where to find Help&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_python_cheat_sheet.html&quot;&gt;Python Cheat Sheet&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;Nipype (homepage)&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;Nipype Beginner&#39;s Guide&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;Github of Nipype Tutorial&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Github of Nipype Course&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;This section will give you helpful links and resources, so that you always know where to go to learn more.&lt;/p&gt;
 
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;JXB5bGFiIGlubGluZQpmcm9tIG9zLnBhdGggaW1wb3J0IGpvaW4gYXMgb3BqCmZyb20gbmlweXBlLmludGVyZmFjZXMuZnNsIGltcG9ydCBNQ0ZMSVJULCBGTElSVApmcm9tIG5pcHlwZS5pbnRlcmZhY2VzLmFmbmkgaW1wb3J0IFJlc2FtcGxlCmZyb20gbmlweXBlLmludGVyZmFjZXMuc3BtIGltcG9ydCBTbW9vdGgKZnJvbSBuaXB5cGUuaW50ZXJmYWNlcy51dGlsaXR5IGltcG9ydCBJZGVudGl0eUludGVyZmFjZQpmcm9tIG5pcHlwZS5pbnRlcmZhY2VzLmlvIGltcG9ydCBTZWxlY3RGaWxlcywgRGF0YVNpbmsKZnJvbSBuaXB5cGUucGlwZWxpbmUuZW5naW5lIGltcG9ydCBXb3JrZmxvdywgTm9kZQ==&#39;</pre>
-</div>
+    &lt;/div&gt;
+  &lt;/article&gt;
+&lt;/body&gt;
 
-</div>
+&lt;!--The following code will cause the code cell to disappear--&gt;
 
-</div>
-</div>
+&lt;script&gt;
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $(&#39;div.input&#39;).hide();
+ } else {
+ $(&#39;div.input&#39;).show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+&lt;/script&gt;
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s1">&#39;JXB5bGFiIGlubGluZQpmcm9tIG9zLnBhdGggaW1wb3J0IGpvaW4gYXMgb3BqCmZyb20gbmlweXBlLmludGVyZmFjZXMuZnNsIGltcG9ydCBNQ0ZMSVJULCBGTElSVApmcm9tIG5pcHlwZS5pbnRlcmZhY2VzLmFmbmkgaW1wb3J0IFJlc2FtcGxlCmZyb20gbmlweXBlLmludGVyZmFjZXMuc3BtIGltcG9ydCBTbW9vdGgKZnJvbSBuaXB5cGUuaW50ZXJmYWNlcy51dGlsaXR5IGltcG9ydCBJZGVudGl0eUludGVyZmFjZQpmcm9tIG5pcHlwZS5pbnRlcmZhY2VzLmlvIGltcG9ydCBTZWxlY3RGaWxlcywgRGF0YVNpbmsKZnJvbSBuaXB5cGUucGlwZWxpbmUuZW5naW5lIGltcG9ydCBXb3JrZmxvdywgTm9kZQ==&#39;</span><span class="p">)</span>
+&lt;hr/&gt;
+
+&lt;h2&gt;You want to help with this tutorial?&lt;/h2&gt;
+&lt;p&gt;Find the github repo of this tutorial under &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;https://github.com/miykael/nipype_course&lt;/a&gt;.
+    Feel free to send a pull request or leave an &lt;a href=&quot;https://github.com/miykael/nipype_tutorial/issues&quot;&gt;issue&lt;/a&gt; with your feedback or ideas.
+&lt;/p&gt;
+To inspect the html code of this page, click: &lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Show HTML code&quot;&gt;&lt;/form&gt;
 </pre></div>
 
 </div>
@@ -11828,61 +11911,148 @@ div#notebook {
 
 
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>%pylab inline
-from os.path import join as opj
-from nipype.interfaces.fsl import MCFLIRT, FLIRT
-from nipype.interfaces.afni import Resample
-from nipype.interfaces.spm import Smooth
-from nipype.interfaces.utility import IdentityInterface
-from nipype.interfaces.io import SelectFiles, DataSink
-from nipype.pipeline.engine import Workflow, Node
-</pre>
-</div>
+
+<div class="output_html rendered_html output_subarea ">
+<style>.container { width:75% !important; }</style>
+<link rel='stylesheet' type='text/css' href='../static/css_backup/mobile-package-094623.css'>
+<link rel='stylesheet' type='text/css' href='../static/css_backup/homepage-package-3bd234.css'>
+        
+<body>
+  <article id="homepage">
+    <a id="library-section"></a>
+    <div class="library-section">
+      <div class="section-separator library-section-separator">
+        <center><img src="../static/images/logoNipype_tutorial.png" width=700></center>
+        <p>Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
+            you everything so that you can start creating your own workflows in no time. We recommend that you start with
+            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
+            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
+            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
+            </p><p>
+            All of the notebooks used in this tutorial can be found on <a href="https://github.com/miykael/nipype_tutorial">github.com/miykael/nipype_tutorial</a>.
+            But if you want to have the real experience and want to go through the computations by yourself, we highly
+            recommend you to do the <a href="https://github.com/miykael/nipype_course">Nipype Course</a>. This course
+            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
+            Nipype yourself. For the tutorial, you need to install a <a href="www.docker.com/">Docker</a> image on your system that provides you a 
+            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
+            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
+            neuroimaging environment is based on the docker images under <a href="https://github.com/miykael/nipype_env">github.com/miykael/nipype_env</a>,
+            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
+            </p><p>
+            For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>.
+            And if you haven't had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
+            the <a href="https://miykael.github.io/nipype-beginner-s-guide/">detailed beginner's guide</a>.
+            </p>
+      </div>
+
+      <!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
+            argument to either science, computing, humanities, test-prep or economics-finance-domain-->
+
+      <!--to change the number of rows per column, change the last number in 'pure-u-1-3'.
+       For example, to have three columns, change the value to 'pure-u-1-3'-->
+        
+      <h2 class="domain-header economics-finance-domain"><a class="domain-title">Introduction</a></h2>
+      <div class="pure-g domain-table-container economics-finance-domain">
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_nipype.html">Nipype</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_jupyter-notebook.html">Jupyter-Notebook</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_dataset.html">Tutorial Dataset</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_docker.html">Docker</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_python.html">Python</a>
+      </div>
+      <p>This section is meant as a general overview. It should give you a short introduction to the main topics that
+          you need to understand to use Nipype and this tutorial.</p>
+
+      <h2 class="domain-header humanities"><a class="domain-title">Basic Concepts</a></h2>
+      <div class="pure-g domain-table-container humanities">
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_interfaces.html">Interfaces</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_nodes.html">Nodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_workflow.html">Workflow</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_graph_visualization.html">Graph Visualization</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_data_input.html">Data Input</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_data_output.html">Data Output</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_iteration.html">Iteration / Iterables</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_mapnodes.html">MapNodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_function_nodes.html">Function Nodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_joinnodes.html">JoinNodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_model_specification.html">Model Specification</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_import_workflows.html">Import existing Workflows</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_plugins.html">Execution Plugins</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_configuration.html">Execution Configuration</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_error_and_crashes.html">Errors & Crashes</a>
+      </div>
+      <p>This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
+          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
+          to create any kind of Nipype workflow.</p>
+
+      <h2 class="domain-header science"><a class="domain-title">Workflow Examples</a></h2>
+      <div class="pure-g domain-table-container science">
+        <a class="subject-link pure-u-1-4" target="_blank" href="example_preprocessing.html">Preprocessing</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="example_1stlevel.html">1st-level Analysis</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="example_normalize.html">Normalize Data</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="example_2ndlevel.html">2nd-level Analysis</a>
+      </div>
+      <p>In this section you will find some practical examples that show you how to use Nipype in a "real world" scenario.</p>
+
+      <h2 class="domain-header computing"><a class="domain-title">Advanced Concepts</a></h2>
+      <div class="pure-g domain-table-container computing">
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_commandline.html">Commandline Interface*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_caching.html">Caching*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_databases.html">Import from Database*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_export_workflow.html">Save Workflow to File*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_resources_and_profiling.html">Resources & Profiling*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_debug.html">Debug*</a>
+      </div>
+      <p>PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.</p>
+        
+      <h2 class="domain-header math"><a class="domain-title">For Developer</a></h2>
+      <div class="pure-g domain-table-container math">
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_report_issue.html">Report Issues*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_github.html">Help via Github*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_interface.html">Create your own Interface*</a>
+      </div>
+      <p>PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.</p>
+        
+      <h2 class="domain-header test-prep"><a class="domain-title">Useful Resources & Links</a></h2>
+      <div class="pure-g domain-table-container test-prep">
+        <a class="subject-link pure-u-1-4" target="_blank" href="resources_installation.html">Install Nipype</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="resources_resources.html">Useful Resources & Links</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="resources_help.html">Where to find Help</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="resources_python_cheat_sheet.html">Python Cheat Sheet</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="http://nipype.readthedocs.io/en/latest/">Nipype (homepage)</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="https://miykael.github.io/nipype-beginner-s-guide/">Nipype Beginner's Guide</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_tutorial">Github of Nipype Tutorial</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_course">Github of Nipype Course</a>
+      </div>
+      <p>This section will give you helpful links and resources, so that you always know where to go to learn more.</p>
+
+    </div>
+  </article>
+</body>
+
+<!--The following code will cause the code cell to disappear-->
+
+<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $('div.input').hide();
+ } else {
+ $('div.input').show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+</script>
+
+<hr/>
+
+<h2>You want to help with this tutorial?</h2>
+<p>Find the github repo of this tutorial under <a href="https://github.com/miykael/nipype_course">https://github.com/miykael/nipype_course</a>.
+    Feel free to send a pull request or leave an <a href="https://github.com/miykael/nipype_tutorial/issues">issue</a> with your feedback or ideas.
+</p>
+To inspect the html code of this page, click: <form action="javascript:code_toggle()"><input type="submit" value="Show HTML code"></form>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Idea-2:-Hide-answer-in-file">Idea 2: Hide answer in file<a class="anchor-link" href="#Idea-2:-Hide-answer-in-file">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">file</span> answer01.py
-%pylab inline
-from os.path import join as opj
-from nipype.interfaces.fsl import MCFLIRT, FLIRT
-from nipype.interfaces.afni import Resample
-from nipype.interfaces.spm import Smooth
-from nipype.interfaces.utility import IdentityInterface
-from nipype.interfaces.io import SelectFiles, DataSink
-from nipype.pipeline.engine import Workflow, Node
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Writing answer01.py
-</pre>
-</div>
 </div>
 
 </div>
@@ -11894,7 +12064,7 @@ from nipype.pipeline.engine import Workflow, Node
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">load</span> answer01.py
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>
