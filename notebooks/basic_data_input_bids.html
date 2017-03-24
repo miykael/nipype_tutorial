@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>index</title>
+<title>basic_data_input_bids</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11756,132 +11756,472 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-input-for-BIDS-datasets">Data input for BIDS datasets<a class="anchor-link" href="#Data-input-for-BIDS-datasets">&#182;</a></h2><p><code>DataGrabber</code> and <code>SelectFiles</code> are great if you are dealing with generic datasets with arbitrary organization. However if you have decided to use Brain Imaging Data Structure (BIDS) to organized your data (or got your hands on a BIDS dataset) you can take advanted of a formal structure BIDS imposes. In this short tutorial you will learn how to do this.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="pybids---a-Python-API-for-working-with-BIDS-datasets"><code>pybids</code> - a Python API for working with BIDS datasets<a class="anchor-link" href="#pybids---a-Python-API-for-working-with-BIDS-datasets">&#182;</a></h2><p><code>pybids</code> is a lightweight python API for querying BIDS folder structure for specific files and metadata. You can install it from PyPi:</p>
+
+<pre><code>pip install bids</code></pre>
+<p>Please note it should be already installed in the tutorial Docker image.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-layout-object-and-simple-queries">The <code>layout</code> object and simple queries<a class="anchor-link" href="#The-layout-object-and-simple-queries">&#182;</a></h2><p>To begin working with pubids we need to initalize a layout object. We will need it to do all of our queries</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;style&gt;.container { width:75% !important; }&lt;/style&gt;
-&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css_backup/mobile-package-094623.css&#39;&gt;
-&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css_backup/homepage-package-3bd234.css&#39;&gt;
-        
-&lt;body&gt;
-  &lt;article id=&quot;homepage&quot;&gt;
-    &lt;a id=&quot;library-section&quot;&gt;&lt;/a&gt;
-    &lt;div class=&quot;library-section&quot;&gt;
-      &lt;div class=&quot;section-separator library-section-separator&quot;&gt;
-        &lt;center&gt;&lt;img src=&quot;static/images/logoNipype_tutorial.png&quot; width=700&gt;&lt;/center&gt;
-        &lt;p&gt;Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
-            you everything so that you can start creating your own workflows in no time. We recommend that you start with
-            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
-            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
-            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
-            &lt;/p&gt;&lt;p&gt;
-            All of the notebooks used in this tutorial can be found on &lt;a href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;github.com/miykael/nipype_tutorial&lt;/a&gt;.
-            But if you want to have the real experience and want to go through the computations by yourself, we highly
-            recommend you to do the &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Nipype Course&lt;/a&gt;. This course
-            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
-            Nipype yourself. For the tutorial, you need to install a &lt;a href=&quot;http://www.docker.com/&quot;&gt;Docker&lt;/a&gt; image on your system that provides you a 
-            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
-            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
-            neuroimaging environment is based on the docker images under &lt;a href=&quot;https://github.com/miykael/nipype_env&quot;&gt;github.com/miykael/nipype_env&lt;/a&gt;,
-            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
-            &lt;/p&gt;&lt;p&gt;
-            For everything that isn&#39;t covered in this tutorial, check out the &lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;main homepage&lt;/a&gt;.
-            And if you haven&#39;t had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
-            the &lt;a href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;detailed beginner&#39;s guide&lt;/a&gt;.
-            &lt;/p&gt;
-      &lt;/div&gt;
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="kn">import</span> <span class="n">BIDSLayout</span>
+<span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="s2">&quot;/data/ds102/&quot;</span><span class="p">)</span>
+</pre></div>
 
-      &lt;!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
-            argument to either science, computing, humanities, test-prep or economics-finance-domain--&gt;
+</div>
+</div>
+</div>
 
-      &lt;!--to change the number of rows per column, change the last number in &#39;pure-u-1-3&#39;.
-       For example, to have three columns, change the value to &#39;pure-u-1-3&#39;--&gt;
-        
-      &lt;h2 class=&quot;domain-header economics-finance-domain&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Introduction&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container economics-finance-domain&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_nipype.html&quot;&gt;Nipype&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_jupyter-notebook.html&quot;&gt;Jupyter-Notebook&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_dataset.html&quot;&gt;BIDS &amp; Tutorial Dataset&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_docker.html&quot;&gt;Docker&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_python.html&quot;&gt;Python&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section is meant as a general overview. It should give you a short introduction to the main topics that
-          you need to understand to use Nipype and this tutorial.&lt;/p&gt;
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's figure out what are the subject labels in this dataset</p>
 
-      &lt;h2 class=&quot;domain-header humanities&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Basic Concepts&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container humanities&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_interfaces.html&quot;&gt;Interfaces&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_nodes.html&quot;&gt;Nodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_workflow.html&quot;&gt;Workflow&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_graph_visualization.html&quot;&gt;Graph Visualization&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_input.html&quot;&gt;Data Input&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_input_bids.html&quot;&gt;Data Input with BIDS&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_output.html&quot;&gt;Data Output&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_iteration.html&quot;&gt;Iteration / Iterables&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_mapnodes.html&quot;&gt;MapNodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_function_nodes.html&quot;&gt;Function Nodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_joinnodes.html&quot;&gt;JoinNodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_model_specification.html&quot;&gt;Model Specification&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_import_workflows.html&quot;&gt;Import existing Workflows&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_plugins.html&quot;&gt;Execution Plugins&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_configuration.html&quot;&gt;Execution Configuration&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_error_and_crashes.html&quot;&gt;Errors &amp; Crashes&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
-          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
-          to create any kind of Nipype workflow.&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_subjects</span><span class="p">()</span>
+</pre></div>
 
-      &lt;h2 class=&quot;domain-header science&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Workflow Examples&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container science&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_preprocessing.html&quot;&gt;Preprocessing&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_1stlevel.html&quot;&gt;1st-level Analysis&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_normalize.html&quot;&gt;Normalize Data&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_2ndlevel.html&quot;&gt;2nd-level Analysis&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_metaflow.html&quot;&gt;Metaflow&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;In this section you will find some practical examples that show you how to use Nipype in a &quot;real world&quot; scenario.&lt;/p&gt;
+</div>
+</div>
+</div>
 
-      &lt;h2 class=&quot;domain-header test-prep&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container test-prep&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_installation.html&quot;&gt;Install Nipype&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_resources.html&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_help.html&quot;&gt;Where to find Help&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_python_cheat_sheet.html&quot;&gt;Python Cheat Sheet&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;Nipype (homepage)&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;Nipype Beginner&#39;s Guide&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;Github of Nipype Tutorial&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Github of Nipype Course&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section will give you helpful links and resources, so that you always know where to go to learn more.&lt;/p&gt;
+<div class="output_wrapper">
+<div class="output">
 
-    &lt;/div&gt;
-  &lt;/article&gt;
-&lt;/body&gt;
 
-&lt;!--The following code will cause the code cell to disappear--&gt;
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
-&lt;script&gt;
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $(&#39;div.input&#39;).hide();
- } else {
- $(&#39;div.input&#39;).show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-&lt;/script&gt;
 
-&lt;hr/&gt;
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;01&#39;, &#39;02&#39;, &#39;03&#39;, &#39;04&#39;, &#39;05&#39;]</pre>
+</div>
 
-&lt;h2&gt;You want to help with this tutorial?&lt;/h2&gt;
-&lt;p&gt;Find the github repo of this tutorial under &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;https://github.com/miykael/nipype_course&lt;/a&gt;.
-    Feel free to send a pull request or leave an &lt;a href=&quot;https://github.com/miykael/nipype_tutorial/issues&quot;&gt;issue&lt;/a&gt; with your feedback or ideas.
-&lt;/p&gt;
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What modalities are included in this dataset?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_modalities</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;anat&#39;, &#39;func&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What different data types are included in this dataset?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_types</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;bold&#39;, &#39;events&#39;, &#39;T1w&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_types</span><span class="p">(</span><span class="n">modality</span><span class="o">=</span><span class="s1">&#39;func&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;bold&#39;, &#39;events&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What are the different tasks included in this dataset?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_tasks</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;flanker&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also ask for all of the data for a particular subject.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[File(filename=&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;, type=&#39;T1w&#39;, modality=&#39;anat&#39;, subject=&#39;01&#39;),
+ File(filename=&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, type=&#39;bold&#39;, task=&#39;flanker&#39;, run=&#39;1&#39;, modality=&#39;func&#39;, subject=&#39;01&#39;),
+ File(filename=&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_events.tsv&#39;, type=&#39;events&#39;, task=&#39;flanker&#39;, run=&#39;1&#39;, modality=&#39;func&#39;, subject=&#39;01&#39;),
+ File(filename=&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;, type=&#39;bold&#39;, task=&#39;flanker&#39;, run=&#39;2&#39;, modality=&#39;func&#39;, subject=&#39;01&#39;),
+ File(filename=&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_events.tsv&#39;, type=&#39;events&#39;, task=&#39;flanker&#39;, run=&#39;2&#39;, modality=&#39;func&#39;, subject=&#39;01&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also ask for a specific subset of data. Note that we are using extension filter to get just the imaging data (BIDS allows both .nii and .nii.gz so we need to include both).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[File(filename=&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, type=&#39;bold&#39;, task=&#39;flanker&#39;, run=&#39;1&#39;, modality=&#39;func&#39;, subject=&#39;01&#39;),
+ File(filename=&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;, type=&#39;bold&#39;, task=&#39;flanker&#39;, run=&#39;2&#39;, modality=&#39;func&#39;, subject=&#39;01&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You probably noticed that this method does not only return the file paths, but objects with relevant query fields. We can easily extract just the file paths.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;T1w&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Including-pybids-in-your-nipype-workflow">Including <code>pybids</code> in your <code>nipype</code> workflow<a class="anchor-link" href="#Including-pybids-in-your-nipype-workflow">&#182;</a></h2><p>This is great, but what we really want is to include this into our <code>nipype</code> workflows. How to do this? We can create our own custom <code>BIDSDataGrabber</code> using a <code>Function</code> Interface. First we need a plain Python function that for a given subject label and dataset location will return list of BOLD and T1w files.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_niftis</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
+    <span class="c1"># Remember that all the necesary imports need to be INSIDE the function for the Function Interface to work!</span>
+    <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="kn">import</span> <span class="n">BIDSLayout</span>
+    
+    <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+    
+    <span class="n">bolds</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])]</span>
+    <span class="n">T1ws</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;T1w&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])]</span>
+    
+    <span class="k">return</span> <span class="n">bolds</span><span class="p">,</span> <span class="n">T1ws</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">get_niftis</span><span class="p">(</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;/data/ds102&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>([&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
+  &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;],
+ [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ok we got our function. Now we need to wrap it inside a Node object.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.pipeline</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="kn">import</span> <span class="n">IdentityInterface</span><span class="p">,</span> <span class="n">Function</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_niftis</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span>
+                                       <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
+                                   <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bolds&quot;</span><span class="p">,</span> 
+                                        <span class="s2">&quot;T1ws&quot;</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;BIDSDataGrabber&quot;</span><span class="p">)</span>
+<span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds102&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span><span class="o">=</span><span class="s1">&#39;01&#39;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">res</span><span class="o">.</span><span class="n">outputs</span>
 </pre></div>
 
 </div>
@@ -11893,145 +12233,498 @@ $( document ).ready(code_toggle);
 
 
 <div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170324-16:47:04,997 workflow INFO:
+	 Executing node BIDSDataGrabber in dir: /tmp/tmpsAYO9O/BIDSDataGrabber
+</pre>
+</div>
+</div>
 
-<div class="output_html rendered_html output_subarea ">
-<style>.container { width:75% !important; }</style>
-<link rel='stylesheet' type='text/css' href='static/css_backup/mobile-package-094623.css'>
-<link rel='stylesheet' type='text/css' href='static/css_backup/homepage-package-3bd234.css'>
-        
-<body>
-  <article id="homepage">
-    <a id="library-section"></a>
-    <div class="library-section">
-      <div class="section-separator library-section-separator">
-        <center><img src="static/images/logoNipype_tutorial.png" width=700></center>
-        <p>Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
-            you everything so that you can start creating your own workflows in no time. We recommend that you start with
-            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
-            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
-            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
-            </p><p>
-            All of the notebooks used in this tutorial can be found on <a href="https://github.com/miykael/nipype_tutorial">github.com/miykael/nipype_tutorial</a>.
-            But if you want to have the real experience and want to go through the computations by yourself, we highly
-            recommend you to do the <a href="https://github.com/miykael/nipype_course">Nipype Course</a>. This course
-            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
-            Nipype yourself. For the tutorial, you need to install a <a href="http://www.docker.com/">Docker</a> image on your system that provides you a 
-            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
-            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
-            neuroimaging environment is based on the docker images under <a href="https://github.com/miykael/nipype_env">github.com/miykael/nipype_env</a>,
-            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
-            </p><p>
-            For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>.
-            And if you haven't had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
-            the <a href="https://miykael.github.io/nipype-beginner-s-guide/">detailed beginner's guide</a>.
-            </p>
-      </div>
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
 
-      <!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
-            argument to either science, computing, humanities, test-prep or economics-finance-domain-->
 
-      <!--to change the number of rows per column, change the last number in 'pure-u-1-3'.
-       For example, to have three columns, change the value to 'pure-u-1-3'-->
-        
-      <h2 class="domain-header economics-finance-domain"><a class="domain-title">Introduction</a></h2>
-      <div class="pure-g domain-table-container economics-finance-domain">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_nipype.html">Nipype</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_jupyter-notebook.html">Jupyter-Notebook</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_dataset.html">BIDS & Tutorial Dataset</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_docker.html">Docker</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_python.html">Python</a>
-      </div>
-      <p>This section is meant as a general overview. It should give you a short introduction to the main topics that
-          you need to understand to use Nipype and this tutorial.</p>
-
-      <h2 class="domain-header humanities"><a class="domain-title">Basic Concepts</a></h2>
-      <div class="pure-g domain-table-container humanities">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_interfaces.html">Interfaces</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_nodes.html">Nodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_workflow.html">Workflow</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_graph_visualization.html">Graph Visualization</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_input.html">Data Input</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_input_bids.html">Data Input with BIDS</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_output.html">Data Output</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_iteration.html">Iteration / Iterables</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_mapnodes.html">MapNodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_function_nodes.html">Function Nodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_joinnodes.html">JoinNodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_model_specification.html">Model Specification</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_import_workflows.html">Import existing Workflows</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_plugins.html">Execution Plugins</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_configuration.html">Execution Configuration</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_error_and_crashes.html">Errors & Crashes</a>
-      </div>
-      <p>This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
-          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
-          to create any kind of Nipype workflow.</p>
-
-      <h2 class="domain-header science"><a class="domain-title">Workflow Examples</a></h2>
-      <div class="pure-g domain-table-container science">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_preprocessing.html">Preprocessing</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_1stlevel.html">1st-level Analysis</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_normalize.html">Normalize Data</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_2ndlevel.html">2nd-level Analysis</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_metaflow.html">Metaflow</a>
-      </div>
-      <p>In this section you will find some practical examples that show you how to use Nipype in a "real world" scenario.</p>
-
-      <h2 class="domain-header test-prep"><a class="domain-title">Useful Resources & Links</a></h2>
-      <div class="pure-g domain-table-container test-prep">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_installation.html">Install Nipype</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_resources.html">Useful Resources & Links</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_help.html">Where to find Help</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_python_cheat_sheet.html">Python Cheat Sheet</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="http://nipype.readthedocs.io/en/latest/">Nipype (homepage)</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="https://miykael.github.io/nipype-beginner-s-guide/">Nipype Beginner's Guide</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_tutorial">Github of Nipype Tutorial</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_course">Github of Nipype Course</a>
-      </div>
-      <p>This section will give you helpful links and resources, so that you always know where to go to learn more.</p>
-
-    </div>
-  </article>
-</body>
-
-<!--The following code will cause the code cell to disappear-->
-
-<script>
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- } else {
- $('div.input').show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-</script>
-
-<hr/>
-
-<h2>You want to help with this tutorial?</h2>
-<p>Find the github repo of this tutorial under <a href="https://github.com/miykael/nipype_course">https://github.com/miykael/nipype_course</a>.
-    Feel free to send a pull request or leave an <a href="https://github.com/miykael/nipype_tutorial/issues">issue</a> with your feedback or ideas.
-</p>
+<div class="output_text output_subarea output_execute_result">
+<pre>
+T1ws = [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
+bolds = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;]</pre>
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Works like a charm! (hopefully :) Lets put it in a workflow. We are not going to analyze any data, but for demostrantion purposes we will add a couple of nodes that pretend to analyze their inputs</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">printMe</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="n">analyzeBOLD</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMe</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;paths&quot;</span><span class="p">],</span>
+                                   <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeBOLD&quot;</span><span class="p">)</span>
+
+<span class="n">analyzeT1w</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMe</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;paths&quot;</span><span class="p">],</span>
+                                   <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeT1w&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;T1ws&quot;</span><span class="p">,</span> <span class="n">analyzeT1w</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170324-16:47:05,273 workflow INFO:
+	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170324-16:47:05,437 workflow INFO:
+	 Running serially.
+170324-16:47:05,438 workflow INFO:
+	 Executing node BIDSDataGrabber in dir: /tmp/tmpE9XT25/bids_demo/BIDSDataGrabber
+170324-16:47:05,483 workflow INFO:
+	 Executing node analyzeBOLD in dir: /tmp/tmpfQYORd/bids_demo/analyzeBOLD
+
+
+analyzing [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;]
+
+
+170324-16:47:05,513 workflow INFO:
+	 Executing node analyzeT1w in dir: /tmp/tmp8YkknY/bids_demo/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
+
+
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f64060a6c50&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Iterating-over-subject-labels">Iterating over subject labels<a class="anchor-link" href="#Iterating-over-subject-labels">&#182;</a></h2><p>In the previous example we demostrated how to use <code>pybids</code> to "analyze" one subject. How can we scale it for all subjects? Easy - using <code>iterables</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">.</span><span class="n">get_subjects</span><span class="p">())</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170324-16:47:05,572 workflow INFO:
+	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170324-16:47:05,753 workflow INFO:
+	 Running serially.
+170324-16:47:05,757 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a3 in dir: /tmp/tmp8BCLDf/bids_demo/_subject_id_04/BIDSDataGrabber
+170324-16:47:05,826 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmpUxqmKs/bids_demo/_subject_id_01/BIDSDataGrabber
+170324-16:47:05,896 workflow INFO:
+	 Executing node analyzeBOLD.a0 in dir: /tmp/tmp8SXshs/bids_demo/_subject_id_01/analyzeBOLD
+
+
+analyzing [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;]
+
+
+170324-16:47:05,920 workflow INFO:
+	 Executing node analyzeBOLD.a3 in dir: /tmp/tmpQk6EGe/bids_demo/_subject_id_04/analyzeBOLD
+
+
+analyzing [&#39;/data/ds102/sub-04/func/sub-04_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-04/func/sub-04_task-flanker_run-2_bold.nii.gz&#39;]
+
+
+170324-16:47:05,975 workflow INFO:
+	 Executing node analyzeT1w.a0 in dir: /tmp/tmp1Z1SJ6/bids_demo/_subject_id_01/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
+
+
+170324-16:47:06,22 workflow INFO:
+	 Executing node analyzeT1w.a3 in dir: /tmp/tmpOfa_oc/bids_demo/_subject_id_04/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-04/anat/sub-04_T1w.nii.gz&#39;]
+
+
+170324-16:47:06,63 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmpHuRRIx/bids_demo/_subject_id_02/BIDSDataGrabber
+170324-16:47:06,117 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a4 in dir: /tmp/tmpCaS_xl/bids_demo/_subject_id_05/BIDSDataGrabber
+170324-16:47:06,171 workflow INFO:
+	 Executing node analyzeT1w.a4 in dir: /tmp/tmp8KBmaT/bids_demo/_subject_id_05/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-05/anat/sub-05_T1w.nii.gz&#39;]
+
+
+170324-16:47:06,199 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a2 in dir: /tmp/tmpk3LT4l/bids_demo/_subject_id_03/BIDSDataGrabber
+170324-16:47:06,255 workflow INFO:
+	 Executing node analyzeT1w.a2 in dir: /tmp/tmpStWfNV/bids_demo/_subject_id_03/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-03/anat/sub-03_T1w.nii.gz&#39;]
+
+
+170324-16:47:06,279 workflow INFO:
+	 Executing node analyzeBOLD.a2 in dir: /tmp/tmpapDDOU/bids_demo/_subject_id_03/analyzeBOLD
+
+
+analyzing [&#39;/data/ds102/sub-03/func/sub-03_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-03/func/sub-03_task-flanker_run-2_bold.nii.gz&#39;]
+
+
+170324-16:47:06,327 workflow INFO:
+	 Executing node analyzeT1w.a1 in dir: /tmp/tmpWhAfcq/bids_demo/_subject_id_02/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&#39;]
+
+
+170324-16:47:06,369 workflow INFO:
+	 Executing node analyzeBOLD.a4 in dir: /tmp/tmpl0rSeP/bids_demo/_subject_id_05/analyzeBOLD
+
+
+analyzing [&#39;/data/ds102/sub-05/func/sub-05_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-05/func/sub-05_task-flanker_run-2_bold.nii.gz&#39;]
+
+
+170324-16:47:06,407 workflow INFO:
+	 Executing node analyzeBOLD.a1 in dir: /tmp/tmpzhm7T0/bids_demo/_subject_id_02/analyzeBOLD
+
+
+analyzing [&#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-2_bold.nii.gz&#39;]
+
+
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f64060a6e10&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Accessing-additional-metadata">Accessing additional metadata<a class="anchor-link" href="#Accessing-additional-metadata">&#182;</a></h2><p>Querying different files is nice, but sometimes you want to access more metadata. For example <code>RepetitionTime</code>. <code>pybids</code> can help with that as well</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{u&#39;CogAtlasID&#39;: u&#39;tsk_4a57abb949a4f&#39;,
+ u&#39;EchoTime&#39;: 0.03,
+ u&#39;FlipAngle&#39;: 80.0,
+ u&#39;MRAcquisitionType&#39;: u&#39;2D&#39;,
+ u&#39;MagneticFieldStrength&#39;: 3.0,
+ u&#39;Manufacturer&#39;: u&#39;Siemens&#39;,
+ u&#39;ManufacturerModelName&#39;: u&#39;Allegra&#39;,
+ u&#39;RepetitionTime&#39;: 2.0,
+ u&#39;ScanningSequence&#39;: u&#39;Echo Planar&#39;,
+ u&#39;TaskDescription&#39;: u&#39;On each trial (inter-trial interval (ITI) varied between 8 s and 14 s; mean ITI=12 s),participants used one of two buttons on a response pad to indicate the direction of a central arrow in an array of 5 arrows. In congruent trials the flanking arrows pointed in the same direction as the central arrow (e.g., &lt; &lt; &lt; &lt; &lt;), while in more demanding incongruent trials the flanking arrows pointed in the opposite direction (e.g., &lt; &lt; &gt; &lt; &lt;). Subjects performed two 5-minute blocks, each containing 12 congruent and 12 incongruent trials, presented in a pseudorandom order.&#39;,
+ u&#39;TaskName&#39;: u&#39;Flanker&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Can we incorporate this into our pipeline? Yes we can!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">printMetadata</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="kn">import</span> <span class="n">BIDSLayout</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TR: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="s2">&quot;RepetitionTime&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="n">analyzeBOLD2</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMetadata</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
+                             <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeBOLD2&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">)</span>
+<span class="n">analyzeBOLD2</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds102/&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD2</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;T1ws&quot;</span><span class="p">,</span> <span class="n">analyzeT1w</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170324-16:47:06,580 workflow INFO:
+	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170324-16:47:06,772 workflow INFO:
+	 Running serially.
+170324-16:47:06,776 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a3 in dir: /tmp/tmpcgwNa6/bids_demo/_subject_id_04/BIDSDataGrabber
+170324-16:47:06,862 workflow INFO:
+	 Executing node analyzeBOLD2.a3 in dir: /tmp/tmpMj_ARH/bids_demo/_subject_id_04/analyzeBOLD2
+170324-16:47:06,886 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpMj_ARH/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds102/sub-04/func/sub-04_task-flanker_run-1_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:06,930 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpMj_ARH/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds102/sub-04/func/sub-04_task-flanker_run-2_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:06,992 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmpSCLTf6/bids_demo/_subject_id_01/BIDSDataGrabber
+170324-16:47:07,39 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmpgZSTa5/bids_demo/_subject_id_02/BIDSDataGrabber
+170324-16:47:07,95 workflow INFO:
+	 Executing node analyzeT1w.a3 in dir: /tmp/tmpjNja2B/bids_demo/_subject_id_04/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-04/anat/sub-04_T1w.nii.gz&#39;]
+
+
+170324-16:47:07,122 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a4 in dir: /tmp/tmp_oDiJo/bids_demo/_subject_id_05/BIDSDataGrabber
+170324-16:47:07,202 workflow INFO:
+	 Executing node analyzeBOLD2.a0 in dir: /tmp/tmpnNFANQ/bids_demo/_subject_id_01/analyzeBOLD2
+170324-16:47:07,234 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpnNFANQ/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:07,266 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpnNFANQ/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:07,332 workflow INFO:
+	 Executing node analyzeT1w.a4 in dir: /tmp/tmpTz6Dog/bids_demo/_subject_id_05/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-05/anat/sub-05_T1w.nii.gz&#39;]
+
+
+170324-16:47:07,365 workflow INFO:
+	 Executing node analyzeT1w.a0 in dir: /tmp/tmpzKnJ_z/bids_demo/_subject_id_01/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
+
+
+170324-16:47:07,414 workflow INFO:
+	 Executing node analyzeBOLD2.a1 in dir: /tmp/tmpUJWQtL/bids_demo/_subject_id_02/analyzeBOLD2
+170324-16:47:07,444 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpUJWQtL/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:07,498 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpUJWQtL/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds102/sub-02/func/sub-02_task-flanker_run-2_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:07,553 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a2 in dir: /tmp/tmp4mgUuJ/bids_demo/_subject_id_03/BIDSDataGrabber
+170324-16:47:07,616 workflow INFO:
+	 Executing node analyzeBOLD2.a2 in dir: /tmp/tmpph_j4s/bids_demo/_subject_id_03/analyzeBOLD2
+170324-16:47:07,645 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpph_j4s/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds102/sub-03/func/sub-03_task-flanker_run-1_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:07,703 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpph_j4s/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds102/sub-03/func/sub-03_task-flanker_run-2_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:07,784 workflow INFO:
+	 Executing node analyzeBOLD2.a4 in dir: /tmp/tmpCBrCUd/bids_demo/_subject_id_05/analyzeBOLD2
+170324-16:47:07,804 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpCBrCUd/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds102/sub-05/func/sub-05_task-flanker_run-1_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:07,866 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpCBrCUd/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds102/sub-05/func/sub-05_task-flanker_run-2_bold.nii.gz
+TR: 2.0
+
+
+170324-16:47:07,944 workflow INFO:
+	 Executing node analyzeT1w.a1 in dir: /tmp/tmpvmxf30/bids_demo/_subject_id_02/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&#39;]
+
+
+170324-16:47:07,997 workflow INFO:
+	 Executing node analyzeT1w.a2 in dir: /tmp/tmp6pXqQI/bids_demo/_subject_id_03/analyzeT1w
+
+
+analyzing [&#39;/data/ds102/sub-03/anat/sub-03_T1w.nii.gz&#39;]
+
+
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f640601a6d0&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
