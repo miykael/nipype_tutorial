@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_data_input_bids</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>basic_data_input_bids</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11773,7 +11796,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="pybids---a-Python-API-for-working-with-BIDS-datasets"><code>pybids</code> - a Python API for working with BIDS datasets<a class="anchor-link" href="#pybids---a-Python-API-for-working-with-BIDS-datasets">&#182;</a></h2><p><code>pybids</code> is a lightweight python API for querying BIDS folder structure for specific files and metadata. You can install it from PyPi:</p>
 
-<pre><code>pip install bids</code></pre>
+<pre><code>pip install pybids</code></pre>
 <p>Please note it should be already installed in the tutorial Docker image.</p>
 
 </div>
@@ -11803,6 +11826,83 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>tree /data/ds102/
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/data/ds102/
+├── CHANGES
+├── dataset_description.json
+├── participants.tsv
+├── README
+├── sub-01
+│   ├── anat
+│   │   └── sub-01_T1w.nii.gz
+│   └── func
+│       ├── sub-01_task-flanker_run-1_bold.nii.gz
+│       ├── sub-01_task-flanker_run-1_events.tsv
+│       ├── sub-01_task-flanker_run-2_bold.nii.gz
+│       └── sub-01_task-flanker_run-2_events.tsv
+├── sub-02
+│   ├── anat
+│   │   └── sub-02_T1w.nii.gz
+│   └── func
+│       ├── sub-02_task-flanker_run-1_bold.nii.gz
+│       ├── sub-02_task-flanker_run-1_events.tsv
+│       ├── sub-02_task-flanker_run-2_bold.nii.gz
+│       └── sub-02_task-flanker_run-2_events.tsv
+├── sub-03
+│   ├── anat
+│   │   └── sub-03_T1w.nii.gz
+│   └── func
+│       ├── sub-03_task-flanker_run-1_bold.nii.gz
+│       ├── sub-03_task-flanker_run-1_events.tsv
+│       ├── sub-03_task-flanker_run-2_bold.nii.gz
+│       └── sub-03_task-flanker_run-2_events.tsv
+├── sub-04
+│   ├── anat
+│   │   └── sub-04_T1w.nii.gz
+│   └── func
+│       ├── sub-04_task-flanker_run-1_bold.nii.gz
+│       ├── sub-04_task-flanker_run-1_events.tsv
+│       ├── sub-04_task-flanker_run-2_bold.nii.gz
+│       └── sub-04_task-flanker_run-2_events.tsv
+├── sub-05
+│   ├── anat
+│   │   └── sub-05_T1w.nii.gz
+│   └── func
+│       ├── sub-05_task-flanker_run-1_bold.nii.gz
+│       ├── sub-05_task-flanker_run-1_events.tsv
+│       ├── sub-05_task-flanker_run-2_bold.nii.gz
+│       └── sub-05_task-flanker_run-2_events.tsv
+├── T1w.json
+└── task-flanker_bold.json
+
+15 directories, 31 files
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11815,7 +11915,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_subjects</span><span class="p">()</span>
@@ -11829,7 +11929,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11854,7 +11956,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_modalities</span><span class="p">()</span>
@@ -11868,7 +11970,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11893,7 +11997,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_types</span><span class="p">()</span>
@@ -11907,7 +12011,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11922,7 +12028,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_types</span><span class="p">(</span><span class="n">modality</span><span class="o">=</span><span class="s1">&#39;func&#39;</span><span class="p">)</span>
@@ -11936,7 +12042,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11961,7 +12069,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_tasks</span><span class="p">()</span>
@@ -11975,7 +12083,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12000,7 +12110,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">)</span>
@@ -12014,7 +12124,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12043,7 +12155,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])</span>
@@ -12057,7 +12169,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12083,7 +12197,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;T1w&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])]</span>
@@ -12097,7 +12211,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12115,6 +12231,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise-1:">Exercise 1:<a class="anchor-link" href="#Exercise-1:">&#182;</a></h3><p>List all of the BOLD files for flanker task for subject 03, but only from the second run</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Including-pybids-in-your-nipype-workflow">Including <code>pybids</code> in your <code>nipype</code> workflow<a class="anchor-link" href="#Including-pybids-in-your-nipype-workflow">&#182;</a></h2><p>This is great, but what we really want is to include this into our <code>nipype</code> workflows. How to do this? We can create our own custom <code>BIDSDataGrabber</code> using a <code>Function</code> Interface. First we need a plain Python function that for a given subject label and dataset location will return list of BOLD and T1w files.</p>
 
 </div>
@@ -12122,7 +12248,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_niftis</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
@@ -12132,9 +12258,8 @@ div#notebook {
     <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
     
     <span class="n">bolds</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])]</span>
-    <span class="n">T1ws</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;T1w&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])]</span>
     
-    <span class="k">return</span> <span class="n">bolds</span><span class="p">,</span> <span class="n">T1ws</span>
+    <span class="k">return</span> <span class="n">bolds</span>
 </pre></div>
 
 </div>
@@ -12144,7 +12269,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">get_niftis</span><span class="p">(</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;/data/ds102&#39;</span><span class="p">)</span>
@@ -12158,13 +12283,14 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>([&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
-  &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;],
- [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;])</pre>
+<pre>[&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;,
+ &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;]</pre>
 </div>
 
 </div>
@@ -12185,7 +12311,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.pipeline</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
@@ -12199,7 +12325,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_niftis</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span>
@@ -12216,7 +12342,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span><span class="o">=</span><span class="s1">&#39;01&#39;</span>
@@ -12232,21 +12358,25 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170324-16:47:04,997 workflow INFO:
-	 Executing node BIDSDataGrabber in dir: /tmp/tmpsAYO9O/BIDSDataGrabber
+<pre>170325-00:11:17,133 workflow INFO:
+	 Executing node BIDSDataGrabber in dir: /tmp/tmpIvJ0lL/BIDSDataGrabber
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>
-T1ws = [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
-bolds = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;]</pre>
+T1ws = /data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz
+bolds = /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz</pre>
 </div>
 
 </div>
@@ -12267,17 +12397,14 @@ bolds = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">printMe</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
     
 <span class="n">analyzeBOLD</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMe</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;paths&quot;</span><span class="p">],</span>
-                                   <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeBOLD&quot;</span><span class="p">)</span>
-
-<span class="n">analyzeT1w</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMe</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;paths&quot;</span><span class="p">],</span>
-                                   <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeT1w&quot;</span><span class="p">)</span>
+                            <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeBOLD&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12287,12 +12414,11 @@ bolds = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;T1ws&quot;</span><span class="p">,</span> <span class="n">analyzeT1w</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
@@ -12304,37 +12430,34 @@ bolds = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170324-16:47:05,273 workflow INFO:
+<pre>170325-00:11:17,378 workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170324-16:47:05,437 workflow INFO:
+170325-00:11:17,610 workflow INFO:
 	 Running serially.
-170324-16:47:05,438 workflow INFO:
-	 Executing node BIDSDataGrabber in dir: /tmp/tmpE9XT25/bids_demo/BIDSDataGrabber
-170324-16:47:05,483 workflow INFO:
-	 Executing node analyzeBOLD in dir: /tmp/tmpfQYORd/bids_demo/analyzeBOLD
+170325-00:11:17,612 workflow INFO:
+	 Executing node BIDSDataGrabber in dir: /tmp/tmpgVOH_Z/bids_demo/BIDSDataGrabber
+170325-00:11:17,676 workflow INFO:
+	 Executing node analyzeBOLD in dir: /tmp/tmpoesKqC/bids_demo/analyzeBOLD
 
 
-analyzing [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;]
-
-
-170324-16:47:05,513 workflow INFO:
-	 Executing node analyzeT1w in dir: /tmp/tmp8YkknY/bids_demo/analyzeT1w
-
-
-analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
+analyzing /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
 
 
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f64060a6c50&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7efda2cc9a10&gt;</pre>
 </div>
 
 </div>
@@ -12348,6 +12471,16 @@ analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise-2:">Exercise 2:<a class="anchor-link" href="#Exercise-2:">&#182;</a></h3><p>Modify the <code>BIDSDataGrabber</code> and the workflow to include T1ws.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Iterating-over-subject-labels">Iterating over subject labels<a class="anchor-link" href="#Iterating-over-subject-labels">&#182;</a></h2><p>In the previous example we demostrated how to use <code>pybids</code> to "analyze" one subject. How can we scale it for all subjects? Easy - using <code>iterables</code>.</p>
 
 </div>
@@ -12355,7 +12488,7 @@ analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">.</span><span class="n">get_subjects</span><span class="p">())</span>
@@ -12370,101 +12503,70 @@ analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170324-16:47:05,572 workflow INFO:
+<pre>170325-00:11:17,770 workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170324-16:47:05,753 workflow INFO:
+170325-00:11:17,973 workflow INFO:
 	 Running serially.
-170324-16:47:05,757 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a3 in dir: /tmp/tmp8BCLDf/bids_demo/_subject_id_04/BIDSDataGrabber
-170324-16:47:05,826 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmpUxqmKs/bids_demo/_subject_id_01/BIDSDataGrabber
-170324-16:47:05,896 workflow INFO:
-	 Executing node analyzeBOLD.a0 in dir: /tmp/tmp8SXshs/bids_demo/_subject_id_01/analyzeBOLD
+170325-00:11:17,977 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmppeNgld/bids_demo/_subject_id_01/BIDSDataGrabber
+170325-00:11:18,55 workflow INFO:
+	 Executing node analyzeBOLD.a0 in dir: /tmp/tmpQkxaL3/bids_demo/_subject_id_01/analyzeBOLD
 
 
-analyzing [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;]
+analyzing /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
 
 
-170324-16:47:05,920 workflow INFO:
-	 Executing node analyzeBOLD.a3 in dir: /tmp/tmpQk6EGe/bids_demo/_subject_id_04/analyzeBOLD
+170325-00:11:18,128 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a4 in dir: /tmp/tmpZ3qzlP/bids_demo/_subject_id_05/BIDSDataGrabber
+170325-00:11:18,220 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a3 in dir: /tmp/tmpXC27i8/bids_demo/_subject_id_04/BIDSDataGrabber
+170325-00:11:18,307 workflow INFO:
+	 Executing node analyzeBOLD.a3 in dir: /tmp/tmp1lKN4t/bids_demo/_subject_id_04/analyzeBOLD
 
 
-analyzing [&#39;/data/ds102/sub-04/func/sub-04_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-04/func/sub-04_task-flanker_run-2_bold.nii.gz&#39;]
+analyzing /data/ds102/sub-04/func/sub-04_task-flanker_run-1_bold.nii.gz
 
 
-170324-16:47:05,975 workflow INFO:
-	 Executing node analyzeT1w.a0 in dir: /tmp/tmp1Z1SJ6/bids_demo/_subject_id_01/analyzeT1w
+170325-00:11:18,355 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmpMNKmQZ/bids_demo/_subject_id_02/BIDSDataGrabber
+170325-00:11:18,448 workflow INFO:
+	 Executing node analyzeBOLD.a1 in dir: /tmp/tmpFEgJeg/bids_demo/_subject_id_02/analyzeBOLD
 
 
-analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
+analyzing /data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz
 
 
-170324-16:47:06,22 workflow INFO:
-	 Executing node analyzeT1w.a3 in dir: /tmp/tmpOfa_oc/bids_demo/_subject_id_04/analyzeT1w
+170325-00:11:18,512 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a2 in dir: /tmp/tmpp4stHi/bids_demo/_subject_id_03/BIDSDataGrabber
+170325-00:11:18,617 workflow INFO:
+	 Executing node analyzeBOLD.a2 in dir: /tmp/tmpVxCtOX/bids_demo/_subject_id_03/analyzeBOLD
 
 
-analyzing [&#39;/data/ds102/sub-04/anat/sub-04_T1w.nii.gz&#39;]
+analyzing /data/ds102/sub-03/func/sub-03_task-flanker_run-1_bold.nii.gz
 
 
-170324-16:47:06,63 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmpHuRRIx/bids_demo/_subject_id_02/BIDSDataGrabber
-170324-16:47:06,117 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a4 in dir: /tmp/tmpCaS_xl/bids_demo/_subject_id_05/BIDSDataGrabber
-170324-16:47:06,171 workflow INFO:
-	 Executing node analyzeT1w.a4 in dir: /tmp/tmp8KBmaT/bids_demo/_subject_id_05/analyzeT1w
+170325-00:11:18,673 workflow INFO:
+	 Executing node analyzeBOLD.a4 in dir: /tmp/tmpZkO66V/bids_demo/_subject_id_05/analyzeBOLD
 
 
-analyzing [&#39;/data/ds102/sub-05/anat/sub-05_T1w.nii.gz&#39;]
-
-
-170324-16:47:06,199 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a2 in dir: /tmp/tmpk3LT4l/bids_demo/_subject_id_03/BIDSDataGrabber
-170324-16:47:06,255 workflow INFO:
-	 Executing node analyzeT1w.a2 in dir: /tmp/tmpStWfNV/bids_demo/_subject_id_03/analyzeT1w
-
-
-analyzing [&#39;/data/ds102/sub-03/anat/sub-03_T1w.nii.gz&#39;]
-
-
-170324-16:47:06,279 workflow INFO:
-	 Executing node analyzeBOLD.a2 in dir: /tmp/tmpapDDOU/bids_demo/_subject_id_03/analyzeBOLD
-
-
-analyzing [&#39;/data/ds102/sub-03/func/sub-03_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-03/func/sub-03_task-flanker_run-2_bold.nii.gz&#39;]
-
-
-170324-16:47:06,327 workflow INFO:
-	 Executing node analyzeT1w.a1 in dir: /tmp/tmpWhAfcq/bids_demo/_subject_id_02/analyzeT1w
-
-
-analyzing [&#39;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&#39;]
-
-
-170324-16:47:06,369 workflow INFO:
-	 Executing node analyzeBOLD.a4 in dir: /tmp/tmpl0rSeP/bids_demo/_subject_id_05/analyzeBOLD
-
-
-analyzing [&#39;/data/ds102/sub-05/func/sub-05_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-05/func/sub-05_task-flanker_run-2_bold.nii.gz&#39;]
-
-
-170324-16:47:06,407 workflow INFO:
-	 Executing node analyzeBOLD.a1 in dir: /tmp/tmpzhm7T0/bids_demo/_subject_id_02/analyzeBOLD
-
-
-analyzing [&#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-2_bold.nii.gz&#39;]
+analyzing /data/ds102/sub-05/func/sub-05_task-flanker_run-1_bold.nii.gz
 
 
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f64060a6e10&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7efda2d5c4d0&gt;</pre>
 </div>
 
 </div>
@@ -12485,7 +12587,7 @@ analyzing [&#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz&#3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;</span><span class="p">)</span>
@@ -12499,7 +12601,9 @@ analyzing [&#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz&#3
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[19]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12534,7 +12638,7 @@ analyzing [&#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz&#3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">printMetadata</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
@@ -12554,12 +12658,11 @@ analyzing [&#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz&#3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD2</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;T1ws&quot;</span><span class="p">,</span> <span class="n">analyzeT1w</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
@@ -12571,156 +12674,85 @@ analyzing [&#39;/data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz&#3
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170324-16:47:06,580 workflow INFO:
+<pre>170325-00:11:18,852 workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170324-16:47:06,772 workflow INFO:
+170325-00:11:19,95 workflow INFO:
 	 Running serially.
-170324-16:47:06,776 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a3 in dir: /tmp/tmpcgwNa6/bids_demo/_subject_id_04/BIDSDataGrabber
-170324-16:47:06,862 workflow INFO:
-	 Executing node analyzeBOLD2.a3 in dir: /tmp/tmpMj_ARH/bids_demo/_subject_id_04/analyzeBOLD2
-170324-16:47:06,886 workflow INFO:
-	 Executing node _analyzeBOLD20 in dir: /tmp/tmpMj_ARH/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD20
-
-
-analyzing /data/ds102/sub-04/func/sub-04_task-flanker_run-1_bold.nii.gz
-TR: 2.0
-
-
-170324-16:47:06,930 workflow INFO:
-	 Executing node _analyzeBOLD21 in dir: /tmp/tmpMj_ARH/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD21
-
-
-analyzing /data/ds102/sub-04/func/sub-04_task-flanker_run-2_bold.nii.gz
-TR: 2.0
-
-
-170324-16:47:06,992 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmpSCLTf6/bids_demo/_subject_id_01/BIDSDataGrabber
-170324-16:47:07,39 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmpgZSTa5/bids_demo/_subject_id_02/BIDSDataGrabber
-170324-16:47:07,95 workflow INFO:
-	 Executing node analyzeT1w.a3 in dir: /tmp/tmpjNja2B/bids_demo/_subject_id_04/analyzeT1w
-
-
-analyzing [&#39;/data/ds102/sub-04/anat/sub-04_T1w.nii.gz&#39;]
-
-
-170324-16:47:07,122 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a4 in dir: /tmp/tmp_oDiJo/bids_demo/_subject_id_05/BIDSDataGrabber
-170324-16:47:07,202 workflow INFO:
-	 Executing node analyzeBOLD2.a0 in dir: /tmp/tmpnNFANQ/bids_demo/_subject_id_01/analyzeBOLD2
-170324-16:47:07,234 workflow INFO:
-	 Executing node _analyzeBOLD20 in dir: /tmp/tmpnNFANQ/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD20
-
-
-analyzing /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
-TR: 2.0
-
-
-170324-16:47:07,266 workflow INFO:
-	 Executing node _analyzeBOLD21 in dir: /tmp/tmpnNFANQ/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD21
-
-
-analyzing /data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz
-TR: 2.0
-
-
-170324-16:47:07,332 workflow INFO:
-	 Executing node analyzeT1w.a4 in dir: /tmp/tmpTz6Dog/bids_demo/_subject_id_05/analyzeT1w
-
-
-analyzing [&#39;/data/ds102/sub-05/anat/sub-05_T1w.nii.gz&#39;]
-
-
-170324-16:47:07,365 workflow INFO:
-	 Executing node analyzeT1w.a0 in dir: /tmp/tmpzKnJ_z/bids_demo/_subject_id_01/analyzeT1w
-
-
-analyzing [&#39;/data/ds102/sub-01/anat/sub-01_T1w.nii.gz&#39;]
-
-
-170324-16:47:07,414 workflow INFO:
-	 Executing node analyzeBOLD2.a1 in dir: /tmp/tmpUJWQtL/bids_demo/_subject_id_02/analyzeBOLD2
-170324-16:47:07,444 workflow INFO:
-	 Executing node _analyzeBOLD20 in dir: /tmp/tmpUJWQtL/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD20
-
-
-analyzing /data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz
-TR: 2.0
-
-
-170324-16:47:07,498 workflow INFO:
-	 Executing node _analyzeBOLD21 in dir: /tmp/tmpUJWQtL/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD21
-
-
-analyzing /data/ds102/sub-02/func/sub-02_task-flanker_run-2_bold.nii.gz
-TR: 2.0
-
-
-170324-16:47:07,553 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a2 in dir: /tmp/tmp4mgUuJ/bids_demo/_subject_id_03/BIDSDataGrabber
-170324-16:47:07,616 workflow INFO:
-	 Executing node analyzeBOLD2.a2 in dir: /tmp/tmpph_j4s/bids_demo/_subject_id_03/analyzeBOLD2
-170324-16:47:07,645 workflow INFO:
-	 Executing node _analyzeBOLD20 in dir: /tmp/tmpph_j4s/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD20
-
-
-analyzing /data/ds102/sub-03/func/sub-03_task-flanker_run-1_bold.nii.gz
-TR: 2.0
-
-
-170324-16:47:07,703 workflow INFO:
-	 Executing node _analyzeBOLD21 in dir: /tmp/tmpph_j4s/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD21
-
-
-analyzing /data/ds102/sub-03/func/sub-03_task-flanker_run-2_bold.nii.gz
-TR: 2.0
-
-
-170324-16:47:07,784 workflow INFO:
-	 Executing node analyzeBOLD2.a4 in dir: /tmp/tmpCBrCUd/bids_demo/_subject_id_05/analyzeBOLD2
-170324-16:47:07,804 workflow INFO:
-	 Executing node _analyzeBOLD20 in dir: /tmp/tmpCBrCUd/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD20
+170325-00:11:19,98 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a4 in dir: /tmp/tmpQWOjgy/bids_demo/_subject_id_05/BIDSDataGrabber
+170325-00:11:19,212 workflow INFO:
+	 Executing node analyzeBOLD2.a4 in dir: /tmp/tmpcTFJM5/bids_demo/_subject_id_05/analyzeBOLD2
+170325-00:11:19,227 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpcTFJM5/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD20
 
 
 analyzing /data/ds102/sub-05/func/sub-05_task-flanker_run-1_bold.nii.gz
 TR: 2.0
 
 
-170324-16:47:07,866 workflow INFO:
-	 Executing node _analyzeBOLD21 in dir: /tmp/tmpCBrCUd/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD21
+170325-00:11:19,340 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmpGppMhP/bids_demo/_subject_id_01/BIDSDataGrabber
+170325-00:11:19,433 workflow INFO:
+	 Executing node analyzeBOLD2.a0 in dir: /tmp/tmp6MPMHH/bids_demo/_subject_id_01/analyzeBOLD2
+170325-00:11:19,451 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmp6MPMHH/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD20
 
 
-analyzing /data/ds102/sub-05/func/sub-05_task-flanker_run-2_bold.nii.gz
+analyzing /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
 TR: 2.0
 
 
-170324-16:47:07,944 workflow INFO:
-	 Executing node analyzeT1w.a1 in dir: /tmp/tmpvmxf30/bids_demo/_subject_id_02/analyzeT1w
+170325-00:11:19,518 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a2 in dir: /tmp/tmpfEjhs6/bids_demo/_subject_id_03/BIDSDataGrabber
+170325-00:11:19,603 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmpCfSsJs/bids_demo/_subject_id_02/BIDSDataGrabber
+170325-00:11:19,684 workflow INFO:
+	 Executing node analyzeBOLD2.a1 in dir: /tmp/tmpmdEi5m/bids_demo/_subject_id_02/analyzeBOLD2
+170325-00:11:19,720 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpmdEi5m/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD20
 
 
-analyzing [&#39;/data/ds102/sub-02/anat/sub-02_T1w.nii.gz&#39;]
+analyzing /data/ds102/sub-02/func/sub-02_task-flanker_run-1_bold.nii.gz
+TR: 2.0
 
 
-170324-16:47:07,997 workflow INFO:
-	 Executing node analyzeT1w.a2 in dir: /tmp/tmp6pXqQI/bids_demo/_subject_id_03/analyzeT1w
+170325-00:11:19,798 workflow INFO:
+	 Executing node analyzeBOLD2.a2 in dir: /tmp/tmpUL2soh/bids_demo/_subject_id_03/analyzeBOLD2
+170325-00:11:19,825 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpUL2soh/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD20
 
 
-analyzing [&#39;/data/ds102/sub-03/anat/sub-03_T1w.nii.gz&#39;]
+analyzing /data/ds102/sub-03/func/sub-03_task-flanker_run-1_bold.nii.gz
+TR: 2.0
+
+
+170325-00:11:19,911 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a3 in dir: /tmp/tmpREkFNf/bids_demo/_subject_id_04/BIDSDataGrabber
+170325-00:11:20,3 workflow INFO:
+	 Executing node analyzeBOLD2.a3 in dir: /tmp/tmpePChTv/bids_demo/_subject_id_04/analyzeBOLD2
+170325-00:11:20,42 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpePChTv/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds102/sub-04/func/sub-04_task-flanker_run-1_bold.nii.gz
+TR: 2.0
 
 
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f640601a6d0&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7efda2cc9d50&gt;</pre>
 </div>
 
 </div>
@@ -12728,8 +12760,22 @@ analyzing [&#39;/data/ds102/sub-03/anat/sub-03_T1w.nii.gz&#39;]
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise-3:">Exercise 3:<a class="anchor-link" href="#Exercise-3:">&#182;</a></h3><p>Modify the <code>printMetadata</code> function to also print <code>EchoTime</code></p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>
