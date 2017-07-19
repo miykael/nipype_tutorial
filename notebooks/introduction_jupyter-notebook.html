@@ -11809,28 +11809,12 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="k">print</span> <span class="s2">&quot;Hi! This is a cell. Click on it and press the ▶ button above to run it&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi! This is a cell. Click on it and press the ▶ button above to run it&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hi! This is a cell. Click on it and press the ▶ button above to run it
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11860,7 +11844,8 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>One of the most useful things about Jupyter Notebook is its tab completion.</p>
-<p>Try this: click just after <code>read_csv(</code> in the cell below and press <code>Shift+Tab</code> 4 times, slowly</p>
+<p>Try this: click just after <code>read_csv(</code> in the cell below and press <code>Shift+Tab</code> 4 times, slowly. 
+TODO: i tried few times the 4times trick and it didn't work. Remove??</p>
 
 </div>
 </div>
@@ -11870,7 +11855,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
 </pre></div>
 
 </div>
@@ -11900,7 +11885,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">r</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">r</span>
 </pre></div>
 
 </div>
@@ -11934,7 +11919,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>pd.read_csv<span class="o">?</span>
+<div class=" highlight hl-ipython3"><pre><span></span>pd.read_csv<span class="o">?</span>
 </pre></div>
 
 </div>
@@ -11957,9 +11942,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">print_10_nums</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_10_nums</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> 
 </pre></div>
 
 </div>
@@ -11972,26 +11957,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">print_10_nums</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_10_nums</span><span class="p">()</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0 1 2 3 4 5 6 7 8 9
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12099,27 +12068,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">time</span> result = sum([x for x in range(10**6)])
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> result = sum([x for x in range(10**6)])
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 72 ms, sys: 24 ms, total: 96 ms
-Wall time: 94.9 ms
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12139,29 +12091,11 @@ Wall time: 94.9 ms
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c">%%latex</span>
-<span class="sb">$$</span><span class="nb">F</span><span class="o">(</span><span class="nb">k</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\int</span><span class="nb">_{</span><span class="o">-</span><span class="nv">\infty</span><span class="nb">}^{</span><span class="nv">\infty</span><span class="nb">} f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> e^{</span><span class="m">2</span><span class="nv">\pi</span><span class="nb"> i k} dx</span><span class="s">$$</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c">%%latex</span>
+<span class="sb">$$</span><span class="nb">F</span><span class="o">(</span><span class="nb">k</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\int</span><span class="nb">_{</span><span class="o">-</span><span class="nv">\infty</span><span class="nb">}^{</span><span class="nv">\infty</span><span class="nb">} f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> e^{</span><span class="m">2</span><span class="nv">\pi</span><span class="nb"> i k} </span><span class="nv">\mathrm</span><span class="nb">{d} x</span><span class="s">$$</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-
-
-<div class="output_latex output_subarea ">
-$$F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} dx$$
-</div>
-
-</div>
-
 </div>
 </div>
 

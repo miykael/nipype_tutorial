@@ -11800,7 +11800,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Function</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Function</span>
 <span class="k">def</span> <span class="nf">square_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="n">square</span> <span class="o">=</span> <span class="n">Function</span><span class="p">([</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;f_x&quot;</span><span class="p">],</span> <span class="n">square_func</span><span class="p">)</span>
@@ -11826,7 +11826,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">square</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">f_x</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">square</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">f_x</span>
 </pre></div>
 
 </div>
@@ -11868,7 +11868,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">MapNode</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">MapNode</span>
 <span class="n">square_node</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span>
 </pre></div>
 
@@ -11882,7 +11882,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">square_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">square_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">square_node</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">f_x</span>
 </pre></div>
 
@@ -11898,24 +11898,16 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:57:47,860 workflow INFO:
-	 Executing node square in dir: /tmp/tmpZKVt49/square
-170301-21:57:47,870 workflow INFO:
-	 Executing node _square0 in dir: /tmp/tmpZKVt49/square/mapflow/_square0
-170301-21:57:47,882 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:47,887 workflow INFO:
-	 Executing node _square1 in dir: /tmp/tmpZKVt49/square/mapflow/_square1
-170301-21:57:47,906 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:47,911 workflow INFO:
-	 Executing node _square2 in dir: /tmp/tmpZKVt49/square/mapflow/_square2
-170301-21:57:47,923 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:47,926 workflow INFO:
-	 Executing node _square3 in dir: /tmp/tmpZKVt49/square/mapflow/_square3
-170301-21:57:47,936 workflow INFO:
-	 Runtime memory and threads stats unavailable
+<pre>170716-01:40:53,809 workflow INFO:
+	 Executing node square in dir: /tmp/tmp6886npt7/square
+170716-01:40:53,816 workflow INFO:
+	 Executing node _square0 in dir: /tmp/tmp6886npt7/square/mapflow/_square0
+170716-01:40:53,828 workflow INFO:
+	 Executing node _square1 in dir: /tmp/tmp6886npt7/square/mapflow/_square1
+170716-01:40:53,841 workflow INFO:
+	 Executing node _square2 in dir: /tmp/tmp6886npt7/square/mapflow/_square2
+170716-01:40:53,853 workflow INFO:
+	 Executing node _square3 in dir: /tmp/tmp6886npt7/square/mapflow/_square3
 </pre>
 </div>
 </div>
@@ -11950,7 +11942,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">power_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">power_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
 </pre></div>
 
@@ -11964,11 +11956,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">power</span> <span class="o">=</span> <span class="n">Function</span><span class="p">([</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;f_xy&quot;</span><span class="p">],</span> <span class="n">power_func</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">power</span> <span class="o">=</span> <span class="n">Function</span><span class="p">([</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;f_xy&quot;</span><span class="p">],</span> <span class="n">power_func</span><span class="p">)</span>
 <span class="n">power_node</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
-<span class="n">power_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">power_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">power_node</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">f_xy</span><span class="p">)</span>
+<span class="n">power_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">power_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">power_node</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">f_xy</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11983,24 +11975,16 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:57:47,970 workflow INFO:
-	 Executing node power in dir: /tmp/tmpJPLPn8/power
-170301-21:57:47,985 workflow INFO:
-	 Executing node _power0 in dir: /tmp/tmpJPLPn8/power/mapflow/_power0
-170301-21:57:47,999 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:48,2 workflow INFO:
-	 Executing node _power1 in dir: /tmp/tmpJPLPn8/power/mapflow/_power1
-170301-21:57:48,15 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:48,20 workflow INFO:
-	 Executing node _power2 in dir: /tmp/tmpJPLPn8/power/mapflow/_power2
-170301-21:57:48,34 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:48,43 workflow INFO:
-	 Executing node _power3 in dir: /tmp/tmpJPLPn8/power/mapflow/_power3
-170301-21:57:48,59 workflow INFO:
-	 Runtime memory and threads stats unavailable
+<pre>170716-01:41:23,366 workflow INFO:
+	 Executing node power in dir: /tmp/tmpa5hjghpw/power
+170716-01:41:23,372 workflow INFO:
+	 Executing node _power0 in dir: /tmp/tmpa5hjghpw/power/mapflow/_power0
+170716-01:41:23,385 workflow INFO:
+	 Executing node _power1 in dir: /tmp/tmpa5hjghpw/power/mapflow/_power1
+170716-01:41:23,400 workflow INFO:
+	 Executing node _power2 in dir: /tmp/tmpa5hjghpw/power/mapflow/_power2
+170716-01:41:23,414 workflow INFO:
+	 Executing node _power3 in dir: /tmp/tmpa5hjghpw/power/mapflow/_power3
 [1, 1, 4, 27]
 </pre>
 </div>
@@ -12025,10 +12009,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">power_node</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span>
-<span class="n">power_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">power_node</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span>
+<span class="n">power_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">power_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="k">print</span><span class="p">(</span><span class="n">power_node</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">f_xy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">power_node</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">f_xy</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12043,24 +12027,16 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:57:48,84 workflow INFO:
-	 Executing node power in dir: /tmp/tmphJmuk0/power
-170301-21:57:48,96 workflow INFO:
-	 Executing node _power0 in dir: /tmp/tmphJmuk0/power/mapflow/_power0
-170301-21:57:48,112 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:48,117 workflow INFO:
-	 Executing node _power1 in dir: /tmp/tmphJmuk0/power/mapflow/_power1
-170301-21:57:48,131 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:48,135 workflow INFO:
-	 Executing node _power2 in dir: /tmp/tmphJmuk0/power/mapflow/_power2
-170301-21:57:48,150 workflow INFO:
-	 Runtime memory and threads stats unavailable
-170301-21:57:48,159 workflow INFO:
-	 Executing node _power3 in dir: /tmp/tmphJmuk0/power/mapflow/_power3
-170301-21:57:48,176 workflow INFO:
-	 Runtime memory and threads stats unavailable
+<pre>170716-01:41:31,840 workflow INFO:
+	 Executing node power in dir: /tmp/tmp7foq1xcp/power
+170716-01:41:31,845 workflow INFO:
+	 Executing node _power0 in dir: /tmp/tmp7foq1xcp/power/mapflow/_power0
+170716-01:41:31,854 workflow INFO:
+	 Executing node _power1 in dir: /tmp/tmp7foq1xcp/power/mapflow/_power1
+170716-01:41:31,865 workflow INFO:
+	 Executing node _power2 in dir: /tmp/tmp7foq1xcp/power/mapflow/_power2
+170716-01:41:31,878 workflow INFO:
+	 Executing node _power3 in dir: /tmp/tmp7foq1xcp/power/mapflow/_power3
 [0, 1, 8, 27]
 </pre>
 </div>
@@ -12101,14 +12077,14 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.algorithms.misc</span> <span class="kn">import</span> <span class="n">Gunzip</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="kn">import</span> <span class="n">Realign</span>
-<span class="kn">from</span> <span class="nn">nipype.pipeline.engine</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.algorithms.misc</span> <span class="k">import</span> <span class="n">Gunzip</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="k">import</span> <span class="n">Realign</span>
+<span class="kn">from</span> <span class="nn">nipype.pipeline.engine</span> <span class="k">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
 
-<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;</span><span class="p">]</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;/data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz&#39;</span><span class="p">]</span>
 
-<span class="n">realign</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Realign</span><span class="p">(</span><span class="n">register_to_mean</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+<span class="n">realign</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Realign</span><span class="p">(</span><span class="n">register_to_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;motion_correction&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -12132,7 +12108,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">gunzip</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Gunzip</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;gunzip&#39;</span><span class="p">,)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gunzip</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Gunzip</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;gunzip&#39;</span><span class="p">,)</span>
 <span class="n">gunzip</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="n">files</span>
 </pre></div>
 
@@ -12151,32 +12127,32 @@ div#notebook {
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-9-4c705ede4d1a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-21-4c705ede4d1a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> gunzip <span class="ansi-blue-fg">=</span> Node<span class="ansi-blue-fg">(</span>Gunzip<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;gunzip&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>gunzip<span class="ansi-blue-fg">.</span>inputs<span class="ansi-blue-fg">.</span>in_file <span class="ansi-blue-fg">=</span> files
 
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/nipype/interfaces/traits_extension.pyc</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">     72</span>             Note<span class="ansi-blue-fg">:</span> The <span class="ansi-blue-fg">&#39;fast validator&#39;</span> version performs this check <span class="ansi-green-fg">in</span> C<span class="ansi-blue-fg">.</span>
-<span class="ansi-green-intense-fg ansi-bold">     73</span>         &#34;&#34;&#34;
-<span class="ansi-green-fg">---&gt; 74</span><span class="ansi-red-fg">         </span>validated_value <span class="ansi-blue-fg">=</span> super<span class="ansi-blue-fg">(</span>BaseFile<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>validate<span class="ansi-blue-fg">(</span>object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     75</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>exists<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     76</span>             <span class="ansi-green-fg">return</span> validated_value
+<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/interfaces/traits_extension.py</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
+<span class="ansi-green-intense-fg ansi-bold">     81</span>             Note<span class="ansi-blue-fg">:</span> The <span class="ansi-blue-fg">&#39;fast validator&#39;</span> version performs this check <span class="ansi-green-fg">in</span> C<span class="ansi-blue-fg">.</span>
+<span class="ansi-green-intense-fg ansi-bold">     82</span>         &#34;&#34;&#34;
+<span class="ansi-green-fg">---&gt; 83</span><span class="ansi-red-fg">         </span>validated_value <span class="ansi-blue-fg">=</span> super<span class="ansi-blue-fg">(</span>BaseFile<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>validate<span class="ansi-blue-fg">(</span>object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     84</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>exists<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     85</span>             <span class="ansi-green-fg">return</span> validated_value
 
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/traits/trait_types.pyc</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">    347</span>             <span class="ansi-green-fg">return</span> value
-<span class="ansi-green-intense-fg ansi-bold">    348</span> 
-<span class="ansi-green-fg">--&gt; 349</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>error<span class="ansi-blue-fg">(</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    350</span> 
-<span class="ansi-green-intense-fg ansi-bold">    351</span>     <span class="ansi-green-fg">def</span> create_editor <span class="ansi-blue-fg">(</span> self <span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/traits/trait_types.py</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
+<span class="ansi-green-intense-fg ansi-bold">    410</span>             <span class="ansi-green-fg">return</span> str<span class="ansi-blue-fg">(</span> value <span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    411</span> 
+<span class="ansi-green-fg">--&gt; 412</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>error<span class="ansi-blue-fg">(</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    413</span> 
+<span class="ansi-green-intense-fg ansi-bold">    414</span>     <span class="ansi-green-fg">def</span> create_editor <span class="ansi-blue-fg">(</span> self <span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">/opt/conda/envs/python2/lib/python2.7/site-packages/traits/trait_handlers.pyc</span> in <span class="ansi-cyan-fg">error</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">    170</span>         &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    171</span>         raise TraitError( object, name, self.full_info( object, name, value ),
-<span class="ansi-green-fg">--&gt; 172</span><span class="ansi-red-fg">                           value )
-</span><span class="ansi-green-intense-fg ansi-bold">    173</span> 
-<span class="ansi-green-intense-fg ansi-bold">    174</span>     <span class="ansi-green-fg">def</span> full_info <span class="ansi-blue-fg">(</span> self<span class="ansi-blue-fg">,</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/traits/trait_handlers.py</span> in <span class="ansi-cyan-fg">error</span><span class="ansi-blue-fg">(self, object, name, value)</span>
+<span class="ansi-green-intense-fg ansi-bold">    171</span>         &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    172</span>         raise TraitError( object, name, self.full_info( object, name, value ),
+<span class="ansi-green-fg">--&gt; 173</span><span class="ansi-red-fg">                           value )
+</span><span class="ansi-green-intense-fg ansi-bold">    174</span> 
+<span class="ansi-green-intense-fg ansi-bold">    175</span>     <span class="ansi-green-fg">def</span> full_info <span class="ansi-blue-fg">(</span> self<span class="ansi-blue-fg">,</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">TraitError</span>: The &#39;in_file&#39; trait of a GunzipInputSpec instance must be an existing file name, but a value of [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;] &lt;type &#39;list&#39;&gt; was specified.</pre>
+<span class="ansi-red-fg">TraitError</span>: The &#39;in_file&#39; trait of a GunzipInputSpec instance must be an existing file name, but a value of [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz&#39;] &lt;class &#39;list&#39;&gt; was specified.</pre>
 </div>
 </div>
 
@@ -12210,7 +12186,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">gunzip</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Gunzip</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;gunzip&#39;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gunzip</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Gunzip</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;gunzip&#39;</span><span class="p">,</span>
                  <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;in_file&#39;</span><span class="p">])</span>
 <span class="n">gunzip</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="n">files</span>
 </pre></div>
@@ -12235,13 +12211,79 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mcflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;realign_with_spm&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mcflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;realign_with_spm&#39;</span><span class="p">)</span>
 <span class="n">mcflow</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">gunzip</span><span class="p">,</span> <span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="n">realign</span><span class="p">,</span> <span class="s1">&#39;in_files&#39;</span><span class="p">)</span>
 <span class="n">mcflow</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;/data&#39;</span>
 <span class="n">mcflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_procs&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170716-01:43:50,105 workflow INFO:
+	 Workflow realign_with_spm settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170716-01:43:50,133 workflow INFO:
+	 Running in parallel.
+170716-01:43:50,139 workflow INFO:
+	 Executing: gunzip ID: 0
+170716-01:43:50,156 workflow INFO:
+	 Adding 2 jobs for mapnode gunzip
+170716-01:43:50,164 workflow INFO:
+	 Executing: _gunzip0 ID: 2
+170716-01:43:50,177 workflow INFO:
+	 Executing: _gunzip1 ID: 3
+170716-01:43:50,181 workflow INFO:
+	 Executing node _gunzip0 in dir: /data/realign_with_spm/gunzip/mapflow/_gunzip0
+170716-01:43:50,200 workflow INFO:
+	 Executing node _gunzip1 in dir: /data/realign_with_spm/gunzip/mapflow/_gunzip1
+170716-01:43:51,801 workflow INFO:
+	 [Job finished] jobname: _gunzip1 jobid: 3
+170716-01:43:51,827 workflow INFO:
+	 [Job finished] jobname: _gunzip0 jobid: 2
+170716-01:43:51,831 workflow INFO:
+	 Executing: gunzip ID: 0
+170716-01:43:51,865 workflow INFO:
+	 Executing node gunzip in dir: /data/realign_with_spm/gunzip
+170716-01:43:51,966 workflow INFO:
+	 Executing node _gunzip0 in dir: /data/realign_with_spm/gunzip/mapflow/_gunzip0
+170716-01:43:51,998 workflow INFO:
+	 Collecting precomputed outputs
+170716-01:43:52,34 workflow INFO:
+	 Executing node _gunzip1 in dir: /data/realign_with_spm/gunzip/mapflow/_gunzip1
+170716-01:43:52,63 workflow INFO:
+	 Collecting precomputed outputs
+170716-01:43:52,102 workflow INFO:
+	 [Job finished] jobname: gunzip jobid: 0
+170716-01:43:52,107 workflow INFO:
+	 Executing: motion_correction ID: 1
+170716-01:43:52,145 workflow INFO:
+	 Executing node motion_correction in dir: /data/realign_with_spm/motion_correction
+170716-01:47:24,537 workflow INFO:
+	 [Job finished] jobname: motion_correction jobid: 1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fc97fc25908&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 

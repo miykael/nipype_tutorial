@@ -11830,8 +11830,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tutorial-Dataset">Tutorial Dataset<a class="anchor-link" href="#Tutorial-Dataset">&#182;</a></h1><p>The dataset for this tutorial is coming from <a href="https://openfmri.org/">https://openfmri.org/</a>, a homepage dedicated to the free and open sharing of raw magnetic resonance imaging (MRI) datasets. We already downloaded the dataset <a href="https://openfmri.org/dataset/ds000102/">ds102</a> into the data folder at the current location. To reduce the size of the total dataset, only the first five subjects (<code>sub-01</code>, <code>sub-02</code>, <code>sub-03</code>, <code>sub-04</code>, and <code>sub-05</code>) were kept.</p>
-<p>So let's have a look at the tutorial dataset.</p>
+<h1 id="Tutorial-Dataset">Tutorial Dataset<a class="anchor-link" href="#Tutorial-Dataset">&#182;</a></h1><p>The dataset for this tutorial is coming from <a href="https://openfmri.org/">https://openfmri.org/</a>, a homepage dedicated to the free and open sharing of raw magnetic resonance imaging (MRI) datasets. We already downloaded the dataset <a href="https://github.com/datalad/ds000114">ds000114</a> into the data folder at the current location. To reduce the size of the total dataset, only the first two subjects (<code>sub-01</code> and <code>sub-02</code>) were kept.</p>
+<p>So let's have a look at the tutorial dataset for <code>sub-01</code>.</p>
 
 </div>
 </div>
@@ -11841,7 +11841,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>tree /data/ds102
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree /data/ds000114/sub-01/
 </pre></div>
 
 </div>
@@ -11856,55 +11856,17 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>/data/ds102
-├── CHANGES
-├── dataset_description.json
-├── participants.tsv
-├── README
-├── sub-01
-│   ├── anat
-│   │   └── sub-01_T1w.nii.gz
-│   └── func
-│       ├── sub-01_task-flanker_run-1_bold.nii.gz
-│       ├── sub-01_task-flanker_run-1_events.tsv
-│       ├── sub-01_task-flanker_run-2_bold.nii.gz
-│       └── sub-01_task-flanker_run-2_events.tsv
-├── sub-02
-│   ├── anat
-│   │   └── sub-02_T1w.nii.gz
-│   └── func
-│       ├── sub-02_task-flanker_run-1_bold.nii.gz
-│       ├── sub-02_task-flanker_run-1_events.tsv
-│       ├── sub-02_task-flanker_run-2_bold.nii.gz
-│       └── sub-02_task-flanker_run-2_events.tsv
-├── sub-03
-│   ├── anat
-│   │   └── sub-03_T1w.nii.gz
-│   └── func
-│       ├── sub-03_task-flanker_run-1_bold.nii.gz
-│       ├── sub-03_task-flanker_run-1_events.tsv
-│       ├── sub-03_task-flanker_run-2_bold.nii.gz
-│       └── sub-03_task-flanker_run-2_events.tsv
-├── sub-04
-│   ├── anat
-│   │   └── sub-04_T1w.nii.gz
-│   └── func
-│       ├── sub-04_task-flanker_run-1_bold.nii.gz
-│       ├── sub-04_task-flanker_run-1_events.tsv
-│       ├── sub-04_task-flanker_run-2_bold.nii.gz
-│       └── sub-04_task-flanker_run-2_events.tsv
-├── sub-05
-│   ├── anat
-│   │   └── sub-05_T1w.nii.gz
-│   └── func
-│       ├── sub-05_task-flanker_run-1_bold.nii.gz
-│       ├── sub-05_task-flanker_run-1_events.tsv
-│       ├── sub-05_task-flanker_run-2_bold.nii.gz
-│       └── sub-05_task-flanker_run-2_events.tsv
-├── T1w.json
-└── task-flanker_bold.json
+<pre>/data/ds000114/sub-01/
+├── anat
+│   └── sub-01_T1w.nii.gz -&gt; ../../.git/annex/objects/QP/jm/MD5E-s8677710--d6820f6cb8fb965e864419c14f6a22d5.nii.gz/MD5E-s8677710--d6820f6cb8fb965e864419c14f6a22d5.nii.gz
+├── dwi
+│   └── sub-01_dwi.nii.gz -&gt; ../../.git/annex/objects/X2/kJ/MD5E-s104193417--454850ac9ed1c96c40b6b7946e51bf71.nii.gz/MD5E-s104193417--454850ac9ed1c96c40b6b7946e51bf71.nii.gz
+└── func
+    ├── sub-01_task-fingerfootlips_bold.nii.gz -&gt; ../../.git/annex/objects/k6/4f/MD5E-s24454931--e9ab535d84a922b0c7ed52461244cf47.nii.gz/MD5E-s24454931--e9ab535d84a922b0c7ed52461244cf47.nii.gz
+    ├── sub-01_task-linebisection_bold.nii.gz -&gt; ../../.git/annex/objects/32/Qq/MD5E-s31617092--151bc230c3b577110883369b6fad0daa.nii.gz/MD5E-s31617092--151bc230c3b577110883369b6fad0daa.nii.gz
+    └── sub-01_task-linebisection_events.tsv
 
-15 directories, 31 files
+3 directories, 5 files
 </pre>
 </div>
 </div>
@@ -11918,7 +11880,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can, we have five subjects, each with one anatomical T1w image and with two functional images, <code>run-1</code> and <code>run-2</code>.</p>
+<p>As you can, we have one anatomical T1w image, two functional images, <code>fingerfootlips</code> and <code>linebisection</code>, and one diffusion weighted image.</p>
 
 </div>
 </div>
@@ -11928,7 +11890,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Behavioral-Task">Behavioral Task<a class="anchor-link" href="#Behavioral-Task">&#182;</a></h1><p>Subject from the ds102 dataset did the Flanker task in the scanner. They had to indicate with two buttons the direction of a central arrow in an array of 5 arrows. In <strong>congruent</strong> trials the flanking arrows pointed in the same direction as the central arrow (e.g., &lt; &lt; &lt; &lt; &lt;), while in more demanding <strong>incongruent</strong> trials the flanking arrows pointed in the opposite direction (e.g., &lt; &lt; &gt; &lt; &lt;).</p>
+<h1 id="Behavioral-Task">Behavioral Task<a class="anchor-link" href="#Behavioral-Task">&#182;</a></h1><p>Subject from the ds000114 dataset did five behavioral tasks, in our dataset two of them are included. 
+The motor task consisted of finger tapping, foot twitching and lip poaching interleaved with fixation at a cross. The landmark task was designed to mimic the line bisection task used in neurological practice to diagnose spatial hemineglect. Two conditions were contrasted, specifically judging if a horizontal line had been bisected exactly in the middle, versus judging if a horizontal line was bisected at all. More about the dataset and studies you can find <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3641991/">here</a>.</p>
 <p>To each of the functional images above, we therefore also have a tab-separated values file (<code>tva</code>), containing information such as stimuli onset, duration, type, etc.</p>
 <p>So let's have a look at one of them:</p>
 
@@ -11940,7 +11903,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>cat /data/ds102/sub-01/func/sub-01_task-flanker_run-1_events.tsv
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat /data/ds000114/sub-01/func/sub-01_task-linebisection_events.tsv
 </pre></div>
 
 </div>
@@ -11955,31 +11918,167 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>onset  duration  trial_type           response_time  correctness  StimVar  Rsponse  Stimulus     cond
-0.0    2.0       incongruent_correct  1.095          correct      2        1        incongruent  cond003
-10.0   2.0       incongruent_correct  0.988          correct      2        1        incongruent  cond003
-20.0   2.0       congruent_correct    0.591          correct      1        1        congruent    cond001
-30.0   2.0       congruent_correct    0.499          correct      1        1        congruent    cond001
-40.0   2.0       incongruent_correct  0.719          correct      2        1        incongruent  cond003
-52.0   2.0       congruent_correct    0.544          correct      1        1        congruent    cond001
-64.0   2.0       congruent_correct    0.436          correct      1        1        congruent    cond001
-76.0   2.0       incongruent_correct  0.47           correct      2        1        incongruent  cond003
-88.0   2.0       congruent_correct    0.409          correct      1        1        congruent    cond001
-102.0  2.0       incongruent_correct  0.563          correct      2        1        incongruent  cond003
-116.0  2.0       congruent_correct    0.493          correct      1        1        congruent    cond001
-130.0  2.0       congruent_correct    0.398          correct      1        1        congruent    cond001
-140.0  2.0       congruent_correct    0.466          correct      1        1        congruent    cond001
-150.0  2.0       incongruent_correct  0.518          correct      2        1        incongruent  cond003
-164.0  2.0       incongruent_correct  0.56           correct      2        1        incongruent  cond003
-174.0  2.0       incongruent_correct  0.533          correct      2        1        incongruent  cond003
-184.0  2.0       congruent_correct    0.439          correct      1        1        congruent    cond001
-196.0  2.0       congruent_correct    0.458          correct      1        1        congruent    cond001
-208.0  2.0       incongruent_correct  0.734          correct      2        1        incongruent  cond003
-220.0  2.0       incongruent_correct  0.479          correct      2        1        incongruent  cond003
-232.0  2.0       incongruent_correct  0.538          correct      2        1        incongruent  cond003
-246.0  2.0       congruent_correct    0.54           correct      1        1        congruent    cond001
-260.0  2.0       incongruent_correct  0.622          correct      2        1        incongruent  cond003
-274.0  2.0       congruent_correct    0.488          correct      1        1        congruent    cond001
+<pre>onset	duration	weight	trial_type
+24.3065	1	1.0	Incorrect_Task
+25.9465	1	1.0	Correct_Task
+27.5865	1	1.0	Correct_Task
+29.2265	1	1.0	No_Response_Task
+30.8664	1	1.0	Incorrect_Task
+32.5064	1	1.0	No_Response_Task
+34.1464	1	1.0	Correct_Task
+35.7864	1	1.0	Incorrect_Task
+37.4264	1	1.0	Correct_Task
+39.0664	1	1.0	Incorrect_Task
+56.973	1	1.0	Response_Control
+58.613	1	1.0	No_Response_Control
+60.253	1	1.0	Response_Control
+61.893	1	1.0	No_Response_Control
+63.533	1	1.0	Response_Control
+65.173	1	1.0	Response_Control
+66.8129	1	1.0	Response_Control
+68.4529	1	1.0	Response_Control
+70.0929	1	1.0	Response_Control
+71.7329	1	1.0	No_Response_Control
+89.6395	1	1.0	Correct_Task
+91.2795	1	1.0	Correct_Task
+92.9195	1	1.0	Incorrect_Task
+94.5595	1	1.0	Incorrect_Task
+96.1995	1	1.0	Correct_Task
+97.8395	1	1.0	No_Response_Task
+99.4795	1	1.0	Incorrect_Task
+101.1194	1	1.0	Correct_Task
+102.7594	1	1.0	Correct_Task
+104.3994	1	1.0	Correct_Task
+122.306	1	1.0	Response_Control
+123.946	1	1.0	No_Response_Control
+125.586	1	1.0	Response_Control
+127.226	1	1.0	Response_Control
+128.866	1	1.0	Response_Control
+130.506	1	1.0	No_Response_Control
+132.146	1	1.0	Response_Control
+133.786	1	1.0	Response_Control
+135.4259	1	1.0	No_Response_Control
+137.0659	1	1.0	Response_Control
+154.9725	1	1.0	Incorrect_Task
+156.6125	1	1.0	No_Response_Task
+158.2525	1	1.0	Correct_Task
+159.8925	1	1.0	No_Response_Task
+161.5325	1	1.0	Correct_Task
+163.1725	1	1.0	Correct_Task
+164.8125	1	1.0	Correct_Task
+166.4525	1	1.0	Correct_Task
+168.0925	1	1.0	No_Response_Task
+169.7324	1	1.0	Correct_Task
+187.639	1	1.0	Response_Control
+189.279	1	1.0	Response_Control
+190.919	1	1.0	Response_Control
+192.559	1	1.0	No_Response_Control
+194.199	1	1.0	Response_Control
+195.839	1	1.0	Response_Control
+197.479	1	1.0	No_Response_Control
+199.119	1	1.0	Response_Control
+200.759	1	1.0	Response_Control
+202.399	1	1.0	No_Response_Control
+220.3055	1	1.0	Correct_Task
+221.9455	1	1.0	Correct_Task
+223.5855	1	1.0	Correct_Task
+225.2255	1	1.0	No_Response_Task
+226.8655	1	1.0	Correct_Task
+228.5055	1	1.0	Incorrect_Task
+230.1455	1	1.0	Correct_Task
+231.7855	1	1.0	Correct_Task
+233.4255	1	1.0	Correct_Task
+235.0655	1	1.0	Correct_Task
+252.9721	1	1.0	Response_Control
+254.612	1	1.0	Response_Control
+256.252	1	1.0	Response_Control
+257.892	1	1.0	Response_Control
+259.532	1	1.0	No_Response_Control
+261.172	1	1.0	Response_Control
+262.812	1	1.0	Response_Control
+264.452	1	1.0	No_Response_Control
+266.092	1	1.0	Response_Control
+267.732	1	1.0	No_Response_Control
+285.6386	1	1.0	Incorrect_Task
+287.2786	1	1.0	Correct_Task
+288.9185	1	1.0	Correct_Task
+290.5585	1	1.0	No_Response_Task
+292.1985	1	1.0	Incorrect_Task
+293.8385	1	1.0	Correct_Task
+295.4785	1	1.0	Correct_Task
+297.1185	1	1.0	Correct_Task
+298.7585	1	1.0	Correct_Task
+300.3985	1	1.0	Correct_Task
+318.3051	1	1.0	Response_Control
+319.9451	1	1.0	Response_Control
+321.5851	1	1.0	Response_Control
+323.2251	1	1.0	Response_Control
+324.865	1	1.0	No_Response_Control
+326.505	1	1.0	Response_Control
+328.145	1	1.0	Response_Control
+329.785	1	1.0	No_Response_Control
+331.425	1	1.0	Response_Control
+333.065	1	1.0	No_Response_Control
+350.9716	1	1.0	Correct_Task
+352.6116	1	1.0	Incorrect_Task
+354.2516	1	1.0	No_Response_Task
+355.8916	1	1.0	Incorrect_Task
+357.5316	1	1.0	No_Response_Task
+359.1715	1	1.0	Correct_Task
+360.8115	1	1.0	No_Response_Task
+362.4515	1	1.0	Correct_Task
+364.0915	1	1.0	Incorrect_Task
+365.7315	1	1.0	Correct_Task
+383.6381	1	1.0	Response_Control
+385.2781	1	1.0	Response_Control
+386.9181	1	1.0	Response_Control
+388.5581	1	1.0	Response_Control
+390.1981	1	1.0	No_Response_Control
+391.8381	1	1.0	Response_Control
+393.478	1	1.0	Response_Control
+395.118	1	1.0	No_Response_Control
+396.758	1	1.0	Response_Control
+398.398	1	1.0	Response_Control
+416.3046	1	1.0	Incorrect_Task
+417.9446	1	1.0	Incorrect_Task
+419.5846	1	1.0	Incorrect_Task
+421.2246	1	1.0	Incorrect_Task
+422.8646	1	1.0	No_Response_Task
+424.5046	1	1.0	Correct_Task
+426.1446	1	1.0	No_Response_Task
+427.7845	1	1.0	Incorrect_Task
+429.4245	1	1.0	Correct_Task
+431.0645	1	1.0	Incorrect_Task
+448.9711	1	1.0	Response_Control
+450.6111	1	1.0	No_Response_Control
+452.2511	1	1.0	Response_Control
+453.8911	1	1.0	No_Response_Control
+455.5311	1	1.0	Response_Control
+457.1711	1	1.0	Response_Control
+458.8111	1	1.0	Response_Control
+460.4511	1	1.0	Response_Control
+462.091	1	1.0	Response_Control
+463.731	1	1.0	No_Response_Control
+481.6376	1	1.0	Incorrect_Task
+483.2776	1	1.0	Correct_Task
+484.9176	1	1.0	Correct_Task
+486.5576	1	1.0	No_Response_Task
+488.1976	1	1.0	Incorrect_Task
+489.8376	1	1.0	No_Response_Task
+491.4776	1	1.0	Correct_Task
+493.1176	1	1.0	Incorrect_Task
+494.7576	1	1.0	Correct_Task
+496.3976	1	1.0	Correct_Task
+514.3041	1	1.0	Response_Control
+515.9441	1	1.0	No_Response_Control
+517.5841	1	1.0	Response_Control
+519.2241	1	1.0	Response_Control
+520.8641	1	1.0	Response_Control
+522.5041	1	1.0	No_Response_Control
+524.1441	1	1.0	Response_Control
+525.7841	1	1.0	No_Response_Control
+527.4241	1	1.0	Response_Control
+529.0641	1	1.0	No_Response_Control
 </pre>
 </div>
 </div>
