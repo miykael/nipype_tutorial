@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_data_output</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>basic_data_output</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11,8 +13,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1107,6 +1109,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2535,6 +2538,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3025,6 +3029,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8755,9 +8760,6 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
-[dir="rtl"] #ipython_notebook {
-  float: right !important;
-}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8960,14 +8962,8 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8990,16 +8986,6 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
-}
-[dir="rtl"] .list_toolbar .tree-buttons {
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9136,9 +9122,6 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
-[dir="rtl"] #tree-selector a {
-  float: right;
-}
 #button-select-all {
   min-width: 50px;
 }
@@ -9228,9 +9211,6 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
-}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9275,9 +9255,6 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
-}
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9574,7 +9551,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9595,6 +9571,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11265,7 +11246,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 21ex;
+  width: 20ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11577,7 +11558,6 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
-  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11591,9 +11571,6 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
-}
-.terminal-app .terminal .xterm-rows {
-  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11764,17 +11741,7 @@ div#notebook {
         }
     });
     </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-</head>
+    <!-- End of mathjax configuration --></head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -11813,7 +11780,7 @@ XNATSink
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First, let's create a <code>SelectFiles</code> node to . For an explanation about this step, see the <a href="basic_data_input.html">Data Input</a> tutorial.</p>
+<p>First, let's create a <code>SelectFiles</code> node to . For an explanation about this step, see the <a href="basic_data_input.ipynb">Data Input</a> tutorial.</p>
 
 </div>
 </div>
@@ -11823,13 +11790,13 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
 
 <span class="c1"># Create SelectFiles node</span>
-<span class="n">templates</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;{subject_id}/func/{subject_id}_task-flanker_run-1_bold.nii.gz&#39;</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">/func/</span><span class="si">{subject_id}</span><span class="s1">_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">}</span>
 <span class="n">sf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">),</span>
           <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selectfiles&#39;</span><span class="p">)</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/data/ds102&#39;</span>
+<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114&#39;</span>
 <span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub-01&#39;</span>
 </pre></div>
 
@@ -11843,7 +11810,7 @@ XNATSink
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Second, let's create the motion correction and smoothing node. For an explanation about this step, see the <a href="basic_nodes.html">Nodes</a> and <a href="basic_interfaces.html">Interfaces</a> tutorial.</p>
+<p>Second, let's create the motion correction and smoothing node. For an explanation about this step, see the <a href="basic_nodes.ipynb">Nodes</a> and <a href="basic_interfaces.ipynb">Interfaces</a> tutorial.</p>
 
 </div>
 </div>
@@ -11853,11 +11820,11 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="kn">import</span> <span class="n">MCFLIRT</span><span class="p">,</span> <span class="n">IsotropicSmooth</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="k">import</span> <span class="n">MCFLIRT</span><span class="p">,</span> <span class="n">IsotropicSmooth</span>
 
 <span class="c1"># Create Motion Correction Node</span>
-<span class="n">mcflirt</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">mean_vol</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                       <span class="n">save_plots</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+<span class="n">mcflirt</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">mean_vol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mcflirt&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create Smoothing node</span>
@@ -11875,7 +11842,7 @@ XNATSink
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Third, let's create the workflow that will contain those three nodes. For an explanation about this step, see the <a href="basic_workflow.html">Workflow</a> tutorial.</p>
+<p>Third, let's create the workflow that will contain those three nodes. For an explanation about this step, see the <a href="basic_workflow.ipynb">Workflow</a> tutorial.</p>
 
 </div>
 </div>
@@ -11885,8 +11852,8 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">Workflow</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Workflow</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span>
 
 <span class="c1"># Create a preprocessing workflow</span>
 <span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;preprocWF&quot;</span><span class="p">)</span>
@@ -11917,10 +11884,46 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170715-19:17:50,621 workflow INFO:
+	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170715-19:17:50,659 workflow INFO:
+	 Running serially.
+170715-19:17:50,661 workflow INFO:
+	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
+170715-19:17:50,738 workflow INFO:
+	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
+170715-19:17:50,777 workflow INFO:
+	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
+170715-19:19:28,803 workflow INFO:
+	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
+170715-19:19:28,840 workflow INFO:
+	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa984b9d208&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -11946,7 +11949,7 @@ XNATSink
     │   ├── _report
     │   │   └── report.rst
     │   ├── result_mcflirt.pklz
-    │   └── sub-01_task-flanker_run-1_bold_mcf.nii.gz
+    │   └── sub-01_task-fingerfootlips_bold_mcf.nii.gz
     ├── selectfiles
     │   ├── _0x6a583c5c1c472209ca26f29f15c0bd38.json
     │   ├── _inputs.pklz
@@ -11962,7 +11965,7 @@ XNATSink
         ├── _report
         │   └── report.rst
         ├── result_smooth.pklz
-        └── sub-01_task-flanker_run-1_bold_mcf_smooth.nii.gz</code></pre>
+        └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz</code></pre>
 
 </div>
 </div>
@@ -11993,7 +11996,7 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="kn">import</span> <span class="n">DataSink</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">DataSink</span>
 
 <span class="c1"># Create DataSink object</span>
 <span class="n">sinker</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">DataSink</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sinker&#39;</span><span class="p">)</span>
@@ -12013,6 +12016,44 @@ XNATSink
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170715-19:22:25,400 workflow INFO:
+	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170715-19:22:25,452 workflow INFO:
+	 Running serially.
+170715-19:22:25,455 workflow INFO:
+	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
+170715-19:22:25,563 workflow INFO:
+	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
+170715-19:22:25,646 workflow INFO:
+	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
+170715-19:24:04,645 workflow INFO:
+	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
+170715-19:24:04,736 workflow INFO:
+	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
+170715-19:24:18,147 workflow INFO:
+	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956e7d780&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12023,11 +12064,11 @@ XNATSink
 
 <pre><code>output
 ├── in_file
-│   └── sub-01_task-flanker_run-1_bold_mcf_smooth.nii.gz
+│   └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
 ├── mean_img
-│   └── sub-01_task-flanker_run-1_bold_mcf.nii.gz_mean_reg.nii.gz
+│   └── sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
 └── par_file
-    └── sub-01_task-flanker_run-1_bold_mcf.nii.gz.par</code></pre>
+    └── sub-01_task-fingerfootlips_bold_mcf.nii.gz.par</code></pre>
 
 </div>
 </div>
@@ -12048,7 +12089,7 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@in_file&#39;</span><span class="p">)]),</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@in_file&#39;</span><span class="p">)]),</span>
             <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@mean_img&#39;</span><span class="p">),</span>
                                <span class="p">(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@par_file&#39;</span><span class="p">)]),</span>
             <span class="p">])</span>
@@ -12056,6 +12097,44 @@ XNATSink
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170715-19:24:18,300 workflow INFO:
+	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170715-19:24:18,344 workflow INFO:
+	 Running serially.
+170715-19:24:18,347 workflow INFO:
+	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
+170715-19:24:18,456 workflow INFO:
+	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
+170715-19:24:18,538 workflow INFO:
+	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
+170715-19:25:57,84 workflow INFO:
+	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
+170715-19:25:57,158 workflow INFO:
+	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
+170715-19:26:10,66 workflow INFO:
+	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956e6a550&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12069,9 +12148,9 @@ XNATSink
 
 <pre><code>output
 └── preproc
-    ├── sub-01_task-flanker_run-1_bold_mcf.nii.gz_mean_reg.nii.gz
-    ├── sub-01_task-flanker_run-1_bold_mcf.nii.gz.par
-    └── sub-01_task-flanker_run-1_bold_mcf_smooth.nii.gz</code></pre>
+    ├── sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
+    ├── sub-01_task-fingerfootlips_bold_mcf.nii.gz.par
+    └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz</code></pre>
 
 </div>
 </div>
@@ -12082,7 +12161,7 @@ XNATSink
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This is already much better. But what if you want to rename the output files to represent something a bit readable. For this <code>DataSink</code> has the <code>substitution</code> input field.</p>
-<p>For example, let's assume we want to get rid of the string <code>'task-flanker'</code> and <code>'bold_mcf'</code> and that we want to rename the mean file, as well as adapt the file ending of the motion parameter file:</p>
+<p>For example, let's assume we want to get rid of the string <code>'task-fingerfootlips'</code> and <code>'bold_mcf'</code> and that we want to rename the mean file, as well as adapt the file ending of the motion parameter file:</p>
 
 </div>
 </div>
@@ -12092,8 +12171,8 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Define substitution strings</span>
-<span class="n">substitutions</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;_task-flanker&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define substitution strings</span>
+<span class="n">substitutions</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;_task-fingerfootlips&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
                  <span class="p">(</span><span class="s1">&#39;_bold_mcf&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
                  <span class="p">(</span><span class="s1">&#39;.nii.gz_mean_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;_mean&#39;</span><span class="p">),</span>
                  <span class="p">(</span><span class="s1">&#39;.nii.gz.par&#39;</span><span class="p">,</span> <span class="s1">&#39;.par&#39;</span><span class="p">)]</span>
@@ -12106,6 +12185,56 @@ XNATSink
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170715-19:28:06,393 workflow INFO:
+	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
+170715-19:28:06,426 workflow INFO:
+	 Running serially.
+170715-19:28:06,428 workflow INFO:
+	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
+170715-19:28:06,510 workflow INFO:
+	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
+170715-19:28:06,528 workflow INFO:
+	 Collecting precomputed outputs
+170715-19:28:06,546 workflow INFO:
+	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
+170715-19:28:06,561 workflow INFO:
+	 Collecting precomputed outputs
+170715-19:28:06,599 workflow INFO:
+	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
+170715-19:28:06,684 interface INFO:
+	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_smooth.nii.gz
+170715-19:28:06,695 interface INFO:
+	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01.par
+170715-19:28:06,709 interface INFO:
+	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_mean.nii.gz
+170715-19:28:06,721 interface INFO:
+	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01.par
+170715-19:28:06,734 interface INFO:
+	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_mean.nii.gz
+170715-19:28:06,745 interface INFO:
+	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_smooth.nii.gz
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956ed4780&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12132,8 +12261,4 @@ XNATSink
     </div>
   </div>
 </body>
-
- 
-
-
 </html>
