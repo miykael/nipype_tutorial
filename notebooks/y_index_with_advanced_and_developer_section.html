@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_data_output</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>y_index_with_advanced_and_developer_section</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11783,274 +11783,150 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-Output">Data Output<a class="anchor-link" href="#Data-Output">&#182;</a></h1><p>Similarly important to data input is data output. Using a data output module allows you to restructure and rename computed output and to spatial differentiate relevant output files from the temporary computed intermediate files in the working directory. Nipype provides the following modules to handle data stream output:</p>
-
-<pre><code>DataSink
-JSONFileSink
-MySQLSink
-SQLiteSink
-XNATSink
-
-</code></pre>
-<p>This tutorial covers only <code>DataSink</code>. For the rest, see the section <a href="http://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html"><code>interfaces.io</code></a> on the official homepage.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h1><p>Before we can use <code>DataSink</code> we first need to run a workflow. For this purpose, let's create a very short preprocessing workflow that realigns and smooths one functional image of one subject.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>First, let's create a <code>SelectFiles</code> node to . For an explanation about this step, see the <a href="basic_data_input.html">Data Input</a> tutorial.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+&lt;style&gt;.container { width:75% !important; }&lt;/style&gt;
+&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;../static/css_backup/mobile-package-094623.css&#39;&gt;
+&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;../static/css_backup/homepage-package-3bd234.css&#39;&gt;
+        
+&lt;body&gt;
+  &lt;article id=&quot;homepage&quot;&gt;
+    &lt;a id=&quot;library-section&quot;&gt;&lt;/a&gt;
+    &lt;div class=&quot;library-section&quot;&gt;
+      &lt;div class=&quot;section-separator library-section-separator&quot;&gt;
+        &lt;center&gt;&lt;img src=&quot;../static/images/logoNipype_tutorial.png&quot; width=700&gt;&lt;/center&gt;
+        &lt;p&gt;Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
+            you everything so that you can start creating your own workflows in no time. We recommend that you start with
+            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
+            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
+            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
+            &lt;/p&gt;&lt;p&gt;
+            All of the notebooks used in this tutorial can be found on &lt;a href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;github.com/miykael/nipype_tutorial&lt;/a&gt;.
+            But if you want to have the real experience and want to go through the computations by yourself, we highly
+            recommend you to do the &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Nipype Course&lt;/a&gt;. This course
+            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
+            Nipype yourself. For the tutorial, you need to install a &lt;a href=&quot;www.docker.com/&quot;&gt;Docker&lt;/a&gt; image on your system that provides you a 
+            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
+            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
+            neuroimaging environment is based on the docker images under &lt;a href=&quot;https://github.com/miykael/nipype_env&quot;&gt;github.com/miykael/nipype_env&lt;/a&gt;,
+            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
+            &lt;/p&gt;&lt;p&gt;
+            For everything that isn&#39;t covered in this tutorial, check out the &lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;main homepage&lt;/a&gt;.
+            And if you haven&#39;t had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
+            the &lt;a href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;detailed beginner&#39;s guide&lt;/a&gt;.
+            &lt;/p&gt;
+      &lt;/div&gt;
 
-<span class="c1"># Create SelectFiles node</span>
-<span class="n">templates</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">/func/</span><span class="si">{subject_id}</span><span class="s1">_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">}</span>
-<span class="n">sf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">),</span>
-          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selectfiles&#39;</span><span class="p">)</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114&#39;</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub-01&#39;</span>
-</pre></div>
+      &lt;!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
+            argument to either science, computing, humanities, test-prep or economics-finance-domain--&gt;
 
-</div>
-</div>
-</div>
+      &lt;!--to change the number of rows per column, change the last number in &#39;pure-u-1-3&#39;.
+       For example, to have three columns, change the value to &#39;pure-u-1-3&#39;--&gt;
+        
+      &lt;h2 class=&quot;domain-header economics-finance-domain&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Introduction&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container economics-finance-domain&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_nipype.html&quot;&gt;Nipype&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_jupyter-notebook.html&quot;&gt;Jupyter-Notebook&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_dataset.html&quot;&gt;Tutorial Dataset&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_docker.html&quot;&gt;Docker&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_python.html&quot;&gt;Python&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;This section is meant as a general overview. It should give you a short introduction to the main topics that
+          you need to understand to use Nipype and this tutorial.&lt;/p&gt;
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Second, let's create the motion correction and smoothing node. For an explanation about this step, see the <a href="basic_nodes.html">Nodes</a> and <a href="basic_interfaces.html">Interfaces</a> tutorial.</p>
+      &lt;h2 class=&quot;domain-header humanities&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Basic Concepts&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container humanities&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_interfaces.html&quot;&gt;Interfaces&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_nodes.html&quot;&gt;Nodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_workflow.html&quot;&gt;Workflow&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_graph_visualization.html&quot;&gt;Graph Visualization&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_data_input.html&quot;&gt;Data Input&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_data_output.html&quot;&gt;Data Output&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_iteration.html&quot;&gt;Iteration / Iterables&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_mapnodes.html&quot;&gt;MapNodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_function_nodes.html&quot;&gt;Function Nodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_joinnodes.html&quot;&gt;JoinNodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_model_specification.html&quot;&gt;Model Specification&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_import_workflows.html&quot;&gt;Import existing Workflows&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_plugins.html&quot;&gt;Execution Plugins&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_configuration.html&quot;&gt;Execution Configuration&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_error_and_crashes.html&quot;&gt;Errors &amp; Crashes&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
+          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
+          to create any kind of Nipype workflow.&lt;/p&gt;
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="k">import</span> <span class="n">MCFLIRT</span><span class="p">,</span> <span class="n">IsotropicSmooth</span>
+      &lt;h2 class=&quot;domain-header science&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Workflow Examples&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container science&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_preprocessing.html&quot;&gt;Preprocessing&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_1stlevel.html&quot;&gt;1st-level Analysis&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_normalize.html&quot;&gt;Normalize Data&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_2ndlevel.html&quot;&gt;2nd-level Analysis&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;In this section you will find some practical examples that show you how to use Nipype in a &quot;real world&quot; scenario.&lt;/p&gt;
 
-<span class="c1"># Create Motion Correction Node</span>
-<span class="n">mcflirt</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">mean_vol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                       <span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mcflirt&#39;</span><span class="p">)</span>
+      &lt;h2 class=&quot;domain-header computing&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Advanced Concepts&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container computing&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_commandline.html&quot;&gt;Commandline Interface*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_caching.html&quot;&gt;Caching*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_databases.html&quot;&gt;Import from Database*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_export_workflow.html&quot;&gt;Save Workflow to File*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_resources_and_profiling.html&quot;&gt;Resources &amp; Profiling*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_debug.html&quot;&gt;Debug*&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.&lt;/p&gt;
+        
+      &lt;h2 class=&quot;domain-header math&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;For Developer&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container math&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_report_issue.html&quot;&gt;Report Issues*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_github.html&quot;&gt;Help via Github*&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_interface.html&quot;&gt;Create your own Interface*&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.&lt;/p&gt;
+        
+      &lt;h2 class=&quot;domain-header test-prep&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;&lt;/h2&gt;
+      &lt;div class=&quot;pure-g domain-table-container test-prep&quot;&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_installation.html&quot;&gt;Install Nipype&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_resources.html&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_help.html&quot;&gt;Where to find Help&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_python_cheat_sheet.html&quot;&gt;Python Cheat Sheet&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;Nipype (homepage)&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;Nipype Beginner&#39;s Guide&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;Github of Nipype Tutorial&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Github of Nipype Course&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;p&gt;This section will give you helpful links and resources, so that you always know where to go to learn more.&lt;/p&gt;
 
-<span class="c1"># Create Smoothing node</span>
-<span class="n">smooth</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">IsotropicSmooth</span><span class="p">(</span><span class="n">fwhm</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;smooth&#39;</span><span class="p">)</span>
-</pre></div>
+    &lt;/div&gt;
+  &lt;/article&gt;
+&lt;/body&gt;
 
-</div>
-</div>
-</div>
+&lt;!--The following code will cause the code cell to disappear--&gt;
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Third, let's create the workflow that will contain those three nodes. For an explanation about this step, see the <a href="basic_workflow.html">Workflow</a> tutorial.</p>
+&lt;script&gt;
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $(&#39;div.input&#39;).hide();
+ } else {
+ $(&#39;div.input&#39;).show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+&lt;/script&gt;
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Workflow</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span>
+&lt;hr/&gt;
 
-<span class="c1"># Create a preprocessing workflow</span>
-<span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;preprocWF&quot;</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;working_dir&#39;</span>
-
-<span class="c1"># Connect the three nodes to each other</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">sf</span><span class="p">,</span> <span class="n">mcflirt</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;func&quot;</span><span class="p">,</span> <span class="s2">&quot;in_file&quot;</span><span class="p">)]),</span>
-            <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;out_file&quot;</span><span class="p">,</span> <span class="s2">&quot;in_file&quot;</span><span class="p">)])])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that everything is set up, let's run the preprocessing workflow.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-19:17:50,621 workflow INFO:
-	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-19:17:50,659 workflow INFO:
-	 Running serially.
-170715-19:17:50,661 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
-170715-19:17:50,738 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
-170715-19:17:50,777 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
-170715-19:19:28,803 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
-170715-19:19:28,840 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa984b9d208&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>After the execution of the workflow we have all the data hidden in the working directory <code>'working_dir'</code>. Let's take a closer look at the content of this folder:</p>
-
-<pre><code>working_dir
-└── preprocWF
-    ├── d3.js
-    ├── graph1.json
-    ├── graph.json
-    ├── index.html
-    ├── mcflirt
-    │   ├── _0x6148b774a1205e01fbc692453a68ee85.json
-    │   ├── command.txt
-    │   ├── _inputs.pklz
-    │   ├── _node.pklz
-    │   ├── _report
-    │   │   └── report.rst
-    │   ├── result_mcflirt.pklz
-    │   └── sub-01_task-fingerfootlips_bold_mcf.nii.gz
-    ├── selectfiles
-    │   ├── _0x6a583c5c1c472209ca26f29f15c0bd38.json
-    │   ├── _inputs.pklz
-    │   ├── _node.pklz
-    │   ├── _report
-    │   │   └── report.rst
-    │   └── result_selectfiles.pklz
-    └── smooth
-        ├── _0x553087282cd3b58a5c06b5f9699308bf.json
-        ├── command.txt
-        ├── _inputs.pklz
-        ├── _node.pklz
-        ├── _report
-        │   └── report.rst
-        ├── result_smooth.pklz
-        └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, there is way too much content that we might not really care about. To relocate and rename all the files that are relevant for you, you can use <code>DataSink</code>?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="DataSink">DataSink<a class="anchor-link" href="#DataSink">&#182;</a></h1><p><code>DataSink</code> is Nipype's standard output module to restructure your output files. It allows you to relocate and rename files that you deem relevant.</p>
-<p>Based on the preprocessing pipeline above, let's say we want to keep the smoothed functional images as well as the motion correction paramters. To do this, we first need to create the <code>DataSink</code> object.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">DataSink</span>
-
-<span class="c1"># Create DataSink object</span>
-<span class="n">sinker</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">DataSink</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sinker&#39;</span><span class="p">)</span>
-
-<span class="c1"># Name of the output folder</span>
-<span class="n">sinker</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;output&#39;</span>
-
-<span class="c1"># Connect DataSink with the relevant nodes</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
-            <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_img&#39;</span><span class="p">),</span>
-                               <span class="p">(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;par_file&#39;</span><span class="p">)]),</span>
-            <span class="p">])</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+&lt;h2&gt;You want to help with this tutorial?&lt;/h2&gt;
+&lt;p&gt;Find the github repo of this tutorial under &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;https://github.com/miykael/nipype_course&lt;/a&gt;.
+    Feel free to send a pull request or leave an &lt;a href=&quot;https://github.com/miykael/nipype_tutorial/issues&quot;&gt;issue&lt;/a&gt; with your feedback or ideas.
+&lt;/p&gt;
+To inspect the html code of this page, click: &lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Show HTML code&quot;&gt;&lt;/form&gt;
 </pre></div>
 
 </div>
@@ -12064,252 +11940,166 @@ XNATSink
 <div class="output_area">
 <div class="prompt"></div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-19:22:25,400 workflow INFO:
-	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-19:22:25,452 workflow INFO:
-	 Running serially.
-170715-19:22:25,455 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
-170715-19:22:25,563 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
-170715-19:22:25,646 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
-170715-19:24:04,645 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
-170715-19:24:04,736 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
-170715-19:24:18,147 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
-</pre>
+
+<div class="output_html rendered_html output_subarea ">
+<style>.container { width:75% !important; }</style>
+<link rel='stylesheet' type='text/css' href='../static/css_backup/mobile-package-094623.css'>
+<link rel='stylesheet' type='text/css' href='../static/css_backup/homepage-package-3bd234.css'>
+        
+<body>
+  <article id="homepage">
+    <a id="library-section"></a>
+    <div class="library-section">
+      <div class="section-separator library-section-separator">
+        <center><img src="../static/images/logoNipype_tutorial.png" width=700></center>
+        <p>Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
+            you everything so that you can start creating your own workflows in no time. We recommend that you start with
+            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
+            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
+            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
+            </p><p>
+            All of the notebooks used in this tutorial can be found on <a href="https://github.com/miykael/nipype_tutorial">github.com/miykael/nipype_tutorial</a>.
+            But if you want to have the real experience and want to go through the computations by yourself, we highly
+            recommend you to do the <a href="https://github.com/miykael/nipype_course">Nipype Course</a>. This course
+            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
+            Nipype yourself. For the tutorial, you need to install a <a href="www.docker.com/">Docker</a> image on your system that provides you a 
+            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
+            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
+            neuroimaging environment is based on the docker images under <a href="https://github.com/miykael/nipype_env">github.com/miykael/nipype_env</a>,
+            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
+            </p><p>
+            For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>.
+            And if you haven't had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
+            the <a href="https://miykael.github.io/nipype-beginner-s-guide/">detailed beginner's guide</a>.
+            </p>
+      </div>
+
+      <!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
+            argument to either science, computing, humanities, test-prep or economics-finance-domain-->
+
+      <!--to change the number of rows per column, change the last number in 'pure-u-1-3'.
+       For example, to have three columns, change the value to 'pure-u-1-3'-->
+        
+      <h2 class="domain-header economics-finance-domain"><a class="domain-title">Introduction</a></h2>
+      <div class="pure-g domain-table-container economics-finance-domain">
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_nipype.html">Nipype</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_jupyter-notebook.html">Jupyter-Notebook</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_dataset.html">Tutorial Dataset</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_docker.html">Docker</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_python.html">Python</a>
+      </div>
+      <p>This section is meant as a general overview. It should give you a short introduction to the main topics that
+          you need to understand to use Nipype and this tutorial.</p>
+
+      <h2 class="domain-header humanities"><a class="domain-title">Basic Concepts</a></h2>
+      <div class="pure-g domain-table-container humanities">
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_interfaces.html">Interfaces</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_nodes.html">Nodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_workflow.html">Workflow</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_graph_visualization.html">Graph Visualization</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_data_input.html">Data Input</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_data_output.html">Data Output</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_iteration.html">Iteration / Iterables</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_mapnodes.html">MapNodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_function_nodes.html">Function Nodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_joinnodes.html">JoinNodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_model_specification.html">Model Specification</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_import_workflows.html">Import existing Workflows</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_plugins.html">Execution Plugins</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_configuration.html">Execution Configuration</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="basic_error_and_crashes.html">Errors & Crashes</a>
+      </div>
+      <p>This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
+          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
+          to create any kind of Nipype workflow.</p>
+
+      <h2 class="domain-header science"><a class="domain-title">Workflow Examples</a></h2>
+      <div class="pure-g domain-table-container science">
+        <a class="subject-link pure-u-1-4" target="_blank" href="example_preprocessing.html">Preprocessing</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="example_1stlevel.html">1st-level Analysis</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="example_normalize.html">Normalize Data</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="example_2ndlevel.html">2nd-level Analysis</a>
+      </div>
+      <p>In this section you will find some practical examples that show you how to use Nipype in a "real world" scenario.</p>
+
+      <h2 class="domain-header computing"><a class="domain-title">Advanced Concepts</a></h2>
+      <div class="pure-g domain-table-container computing">
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_commandline.html">Commandline Interface*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_caching.html">Caching*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_databases.html">Import from Database*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_export_workflow.html">Save Workflow to File*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_resources_and_profiling.html">Resources & Profiling*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_debug.html">Debug*</a>
+      </div>
+      <p>PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.</p>
+        
+      <h2 class="domain-header math"><a class="domain-title">For Developer</a></h2>
+      <div class="pure-g domain-table-container math">
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_report_issue.html">Report Issues*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_github.html">Help via Github*</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_interface.html">Create your own Interface*</a>
+      </div>
+      <p>PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.</p>
+        
+      <h2 class="domain-header test-prep"><a class="domain-title">Useful Resources & Links</a></h2>
+      <div class="pure-g domain-table-container test-prep">
+        <a class="subject-link pure-u-1-4" target="_blank" href="resources_installation.html">Install Nipype</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="resources_resources.html">Useful Resources & Links</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="resources_help.html">Where to find Help</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="resources_python_cheat_sheet.html">Python Cheat Sheet</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="http://nipype.readthedocs.io/en/latest/">Nipype (homepage)</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="https://miykael.github.io/nipype-beginner-s-guide/">Nipype Beginner's Guide</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_tutorial">Github of Nipype Tutorial</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_course">Github of Nipype Course</a>
+      </div>
+      <p>This section will give you helpful links and resources, so that you always know where to go to learn more.</p>
+
+    </div>
+  </article>
+</body>
+
+<!--The following code will cause the code cell to disappear-->
+
+<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $('div.input').hide();
+ } else {
+ $('div.input').show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+</script>
+
+<hr/>
+
+<h2>You want to help with this tutorial?</h2>
+<p>Find the github repo of this tutorial under <a href="https://github.com/miykael/nipype_course">https://github.com/miykael/nipype_course</a>.
+    Feel free to send a pull request or leave an <a href="https://github.com/miykael/nipype_tutorial/issues">issue</a> with your feedback or ideas.
+</p>
+To inspect the html code of this page, click: <form action="javascript:code_toggle()"><input type="submit" value="Show HTML code"></form>
+</div>
+
+</div>
+
 </div>
 </div>
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956e7d780&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's take a look at the <code>output</code> folder:</p>
-
-<pre><code>output
-├── in_file
-│   └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
-├── mean_img
-│   └── sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
-└── par_file
-    └── sub-01_task-fingerfootlips_bold_mcf.nii.gz.par</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This looks nice. It is what we asked it to do. But having a specific output folder for each individual output file might be suboptimal. So let's change the code above to save the output in one folder, which we will call <code>'preproc'</code>.</p>
-<p>For this we can use the same code as above. We only have to change the connection part:</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@in_file&#39;</span><span class="p">)]),</span>
-            <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@mean_img&#39;</span><span class="p">),</span>
-                               <span class="p">(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@par_file&#39;</span><span class="p">)]),</span>
-            <span class="p">])</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-19:24:18,300 workflow INFO:
-	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-19:24:18,344 workflow INFO:
-	 Running serially.
-170715-19:24:18,347 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
-170715-19:24:18,456 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
-170715-19:24:18,538 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
-170715-19:25:57,84 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
-170715-19:25:57,158 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
-170715-19:26:10,66 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956e6a550&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's take a look at the new output folder structure:</p>
-
-<pre><code>output
-└── preproc
-    ├── sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
-    ├── sub-01_task-fingerfootlips_bold_mcf.nii.gz.par
-    └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is already much better. But what if you want to rename the output files to represent something a bit readable. For this <code>DataSink</code> has the <code>substitution</code> input field.</p>
-<p>For example, let's assume we want to get rid of the string <code>'task-fingerfootlips'</code> and <code>'bold_mcf'</code> and that we want to rename the mean file, as well as adapt the file ending of the motion parameter file:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define substitution strings</span>
-<span class="n">substitutions</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;_task-fingerfootlips&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;_bold_mcf&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;.nii.gz_mean_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;_mean&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;.nii.gz.par&#39;</span><span class="p">,</span> <span class="s1">&#39;.par&#39;</span><span class="p">)]</span>
-
-<span class="c1"># Feed the substitution strings to the DataSink node</span>
-<span class="n">sinker</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">substitutions</span> <span class="o">=</span> <span class="n">substitutions</span>
-
-<span class="c1"># Run the workflow again with the substitutions in place</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-19:28:06,393 workflow INFO:
-	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-19:28:06,426 workflow INFO:
-	 Running serially.
-170715-19:28:06,428 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
-170715-19:28:06,510 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
-170715-19:28:06,528 workflow INFO:
-	 Collecting precomputed outputs
-170715-19:28:06,546 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
-170715-19:28:06,561 workflow INFO:
-	 Collecting precomputed outputs
-170715-19:28:06,599 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
-170715-19:28:06,684 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_smooth.nii.gz
-170715-19:28:06,695 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01.par
-170715-19:28:06,709 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_mean.nii.gz
-170715-19:28:06,721 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01.par
-170715-19:28:06,734 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_mean.nii.gz
-170715-19:28:06,745 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_smooth.nii.gz
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956ed4780&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let's take a final look at the output folder:</p>
-
-<pre><code>output
-└── preproc
-    ├── sub-01_run-1_mean.nii.gz
-    ├── sub-01_run-1.par
-    └── sub-01_run-1_smooth.nii.gz
-
-</code></pre>
-<p>Cool, much more clearly!</p>
-
-</div>
-</div>
 </div>
     </div>
   </div>

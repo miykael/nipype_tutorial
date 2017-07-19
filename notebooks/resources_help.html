@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_data_input_orig</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>resources_help</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11631,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11741,7 +11768,17 @@ div#notebook {
         }
     });
     </script>
-    <!-- End of mathjax configuration --></head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92929997-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -11751,19 +11788,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-Input">Data Input<a class="anchor-link" href="#Data-Input">&#182;</a></h1><p>To do any computation, you need to have data. Getting the data in the framework of a workflow is therefore the first step of every analysis. Nipype provides many different modules to grab or select the data:</p>
-
-<pre><code>DataFinder
-DataGrabber
-FreeSurferSource
-JSONFileGrabber
-S3DataGrabber
-SSHDataGrabber
-SelectFiles
-XNATSource
-
-</code></pre>
-<p>This tutorial will only cover some of them. For the rest, see the section <a href="http://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html"><code>interfaces.io</code></a> on the official homepage.</p>
+<h1 id="Where-to-find-help">Where to find help<a class="anchor-link" href="#Where-to-find-help">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Neurostar">Neurostar<a class="anchor-link" href="#Neurostar">&#182;</a></h2><p><a href="https://neurostars.org/">NeuroStars.org</a> is a platform similar to StackOverflow but dedicated to neuroscience and neuroinformatics. If you have a problem or would like to ask a question about how to do something in Nipype please submit a question to <a href="https://neurostars.org/">NeuroStars.org</a> with a nipype tag.</p>
+<p>All previous Nipype questions are available here: <a href="http://neurostars.org/t/nipype/">http://neurostars.org/t/nipype/</a></p>
 
 </div>
 </div>
@@ -11773,40 +11808,7 @@ XNATSource
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dataset-structure">Dataset structure<a class="anchor-link" href="#Dataset-structure">&#182;</a></h1><p>To be able to import data, you first need to be aware about the structure of your dataset. The structure of the dataset for this tutorial is according to BIDS, and looks as follows:</p>
-
-<pre><code>ds102
-├── CHANGES
-├── dataset_description.json
-├── participants.tsv
-├── README
-├── sub-01
-│   ├── anat
-│   │   └── sub-01_T1w.nii.gz
-│   └── func
-│       ├── sub-01_task-flanker_run-1_bold.nii.gz
-│       ├── sub-01_task-flanker_run-1_events.tsv
-│       ├── sub-01_task-flanker_run-2_bold.nii.gz
-│       └── sub-01_task-flanker_run-2_events.tsv
-├── sub-02
-│   ├── anat
-│   │   └── sub-02_T1w.nii.gz
-│   └── func
-│       ├── sub-02_task-flanker_run-1_bold.nii.gz
-│       ├── sub-02_task-flanker_run-1_events.tsv
-│       ├── sub-02_task-flanker_run-2_bold.nii.gz
-│       └── sub-02_task-flanker_run-2_events.tsv
-├── sub-03
-│   ├── anat
-│   │   └── sub-03_T1w.nii.gz
-│   └── func
-│       ├── sub-03_task-flanker_run-1_bold.nii.gz
-│       ├── sub-03_task-flanker_run-1_events.tsv
-│       ├── sub-03_task-flanker_run-2_bold.nii.gz
-│       └── sub-03_task-flanker_run-2_events.tsv
-├── ...
-.
-└── task-flanker_bold.json</code></pre>
+<h2 id="Gitter">Gitter<a class="anchor-link" href="#Gitter">&#182;</a></h2><p><a href="https://gitter.im/home/explore">gitter.im</a> stands under the motto 'where developers come to talk'. It is a place where developer change thoughts, opinions, ideas and feedbacks to a specific software. Nipype's gitter channel can be found under <a href="https://gitter.im/nipy/nipype">https://gitter.im/nipy/nipype</a>. Use it to directly speak with the community.</p>
 
 </div>
 </div>
@@ -11816,754 +11818,7 @@ XNATSource
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="DataGrabber">DataGrabber<a class="anchor-link" href="#DataGrabber">&#182;</a></h1><p><code>DataGrabber</code> is a generic data grabber module that wraps around <code>glob</code> to select your neuroimaging data in an intelligent way. As an example, let's assume we want to grab the anatomical and functional images of a certain subject.</p>
-<p>First, we need to create the <code>DataGrabber</code> node. This node needs to have some input fields for all dynamic parameters (e.g. subject identifier, task identifier), as well as the two desired output fields <code>anat</code> and <code>func</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">DataGrabber</span><span class="p">,</span> <span class="n">Node</span>
-
-<span class="c1"># Create DataGrabber node</span>
-<span class="n">dg</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">DataGrabber</span><span class="p">(</span><span class="n">infields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;task_id&#39;</span><span class="p">],</span>
-                      <span class="n">outfields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;anat&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">]),</span>
-          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;datagrabber&#39;</span><span class="p">)</span>
-
-<span class="c1"># Location of the dataset folder</span>
-<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/data/ds102&#39;</span>
-
-<span class="c1"># Necessary default parameters</span>
-<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
-<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">sort_filelist</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Second, we know that the two files we desire are the the following location:</p>
-
-<pre><code>anat = /data/ds102/sub-01/anat/sub-01_T1w.nii.gz
-func = /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
-
-</code></pre>
-<p>We see that the two files only have two dynamic parameters between subjects and conditions:</p>
-
-<pre><code>subject_id: in this case 'sub-01'
-task_id: in this case 1
-
-</code></pre>
-<p>This means that we can rewrite the paths as follows:</p>
-
-<pre><code>anat = /data/ds102/[subject_id]/anat/[subject_id]_T1w.nii.gz
-func = /data/ds102/[subject_id]/func/[subject_id]_task-flanker_run-[task_id]_bold.nii.gz
-
-</code></pre>
-<p>Therefore, we need the parameter <code>subject_id</code> for the anatomical image and the parameter <code>subject_id</code> and <code>task_id</code> for the functional image. In the context of DataGabber, this is specified as follows:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">template_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">]],</span>
-                           <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;task_id&#39;</span><span class="p">]]}</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, comes the most important part of DataGrabber. We need to specify the template structure to find the specific data. This can be done as follows.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">field_template</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/anat/*_T1w.nii.gz&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/func/*run-</span><span class="si">%d</span><span class="s1">_bold.nii.gz&#39;</span><span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You'll notice that we use <code>%s</code>, <code>%02d</code> and <code>*</code> for placeholders in the data paths. <code>%s</code> is a placeholder for a string and is filled out by <code>subject_id</code>. <code>%02d</code> is a placeholder for a integer number and is filled out by <code>task_id</code>. <code>*</code> is used as a wild card, e.g. a placeholder for any possible string combination. This is all to set up the <code>DataGrabber</code> node.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now it is up to you how you want to feed the dynamic parameters into the node. You can either do this by using another node (e.g. <code>IdentityInterface</code>) and feed <code>subject_id</code> and <code>task_id</code> as connections to the <code>DataGrabber</code> node or specify them directly as node inputs.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using the IdentityInterface</span>
-<span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">IdentityInterface</span>
-<span class="n">infosource</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">IdentityInterface</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;contrasts&#39;</span><span class="p">]),</span>
-                  <span class="n">name</span><span class="o">=</span><span class="s2">&quot;infosource&quot;</span><span class="p">)</span>
-<span class="n">infosource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">contrasts</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">subject_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sub-01&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;sub-02&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;sub-03&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;sub-04&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;sub-05&#39;</span><span class="p">]</span>
-<span class="n">infosource</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">subject_list</span><span class="p">)]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now you only have to connect <code>infosource</code> with your <code>DataGrabber</code> and run the workflow to iterate over subjects 1, 2 and 3.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If you specify the inputs to the <code>DataGrabber</code> node directly, you can do this as follows:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specifying the input fields of DataGrabber directly</span>
-<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub-01&#39;</span>
-<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">task_id</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let's run the <code>DataGrabber</code> node and let's look at the output:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">dg</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:53:31,59 workflow INFO:
-	 Executing node datagrabber in dir: /tmp/tmp6AloiV/datagrabber
-170301-21:53:31,84 workflow INFO:
-	 Runtime memory and threads stats unavailable
-
-anat = /data/ds102/sub-01/anat/sub-01_T1w.nii.gz
-func = /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="SelectFiles">SelectFiles<a class="anchor-link" href="#SelectFiles">&#182;</a></h1><p><code>SelectFiles</code> is a more flexible alternative to <code>DataGrabber</code>. It uses the {}-based string formating syntax to plug values into string templates and collect the data. These templates can also be combined with glob wild cards. The field names in the formatting template (i.e. the terms in braces) will become inputs fields on the interface, and the keys in the templates dictionary will form the output fields.</p>
-<p>Let's focus again on the data we want to import:</p>
-
-<pre><code>anat = /data/ds102/sub-01/anat/sub-01_T1w.nii.gz
-func = /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
-
-</code></pre>
-<p>Now, we can replace those paths with the accoridng {}-based strings.</p>
-
-<pre><code>anat = /data/ds102/{subject_id}/anat/{subject_id}_T1w.nii.gz
-func = /data/ds102/{subject_id}/func/{subject_id}_task-flanker_run-{task_id}_bold.nii.gz
-
-</code></pre>
-<p>How would this look like as a <code>SelectFiles</code> node?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
-
-<span class="c1"># String template with {}-based strings</span>
-<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">/anat/</span><span class="si">{subject_id}</span><span class="s1">_T1w.nii.gz&#39;</span><span class="p">,</span>
-             <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">/func/</span><span class="si">{subject_id}</span><span class="s1">_task-flanker_run-</span><span class="si">{task_id}</span><span class="s1">_bold.nii.gz&#39;</span><span class="p">}</span>
-
-<span class="c1"># Create SelectFiles node</span>
-<span class="n">sf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">),</span>
-          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selectfiles&#39;</span><span class="p">)</span>
-
-<span class="c1"># Location of the dataset folder</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/data/ds102&#39;</span>
-
-<span class="c1"># Feed {}-based placeholder strings with values</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub-01&#39;</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">task_id</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's check if we get what we wanted.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">sf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:53:57,750 workflow INFO:
-	 Executing node selectfiles in dir: /tmp/tmpejvdlC/selectfiles
-170301-21:53:57,763 workflow INFO:
-	 Runtime memory and threads stats unavailable
-
-anat = /data/ds102/sub-01/anat/sub-01_T1w.nii.gz
-func = /data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Perfect! But why is <code>SelectFiles</code> more flexible than <code>DataGrabber</code>? First, you perhaps noticed that with the {}-based string, we can reuse the same input (e.g. <code>subject_id</code>) multiple time in the same string, without feeding it multiple times into the template.</p>
-<p>Additionally, you can also select multiple files without the need of an iterable node. For example, let's assume we want to select both functional images (<code>'run-1'</code> and <code>'run-2'</code>) at once. We can do this by using the following file template:</p>
-
-<pre><code>{subject_id}_task-flanker_run-[1,2]_bold.nii.gz'
-
-</code></pre>
-<p>Let's see how this works:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span> <span class="k">as</span> <span class="n">opap</span>
-
-<span class="c1"># String template with {}-based strings</span>
-<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">/anat/</span><span class="si">{subject_id}</span><span class="s1">_T1w.nii.gz&#39;</span><span class="p">,</span>
-             <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">/func/</span><span class="si">{subject_id}</span><span class="s1">_task-flanker_run-[1,2]_bold.nii.gz&#39;</span><span class="p">}</span>
-
-<span class="c1"># Create SelectFiles node</span>
-<span class="n">sf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">),</span>
-          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selectfiles&#39;</span><span class="p">)</span>
-
-<span class="c1"># Location of the dataset folder</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/data/ds102&#39;</span>
-
-<span class="c1"># Feed {}-based placeholder strings with values</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub-01&#39;</span>
-
-<span class="c1"># Print SelectFiles output</span>
-<span class="nb">print</span> <span class="n">sf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170301-21:54:03,222 workflow INFO:
-	 Executing node selectfiles in dir: /tmp/tmpjgAYwb/selectfiles
-170301-21:54:03,259 workflow INFO:
-	 Runtime memory and threads stats unavailable
-
-anat = /data/ds102/sub-01/anat/sub-01_T1w.nii.gz
-func = [&#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz&#39;, &#39;/data/ds102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz&#39;]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, now <code>func</code> contains two file paths, one for the first and one for the second run. As a side node, you could have also gotten them same thing with the wild card <code>*</code>:</p>
-
-<pre><code>{subject_id}_task-flanker_run-*_bold.nii.gz'</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="FreeSurferSource">FreeSurferSource<a class="anchor-link" href="#FreeSurferSource">&#182;</a></h2><p><strong><em>Note: FreeSurfer and the recon-all output is not included in this tutorial.</em></strong></p>
-<p><code>FreeSurferSource</code> is a specific case of a file grabber that felicitates the data import of outputs from the FreeSurfer recon-all algorithm. This of course requires that you've already run <code>recon-all</code> on your subject.</p>
-<p>Before you can run <code>FreeSurferSource</code>, you first have to specify the path to the FreeSurfer output folder, i.e. you have to specify the SUBJECTS_DIR variable. This can be done as follows:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.freesurfer</span> <span class="k">import</span> <span class="n">FSCommand</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span> <span class="k">as</span> <span class="n">opap</span>
-
-<span class="c1"># Path to your freesurfer output folder</span>
-<span class="n">fs_dir</span> <span class="o">=</span> <span class="n">opap</span><span class="p">(</span><span class="s1">&#39;/data/ds000114/derivatives/freesurfer&#39;</span><span class="p">)</span>
-
-<span class="c1"># Set SUBJECTS_DIR</span>
-<span class="n">FSCommand</span><span class="o">.</span><span class="n">set_default_subjects_dir</span><span class="p">(</span><span class="n">fs_dir</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To create the <code>FreeSurferSource</code> node, do as follows:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Node</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">FreeSurferSource</span>
-
-<span class="c1"># Create FreeSurferSource node</span>
-<span class="n">fssource</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">FreeSurferSource</span><span class="p">(</span><span class="n">subjects_dir</span><span class="o">=</span><span class="n">fs_dir</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fssource&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's now run it for a specific subject.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub-01&#39;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">fssource</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-16:12:27,752 workflow INFO:
-	 Executing node fssource in dir: /tmp/tmp3lwq9jf3/fssource
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-18-02e91d950107&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> fssource<span class="ansi-blue-fg">.</span>inputs<span class="ansi-blue-fg">.</span>subject_id <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;sub-01&#39;</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>result <span class="ansi-blue-fg">=</span> fssource<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/pipeline/engine/nodes.py</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(self, updatehash)</span>
-<span class="ansi-green-intense-fg ansi-bold">    370</span>                     self.inputs.get_traitsfree())
-<span class="ansi-green-intense-fg ansi-bold">    371</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 372</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>_run_interface<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    373</span>             <span class="ansi-green-fg">except</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    374</span>                 os<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span>hashfile_unfinished<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/pipeline/engine/nodes.py</span> in <span class="ansi-cyan-fg">_run_interface</span><span class="ansi-blue-fg">(self, execute, updatehash)</span>
-<span class="ansi-green-intense-fg ansi-bold">    480</span>         old_cwd <span class="ansi-blue-fg">=</span> os<span class="ansi-blue-fg">.</span>getcwd<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    481</span>         os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>output_dir<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 482</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_command<span class="ansi-blue-fg">(</span>execute<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    483</span>         os<span class="ansi-blue-fg">.</span>chdir<span class="ansi-blue-fg">(</span>old_cwd<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    484</span> 
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/pipeline/engine/nodes.py</span> in <span class="ansi-cyan-fg">_run_command</span><span class="ansi-blue-fg">(self, execute, copyfiles)</span>
-<span class="ansi-green-intense-fg ansi-bold">    611</span>                 logger<span class="ansi-blue-fg">.</span>info<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Running: %s&#39;</span> <span class="ansi-blue-fg">%</span> cmd<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    612</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 613</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_interface<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    614</span>             <span class="ansi-green-fg">except</span> Exception <span class="ansi-green-fg">as</span> msg<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    615</span>                 self<span class="ansi-blue-fg">.</span>_save_results<span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> cwd<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/interfaces/base.py</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(self, **inputs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1080</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1081</span>             runtime <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_run_wrapper<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">-&gt; 1082</span><span class="ansi-red-fg">             </span>outputs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>aggregate_outputs<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1083</span>             runtime<span class="ansi-blue-fg">.</span>endTime <span class="ansi-blue-fg">=</span> dt<span class="ansi-blue-fg">.</span>isoformat<span class="ansi-blue-fg">(</span>dt<span class="ansi-blue-fg">.</span>utcnow<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1084</span>             timediff <span class="ansi-blue-fg">=</span> parseutc<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">.</span>endTime<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> parseutc<span class="ansi-blue-fg">(</span>runtime<span class="ansi-blue-fg">.</span>startTime<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/interfaces/base.py</span> in <span class="ansi-cyan-fg">aggregate_outputs</span><span class="ansi-blue-fg">(self, runtime, needed_outputs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1176</span>                         <span class="ansi-green-fg">raise</span> FileNotFoundError<span class="ansi-blue-fg">(</span>msg<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1177</span>                     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1178</span><span class="ansi-red-fg">                         </span><span class="ansi-green-fg">raise</span> error
-<span class="ansi-green-intense-fg ansi-bold">   1179</span>         <span class="ansi-green-fg">return</span> outputs
-<span class="ansi-green-intense-fg ansi-bold">   1180</span> 
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/interfaces/base.py</span> in <span class="ansi-cyan-fg">aggregate_outputs</span><span class="ansi-blue-fg">(self, runtime, needed_outputs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1167</span>                                                       self.__class__.__name__))
-<span class="ansi-green-intense-fg ansi-bold">   1168</span>                 <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1169</span><span class="ansi-red-fg">                     </span>setattr<span class="ansi-blue-fg">(</span>outputs<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">,</span> val<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1170</span>                     _ <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>outputs<span class="ansi-blue-fg">,</span> key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1171</span>                 <span class="ansi-green-fg">except</span> TraitError <span class="ansi-green-fg">as</span> error<span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/interfaces/base.py</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2041</span>                 isinstance(value[0], list)):
-<span class="ansi-green-intense-fg ansi-bold">   2042</span>             newvalue <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>value<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-fg">-&gt; 2043</span><span class="ansi-red-fg">         </span>value <span class="ansi-blue-fg">=</span> super<span class="ansi-blue-fg">(</span>MultiPath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>validate<span class="ansi-blue-fg">(</span>object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> newvalue<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2044</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2045</span>         <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>value<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/traits/trait_types.py</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2335</span>                 <span class="ansi-green-fg">return</span> value
-<span class="ansi-green-intense-fg ansi-bold">   2336</span> 
-<span class="ansi-green-fg">-&gt; 2337</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> TraitListObject<span class="ansi-blue-fg">(</span> self<span class="ansi-blue-fg">,</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2338</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2339</span>         self<span class="ansi-blue-fg">.</span>error<span class="ansi-blue-fg">(</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/traits/trait_handlers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, trait, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2312</span>             <span class="ansi-green-fg">except</span> TraitError <span class="ansi-green-fg">as</span> excp<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   2313</span>                 excp<span class="ansi-blue-fg">.</span>set_prefix<span class="ansi-blue-fg">(</span> <span class="ansi-blue-fg">&#39;Each element of the&#39;</span> <span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">-&gt; 2314</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> excp
-<span class="ansi-green-intense-fg ansi-bold">   2315</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2316</span>         self<span class="ansi-blue-fg">.</span>len_error<span class="ansi-blue-fg">(</span> len<span class="ansi-blue-fg">(</span> value <span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/traits/trait_handlers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, trait, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2304</span>                 validate <span class="ansi-blue-fg">=</span> trait<span class="ansi-blue-fg">.</span>item_trait<span class="ansi-blue-fg">.</span>handler<span class="ansi-blue-fg">.</span>validate
-<span class="ansi-green-intense-fg ansi-bold">   2305</span>                 <span class="ansi-green-fg">if</span> validate <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2306</span><span class="ansi-red-fg">                     </span>value <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span> validate<span class="ansi-blue-fg">(</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> val <span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> val <span class="ansi-green-fg">in</span> value <span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">   2307</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2308</span>                 list<span class="ansi-blue-fg">.</span>__setitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> slice<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/traits/trait_handlers.py</span> in <span class="ansi-cyan-fg">&lt;listcomp&gt;</span><span class="ansi-blue-fg">(.0)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2304</span>                 validate <span class="ansi-blue-fg">=</span> trait<span class="ansi-blue-fg">.</span>item_trait<span class="ansi-blue-fg">.</span>handler<span class="ansi-blue-fg">.</span>validate
-<span class="ansi-green-intense-fg ansi-bold">   2305</span>                 <span class="ansi-green-fg">if</span> validate <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2306</span><span class="ansi-red-fg">                     </span>value <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span> validate<span class="ansi-blue-fg">(</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> val <span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> val <span class="ansi-green-fg">in</span> value <span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">   2307</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2308</span>                 list<span class="ansi-blue-fg">.</span>__setitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> slice<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/lib/python3.5/site-packages/nipype/interfaces/traits_extension.py</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">     90</span>                 args<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;The trait \&#39;{}\&#39; of {} instance is {}, but the path &#39;</span>
-<span class="ansi-green-intense-fg ansi-bold">     91</span>                      &#39; \&#39;{}\&#39; does not exist.&#39;.format(name, class_of(object),
-<span class="ansi-green-fg">---&gt; 92</span><span class="ansi-red-fg">                                                       self.info_text, value))
-</span><span class="ansi-green-intense-fg ansi-bold">     93</span> 
-<span class="ansi-green-intense-fg ansi-bold">     94</span>         self<span class="ansi-blue-fg">.</span>error<span class="ansi-blue-fg">(</span>object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TraitError</span>: The trait &#39;curv_pial&#39; of a FSSourceOutputSpec instance is an existing file name, but the path  &#39;/data/ds000114/derivatives/freesurfer/sub-01/surf/lh.curv.pial&#39; does not exist.
-Interface FreeSurferSource failed to run. </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>
-hemi = both
-ignore_exception = False
-subject_id = sub-01
-subjects_dir = /data/ds102/ds000114/derivatives/freesurfer</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Did it work? Let's try to access multiple FreeSurfer outputs:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;aparc_aseg: </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">aparc_aseg</span><span class="p">)</span>
-<span class="c1">#print &#39;brainmask: %s\n&#39; % result.outputs.brainmask</span>
-<span class="c1">#print &#39;inflated: %s\n&#39; % result.outputs.inflated</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>aparc_aseg: &lt;undefined&gt;
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>It seems to be working as it should. But as you can see, the <code>inflated</code> output actually contains the file location for both hemispheres. With <code>FreeSurferSource</code> we can also restrict the file selection to a single hemisphere. To do this, we use the <code>hemi</code> input filed:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">hemi</span> <span class="o">=</span> <span class="s1">&#39;lh&#39;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">fssource</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170302-17:50:13,835 workflow INFO:
-	 Executing node fssource in dir: /tmp/tmpI0UTIX/fssource
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's take a look again at the <code>inflated</code> output.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">inflated</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>u&#39;/data/ds102/freesurfer/sub001/surf/lh.inflated&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Perfect!</p>
+<h2 id="Github">Github<a class="anchor-link" href="#Github">&#182;</a></h2><p><a href="https://github.com/nipy/nipype">github.com</a> is where the source code of Nipype is stored. Feel free to fork the repo and submit changes if you want. If you found a bug in the scripts or have a specific ideas for changes, please open a new <a href="https://github.com/nipy/nipype/issues">issue</a> and let the community help you.</p>
 
 </div>
 </div>
@@ -12571,4 +11826,8 @@ subjects_dir = /data/ds102/ds000114/derivatives/freesurfer</pre>
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>

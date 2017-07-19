@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>basic_data_output</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>z_advanced_databases</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11788,36 +11788,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-Output">Data Output<a class="anchor-link" href="#Data-Output">&#182;</a></h1><p>Similarly important to data input is data output. Using a data output module allows you to restructure and rename computed output and to spatial differentiate relevant output files from the temporary computed intermediate files in the working directory. Nipype provides the following modules to handle data stream output:</p>
-
-<pre><code>DataSink
-JSONFileSink
-MySQLSink
-SQLiteSink
-XNATSink
-
-</code></pre>
-<p>This tutorial covers only <code>DataSink</code>. For the rest, see the section <a href="http://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html"><code>interfaces.io</code></a> on the official homepage.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h1><p>Before we can use <code>DataSink</code> we first need to run a workflow. For this purpose, let's create a very short preprocessing workflow that realigns and smooths one functional image of one subject.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>First, let's create a <code>SelectFiles</code> node to . For an explanation about this step, see the <a href="basic_data_input.html">Data Input</a> tutorial.</p>
+<p><a href="https://github.com/nipy/nipype/blob/master/examples/fmri_ants_openfmri.py">https://github.com/nipy/nipype/blob/master/examples/fmri_ants_openfmri.py</a></p>
 
 </div>
 </div>
@@ -11827,14 +11798,7 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
-
-<span class="c1"># Create SelectFiles node</span>
-<span class="n">templates</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">/func/</span><span class="si">{subject_id}</span><span class="s1">_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">}</span>
-<span class="n">sf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">),</span>
-          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;selectfiles&#39;</span><span class="p">)</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114&#39;</span>
-<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub-01&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>
@@ -11847,8 +11811,7 @@ XNATSink
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Second, let's create the motion correction and smoothing node. For an explanation about this step, see the <a href="basic_nodes.html">Nodes</a> and <a href="basic_interfaces.html">Interfaces</a> tutorial.</p>
-
+<h1 id="Step-9:-Connecting-to-Databases">Step 9: Connecting to Databases<a class="anchor-link" href="#Step-9:-Connecting-to-Databases">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11857,459 +11820,56 @@ XNATSink
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="k">import</span> <span class="n">MCFLIRT</span><span class="p">,</span> <span class="n">IsotropicSmooth</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span> <span class="k">as</span> <span class="n">opap</span>
 
-<span class="c1"># Create Motion Correction Node</span>
-<span class="n">mcflirt</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">mean_vol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                       <span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mcflirt&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="kn">import</span> <span class="n">XNATSource</span>
+<span class="kn">from</span> <span class="nn">nipype.pipeline.engine</span> <span class="kn">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Workflow</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="kn">import</span> <span class="n">BET</span>
 
-<span class="c1"># Create Smoothing node</span>
-<span class="n">smooth</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">IsotropicSmooth</span><span class="p">(</span><span class="n">fwhm</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-              <span class="n">name</span><span class="o">=</span><span class="s1">&#39;smooth&#39;</span><span class="p">)</span>
+<span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;xnat_S00001&#39;</span>
+
+<span class="n">dg</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">XNATSource</span><span class="p">(</span><span class="n">infields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">],</span>
+                     <span class="n">outfields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;struct&#39;</span><span class="p">],</span>
+                     <span class="n">config</span><span class="o">=</span><span class="s1">&#39;/Users/satra/xnat_configs/nitrc_ir_config&#39;</span><span class="p">),</span>
+          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;xnatsource&#39;</span><span class="p">)</span>
+<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">query_template</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;/projects/fcon_1000/subjects/</span><span class="si">%s</span><span class="s1">/experiments/xnat_E00001&#39;</span>
+                            <span class="s1">&#39;/scans/</span><span class="si">%s</span><span class="s1">/resources/NIfTI/files&#39;</span><span class="p">)</span>
+<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">query_template_args</span><span class="p">[</span><span class="s1">&#39;struct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;anat_mprage_anonymized&#39;</span><span class="p">]]</span>
+<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="n">subject_id</span>
+
+<span class="n">bet</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">BET</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;skull_stripper&#39;</span><span class="p">)</span>
+
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;testxnat&#39;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">opap</span><span class="p">(</span><span class="s1">&#39;xnattest&#39;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">dg</span><span class="p">,</span> <span class="s1">&#39;struct&#39;</span><span class="p">,</span> <span class="n">bet</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Third, let's create the workflow that will contain those three nodes. For an explanation about this step, see the <a href="basic_workflow.html">Workflow</a> tutorial.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Workflow</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="kn">import</span> <span class="n">XNATSink</span>
 
-<span class="c1"># Create a preprocessing workflow</span>
-<span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;preprocWF&quot;</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;working_dir&#39;</span>
-
-<span class="c1"># Connect the three nodes to each other</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">sf</span><span class="p">,</span> <span class="n">mcflirt</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;func&quot;</span><span class="p">,</span> <span class="s2">&quot;in_file&quot;</span><span class="p">)]),</span>
-            <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;out_file&quot;</span><span class="p">,</span> <span class="s2">&quot;in_file&quot;</span><span class="p">)])])</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">XNATSink</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="s1">&#39;/Users/satra/xnat_configs/central_config&#39;</span><span class="p">),</span>
+          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;xnatsink&#39;</span><span class="p">)</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">project_id</span> <span class="o">=</span> <span class="s1">&#39;NPTEST&#39;</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;NPTEST_xnat_S00001&#39;</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">experiment_id</span> <span class="o">=</span> <span class="s1">&#39;test_xnat&#39;</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">reconstruction_id</span> <span class="o">=</span> <span class="s1">&#39;bet&#39;</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">share</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">bet</span><span class="p">,</span> <span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="s1">&#39;brain&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that everything is set up, let's run the preprocessing workflow.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-19:17:50,621 workflow INFO:
-	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-19:17:50,659 workflow INFO:
-	 Running serially.
-170715-19:17:50,661 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
-170715-19:17:50,738 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
-170715-19:17:50,777 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
-170715-19:19:28,803 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
-170715-19:19:28,840 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa984b9d208&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>After the execution of the workflow we have all the data hidden in the working directory <code>'working_dir'</code>. Let's take a closer look at the content of this folder:</p>
-
-<pre><code>working_dir
-└── preprocWF
-    ├── d3.js
-    ├── graph1.json
-    ├── graph.json
-    ├── index.html
-    ├── mcflirt
-    │   ├── _0x6148b774a1205e01fbc692453a68ee85.json
-    │   ├── command.txt
-    │   ├── _inputs.pklz
-    │   ├── _node.pklz
-    │   ├── _report
-    │   │   └── report.rst
-    │   ├── result_mcflirt.pklz
-    │   └── sub-01_task-fingerfootlips_bold_mcf.nii.gz
-    ├── selectfiles
-    │   ├── _0x6a583c5c1c472209ca26f29f15c0bd38.json
-    │   ├── _inputs.pklz
-    │   ├── _node.pklz
-    │   ├── _report
-    │   │   └── report.rst
-    │   └── result_selectfiles.pklz
-    └── smooth
-        ├── _0x553087282cd3b58a5c06b5f9699308bf.json
-        ├── command.txt
-        ├── _inputs.pklz
-        ├── _node.pklz
-        ├── _report
-        │   └── report.rst
-        ├── result_smooth.pklz
-        └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, there is way too much content that we might not really care about. To relocate and rename all the files that are relevant for you, you can use <code>DataSink</code>?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="DataSink">DataSink<a class="anchor-link" href="#DataSink">&#182;</a></h1><p><code>DataSink</code> is Nipype's standard output module to restructure your output files. It allows you to relocate and rename files that you deem relevant.</p>
-<p>Based on the preprocessing pipeline above, let's say we want to keep the smoothed functional images as well as the motion correction paramters. To do this, we first need to create the <code>DataSink</code> object.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">DataSink</span>
-
-<span class="c1"># Create DataSink object</span>
-<span class="n">sinker</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">DataSink</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sinker&#39;</span><span class="p">)</span>
-
-<span class="c1"># Name of the output folder</span>
-<span class="n">sinker</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;output&#39;</span>
-
-<span class="c1"># Connect DataSink with the relevant nodes</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
-            <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_img&#39;</span><span class="p">),</span>
-                               <span class="p">(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;par_file&#39;</span><span class="p">)]),</span>
-            <span class="p">])</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-19:22:25,400 workflow INFO:
-	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-19:22:25,452 workflow INFO:
-	 Running serially.
-170715-19:22:25,455 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
-170715-19:22:25,563 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
-170715-19:22:25,646 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
-170715-19:24:04,645 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
-170715-19:24:04,736 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
-170715-19:24:18,147 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956e7d780&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's take a look at the <code>output</code> folder:</p>
-
-<pre><code>output
-├── in_file
-│   └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
-├── mean_img
-│   └── sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
-└── par_file
-    └── sub-01_task-fingerfootlips_bold_mcf.nii.gz.par</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This looks nice. It is what we asked it to do. But having a specific output folder for each individual output file might be suboptimal. So let's change the code above to save the output in one folder, which we will call <code>'preproc'</code>.</p>
-<p>For this we can use the same code as above. We only have to change the connection part:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@in_file&#39;</span><span class="p">)]),</span>
-            <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@mean_img&#39;</span><span class="p">),</span>
-                               <span class="p">(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@par_file&#39;</span><span class="p">)]),</span>
-            <span class="p">])</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-19:24:18,300 workflow INFO:
-	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-19:24:18,344 workflow INFO:
-	 Running serially.
-170715-19:24:18,347 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
-170715-19:24:18,456 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
-170715-19:24:18,538 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz -meanvol -out /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -plots
-170715-19:25:57,84 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
-170715-19:25:57,158 workflow INFO:
-	 Running: fslmaths /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz
-170715-19:26:10,66 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956e6a550&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's take a look at the new output folder structure:</p>
-
-<pre><code>output
-└── preproc
-    ├── sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
-    ├── sub-01_task-fingerfootlips_bold_mcf.nii.gz.par
-    └── sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is already much better. But what if you want to rename the output files to represent something a bit readable. For this <code>DataSink</code> has the <code>substitution</code> input field.</p>
-<p>For example, let's assume we want to get rid of the string <code>'task-fingerfootlips'</code> and <code>'bold_mcf'</code> and that we want to rename the mean file, as well as adapt the file ending of the motion parameter file:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define substitution strings</span>
-<span class="n">substitutions</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;_task-fingerfootlips&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;_bold_mcf&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;.nii.gz_mean_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;_mean&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;.nii.gz.par&#39;</span><span class="p">,</span> <span class="s1">&#39;.par&#39;</span><span class="p">)]</span>
-
-<span class="c1"># Feed the substitution strings to the DataSink node</span>
-<span class="n">sinker</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">substitutions</span> <span class="o">=</span> <span class="n">substitutions</span>
-
-<span class="c1"># Run the workflow again with the substitutions in place</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-19:28:06,393 workflow INFO:
-	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-19:28:06,426 workflow INFO:
-	 Running serially.
-170715-19:28:06,428 workflow INFO:
-	 Executing node selectfiles in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/selectfiles
-170715-19:28:06,510 workflow INFO:
-	 Executing node mcflirt in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/mcflirt
-170715-19:28:06,528 workflow INFO:
-	 Collecting precomputed outputs
-170715-19:28:06,546 workflow INFO:
-	 Executing node smooth in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/smooth
-170715-19:28:06,561 workflow INFO:
-	 Collecting precomputed outputs
-170715-19:28:06,599 workflow INFO:
-	 Executing node sinker in dir: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker
-170715-19:28:06,684 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_smooth.nii.gz
-170715-19:28:06,695 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01.par
-170715-19:28:06,709 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_mean.nii.gz
-170715-19:28:06,721 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01.par
-170715-19:28:06,734 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_mean.nii.gz
-170715-19:28:06,745 interface INFO:
-	 sub: /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /home/jovyan/work/nipype_tutorial/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_smooth.nii.gz
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa956ed4780&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let's take a final look at the output folder:</p>
-
-<pre><code>output
-└── preproc
-    ├── sub-01_run-1_mean.nii.gz
-    ├── sub-01_run-1.par
-    └── sub-01_run-1_smooth.nii.gz
-
-</code></pre>
-<p>Cool, much more clearly!</p>
-
-</div>
-</div>
 </div>
     </div>
   </div>

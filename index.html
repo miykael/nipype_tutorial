@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>index</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11631,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11741,7 +11768,17 @@ div#notebook {
         }
     });
     </script>
-    <!-- End of mathjax configuration --></head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92929997-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -11792,33 +11829,33 @@ div#notebook {
         
       &lt;h2 class=&quot;domain-header economics-finance-domain&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Introduction&lt;/a&gt;&lt;/h2&gt;
       &lt;div class=&quot;pure-g domain-table-container economics-finance-domain&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_nipype.ipynb&quot;&gt;Nipype&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_jupyter-notebook.ipynb&quot;&gt;Jupyter-Notebook&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_dataset.ipynb&quot;&gt;BIDS &amp; Tutorial Dataset&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_docker.ipynb&quot;&gt;Docker&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_python.ipynb&quot;&gt;Python&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_nipype.html&quot;&gt;Nipype&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_jupyter-notebook.html&quot;&gt;Jupyter-Notebook&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_dataset.html&quot;&gt;BIDS &amp; Tutorial Dataset&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_docker.html&quot;&gt;Docker&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_python.html&quot;&gt;Python&lt;/a&gt;
       &lt;/div&gt;
       &lt;p&gt;This section is meant as a general overview. It should give you a short introduction to the main topics that
           you need to understand to use Nipype and this tutorial.&lt;/p&gt;
 
       &lt;h2 class=&quot;domain-header humanities&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Basic Concepts&lt;/a&gt;&lt;/h2&gt;
       &lt;div class=&quot;pure-g domain-table-container humanities&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_interfaces.ipynb&quot;&gt;Interfaces&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_nodes.ipynb&quot;&gt;Nodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_workflow.ipynb&quot;&gt;Workflow&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_graph_visualization.ipynb&quot;&gt;Graph Visualization&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_input.ipynb&quot;&gt;Data Input&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_input_bids.ipynb&quot;&gt;Data Input with BIDS&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_output.ipynb&quot;&gt;Data Output&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_iteration.ipynb&quot;&gt;Iteration / Iterables&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_mapnodes.ipynb&quot;&gt;MapNodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_function_nodes.ipynb&quot;&gt;Function Nodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_joinnodes.ipynb&quot;&gt;JoinNodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_model_specification.ipynb&quot;&gt;Model Specification&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_import_workflows.ipynb&quot;&gt;Import existing Workflows&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_plugins.ipynb&quot;&gt;Execution Plugins&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_configuration.ipynb&quot;&gt;Execution Configuration&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_error_and_crashes.ipynb&quot;&gt;Errors &amp; Crashes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_interfaces.html&quot;&gt;Interfaces&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_nodes.html&quot;&gt;Nodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_workflow.html&quot;&gt;Workflow&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_graph_visualization.html&quot;&gt;Graph Visualization&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_input.html&quot;&gt;Data Input&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_input_bids.html&quot;&gt;Data Input with BIDS&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_output.html&quot;&gt;Data Output&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_iteration.html&quot;&gt;Iteration / Iterables&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_mapnodes.html&quot;&gt;MapNodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_function_nodes.html&quot;&gt;Function Nodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_joinnodes.html&quot;&gt;JoinNodes&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_model_specification.html&quot;&gt;Model Specification&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_import_workflows.html&quot;&gt;Import existing Workflows&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_plugins.html&quot;&gt;Execution Plugins&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_configuration.html&quot;&gt;Execution Configuration&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_error_and_crashes.html&quot;&gt;Errors &amp; Crashes&lt;/a&gt;
       &lt;/div&gt;
       &lt;p&gt;This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
           fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
@@ -11826,20 +11863,20 @@ div#notebook {
 
       &lt;h2 class=&quot;domain-header science&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Workflow Examples&lt;/a&gt;&lt;/h2&gt;
       &lt;div class=&quot;pure-g domain-table-container science&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_preprocessing.ipynb&quot;&gt;Preprocessing&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_1stlevel.ipynb&quot;&gt;1st-level Analysis&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_normalize.ipynb&quot;&gt;Normalize Data&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_2ndlevel.ipynb&quot;&gt;2nd-level Analysis&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_metaflow.ipynb&quot;&gt;Metaflow&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_preprocessing.html&quot;&gt;Preprocessing&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_1stlevel.html&quot;&gt;1st-level Analysis&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_normalize.html&quot;&gt;Normalize Data&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_2ndlevel.html&quot;&gt;2nd-level Analysis&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_metaflow.html&quot;&gt;Metaflow&lt;/a&gt;
       &lt;/div&gt;
       &lt;p&gt;In this section you will find some practical examples that show you how to use Nipype in a &quot;real world&quot; scenario.&lt;/p&gt;
 
       &lt;h2 class=&quot;domain-header test-prep&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;&lt;/h2&gt;
       &lt;div class=&quot;pure-g domain-table-container test-prep&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_installation.ipynb&quot;&gt;Install Nipype&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_resources.ipynb&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_help.ipynb&quot;&gt;Where to find Help&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_python_cheat_sheet.ipynb&quot;&gt;Python Cheat Sheet&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_installation.html&quot;&gt;Install Nipype&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_resources.html&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_help.html&quot;&gt;Where to find Help&lt;/a&gt;
+        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_python_cheat_sheet.html&quot;&gt;Python Cheat Sheet&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;Nipype (homepage)&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;Nipype Beginner&#39;s Guide&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;Github of Nipype Tutorial&lt;/a&gt;
@@ -11872,7 +11909,6 @@ $( document ).ready(code_toggle);
 &lt;p&gt;Find the github repo of this tutorial under &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;https://github.com/miykael/nipype_course&lt;/a&gt;.
     Feel free to send a pull request or leave an &lt;a href=&quot;https://github.com/miykael/nipype_tutorial/issues&quot;&gt;issue&lt;/a&gt; with your feedback or ideas.
 &lt;/p&gt;
-To inspect the html code of this page, click: &lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Show HTML code&quot;&gt;&lt;/form&gt;
 </pre></div>
 
 </div>
@@ -11883,7 +11919,9 @@ To inspect the html code of this page, click: &lt;form action=&quot;javascript:c
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 <div class="output_html rendered_html output_subarea ">
 <style>.container { width:75% !important; }</style>
@@ -11926,33 +11964,33 @@ To inspect the html code of this page, click: &lt;form action=&quot;javascript:c
         
       <h2 class="domain-header economics-finance-domain"><a class="domain-title">Introduction</a></h2>
       <div class="pure-g domain-table-container economics-finance-domain">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_nipype.ipynb">Nipype</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_jupyter-notebook.ipynb">Jupyter-Notebook</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_dataset.ipynb">BIDS & Tutorial Dataset</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_docker.ipynb">Docker</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_python.ipynb">Python</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_nipype.html">Nipype</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_jupyter-notebook.html">Jupyter-Notebook</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_dataset.html">BIDS & Tutorial Dataset</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_docker.html">Docker</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_python.html">Python</a>
       </div>
       <p>This section is meant as a general overview. It should give you a short introduction to the main topics that
           you need to understand to use Nipype and this tutorial.</p>
 
       <h2 class="domain-header humanities"><a class="domain-title">Basic Concepts</a></h2>
       <div class="pure-g domain-table-container humanities">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_interfaces.ipynb">Interfaces</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_nodes.ipynb">Nodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_workflow.ipynb">Workflow</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_graph_visualization.ipynb">Graph Visualization</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_input.ipynb">Data Input</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_input_bids.ipynb">Data Input with BIDS</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_output.ipynb">Data Output</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_iteration.ipynb">Iteration / Iterables</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_mapnodes.ipynb">MapNodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_function_nodes.ipynb">Function Nodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_joinnodes.ipynb">JoinNodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_model_specification.ipynb">Model Specification</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_import_workflows.ipynb">Import existing Workflows</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_plugins.ipynb">Execution Plugins</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_configuration.ipynb">Execution Configuration</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_error_and_crashes.ipynb">Errors & Crashes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_interfaces.html">Interfaces</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_nodes.html">Nodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_workflow.html">Workflow</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_graph_visualization.html">Graph Visualization</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_input.html">Data Input</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_input_bids.html">Data Input with BIDS</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_output.html">Data Output</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_iteration.html">Iteration / Iterables</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_mapnodes.html">MapNodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_function_nodes.html">Function Nodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_joinnodes.html">JoinNodes</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_model_specification.html">Model Specification</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_import_workflows.html">Import existing Workflows</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_plugins.html">Execution Plugins</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_configuration.html">Execution Configuration</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_error_and_crashes.html">Errors & Crashes</a>
       </div>
       <p>This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
           fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
@@ -11960,20 +11998,20 @@ To inspect the html code of this page, click: &lt;form action=&quot;javascript:c
 
       <h2 class="domain-header science"><a class="domain-title">Workflow Examples</a></h2>
       <div class="pure-g domain-table-container science">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_preprocessing.ipynb">Preprocessing</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_1stlevel.ipynb">1st-level Analysis</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_normalize.ipynb">Normalize Data</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_2ndlevel.ipynb">2nd-level Analysis</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_metaflow.ipynb">Metaflow</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_preprocessing.html">Preprocessing</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_1stlevel.html">1st-level Analysis</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_normalize.html">Normalize Data</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_2ndlevel.html">2nd-level Analysis</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_metaflow.html">Metaflow</a>
       </div>
       <p>In this section you will find some practical examples that show you how to use Nipype in a "real world" scenario.</p>
 
       <h2 class="domain-header test-prep"><a class="domain-title">Useful Resources & Links</a></h2>
       <div class="pure-g domain-table-container test-prep">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_installation.ipynb">Install Nipype</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_resources.ipynb">Useful Resources & Links</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_help.ipynb">Where to find Help</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_python_cheat_sheet.ipynb">Python Cheat Sheet</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_installation.html">Install Nipype</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_resources.html">Useful Resources & Links</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_help.html">Where to find Help</a>
+        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_python_cheat_sheet.html">Python Cheat Sheet</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="http://nipype.readthedocs.io/en/latest/">Nipype (homepage)</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="https://miykael.github.io/nipype-beginner-s-guide/">Nipype Beginner's Guide</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_tutorial">Github of Nipype Tutorial</a>
@@ -12006,7 +12044,6 @@ $( document ).ready(code_toggle);
 <p>Find the github repo of this tutorial under <a href="https://github.com/miykael/nipype_course">https://github.com/miykael/nipype_course</a>.
     Feel free to send a pull request or leave an <a href="https://github.com/miykael/nipype_tutorial/issues">issue</a> with your feedback or ideas.
 </p>
-To inspect the html code of this page, click: <form action="javascript:code_toggle()"><input type="submit" value="Show HTML code"></form>
 </div>
 
 </div>
@@ -12031,4 +12068,8 @@ To inspect the html code of this page, click: <form action="javascript:code_togg
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>
