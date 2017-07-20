@@ -11785,10 +11785,10 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
 &lt;style&gt;.container { width:75% !important; }&lt;/style&gt;
 &lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css_backup/mobile-package-094623.css&#39;&gt;
 &lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css_backup/homepage-package-3bd234.css&#39;&gt;
@@ -11799,7 +11799,21 @@ div#notebook {
     &lt;div class=&quot;library-section&quot;&gt;
       &lt;div class=&quot;section-separator library-section-separator&quot;&gt;
         &lt;center&gt;&lt;img src=&quot;static/images/logoNipype_tutorial.png&quot; width=700&gt;&lt;/center&gt;
-        &lt;p&gt;Welcome to the Nipype Tutorial!  
+        &lt;p&gt;Welcome to the Nipype Tutorial!
+           This tutorial is based on &lt;a href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;Michael Notter&#39;s tutorial&lt;/a&gt;, but it&#39;s updated to Python 3 and current version of Nipype.   
+            It covers the basic concepts and most common use cases of Nipype and will teach
+            you everything so that you can start creating your own workflows in no time. We recommend that you start with
+            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
+            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
+            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
+            &lt;/p&gt;&lt;p&gt;
+            All of the notebooks used in this tutorial can be found on &lt;a href=&quot;https://github.com/djarecka/nipype_tutorial&quot;&gt;github.com/djarecka/nipype_tutorial&lt;/a&gt;.
+            For the tutorial, we will use a Docker container. You need to install a &lt;a href=&quot;http://www.docker.com/&quot;&gt;Docker&lt;/a&gt; and download a docker image that provides you a 
+            neuroimaging environment based on a Debian system, with working Python 3 software (including Nipype, dipy, matplotlib,
+            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). 
+            TODO
+            &lt;/p&gt;&lt;p&gt;
+            For everything that isn&#39;t covered in this tutorial, check out the &lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;main homepage&lt;/a&gt;. 
             &lt;/p&gt;
       &lt;/div&gt;
 
@@ -11887,10 +11901,6 @@ $( document ).ready(code_toggle);
 
 &lt;hr/&gt;
 
-&lt;h2&gt;You want to help with this tutorial?&lt;/h2&gt;
-&lt;p&gt;Find the github repo of this tutorial under &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;https://github.com/miykael/nipype_course&lt;/a&gt;.
-    Feel free to send a pull request or leave an &lt;a href=&quot;https://github.com/miykael/nipype_tutorial/issues&quot;&gt;issue&lt;/a&gt; with your feedback or ideas.
-&lt;/p&gt;
 </pre></div>
 
 </div>
@@ -11916,22 +11926,21 @@ $( document ).ready(code_toggle);
     <div class="library-section">
       <div class="section-separator library-section-separator">
         <center><img src="static/images/logoNipype_tutorial.png" width=700></center>
-        <p>Welcome to the Nipype Tutorial! This tutorial is based on <a href="https://github.com/miykael/nipype_tutorial">Michael Notter's tutorial</a>, but it's updated to Python 3 and current version of Nipype.
-It covers the basic concepts and most common use cases of Nipype and will teach
+        <p>Welcome to the Nipype Tutorial!
+           This tutorial is based on <a href="https://github.com/miykael/nipype_tutorial">Michael Notter's tutorial</a>, but it's updated to Python 3 and current version of Nipype.   
+            It covers the basic concepts and most common use cases of Nipype and will teach
             you everything so that you can start creating your own workflows in no time. We recommend that you start with
             the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
             basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
             examples section shows you a real example how you can use Nipype to analyze an actual dataset.
             </p><p>
             All of the notebooks used in this tutorial can be found on <a href="https://github.com/djarecka/nipype_tutorial">github.com/djarecka/nipype_tutorial</a>.
-            
-            For the tutorial, we will use a Docker container. You need to install a <a href="http://www.docker.com/">Docker</a> and download a docker image  that provides you a 
-            neuroimaging environment based on a Debian system, with working Python 3  (including Nipype, dipy, matplotlib,
-            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
-            neuroimaging environment is based on the docker images under <a href="https://github.com/miykael/nipype_env">github.com/miykael/nipype_env</a>,
-            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
+            For the tutorial, we will use a Docker container. You need to install a <a href="http://www.docker.com/">Docker</a> and download a docker image that provides you a 
+            neuroimaging environment based on a Debian system, with working Python 3 software (including Nipype, dipy, matplotlib,
+            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). 
+            TODO
             </p><p>
-            For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>.
+            For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>. 
             </p>
       </div>
 
@@ -12017,25 +12026,12 @@ function code_toggle() {
 $( document ).ready(code_toggle);
 </script>
 
-<hr/>
+
 
 </div>
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
 </div>
 </div>
 
