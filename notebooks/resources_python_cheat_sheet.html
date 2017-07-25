@@ -12086,42 +12086,28 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span><span class="err">?</span>  <span class="c1"># Information about the object</span>
-<span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;.&lt;</span><span class="n">TAB</span><span class="o">&gt;</span>  <span class="c1"># tab completion</span>
-
-<span class="c1"># measure runtime of a function:</span>
-<span class="o">%</span><span class="k">timeit</span> range(1000)
-<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">7.76</span> <span class="n">us</span> <span class="n">per</span> <span class="n">loop</span>
-
-<span class="c1"># run scripts and debug</span>
-<span class="o">%</span><span class="k">run</span>
-<span class="o">%</span><span class="k">run</span> -d  # run in debug mode
-<span class="o">%</span><span class="k">run</span> -t  # measures execution time
-<span class="o">%</span><span class="k">run</span> -p  # runs a profiler
-<span class="o">%</span><span class="k">debug</span>  # jumps to the debugger after an exception
-
-<span class="o">%</span><span class="k">pdb</span>  # run debugger automatically on exception
-
-<span class="c1"># examine history</span>
-<span class="o">%</span><span class="k">history</span>
-<span class="o">%</span><span class="k">history</span> ~1/1-5  # lines 1-5 of last session
-
-<span class="c1"># run shell commands</span>
-<span class="o">!</span>make  # prefix <span class="nb">command</span> with <span class="s2">&quot;!&quot;</span>
-
-<span class="c1"># clean namespace</span>
-<span class="o">%</span><span class="k">reset</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><object>?  # Information about the object</p>
+<p><object>.<TAB>  # tab completion</p>
+<h1 id="measure-runtime-of-a-function:">measure runtime of a function:<a class="anchor-link" href="#measure-runtime-of-a-function:">&#182;</a></h1><p>%timeit range(1000)
+100000 loops, best of 3: 7.76 us per loop</p>
+<h1 id="run-scripts-and-debug">run scripts and debug<a class="anchor-link" href="#run-scripts-and-debug">&#182;</a></h1><p>%run
+%run -d  # run in debug mode
+%run -t  # measures execution time
+%run -p  # runs a profiler
+%debug  # jumps to the debugger after an exception</p>
+<p>%pdb  # run debugger automatically on exception</p>
+<h1 id="examine-history">examine history<a class="anchor-link" href="#examine-history">&#182;</a></h1><p>%history
+%history ~1/1-5  # lines 1-5 of last session</p>
+<h1 id="run-shell-commands">run shell commands<a class="anchor-link" href="#run-shell-commands">&#182;</a></h1><p>!make  # prefix command with "!"</p>
+<h1 id="clean-namespace">clean namespace<a class="anchor-link" href="#clean-namespace">&#182;</a></h1><p>%reset</p>
 
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12132,18 +12118,15 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span>  <span class="c1"># execute next line</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>n  # execute next line</p>
 
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12208,19 +12191,16 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fname</span><span class="o">/</span><span class="nb">object</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># read binary data from file</span>
-<span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="o">/</span><span class="nb">object</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>   <span class="c1"># read ascii data from file</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>np.fromfile(fname/object, dtype=np.float32, count=5)  # read binary data from file
+np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from file</p>
 
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12394,8 +12374,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># integrate along axis 1</span>
-<span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">)</span>      <span class="c1"># interpolate function xp, yp at points x</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># integrate along axis 0</span>
+<span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">xp</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">fp</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>      <span class="c1"># interpolate function xp, yp at points x</span>
 </pre></div>
 
 </div>
@@ -12418,10 +12398,10 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>             <span class="c1"># complex fourier transform of y</span>
-<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreqs</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>   <span class="c1"># fft frequencies for a given length</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>   <span class="c1"># fft frequencies for a given length</span>
 <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>    <span class="c1"># shifts zero frequency to the middle</span>
 <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>            <span class="c1"># real fourier transform of y</span>
-<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreqs</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># real fft frequencies for a given length</span>
+<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># real fft frequencies for a given length</span>
 </pre></div>
 
 </div>
@@ -12536,37 +12516,34 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>            <span class="c1"># big figure title</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-                    <span class="n">right</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
-                    <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-                    <span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-                    <span class="n">hspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># adjust subplot positions</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-                 <span class="n">h_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                 <span class="n">w_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                 <span class="n">rect</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>      <span class="c1"># adjust subplots to fit perfectly into fig</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">()</span>                  <span class="c1"># set xlabel</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">()</span>                  <span class="c1"># set ylabel</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                <span class="c1"># sets x limits</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>                <span class="c1"># sets y limits</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;blabla&#39;</span><span class="p">)</span>           <span class="c1"># sets the axis title</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;bla&#39;</span><span class="p">)</span>             <span class="c1"># set multiple parameters at once</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>    <span class="c1"># activate legend</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>      <span class="c1"># activate grid</span>
-<span class="n">bbox</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>         <span class="c1"># returns the axes bounding box</span>
-<span class="n">bbox</span><span class="o">.</span><span class="n">x0</span> <span class="o">+</span> <span class="n">bbox</span><span class="o">.</span><span class="n">width</span>             <span class="c1"># bounding box parameters</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>fig.suptitle('title')            # big figure title
+fig.subplots_adjust(bottom=0.1,
+                    right=0.8,
+                    top=0.9,
+                    wspace=0.2,
+                    hspace=0.5)  # adjust subplot positions
+fig.tight_layout(pad=0.1,
+                 h_pad=0.5,
+                 w_pad=0.5,
+                 rect=None)      # adjust subplots to fit perfectly into fig
+ax.set_xlabel()                  # set xlabel
+ax.set_ylabel()                  # set ylabel
+ax.set_xlim(1, 2)                # sets x limits
+ax.set_ylim(3, 4)                # sets y limits
+ax.set_title('blabla')           # sets the axis title
+ax.set(xlabel='bla')             # set multiple parameters at once
+ax.legend(loc='upper center')    # activate legend
+ax.grid(True, which='both')      # activate grid
+bbox = ax.get_position()         # returns the axes bounding box
+bbox.x0 + bbox.width             # bounding box parameters</p>
 
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12577,26 +12554,23 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bla&#39;</span><span class="p">)</span>  <span class="c1"># plots a line</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>                  <span class="c1"># scatter plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">)</span>      <span class="c1"># fast colormesh function</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">colormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>               <span class="c1"># slower colormesh function</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>                <span class="c1"># contour line plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>           <span class="c1"># filled contours plot</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patch</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>                 <span class="c1"># histogram</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span>  <span class="c1"># show image</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">specgram</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">FS</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>  <span class="c1"># plot a spectrogram</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ax.plot(x,y, '-o', c='red', lw=2, label='bla')  # plots a line
+ax.scatter(x,y, s=20, c=color)                  # scatter plot
+ax.pcolormesh(xx,yy,zz, shading='gouraud')      # fast colormesh function
+ax.colormesh(xx,yy,zz, norm=norm)               # slower colormesh function
+ax.contour(xx,yy,zz, cmap='jet')                # contour line plot
+ax.contourf(xx,yy,zz, vmin=2, vmax=4)           # filled contours plot
+n, bins, patch = ax.hist(x, 50)                 # histogram
+ax.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2))  # show image
+ax.specgram(y, FS=0.1, noverlap=128, scale='linear')  # plot a spectrogram</p>
 
 </div>
 </div>
-</div>
-
 </div>
     </div>
   </div>
