@@ -11872,17 +11872,17 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-23:32:21,386 workflow INFO:
+<pre>170730-13:25:25,275 workflow INFO:
 	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-23:32:21,410 workflow INFO:
+170730-13:25:25,292 workflow INFO:
 	 Running serially.
-170727-23:32:21,412 workflow INFO:
+170730-13:25:25,294 workflow INFO:
 	 Executing node selectfiles in dir: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
-170727-23:32:21,458 workflow ERROR:
-	 [&#39;Node selectfiles failed to run on host 1971904a8b15.&#39;]
-170727-23:32:21,462 workflow INFO:
-	 Saving crash info to /opt/tutorial/notebooks/crash-20170727-233221-neuro-selectfiles-ee44100e-d281-4ff0-bedf-ccab3f169354.pklz
-170727-23:32:21,463 workflow INFO:
+170730-13:25:25,326 workflow ERROR:
+	 [&#39;Node selectfiles failed to run on host 4a288ebd42a4.&#39;]
+170730-13:25:25,333 workflow INFO:
+	 Saving crash info to /opt/tutorial/notebooks/crash-20170730-132525-neuro-selectfiles-0345d6c3-b067-4c3c-9b1d-c30e36d37397.pklz
+170730-13:25:25,335 workflow INFO:
 	 Traceback (most recent call last):
   File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/plugins/linear.py&#34;, line 43, in run
     node.run(updatehash=updatehash)
@@ -11901,13 +11901,13 @@ div#notebook {
 OSError: No files were found matching func template: /data/ds000114/sub-11/ses-test/func/sub-11_ses-test_task-fingerfootlips_bold.nii.gz
 Interface SelectFiles failed to run. 
 
-170727-23:32:21,469 workflow INFO:
+170730-13:25:25,339 workflow INFO:
 	 ***********************************
-170727-23:32:21,471 workflow ERROR:
+170730-13:25:25,342 workflow ERROR:
 	 could not run node: preprocWF.selectfiles
-170727-23:32:21,472 workflow INFO:
-	 crashfile: /opt/tutorial/notebooks/crash-20170727-233221-neuro-selectfiles-ee44100e-d281-4ff0-bedf-ccab3f169354.pklz
-170727-23:32:21,473 workflow INFO:
+170730-13:25:25,344 workflow INFO:
+	 crashfile: /opt/tutorial/notebooks/crash-20170730-132525-neuro-selectfiles-0345d6c3-b067-4c3c-9b1d-c30e36d37397.pklz
+170730-13:25:25,345 workflow INFO:
 	 ***********************************
 </pre>
 </div>
@@ -11992,8 +11992,6 @@ crashfile: /opt/tutorial/notebooks/crash-20170727-230945-neuro-selectfiles-7cb2b
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;LC_ALL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;C.UTF-8&quot;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;LANG&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;C.UTF-8&quot;</span>
 
 <span class="o">!</span>nipypecli crash /opt/tutorial/notebooks/crash-*selectfiles-*.pklz
 </pre></div>
@@ -12010,9 +12008,45 @@ crashfile: /opt/tutorial/notebooks/crash-20170727-230945-neuro-selectfiles-7cb2b
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Usage: nipypecli crash [OPTIONS] CRASHFILE
+<pre>
 
-Error: Got unexpected extra argument (/opt/tutorial/notebooks/crash-20170727-233221-neuro-selectfiles-ee44100e-d281-4ff0-bedf-ccab3f169354.pklz)
+File: /opt/tutorial/notebooks/crash-20170730-132525-neuro-selectfiles-0345d6c3-b067-4c3c-9b1d-c30e36d37397.pklz
+Node: preprocWF.selectfiles
+Working directory: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
+
+
+Node inputs:
+
+base_directory = /data/ds000114
+force_lists = False
+ignore_exception = False
+raise_on_empty = True
+sort_filelist = True
+subject_id = sub-11
+
+
+
+Traceback: 
+Traceback (most recent call last):
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/plugins/linear.py&#34;, line 43, in run
+    node.run(updatehash=updatehash)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 372, in run
+    self._run_interface()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 482, in _run_interface
+    self._result = self._run_command(execute)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 613, in _run_command
+    result = self._interface.run()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py&#34;, line 1084, in run
+    outputs = self.aggregate_outputs(runtime)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py&#34;, line 1155, in aggregate_outputs
+    predicted_outputs = self._list_outputs()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/io.py&#34;, line 1315, in _list_outputs
+    raise IOError(msg)
+OSError: No files were found matching func template: /data/ds000114/sub-11/ses-test/func/sub-11_ses-test_task-fingerfootlips_bold.nii.gz
+Interface SelectFiles failed to run. 
+
+
+
 </pre>
 </div>
 </div>
@@ -12051,9 +12085,79 @@ Error: Got unexpected extra argument (/opt/tutorial/notebooks/crash-20170727-233
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Usage: nipypecli crash [OPTIONS] CRASHFILE
+<pre>
 
-Error: Got unexpected extra argument (/opt/tutorial/notebooks/crash-20170727-233221-neuro-selectfiles-ee44100e-d281-4ff0-bedf-ccab3f169354.pklz)
+File: /opt/tutorial/notebooks/crash-20170730-132525-neuro-selectfiles-0345d6c3-b067-4c3c-9b1d-c30e36d37397.pklz
+Node: preprocWF.selectfiles
+Working directory: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
+
+
+Node inputs:
+
+base_directory = /data/ds000114
+force_lists = False
+ignore_exception = False
+raise_on_empty = True
+sort_filelist = True
+subject_id = sub-11
+
+
+
+Traceback: 
+Traceback (most recent call last):
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/plugins/linear.py&#34;, line 43, in run
+    node.run(updatehash=updatehash)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 372, in run
+    self._run_interface()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 482, in _run_interface
+    self._result = self._run_command(execute)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 613, in _run_command
+    result = self._interface.run()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py&#34;, line 1084, in run
+    outputs = self.aggregate_outputs(runtime)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py&#34;, line 1155, in aggregate_outputs
+    predicted_outputs = self._list_outputs()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/io.py&#34;, line 1315, in _list_outputs
+    raise IOError(msg)
+OSError: No files were found matching func template: /data/ds000114/sub-11/ses-test/func/sub-11_ses-test_task-fingerfootlips_bold.nii.gz
+Interface SelectFiles failed to run. 
+
+
+
+Rerunning node
+170730-13:25:48,393 workflow INFO:
+	 Executing node selectfiles in dir: /tmp/tmpbjaqlip4/preprocWF/selectfiles
+Traceback (most recent call last):
+  File &#34;/opt/conda/envs/neuro/bin/nipypecli&#34;, line 11, in &lt;module&gt;
+    load_entry_point(&#39;nipype==1.0.0.dev0&#39;, &#39;console_scripts&#39;, &#39;nipypecli&#39;)()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/click/core.py&#34;, line 722, in __call__
+    return self.main(*args, **kwargs)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/click/core.py&#34;, line 697, in main
+    rv = self.invoke(ctx)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/click/core.py&#34;, line 1066, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/click/core.py&#34;, line 895, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/click/core.py&#34;, line 535, in invoke
+    return callback(*args, **kwargs)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/scripts/cli.py&#34;, line 77, in crash
+    display_crash_file(crashfile, rerun, debug, dir)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/scripts/crash_files.py&#34;, line 81, in display_crash_file
+    node.run()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 372, in run
+    self._run_interface()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 482, in _run_interface
+    self._result = self._run_command(execute)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 613, in _run_command
+    result = self._interface.run()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py&#34;, line 1084, in run
+    outputs = self.aggregate_outputs(runtime)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py&#34;, line 1155, in aggregate_outputs
+    predicted_outputs = self._list_outputs()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/io.py&#34;, line 1315, in _list_outputs
+    raise IOError(msg)
+OSError: No files were found matching func template: /data/ds000114/sub-11/ses-test/func/sub-11_ses-test_task-fingerfootlips_bold.nii.gz
+Interface SelectFiles failed to run. 
 </pre>
 </div>
 </div>
@@ -12094,17 +12198,17 @@ Error: Got unexpected extra argument (/opt/tutorial/notebooks/crash-20170727-233
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-23:32:24,560 workflow INFO:
+<pre>170730-13:26:04,596 workflow INFO:
 	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-23:32:24,588 workflow INFO:
+170730-13:26:04,614 workflow INFO:
 	 Running serially.
-170727-23:32:24,590 workflow INFO:
+170730-13:26:04,616 workflow INFO:
 	 Executing node selectfiles in dir: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
-170727-23:32:24,642 workflow ERROR:
-	 [&#39;Node selectfiles failed to run on host 1971904a8b15.&#39;]
-170727-23:32:24,645 workflow INFO:
-	 Saving crash info to /opt/tutorial/notebooks/crash-20170727-233224-neuro-selectfiles-0f3e6177-7c05-46b2-a0cf-822c12533200.txt
-170727-23:32:24,646 workflow INFO:
+170730-13:26:04,651 workflow ERROR:
+	 [&#39;Node selectfiles failed to run on host 4a288ebd42a4.&#39;]
+170730-13:26:04,654 workflow INFO:
+	 Saving crash info to /opt/tutorial/notebooks/crash-20170730-132604-neuro-selectfiles-918286ce-6804-472d-bb30-615eb8d211a8.txt
+170730-13:26:04,655 workflow INFO:
 	 Traceback (most recent call last):
   File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/plugins/linear.py&#34;, line 43, in run
     node.run(updatehash=updatehash)
@@ -12123,13 +12227,13 @@ Error: Got unexpected extra argument (/opt/tutorial/notebooks/crash-20170727-233
 OSError: No files were found matching func template: /data/ds000114/sub-11/ses-test/func/sub-11_ses-test_task-fingerfootlips_bold.nii.gz
 Interface SelectFiles failed to run. 
 
-170727-23:32:24,661 workflow INFO:
+170730-13:26:04,658 workflow INFO:
 	 ***********************************
-170727-23:32:24,663 workflow ERROR:
+170730-13:26:04,660 workflow ERROR:
 	 could not run node: preprocWF.selectfiles
-170727-23:32:24,665 workflow INFO:
-	 crashfile: /opt/tutorial/notebooks/crash-20170727-233224-neuro-selectfiles-0f3e6177-7c05-46b2-a0cf-822c12533200.txt
-170727-23:32:24,668 workflow INFO:
+170730-13:26:04,662 workflow INFO:
+	 crashfile: /opt/tutorial/notebooks/crash-20170730-132604-neuro-selectfiles-918286ce-6804-472d-bb30-615eb8d211a8.txt
+170730-13:26:04,664 workflow INFO:
 	 ***********************************
 </pre>
 </div>
@@ -12185,13 +12289,57 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat /opt/tutorial/notebooks/crash-*selectfiles-*.txt
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Node: preprocWF.selectfiles
+Working directory: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
+
+Node inputs:
+
+base_directory = /data/ds000114
+force_lists = False
+ignore_exception = False
+raise_on_empty = True
+sort_filelist = True
+subject_id = sub-11
+
+Traceback (most recent call last):
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/plugins/linear.py&#34;, line 43, in run
+    node.run(updatehash=updatehash)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 372, in run
+    self._run_interface()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 482, in _run_interface
+    self._result = self._run_command(execute)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/engine/nodes.py&#34;, line 613, in _run_command
+    result = self._interface.run()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py&#34;, line 1084, in run
+    outputs = self.aggregate_outputs(runtime)
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py&#34;, line 1155, in aggregate_outputs
+    predicted_outputs = self._list_outputs()
+  File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/io.py&#34;, line 1315, in _list_outputs
+    raise IOError(msg)
+OSError: No files were found matching func template: /data/ds000114/sub-11/ses-test/func/sub-11_ses-test_task-fingerfootlips_bold.nii.gz
+Interface SelectFiles failed to run. 
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12208,7 +12356,7 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="k">import</span> <span class="n">IsotropicSmooth</span>
@@ -12216,6 +12364,63 @@ Interface SelectFiles failed to run.
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-38d0489c2381&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> nipype<span class="ansi-blue-fg">.</span>interfaces<span class="ansi-blue-fg">.</span>fsl <span class="ansi-green-fg">import</span> IsotropicSmooth
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>smooth <span class="ansi-blue-fg">=</span> IsotropicSmooth<span class="ansi-blue-fg">(</span>fwhm<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;4&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/fsl/base.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, **inputs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    172</span> 
+<span class="ansi-green-intense-fg ansi-bold">    173</span>     <span class="ansi-green-fg">def</span> __init__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>inputs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 174</span><span class="ansi-red-fg">         </span>super<span class="ansi-blue-fg">(</span>FSLCommand<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>inputs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    175</span>         self<span class="ansi-blue-fg">.</span>inputs<span class="ansi-blue-fg">.</span>on_trait_change<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_output_update<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;output_type&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    176</span> 
+
+<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, command, **inputs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1661</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1662</span>     <span class="ansi-green-fg">def</span> __init__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> command<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>inputs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1663</span><span class="ansi-red-fg">         </span>super<span class="ansi-blue-fg">(</span>CommandLine<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>inputs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1664</span>         self<span class="ansi-blue-fg">.</span>_environ <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-intense-fg ansi-bold">   1665</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> hasattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;_cmd&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, from_file, **inputs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    772</span>                             self.__class__.__name__)
+<span class="ansi-green-intense-fg ansi-bold">    773</span> 
+<span class="ansi-green-fg">--&gt; 774</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>inputs <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>input_spec<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>inputs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    775</span>         self<span class="ansi-blue-fg">.</span>estimated_memory_gb <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.25</span>
+<span class="ansi-green-intense-fg ansi-bold">    776</span>         self<span class="ansi-blue-fg">.</span>num_threads <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">1</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    362</span>         <span class="ansi-red-fg"># therefore these args were being ignored.</span>
+<span class="ansi-green-intense-fg ansi-bold">    363</span>         <span class="ansi-red-fg"># super(TraitedSpec, self).__init__(*args, **kwargs)</span>
+<span class="ansi-green-fg">--&gt; 364</span><span class="ansi-red-fg">         </span>super<span class="ansi-blue-fg">(</span>BaseTraitedSpec<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    365</span>         traits<span class="ansi-blue-fg">.</span>push_exception_handler<span class="ansi-blue-fg">(</span>reraise_exceptions<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    366</span>         undefined_traits <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span>
+
+<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/traits/trait_handlers.py</span> in <span class="ansi-cyan-fg">error</span><span class="ansi-blue-fg">(self, object, name, value)</span>
+<span class="ansi-green-intense-fg ansi-bold">    170</span>         &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    171</span>         raise TraitError( object, name, self.full_info( object, name, value ),
+<span class="ansi-green-fg">--&gt; 172</span><span class="ansi-red-fg">                           value )
+</span><span class="ansi-green-intense-fg ansi-bold">    173</span> 
+<span class="ansi-green-intense-fg ansi-bold">    174</span>     <span class="ansi-green-fg">def</span> full_info <span class="ansi-blue-fg">(</span> self<span class="ansi-blue-fg">,</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TraitError</span>: The &#39;fwhm&#39; trait of an IsotropicSmoothInput instance must be a float, but a value of &#39;4&#39; &lt;class &#39;str&#39;&gt; was specified.</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12233,13 +12438,88 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">IsotropicSmooth</span><span class="o">.</span><span class="n">help</span><span class="p">()</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Wraps command **fslmaths**
+
+Use fslmaths to spatially smooth an image with a gaussian kernel.
+
+Inputs::
+
+	[Mandatory]
+	fwhm: (a float)
+		fwhm of smoothing kernel [mm]
+		flag: -s %.5f, position: 4
+		mutually_exclusive: sigma
+	in_file: (an existing file name)
+		image to operate on
+		flag: %s, position: 2
+	sigma: (a float)
+		sigma of smoothing kernel [mm]
+		flag: -s %.5f, position: 4
+		mutually_exclusive: fwhm
+
+	[Optional]
+	args: (a unicode string)
+		Additional parameters to the command
+		flag: %s
+	environ: (a dictionary with keys which are a bytes or None or a value
+		 of class &#39;str&#39; and with values which are a bytes or None or a value
+		 of class &#39;str&#39;, nipype default value: {})
+		Environment variables
+	ignore_exception: (a boolean, nipype default value: False)
+		Print an error message instead of throwing an exception in case the
+		interface fails to run
+	internal_datatype: (&#39;float&#39; or &#39;char&#39; or &#39;int&#39; or &#39;short&#39; or &#39;double&#39;
+		 or &#39;input&#39;)
+		datatype to use for calculations (default is float)
+		flag: -dt %s, position: 1
+	nan2zeros: (a boolean)
+		change NaNs to zeros before doing anything
+		flag: -nan, position: 3
+	out_file: (a file name)
+		image to write
+		flag: %s, position: -2
+	output_datatype: (&#39;float&#39; or &#39;char&#39; or &#39;int&#39; or &#39;short&#39; or &#39;double&#39;
+		 or &#39;input&#39;)
+		datatype to use for output (default uses input type)
+		flag: -odt %s, position: -1
+	output_type: (&#39;NIFTI&#39; or &#39;NIFTI_PAIR&#39; or &#39;NIFTI_GZ&#39; or
+		 &#39;NIFTI_PAIR_GZ&#39;)
+		FSL output type
+	terminal_output: (&#39;stream&#39; or &#39;allatonce&#39; or &#39;file&#39; or &#39;none&#39;)
+		Control terminal output: `stream` - displays to terminal immediately
+		(default), `allatonce` - waits till command is finished to display
+		output, `file` - writes output to file, `none` - output is ignored
+
+Outputs::
+
+	out_file: (an existing file name)
+		image written after calculations
+
+References::
+None
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12258,7 +12538,7 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="k">import</span> <span class="n">IsotropicSmooth</span>
@@ -12280,7 +12560,7 @@ Interface SelectFiles failed to run.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-5-d47a236310af&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-8-d47a236310af&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> nipype<span class="ansi-blue-fg">.</span>interfaces<span class="ansi-blue-fg">.</span>fsl <span class="ansi-green-fg">import</span> IsotropicSmooth
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>smooth <span class="ansi-blue-fg">=</span> IsotropicSmooth<span class="ansi-blue-fg">(</span>output_type<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;NIFTIiii&#39;</span><span class="ansi-blue-fg">)</span>
 
@@ -12339,14 +12619,14 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.algorithms.misc</span> <span class="k">import</span> <span class="n">Gunzip</span>
 <span class="kn">from</span> <span class="nn">nipype.pipeline.engine</span> <span class="k">import</span> <span class="n">Node</span>
 
-<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;/data/ds000114/sub-02/func/sub-02_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">]</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">]</span>
 
 <span class="n">gunzip</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Gunzip</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;gunzip&#39;</span><span class="p">,)</span>
 <span class="n">gunzip</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span> <span class="o">=</span> <span class="n">files</span>
@@ -12367,7 +12647,7 @@ Interface SelectFiles failed to run.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-6-d1191fa933b9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-11-b3419896813b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span> 
 <span class="ansi-green-intense-fg ansi-bold">      7</span> gunzip <span class="ansi-blue-fg">=</span> Node<span class="ansi-blue-fg">(</span>Gunzip<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;gunzip&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>gunzip<span class="ansi-blue-fg">.</span>inputs<span class="ansi-blue-fg">.</span>in_file <span class="ansi-blue-fg">=</span> files
@@ -12393,7 +12673,7 @@ Interface SelectFiles failed to run.
 </span><span class="ansi-green-intense-fg ansi-bold">    173</span> 
 <span class="ansi-green-intense-fg ansi-bold">    174</span>     <span class="ansi-green-fg">def</span> full_info <span class="ansi-blue-fg">(</span> self<span class="ansi-blue-fg">,</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-red-fg">TraitError</span>: The &#39;in_file&#39; trait of a GunzipInputSpec instance must be an existing file name, but a value of [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/func/sub-02_task-fingerfootlips_bold.nii.gz&#39;] &lt;class &#39;list&#39;&gt; was specified.</pre>
+<span class="ansi-red-fg">TraitError</span>: The &#39;in_file&#39; trait of a GunzipInputSpec instance must be an existing file name, but a value of [&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-fingerfootlips_bold.nii.gz&#39;] &lt;class &#39;list&#39;&gt; was specified.</pre>
 </div>
 </div>
 
@@ -12413,7 +12693,7 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.pipeline.engine</span> <span class="k">import</span> <span class="n">MapNode</span>
@@ -12422,71 +12702,6 @@ Interface SelectFiles failed to run.
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-7-54de99c7abf9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> nipype<span class="ansi-blue-fg">.</span>pipeline<span class="ansi-blue-fg">.</span>engine <span class="ansi-green-fg">import</span> MapNode
-<span class="ansi-green-intense-fg ansi-bold">      2</span> gunzip <span class="ansi-blue-fg">=</span> MapNode<span class="ansi-blue-fg">(</span>Gunzip<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;gunzip&#39;</span><span class="ansi-blue-fg">,</span> iterfield<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;in_file&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>gunzip<span class="ansi-blue-fg">.</span>inputs<span class="ansi-blue-fg">.</span>in_file <span class="ansi-blue-fg">=</span> files
-
-<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/base.py</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2074</span>                 isinstance(value[0], list)):
-<span class="ansi-green-intense-fg ansi-bold">   2075</span>             newvalue <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>value<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-fg">-&gt; 2076</span><span class="ansi-red-fg">         </span>value <span class="ansi-blue-fg">=</span> super<span class="ansi-blue-fg">(</span>MultiPath<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>validate<span class="ansi-blue-fg">(</span>object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> newvalue<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2077</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2078</span>         <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>value<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/traits/trait_types.py</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2334</span>                 <span class="ansi-green-fg">return</span> value
-<span class="ansi-green-intense-fg ansi-bold">   2335</span> 
-<span class="ansi-green-fg">-&gt; 2336</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> TraitListObject<span class="ansi-blue-fg">(</span> self<span class="ansi-blue-fg">,</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2337</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2338</span>         self<span class="ansi-blue-fg">.</span>error<span class="ansi-blue-fg">(</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/traits/trait_handlers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, trait, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2311</span>             <span class="ansi-green-fg">except</span> TraitError <span class="ansi-green-fg">as</span> excp<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   2312</span>                 excp<span class="ansi-blue-fg">.</span>set_prefix<span class="ansi-blue-fg">(</span> <span class="ansi-blue-fg">&#39;Each element of the&#39;</span> <span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">-&gt; 2313</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> excp
-<span class="ansi-green-intense-fg ansi-bold">   2314</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2315</span>         self<span class="ansi-blue-fg">.</span>len_error<span class="ansi-blue-fg">(</span> len<span class="ansi-blue-fg">(</span> value <span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/traits/trait_handlers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, trait, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2303</span>                 validate <span class="ansi-blue-fg">=</span> trait<span class="ansi-blue-fg">.</span>item_trait<span class="ansi-blue-fg">.</span>handler<span class="ansi-blue-fg">.</span>validate
-<span class="ansi-green-intense-fg ansi-bold">   2304</span>                 <span class="ansi-green-fg">if</span> validate <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2305</span><span class="ansi-red-fg">                     </span>value <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span> validate<span class="ansi-blue-fg">(</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> val <span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> val <span class="ansi-green-fg">in</span> value <span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">   2306</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2307</span>                 list<span class="ansi-blue-fg">.</span>__setitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> slice<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/traits/trait_handlers.py</span> in <span class="ansi-cyan-fg">&lt;listcomp&gt;</span><span class="ansi-blue-fg">(.0)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2303</span>                 validate <span class="ansi-blue-fg">=</span> trait<span class="ansi-blue-fg">.</span>item_trait<span class="ansi-blue-fg">.</span>handler<span class="ansi-blue-fg">.</span>validate
-<span class="ansi-green-intense-fg ansi-bold">   2304</span>                 <span class="ansi-green-fg">if</span> validate <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2305</span><span class="ansi-red-fg">                     </span>value <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span> validate<span class="ansi-blue-fg">(</span> object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> val <span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> val <span class="ansi-green-fg">in</span> value <span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">   2306</span> 
-<span class="ansi-green-intense-fg ansi-bold">   2307</span>                 list<span class="ansi-blue-fg">.</span>__setitem__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> slice<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> value <span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/interfaces/traits_extension.py</span> in <span class="ansi-cyan-fg">validate</span><span class="ansi-blue-fg">(self, object, name, value)</span>
-<span class="ansi-green-intense-fg ansi-bold">     90</span>                 args<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;The trait \&#39;{}\&#39; of {} instance is {}, but the path &#39;</span>
-<span class="ansi-green-intense-fg ansi-bold">     91</span>                      &#39; \&#39;{}\&#39; does not exist.&#39;.format(name, class_of(object),
-<span class="ansi-green-fg">---&gt; 92</span><span class="ansi-red-fg">                                                       self.info_text, value))
-</span><span class="ansi-green-intense-fg ansi-bold">     93</span> 
-<span class="ansi-green-intense-fg ansi-bold">     94</span>         self<span class="ansi-blue-fg">.</span>error<span class="ansi-blue-fg">(</span>object<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> value<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TraitError</span>: The trait &#39;in_file&#39; of a DynamicTraitedSpec instance is an existing file name, but the path  &#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39; does not exist.</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12505,7 +12720,7 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">,</span>
@@ -12528,7 +12743,7 @@ Interface SelectFiles failed to run.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-8-9ac9ba7f011f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-13-9ac9ba7f011f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> files = [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;,
 <span class="ansi-green-intense-fg ansi-bold">      2</span>          &#39;/data/ds000114/sub-03/func/sub-03_task-fingerfootlips_bold.nii.gz&#39;]
 <span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>gunzip<span class="ansi-blue-fg">.</span>inputs<span class="ansi-blue-fg">.</span>in_file <span class="ansi-blue-fg">=</span> files
@@ -12606,7 +12821,7 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="k">import</span> <span class="n">Smooth</span>
@@ -12629,7 +12844,7 @@ Interface SelectFiles failed to run.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-9-c3f4b7d7df81&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-14-c3f4b7d7df81&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> nipype<span class="ansi-blue-fg">.</span>interfaces<span class="ansi-blue-fg">.</span>spm <span class="ansi-green-fg">import</span> Smooth
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>smooth <span class="ansi-blue-fg">=</span> Smooth<span class="ansi-blue-fg">(</span>in_files<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> smooth<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
@@ -12717,7 +12932,7 @@ Interface SelectFiles failed to run.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="k">import</span> <span class="n">Realign</span>
@@ -12740,7 +12955,7 @@ Interface SelectFiles failed to run.
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-10-fe2499047fd5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-15-fe2499047fd5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> nipype<span class="ansi-blue-fg">.</span>interfaces<span class="ansi-blue-fg">.</span>spm <span class="ansi-green-fg">import</span> Realign
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>realign <span class="ansi-blue-fg">=</span> Realign<span class="ansi-blue-fg">(</span>in_files<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> realign<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
@@ -12892,7 +13107,7 @@ SPM not in matlab path
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="k">import</span> <span class="n">Realign</span>
@@ -12915,7 +13130,7 @@ SPM not in matlab path
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-11-29d156abbd26&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-16-29d156abbd26&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> nipype<span class="ansi-blue-fg">.</span>interfaces<span class="ansi-blue-fg">.</span>spm <span class="ansi-green-fg">import</span> Realign
 <span class="ansi-green-intense-fg ansi-bold">      2</span> realign <span class="ansi-blue-fg">=</span> Realign<span class="ansi-blue-fg">(</span>register_to_mean<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>realign<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
@@ -12966,7 +13181,7 @@ SPM not in matlab path
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">realign</span><span class="o">.</span><span class="n">help</span><span class="p">()</span>
@@ -13090,7 +13305,7 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.afni</span> <span class="k">import</span> <span class="n">Despike</span>
@@ -13114,7 +13329,7 @@ None
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TraitError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-13-fe8670ce6587&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-18-fe8670ce6587&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> nipype<span class="ansi-blue-fg">.</span>interfaces<span class="ansi-blue-fg">.</span>afni <span class="ansi-green-fg">import</span> Despike
 <span class="ansi-green-intense-fg ansi-bold">      2</span> despike = Despike(in_file=&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;,
 <span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">                   output_type=&#39;NIFTI&#39;)
@@ -13184,7 +13399,7 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Workflow</span>
@@ -13233,7 +13448,7 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a new node</span>
@@ -13259,7 +13474,7 @@ None
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">Exception</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-15-10d23e4325e2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-20-10d23e4325e2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      4</span> 
 <span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-red-fg"># Connect it to an already connected input field</span>
 <span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>wf<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">(</span>mcflirt_NEW<span class="ansi-blue-fg">,</span> smooth<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;out_file&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;in_file&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>

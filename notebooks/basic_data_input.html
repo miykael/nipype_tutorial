@@ -11857,7 +11857,7 @@ XNATSource
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">DataGrabber</span><span class="p">,</span> <span class="n">Node</span>
@@ -11911,7 +11911,7 @@ func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_na
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">template_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;ses_name&#39;</span><span class="p">]],</span>
@@ -11935,7 +11935,7 @@ func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_na
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">field_template</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">%02d</span><span class="s1">/ses-</span><span class="si">%s</span><span class="s1">/anat/*_T1w.nii.gz&#39;</span><span class="p">,</span>
@@ -11969,7 +11969,7 @@ func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_na
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using the IdentityInterface</span>
@@ -12009,7 +12009,7 @@ func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_na
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specifying the input fields of DataGrabber directly</span>
@@ -12035,7 +12035,7 @@ func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_na
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
@@ -12053,14 +12053,14 @@ func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_na
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-19:13:54,954 workflow INFO:
-	 Executing node datagrabber in dir: /tmp/tmpzh0nl8du/datagrabber
+<pre>170730-12:25:32,161 workflow INFO:
+	 Executing node datagrabber in dir: /tmp/tmplmop1pqt/datagrabber
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -12102,7 +12102,7 @@ func = /data/ds000114/sub-{subject_id}/ses-{ses_name}/func/ \
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
@@ -12141,7 +12141,7 @@ func = /data/ds000114/sub-{subject_id}/ses-{ses_name}/func/ \
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
@@ -12159,14 +12159,14 @@ func = /data/ds000114/sub-{subject_id}/ses-{ses_name}/func/ \
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-19:18:15,247 workflow INFO:
-	 Executing node selectfiles in dir: /tmp/tmpkxrlth4a/selectfiles
+<pre>170730-12:25:34,430 workflow INFO:
+	 Executing node selectfiles in dir: /tmp/tmp5z9bopfl/selectfiles
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -12200,7 +12200,7 @@ func = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
@@ -12236,14 +12236,14 @@ func = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_b
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-19:21:09,233 workflow INFO:
-	 Executing node selectfiles in dir: /tmp/tmphih2czqa/selectfiles
+<pre>170730-12:25:35,400 workflow INFO:
+	 Executing node selectfiles in dir: /tmp/tmp59333sfs/selectfiles
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -12284,7 +12284,7 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.freesurfer</span> <span class="k">import</span> <span class="n">FSCommand</span>
@@ -12314,7 +12314,7 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Node</span>
@@ -12342,7 +12342,7 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;sub-01&#39;</span>
@@ -12361,8 +12361,8 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170716-08:58:08,702 workflow INFO:
-	 Executing node fssource in dir: /tmp/tmp9rd5qmlb/fssource
+<pre>170730-12:25:39,247 workflow INFO:
+	 Executing node fssource in dir: /tmp/tmpo_jxbjpx/fssource
 </pre>
 </div>
 </div>
@@ -12383,7 +12383,7 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;aparc_aseg: </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">aparc_aseg</span><span class="p">)</span>
@@ -12403,7 +12403,7 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>aparc_aseg: [&#39;/data/ds000114/derivatives/freesurfer/sub-01/mri/aparc+aseg.mgz&#39;, &#39;/data/ds000114/derivatives/freesurfer/sub-01/mri/aparc.a2009s+aseg.mgz&#39;]
+<pre>aparc_aseg: [&#39;/data/ds000114/derivatives/freesurfer/sub-01/mri/aparc+aseg.mgz&#39;, &#39;/data/ds000114/derivatives/freesurfer/sub-01/mri/aparc.a2009s+aseg.mgz&#39;, &#39;/data/ds000114/derivatives/freesurfer/sub-01/mri/aparc.dktatlas+aseg.mgz&#39;]
 
 brainmask: /data/ds000114/derivatives/freesurfer/sub-01/mri/brainmask.mgz
 
@@ -12429,7 +12429,7 @@ inflated: [&#39;/data/ds000114/derivatives/freesurfer/sub-01/surf/lh.inflated&#3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fssource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">hemi</span> <span class="o">=</span> <span class="s1">&#39;lh&#39;</span>
@@ -12448,8 +12448,8 @@ inflated: [&#39;/data/ds000114/derivatives/freesurfer/sub-01/surf/lh.inflated&#3
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170716-08:58:55,407 workflow INFO:
-	 Executing node fssource in dir: /tmp/tmp9rd5qmlb/fssource
+<pre>170730-12:25:41,991 workflow INFO:
+	 Executing node fssource in dir: /tmp/tmpo_jxbjpx/fssource
 </pre>
 </div>
 </div>
@@ -12470,7 +12470,7 @@ inflated: [&#39;/data/ds000114/derivatives/freesurfer/sub-01/surf/lh.inflated&#3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">inflated</span>
@@ -12485,7 +12485,7 @@ inflated: [&#39;/data/ds000114/derivatives/freesurfer/sub-01/surf/lh.inflated&#3
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 

@@ -15724,7 +15724,7 @@ connect([(source, dest, [("source_output1", "dest_input1"),
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-17:14:36,645 workflow INFO:
+<pre>170730-12:20:54,777 workflow INFO:
 	 Generated workflow graph: /opt/tutorial/notebooks/workflow_graph.dot.png (graph2use=hierarchical, simple_form=True).
 </pre>
 </div>
@@ -16055,7 +16055,7 @@ M5j/DwjnorJPSJDYAAAAAElFTkSuQmCC
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-17:14:39,334 workflow INFO:
+<pre>170730-12:20:54,902 workflow INFO:
 	 Generated workflow graph: /opt/tutorial/notebooks/graph.dot.png (graph2use=flat, simple_form=True).
 </pre>
 </div>
@@ -16392,21 +16392,21 @@ MAAAAA3+Hzwf3NNxmKlDAAAAAElFTkSuQmCC
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-17:14:42,432 workflow INFO:
+<pre>170730-12:20:54,951 workflow INFO:
 	 Workflow smoothflow settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-17:14:42,461 workflow INFO:
+170730-12:20:54,978 workflow INFO:
 	 Running serially.
-170727-17:14:42,462 workflow INFO:
+170730-12:20:54,979 workflow INFO:
 	 Executing node smooth in dir: /opt/tutorial/notebooks/working_dir/smoothflow/smooth
-170727-17:14:42,497 workflow INFO:
+170730-12:20:55,28 workflow INFO:
 	 Running: fslmaths /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz -s 1.69864 /opt/tutorial/notebooks/working_dir/smoothflow/smooth/sub-02_ses-test_T1w_smooth.nii.gz
-170727-17:14:51,248 workflow INFO:
+170730-12:21:02,241 workflow INFO:
 	 Executing node skullstrip in dir: /opt/tutorial/notebooks/working_dir/smoothflow/skullstrip
-170727-17:14:51,285 workflow INFO:
+170730-12:21:02,291 workflow INFO:
 	 Running: bet /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz /opt/tutorial/notebooks/working_dir/smoothflow/skullstrip/sub-02_ses-test_T1w_brain.nii.gz -m
-170727-17:14:55,956 workflow INFO:
+170730-12:21:05,922 workflow INFO:
 	 Executing node mask in dir: /opt/tutorial/notebooks/working_dir/smoothflow/mask
-170727-17:14:55,988 workflow INFO:
+170730-12:21:05,962 workflow INFO:
 	 Running: fslmaths /opt/tutorial/notebooks/working_dir/smoothflow/smooth/sub-02_ses-test_T1w_smooth.nii.gz -mas /opt/tutorial/notebooks/working_dir/smoothflow/skullstrip/sub-02_ses-test_T1w_brain_mask.nii.gz /opt/tutorial/notebooks/working_dir/smoothflow/mask/sub-02_ses-test_T1w_smooth_masked.nii.gz
 </pre>
 </div>
@@ -16418,7 +16418,7 @@ MAAAAA3+Hzwf3NNxmKlDAAAAAElFTkSuQmCC
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f1f2f8e1ac8&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f5d79684b38&gt;</pre>
 </div>
 
 </div>
@@ -17600,40 +17600,145 @@ GOk1GAwGg8FgMPQ8jPQaDAaDwWAwGHoe/wds8kpIoP5vbQAAAABJRU5ErkJggg==
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>working_dir
-`-- smoothflow
-    |-- d3.js
-    |-- graph.json
-    |-- graph1.json
-    |-- index.html
-    |-- mask
-    |   |-- _0x0201578eaa6288b86876791b3c109081.json
-    |   |-- _inputs.pklz
-    |   |-- _node.pklz
-    |   |-- _report
-    |   |   `-- report.rst
-    |   |-- command.txt
-    |   |-- result_mask.pklz
-    |   `-- sub-02_ses-test_T1w_smooth_masked.nii.gz
-    |-- skullstrip
-    |   |-- _0x861e8a3f7c0534904e886168d96b017b.json
-    |   |-- _inputs.pklz
-    |   |-- _node.pklz
-    |   |-- _report
-    |   |   `-- report.rst
-    |   |-- command.txt
-    |   |-- result_skullstrip.pklz
-    |   `-- sub-02_ses-test_T1w_brain_mask.nii.gz
-    `-- smooth
-        |-- _0x448127a4a5de9c970b744f54eb2583c7.json
-        |-- _inputs.pklz
-        |-- _node.pklz
-        |-- _report
-        |   `-- report.rst
-        |-- command.txt
-        |-- result_smooth.pklz
-        `-- sub-02_ses-test_T1w_smooth.nii.gz
+├── smoothflow
+│   ├── d3.js
+│   ├── graph.json
+│   ├── graph1.json
+│   ├── index.html
+│   ├── mask
+│   │   ├── _0xce4a12396619bde6bfcab54262e34938.json
+│   │   ├── _inputs.pklz
+│   │   ├── _node.pklz
+│   │   ├── _report
+│   │   │   └── report.rst
+│   │   ├── command.txt
+│   │   ├── result_mask.pklz
+│   │   └── sub-02_ses-test_T1w_smooth_masked.nii.gz
+│   ├── skullstrip
+│   │   ├── _0xaee85f3ef9630b763b47375debace132.json
+│   │   ├── _inputs.pklz
+│   │   ├── _node.pklz
+│   │   ├── _report
+│   │   │   └── report.rst
+│   │   ├── command.txt
+│   │   ├── result_skullstrip.pklz
+│   │   └── sub-02_ses-test_T1w_brain_mask.nii.gz
+│   └── smooth
+│       ├── _0x1e141aa88c18372e11c062b6957f7703.json
+│       ├── _inputs.pklz
+│       ├── _node.pklz
+│       ├── _report
+│       │   └── report.rst
+│       ├── command.txt
+│       ├── result_smooth.pklz
+│       └── sub-02_ses-test_T1w_smooth.nii.gz
+└── susanflow
+    ├── d3.js
+    ├── graph.json
+    ├── graph1.json
+    ├── index.html
+    ├── list_extract
+    │   ├── _0x0e4b31ea848fa7be0c244ff83f0d226a.json
+    │   ├── _inputs.pklz
+    │   ├── _node.pklz
+    │   ├── _report
+    │   │   └── report.rst
+    │   └── result_list_extract.pklz
+    ├── mask
+    │   ├── _0xf4d624a59b406eb8649ebf1c4b1bb9b5.json
+    │   ├── _inputs.pklz
+    │   ├── _node.pklz
+    │   ├── _report
+    │   │   └── report.rst
+    │   ├── command.txt
+    │   ├── result_mask.pklz
+    │   └── sub-02_ses-test_T1w_smooth_masked.nii.gz
+    ├── skullstrip
+    │   ├── _0x2758aaa73feebe512f0c93113b9c793e.json
+    │   ├── _inputs.pklz
+    │   ├── _node.pklz
+    │   ├── _report
+    │   │   └── report.rst
+    │   ├── command.txt
+    │   ├── result_skullstrip.pklz
+    │   └── sub-02_ses-test_T1w_brain_mask.nii.gz
+    └── susan_smooth
+        ├── mask
+        │   ├── _0x39f5149811bfa472ae9248de653e0362.json
+        │   ├── _inputs.pklz
+        │   ├── _node.pklz
+        │   ├── _report
+        │   │   └── report.rst
+        │   ├── mapflow
+        │   │   └── _mask0
+        │   │       ├── _0xb1e9cd96ad6c75437523b9c79cb8b5ba.json
+        │   │       ├── _inputs.pklz
+        │   │       ├── _node.pklz
+        │   │       ├── _report
+        │   │       │   └── report.rst
+        │   │       ├── command.txt
+        │   │       ├── result__mask0.pklz
+        │   │       └── sub-02_ses-test_T1w_mask.nii.gz
+        │   └── result_mask.pklz
+        ├── meanfunc2
+        │   ├── _0x7d02dc93ceb4890897e874d9c585d1d0.json
+        │   ├── _inputs.pklz
+        │   ├── _node.pklz
+        │   ├── _report
+        │   │   └── report.rst
+        │   ├── mapflow
+        │   │   └── _meanfunc20
+        │   │       ├── _0xc14c2d980629b5bc65ecbaed8bd4be49.json
+        │   │       ├── _inputs.pklz
+        │   │       ├── _node.pklz
+        │   │       ├── _report
+        │   │       │   └── report.rst
+        │   │       ├── command.txt
+        │   │       ├── result__meanfunc20.pklz
+        │   │       └── sub-02_ses-test_T1w_mask_mean.nii.gz
+        │   └── result_meanfunc2.pklz
+        ├── median
+        │   ├── _0x200c3298ca5df0bb9dd71689f93a372d.json
+        │   ├── _inputs.pklz
+        │   ├── _node.pklz
+        │   ├── _report
+        │   │   └── report.rst
+        │   ├── mapflow
+        │   │   └── _median0
+        │   │       ├── _0xec5342fc87e83677755c7a9f1940aebc.json
+        │   │       ├── _inputs.pklz
+        │   │       ├── _node.pklz
+        │   │       ├── _report
+        │   │       │   └── report.rst
+        │   │       ├── command.txt
+        │   │       └── result__median0.pklz
+        │   └── result_median.pklz
+        ├── merge
+        │   ├── _0x59d6b2a2a2d17b5c0ca69fc2b3797410.json
+        │   ├── _inputs.pklz
+        │   ├── _node.pklz
+        │   ├── _report
+        │   │   └── report.rst
+        │   └── result_merge.pklz
+        └── smooth
+            ├── _0x27642aada11e4e495a16731aa1cce499.json
+            ├── _inputs.pklz
+            ├── _node.pklz
+            ├── _report
+            │   └── report.rst
+            ├── mapflow
+            │   └── _smooth0
+            │       ├── _0x245f2d7bb184978ca4a5e771fec4a8ee.json
+            │       ├── _inputs.pklz
+            │       ├── _node.pklz
+            │       ├── _report
+            │       │   └── report.rst
+            │       ├── command.txt
+            │       ├── result__smooth0.pklz
+            │       └── sub-02_ses-test_T1w_smooth.nii.gz
+            └── result_smooth.pklz
 
-7 directories, 25 files
+37 directories, 100 files
 </pre>
 </div>
 </div>
@@ -17740,7 +17845,7 @@ GOk1GAwGg8FgMPQ8jPQaDAaDwWAwGHoe/wds8kpIoP5vbQAAAABJRU5ErkJggg==
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-17:15:34,60 workflow INFO:
+<pre>170730-12:21:11,438 workflow INFO:
 	 Generated workflow graph: /opt/tutorial/notebooks/susan_workflow.dot.png (graph2use=hierarchical, simple_form=True).
 </pre>
 </div>
@@ -18895,7 +19000,7 @@ use_median = 1
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-17:15:57,167 workflow INFO:
+<pre>170730-12:21:12,565 workflow INFO:
 	 Generated workflow graph: ./full_susanflow.dot.png (graph2use=colored, simple_form=True).
 </pre>
 </div>
@@ -20350,7 +20455,7 @@ DBKEEEImwSBBCCFkEgwShBBCJsEgQQghZJL/A63hTC/UDWLCAAAAAElFTkSuQmCC
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-17:16:01,473 workflow INFO:
+<pre>170730-12:21:12,713 workflow INFO:
 	 Generated workflow graph: /opt/tutorial/notebooks/full_susanflow_toplevel.dot.png (graph2use=orig, simple_form=True).
 </pre>
 </div>
@@ -20872,47 +20977,47 @@ hZWiKKqP0cJKURTVx1gAYpkOQVEUpUPq/g9aRA+m2HhwIQAAAABJRU5ErkJggg==
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-17:16:03,556 workflow INFO:
+<pre>170730-12:21:12,793 workflow INFO:
 	 Workflow susanflow settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-17:16:03,614 workflow INFO:
+170730-12:21:12,817 workflow INFO:
 	 Running serially.
-170727-17:16:03,617 workflow INFO:
+170730-12:21:12,819 workflow INFO:
 	 Executing node skullstrip in dir: /opt/tutorial/notebooks/working_dir/susanflow/skullstrip
-170727-17:16:03,656 workflow INFO:
+170730-12:21:12,857 workflow INFO:
 	 Running: bet /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz /opt/tutorial/notebooks/working_dir/susanflow/skullstrip/sub-02_ses-test_T1w_brain.nii.gz -m
-170727-17:16:08,365 workflow INFO:
+170730-12:21:16,491 workflow INFO:
 	 Executing node median in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/median
-170727-17:16:08,433 workflow INFO:
+170730-12:21:16,525 workflow INFO:
 	 Executing node _median0 in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/median/mapflow/_median0
-170727-17:16:08,496 workflow INFO:
+170730-12:21:16,570 workflow INFO:
 	 Running: fslstats /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz -k /opt/tutorial/notebooks/working_dir/susanflow/skullstrip/sub-02_ses-test_T1w_brain_mask.nii.gz -p 50 
-170727-17:16:09,588 interface INFO:
-	 stdout 2017-07-27T17:16:09.588124:489.000000 
-170727-17:16:10,648 workflow INFO:
+170730-12:21:17,628 interface INFO:
+	 stdout 2017-07-30T12:21:17.628103:489.000000 
+170730-12:21:18,177 workflow INFO:
 	 Executing node mask in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/mask
-170727-17:16:10,702 workflow INFO:
+170730-12:21:18,216 workflow INFO:
 	 Executing node _mask0 in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/mask/mapflow/_mask0
-170727-17:16:10,757 workflow INFO:
+170730-12:21:18,265 workflow INFO:
 	 Running: fslmaths /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz -mas /opt/tutorial/notebooks/working_dir/susanflow/skullstrip/sub-02_ses-test_T1w_brain_mask.nii.gz /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/mask/mapflow/_mask0/sub-02_ses-test_T1w_mask.nii.gz
-170727-17:16:12,909 workflow INFO:
+170730-12:21:20,371 workflow INFO:
 	 Executing node meanfunc2 in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/meanfunc2
-170727-17:16:12,934 workflow INFO:
+170730-12:21:20,398 workflow INFO:
 	 Executing node _meanfunc20 in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/meanfunc2/mapflow/_meanfunc20
-170727-17:16:12,966 workflow INFO:
+170730-12:21:20,438 workflow INFO:
 	 Running: fslmaths /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/mask/mapflow/_mask0/sub-02_ses-test_T1w_mask.nii.gz -Tmean /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-02_ses-test_T1w_mask_mean.nii.gz
-170727-17:16:18,165 workflow INFO:
+170730-12:21:24,605 workflow INFO:
 	 Executing node merge in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/merge
-170727-17:16:18,241 workflow INFO:
+170730-12:21:24,692 workflow INFO:
 	 Executing node smooth in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/smooth
-170727-17:16:18,289 workflow INFO:
+170730-12:21:24,743 workflow INFO:
 	 Executing node _smooth0 in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/smooth/mapflow/_smooth0
-170727-17:16:18,345 workflow INFO:
+170730-12:21:24,810 workflow INFO:
 	 Running: susan /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz 366.7500000000 1.6986436006 3 1 1 /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-02_ses-test_T1w_mask_mean.nii.gz 366.7500000000 /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/smooth/mapflow/_smooth0/sub-02_ses-test_T1w_smooth.nii.gz
-170727-17:16:54,778 workflow INFO:
+170730-12:21:52,43 workflow INFO:
 	 Executing node list_extract in dir: /opt/tutorial/notebooks/working_dir/susanflow/list_extract
-170727-17:16:54,847 workflow INFO:
+170730-12:21:52,121 workflow INFO:
 	 Executing node mask in dir: /opt/tutorial/notebooks/working_dir/susanflow/mask
-170727-17:16:54,883 workflow INFO:
+170730-12:21:52,190 workflow INFO:
 	 Running: fslmaths /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/smooth/mapflow/_smooth0/sub-02_ses-test_T1w_smooth.nii.gz -mas /opt/tutorial/notebooks/working_dir/susanflow/skullstrip/sub-02_ses-test_T1w_brain_mask.nii.gz /opt/tutorial/notebooks/working_dir/susanflow/mask/sub-02_ses-test_T1w_smooth_masked.nii.gz
 </pre>
 </div>
@@ -20924,7 +21029,7 @@ hZWiKKqP0cJKURTVx1gAYpkOQVEUpUPq/g9aRA+m2HhwIQAAAABJRU5ErkJggg==
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f1f2c169dd8&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f5d74f0f4e0&gt;</pre>
 </div>
 
 </div>
@@ -21813,34 +21918,34 @@ ALLsfLAT4JrQAAAAAElFTkSuQmCC
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>CPU times: user 0 ns, sys: 0 ns, total: 0 ns
-Wall time: 6.91 µs
-170727-17:17:04,295 workflow INFO:
+Wall time: 10 µs
+170730-12:21:55,183 workflow INFO:
 	 Workflow susanflow settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-17:17:04,343 workflow INFO:
+170730-12:21:55,264 workflow INFO:
 	 Running serially.
-170727-17:17:04,345 workflow INFO:
+170730-12:21:55,267 workflow INFO:
 	 Executing node skullstrip in dir: /opt/tutorial/notebooks/working_dir/susanflow/skullstrip
-170727-17:17:04,365 workflow INFO:
+170730-12:21:55,300 workflow INFO:
 	 Collecting precomputed outputs
-170727-17:17:04,382 workflow INFO:
+170730-12:21:55,337 workflow INFO:
 	 Executing node median in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/median
-170727-17:17:04,418 workflow INFO:
+170730-12:21:55,376 workflow INFO:
 	 Executing node mask in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/mask
-170727-17:17:04,454 workflow INFO:
+170730-12:21:55,405 workflow INFO:
 	 Executing node meanfunc2 in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/meanfunc2
-170727-17:17:04,485 workflow INFO:
+170730-12:21:55,434 workflow INFO:
 	 Executing node merge in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/merge
-170727-17:17:04,499 workflow INFO:
+170730-12:21:55,455 workflow INFO:
 	 Collecting precomputed outputs
-170727-17:17:04,520 workflow INFO:
+170730-12:21:55,472 workflow INFO:
 	 Executing node smooth in dir: /opt/tutorial/notebooks/working_dir/susanflow/susan_smooth/smooth
-170727-17:17:04,556 workflow INFO:
+170730-12:21:55,596 workflow INFO:
 	 Executing node list_extract in dir: /opt/tutorial/notebooks/working_dir/susanflow/list_extract
-170727-17:17:04,570 workflow INFO:
+170730-12:21:55,626 workflow INFO:
 	 Collecting precomputed outputs
-170727-17:17:04,586 workflow INFO:
+170730-12:21:55,636 workflow INFO:
 	 Executing node mask in dir: /opt/tutorial/notebooks/working_dir/susanflow/mask
-170727-17:17:04,603 workflow INFO:
+170730-12:21:55,656 workflow INFO:
 	 Collecting precomputed outputs
 </pre>
 </div>
@@ -21852,7 +21957,7 @@ Wall time: 6.91 µs
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f1f2b0f0470&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f5d74e55fd0&gt;</pre>
 </div>
 
 </div>
@@ -21893,21 +21998,21 @@ Wall time: 6.91 µs
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-17:17:07,60 workflow INFO:
+<pre>170730-12:21:55,712 workflow INFO:
 	 Workflow smoothflow settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-17:17:07,92 workflow INFO:
+170730-12:21:55,762 workflow INFO:
 	 Running serially.
-170727-17:17:07,94 workflow INFO:
+170730-12:21:55,765 workflow INFO:
 	 Executing node smooth in dir: /opt/tutorial/notebooks/working_dir/smoothflow/smooth
-170727-17:17:07,162 workflow INFO:
+170730-12:21:55,840 workflow INFO:
 	 Running: fslmaths /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz -s 0.42466 /opt/tutorial/notebooks/working_dir/smoothflow/smooth/sub-02_ses-test_T1w_smooth.nii.gz
-170727-17:17:13,358 workflow INFO:
+170730-12:22:02,34 workflow INFO:
 	 Executing node skullstrip in dir: /opt/tutorial/notebooks/working_dir/smoothflow/skullstrip
-170727-17:17:13,380 workflow INFO:
+170730-12:22:02,66 workflow INFO:
 	 Collecting precomputed outputs
-170727-17:17:13,399 workflow INFO:
+170730-12:22:02,79 workflow INFO:
 	 Executing node mask in dir: /opt/tutorial/notebooks/working_dir/smoothflow/mask
-170727-17:17:13,457 workflow INFO:
+170730-12:22:02,144 workflow INFO:
 	 Running: fslmaths /opt/tutorial/notebooks/working_dir/smoothflow/smooth/sub-02_ses-test_T1w_smooth.nii.gz -mas /opt/tutorial/notebooks/working_dir/smoothflow/skullstrip/sub-02_ses-test_T1w_brain_mask.nii.gz /opt/tutorial/notebooks/working_dir/smoothflow/mask/sub-02_ses-test_T1w_smooth_masked.nii.gz
 </pre>
 </div>
@@ -21919,7 +22024,7 @@ Wall time: 6.91 µs
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f1f2b0f0710&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f5d74f0f0f0&gt;</pre>
 </div>
 
 </div>

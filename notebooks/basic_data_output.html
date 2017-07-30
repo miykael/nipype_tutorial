@@ -11895,7 +11895,7 @@ XNATSink
 
 <span class="c1"># Create a preprocessing workflow</span>
 <span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;preprocWF&quot;</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;working_dir&#39;</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;/output/working_dir&#39;</span>
 
 <span class="c1"># Connect the three nodes to each other</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">sf</span><span class="p">,</span> <span class="n">mcflirt</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;func&quot;</span><span class="p">,</span> <span class="s2">&quot;in_file&quot;</span><span class="p">)]),</span>
@@ -11937,20 +11937,20 @@ XNATSink
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-21:32:30,182 workflow INFO:
+<pre>170730-12:44:49,877 workflow INFO:
 	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-21:32:30,223 workflow INFO:
+170730-12:44:49,896 workflow INFO:
 	 Running serially.
-170727-21:32:30,227 workflow INFO:
-	 Executing node selectfiles in dir: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
-170727-21:32:30,305 workflow INFO:
-	 Executing node mcflirt in dir: /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt
-170727-21:32:30,339 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -meanvol -out /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -plots
-170727-21:34:02,582 workflow INFO:
-	 Executing node smooth in dir: /opt/tutorial/notebooks/working_dir/preprocWF/smooth
-170727-21:34:02,604 workflow INFO:
-	 Running: fslmaths /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /opt/tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
+170730-12:44:49,898 workflow INFO:
+	 Executing node selectfiles in dir: /output/working_dir/preprocWF/selectfiles
+170730-12:44:49,953 workflow INFO:
+	 Executing node mcflirt in dir: /output/working_dir/preprocWF/mcflirt
+170730-12:44:49,982 workflow INFO:
+	 Running: mcflirt -in /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -meanvol -out /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -plots
+170730-12:46:03,804 workflow INFO:
+	 Executing node smooth in dir: /output/working_dir/preprocWF/smooth
+170730-12:46:03,828 workflow INFO:
+	 Running: fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /output/working_dir/preprocWF/smooth/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
 </pre>
 </div>
 </div>
@@ -11961,7 +11961,7 @@ XNATSink
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f58272d21d0&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f74d7242f60&gt;</pre>
 </div>
 
 </div>
@@ -11982,10 +11982,10 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree working_dir
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree /output/working_dir/preprocWF
 </pre></div>
 
 </div>
@@ -12000,176 +12000,38 @@ XNATSink
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>working_dir
-|-- preprocWF
-|   |-- d3.js
-|   |-- graph.json
-|   |-- graph1.json
-|   |-- index.html
-|   |-- mcflirt
-|   |   |-- _0xa4b852b4b635134283e678eeb3226d12.json
-|   |   |-- _inputs.pklz
-|   |   |-- _node.pklz
-|   |   |-- _report
-|   |   |   `-- report.rst
-|   |   |-- command.txt
-|   |   |-- result_mcflirt.pklz
-|   |   `-- sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz
-|   |-- selectfiles
-|   |   |-- _0x8be4cb43842af73f06e36ceafabda572.json
-|   |   |-- _inputs.pklz
-|   |   |-- _node.pklz
-|   |   |-- _report
-|   |   |   `-- report.rst
-|   |   `-- result_selectfiles.pklz
-|   `-- smooth
-|       |-- _0x22944afb57bac207a9157f746951494b.json
-|       |-- _inputs.pklz
-|       |-- _node.pklz
-|       |-- _report
-|       |   `-- report.rst
-|       |-- command.txt
-|       |-- result_smooth.pklz
-|       `-- sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
-|-- smoothflow
-|   |-- d3.js
-|   |-- graph.json
-|   |-- graph1.json
-|   |-- index.html
-|   |-- mask
-|   |   |-- _0x47286f30672620062dc54d2ed38d8b16.json
-|   |   |-- _inputs.pklz
-|   |   |-- _node.pklz
-|   |   |-- _report
-|   |   |   `-- report.rst
-|   |   |-- command.txt
-|   |   |-- result_mask.pklz
-|   |   `-- sub-02_ses-test_T1w_smooth_masked.nii.gz
-|   |-- skullstrip
-|   |   |-- _0x861e8a3f7c0534904e886168d96b017b.json
-|   |   |-- _inputs.pklz
-|   |   |-- _node.pklz
-|   |   |-- _report
-|   |   |   `-- report.rst
-|   |   |-- command.txt
-|   |   |-- result_skullstrip.pklz
-|   |   `-- sub-02_ses-test_T1w_brain_mask.nii.gz
-|   `-- smooth
-|       |-- _0x0e6ba9b05281eb5553f68b45ce656ed5.json
-|       |-- _inputs.pklz
-|       |-- _node.pklz
-|       |-- _report
-|       |   `-- report.rst
-|       |-- command.txt
-|       |-- result_smooth.pklz
-|       `-- sub-02_ses-test_T1w_smooth.nii.gz
-`-- susanflow
-    |-- d3.js
-    |-- graph.json
-    |-- graph1.json
-    |-- index.html
-    |-- list_extract
-    |   |-- _0x5efc245d059adff1ff73a25d1f9b9ca0.json
-    |   |-- _inputs.pklz
-    |   |-- _node.pklz
-    |   |-- _report
-    |   |   `-- report.rst
-    |   `-- result_list_extract.pklz
-    |-- mask
-    |   |-- _0x1656a7be16f7ff1635c15c61cffc881a.json
-    |   |-- _inputs.pklz
-    |   |-- _node.pklz
-    |   |-- _report
-    |   |   `-- report.rst
-    |   |-- command.txt
-    |   |-- result_mask.pklz
-    |   `-- sub-02_ses-test_T1w_smooth_masked.nii.gz
-    |-- skullstrip
-    |   |-- _0x861e8a3f7c0534904e886168d96b017b.json
-    |   |-- _inputs.pklz
-    |   |-- _node.pklz
-    |   |-- _report
-    |   |   `-- report.rst
-    |   |-- command.txt
-    |   |-- result_skullstrip.pklz
-    |   `-- sub-02_ses-test_T1w_brain_mask.nii.gz
-    `-- susan_smooth
-        |-- mask
-        |   |-- _0xe08f60bcd0e68bc60dea4764724a4a1a.json
-        |   |-- _inputs.pklz
-        |   |-- _node.pklz
-        |   |-- _report
-        |   |   `-- report.rst
-        |   |-- mapflow
-        |   |   `-- _mask0
-        |   |       |-- _0xd659f2252320a7856f1152fdeee7f3b1.json
-        |   |       |-- _inputs.pklz
-        |   |       |-- _node.pklz
-        |   |       |-- _report
-        |   |       |   `-- report.rst
-        |   |       |-- command.txt
-        |   |       |-- result__mask0.pklz
-        |   |       `-- sub-02_ses-test_T1w_mask.nii.gz
-        |   `-- result_mask.pklz
-        |-- meanfunc2
-        |   |-- _0x871de6f258f029a515153a0efb102321.json
-        |   |-- _inputs.pklz
-        |   |-- _node.pklz
-        |   |-- _report
-        |   |   `-- report.rst
-        |   |-- mapflow
-        |   |   `-- _meanfunc20
-        |   |       |-- _0xf9c3489021e5f323cce011f8e7c57c0f.json
-        |   |       |-- _inputs.pklz
-        |   |       |-- _node.pklz
-        |   |       |-- _report
-        |   |       |   `-- report.rst
-        |   |       |-- command.txt
-        |   |       |-- result__meanfunc20.pklz
-        |   |       `-- sub-02_ses-test_T1w_mask_mean.nii.gz
-        |   `-- result_meanfunc2.pklz
-        |-- median
-        |   |-- _0xb8a4f79bc45ca591601ea841b1bb13cf.json
-        |   |-- _inputs.pklz
-        |   |-- _node.pklz
-        |   |-- _report
-        |   |   `-- report.rst
-        |   |-- mapflow
-        |   |   `-- _median0
-        |   |       |-- _0xf19ffb73280d2bd57db9c3b28a886a5f.json
-        |   |       |-- _inputs.pklz
-        |   |       |-- _node.pklz
-        |   |       |-- _report
-        |   |       |   `-- report.rst
-        |   |       |-- command.txt
-        |   |       `-- result__median0.pklz
-        |   `-- result_median.pklz
-        |-- merge
-        |   |-- _0xac12d7e5f5db3a49fd24355553580db9.json
-        |   |-- _inputs.pklz
-        |   |-- _node.pklz
-        |   |-- _report
-        |   |   `-- report.rst
-        |   `-- result_merge.pklz
-        `-- smooth
-            |-- _0xb065df3a1e70f8decbb839969f3b3d61.json
-            |-- _inputs.pklz
-            |-- _node.pklz
-            |-- _report
-            |   `-- report.rst
-            |-- mapflow
-            |   `-- _smooth0
-            |       |-- _0x8ca645b2ec219f8bcbcd99841952d6d3.json
-            |       |-- _inputs.pklz
-            |       |-- _node.pklz
-            |       |-- _report
-            |       |   `-- report.rst
-            |       |-- command.txt
-            |       |-- result__smooth0.pklz
-            |       `-- sub-02_ses-test_T1w_smooth.nii.gz
-            `-- result_smooth.pklz
+<pre>/output/working_dir/preprocWF
+├── d3.js
+├── graph.json
+├── graph1.json
+├── index.html
+├── mcflirt
+│   ├── _0xe1ff1f4efd394c21a17c593b15242ef8.json
+│   ├── _inputs.pklz
+│   ├── _node.pklz
+│   ├── _report
+│   │   └── report.rst
+│   ├── command.txt
+│   ├── result_mcflirt.pklz
+│   └── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz
+├── selectfiles
+│   ├── _0x8be4cb43842af73f06e36ceafabda572.json
+│   ├── _inputs.pklz
+│   ├── _node.pklz
+│   ├── _report
+│   │   └── report.rst
+│   └── result_selectfiles.pklz
+└── smooth
+    ├── _0xed776f9459a2b72cad895a6c58a5a5a9.json
+    ├── _inputs.pklz
+    ├── _node.pklz
+    ├── _report
+    │   └── report.rst
+    ├── command.txt
+    ├── result_smooth.pklz
+    └── sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
 
-44 directories, 123 files
+6 directories, 23 files
 </pre>
 </div>
 </div>
@@ -12201,7 +12063,7 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">DataSink</span>
@@ -12210,7 +12072,7 @@ XNATSink
 <span class="n">sinker</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">DataSink</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sinker&#39;</span><span class="p">)</span>
 
 <span class="c1"># Name of the output folder</span>
-<span class="n">sinker</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;output&#39;</span>
+<span class="n">sinker</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/output/working_dir/preprocWF_output&#39;</span>
 
 <span class="c1"># Connect DataSink with the relevant nodes</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
@@ -12232,33 +12094,33 @@ XNATSink
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-21:41:28,919 workflow INFO:
+<pre>170730-12:47:04,683 workflow INFO:
 	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-21:41:28,956 workflow INFO:
+170730-12:47:04,717 workflow INFO:
 	 Running serially.
-170727-21:41:28,958 workflow INFO:
-	 Executing node selectfiles in dir: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
-170727-21:41:29,31 workflow INFO:
-	 Executing node mcflirt in dir: /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt
-170727-21:41:29,83 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -meanvol -out /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -plots
-170727-21:43:01,829 workflow INFO:
-	 Executing node smooth in dir: /opt/tutorial/notebooks/working_dir/preprocWF/smooth
-170727-21:43:01,891 workflow INFO:
-	 Running: fslmaths /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /opt/tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
-170727-21:43:13,196 workflow INFO:
-	 Executing node sinker in dir: /opt/tutorial/notebooks/working_dir/preprocWF/sinker
+170730-12:47:04,718 workflow INFO:
+	 Executing node selectfiles in dir: /output/working_dir/preprocWF/selectfiles
+170730-12:47:04,787 workflow INFO:
+	 Executing node mcflirt in dir: /output/working_dir/preprocWF/mcflirt
+170730-12:47:04,835 workflow INFO:
+	 Running: mcflirt -in /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -meanvol -out /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -plots
+170730-12:48:19,673 workflow INFO:
+	 Executing node smooth in dir: /output/working_dir/preprocWF/smooth
+170730-12:48:19,726 workflow INFO:
+	 Running: fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /output/working_dir/preprocWF/smooth/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
+170730-12:48:29,493 workflow INFO:
+	 Executing node sinker in dir: /output/working_dir/preprocWF/sinker
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f5827280358&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f74d720e320&gt;</pre>
 </div>
 
 </div>
@@ -12279,10 +12141,10 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree working_dir/preprocWF/sinker/output/
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree /output/working_dir/preprocWF_output
 </pre></div>
 
 </div>
@@ -12297,13 +12159,13 @@ XNATSink
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>working_dir/preprocWF/sinker/output/
-|-- in_file
-|   `-- sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
-|-- mean_img
-|   `-- sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
-`-- par_file
-    `-- sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par
+<pre>/output/working_dir/preprocWF_output
+├── in_file
+│   └── sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
+├── mean_img
+│   └── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
+└── par_file
+    └── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par
 
 3 directories, 3 files
 </pre>
@@ -12327,7 +12189,7 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">sinker</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@in_file&#39;</span><span class="p">)]),</span>
@@ -12349,33 +12211,33 @@ XNATSink
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-21:46:48,23 workflow INFO:
+<pre>170730-12:48:29,824 workflow INFO:
 	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-21:46:48,57 workflow INFO:
+170730-12:48:29,842 workflow INFO:
 	 Running serially.
-170727-21:46:48,59 workflow INFO:
-	 Executing node selectfiles in dir: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
-170727-21:46:48,124 workflow INFO:
-	 Executing node mcflirt in dir: /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt
-170727-21:46:48,177 workflow INFO:
-	 Running: mcflirt -in /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -meanvol -out /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -plots
-170727-21:48:20,908 workflow INFO:
-	 Executing node smooth in dir: /opt/tutorial/notebooks/working_dir/preprocWF/smooth
-170727-21:48:20,969 workflow INFO:
-	 Running: fslmaths /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /opt/tutorial/notebooks/working_dir/preprocWF/smooth/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
-170727-21:48:32,818 workflow INFO:
-	 Executing node sinker in dir: /opt/tutorial/notebooks/working_dir/preprocWF/sinker
+170730-12:48:29,844 workflow INFO:
+	 Executing node selectfiles in dir: /output/working_dir/preprocWF/selectfiles
+170730-12:48:29,890 workflow INFO:
+	 Executing node mcflirt in dir: /output/working_dir/preprocWF/mcflirt
+170730-12:48:29,933 workflow INFO:
+	 Running: mcflirt -in /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -meanvol -out /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -plots
+170730-12:49:45,294 workflow INFO:
+	 Executing node smooth in dir: /output/working_dir/preprocWF/smooth
+170730-12:49:45,340 workflow INFO:
+	 Running: fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz -s 1.69864 /output/working_dir/preprocWF/smooth/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
+170730-12:49:54,83 workflow INFO:
+	 Executing node sinker in dir: /output/working_dir/preprocWF/sinker
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f58272805c0&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f74d72149b0&gt;</pre>
 </div>
 
 </div>
@@ -12396,10 +12258,10 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree working_dir/preprocWF/sinker/output/preproc/
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree /output/working_dir/preprocWF_output
 </pre></div>
 
 </div>
@@ -12414,12 +12276,19 @@ XNATSink
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>working_dir/preprocWF/sinker/output/preproc/
-|-- sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par
-|-- sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
-`-- sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
+<pre>/output/working_dir/preprocWF_output
+├── in_file
+│   └── sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
+├── mean_img
+│   └── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
+├── par_file
+│   └── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par
+└── preproc
+    ├── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par
+    ├── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
+    └── sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
 
-0 directories, 3 files
+4 directories, 6 files
 </pre>
 </div>
 </div>
@@ -12441,7 +12310,7 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define substitution strings</span>
@@ -12470,45 +12339,45 @@ XNATSink
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-21:51:35,826 workflow INFO:
+<pre>170730-12:49:55,493 workflow INFO:
 	 Workflow preprocWF settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-21:51:35,864 workflow INFO:
+170730-12:49:55,510 workflow INFO:
 	 Running serially.
-170727-21:51:35,866 workflow INFO:
-	 Executing node selectfiles in dir: /opt/tutorial/notebooks/working_dir/preprocWF/selectfiles
-170727-21:51:35,941 workflow INFO:
-	 Executing node mcflirt in dir: /opt/tutorial/notebooks/working_dir/preprocWF/mcflirt
-170727-21:51:35,954 workflow INFO:
+170730-12:49:55,511 workflow INFO:
+	 Executing node selectfiles in dir: /output/working_dir/preprocWF/selectfiles
+170730-12:49:55,567 workflow INFO:
+	 Executing node mcflirt in dir: /output/working_dir/preprocWF/mcflirt
+170730-12:49:55,579 workflow INFO:
 	 Collecting precomputed outputs
-170727-21:51:35,967 workflow INFO:
-	 Executing node smooth in dir: /opt/tutorial/notebooks/working_dir/preprocWF/smooth
-170727-21:51:35,977 workflow INFO:
+170730-12:49:55,590 workflow INFO:
+	 Executing node smooth in dir: /output/working_dir/preprocWF/smooth
+170730-12:49:55,599 workflow INFO:
 	 Collecting precomputed outputs
-170727-21:51:36,6 workflow INFO:
-	 Executing node sinker in dir: /opt/tutorial/notebooks/working_dir/preprocWF/sinker
-170727-21:51:36,83 interface INFO:
-	 sub: /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/in_file/sub-01_smooth.nii.gz
-170727-21:51:36,91 interface INFO:
-	 sub: /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_smooth.nii.gz
-170727-21:51:36,102 interface INFO:
-	 sub: /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/mean_img/sub-01_mean.nii.gz
-170727-21:51:36,112 interface INFO:
-	 sub: /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/par_file/sub-01.par
-170727-21:51:36,126 interface INFO:
-	 sub: /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_mean.nii.gz
-170727-21:51:36,137 interface INFO:
-	 sub: /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /opt/tutorial/notebooks/working_dir/preprocWF/sinker/output/preproc/sub-01.par
+170730-12:49:55,622 workflow INFO:
+	 Executing node sinker in dir: /output/working_dir/preprocWF/sinker
+170730-12:49:55,670 interface INFO:
+	 sub: /output/working_dir/preprocWF_output/in_file/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /output/working_dir/preprocWF_output/in_file/sub-01_smooth.nii.gz
+170730-12:49:55,677 interface INFO:
+	 sub: /output/working_dir/preprocWF_output/preproc/sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz -&gt; /output/working_dir/preprocWF_output/preproc/sub-01_smooth.nii.gz
+170730-12:49:55,684 interface INFO:
+	 sub: /output/working_dir/preprocWF_output/mean_img/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /output/working_dir/preprocWF_output/mean_img/sub-01_mean.nii.gz
+170730-12:49:55,691 interface INFO:
+	 sub: /output/working_dir/preprocWF_output/par_file/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /output/working_dir/preprocWF_output/par_file/sub-01.par
+170730-12:49:55,698 interface INFO:
+	 sub: /output/working_dir/preprocWF_output/preproc/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz -&gt; /output/working_dir/preprocWF_output/preproc/sub-01_mean.nii.gz
+170730-12:49:55,704 interface INFO:
+	 sub: /output/working_dir/preprocWF_output/preproc/sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par -&gt; /output/working_dir/preprocWF_output/preproc/sub-01.par
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f5826a08b70&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f74d7203978&gt;</pre>
 </div>
 
 </div>
@@ -12529,10 +12398,10 @@ XNATSink
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree working_dir/preprocWF/sinker/output/preproc/
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree /output/working_dir/preprocWF_output
 </pre></div>
 
 </div>
@@ -12547,12 +12416,25 @@ XNATSink
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>working_dir/preprocWF/sinker/output/preproc/
-|-- sub-01.par
-|-- sub-01_mean.nii.gz
-`-- sub-01_smooth.nii.gz
+<pre>/output/working_dir/preprocWF_output
+├── in_file
+│   ├── sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
+│   └── sub-01_smooth.nii.gz
+├── mean_img
+│   ├── sub-01_mean.nii.gz
+│   └── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
+├── par_file
+│   ├── sub-01.par
+│   └── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par
+└── preproc
+    ├── sub-01.par
+    ├── sub-01_mean.nii.gz
+    ├── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz.par
+    ├── sub-01_ses-test_task-fingerfootlips_bold_mcf.nii.gz_mean_reg.nii.gz
+    ├── sub-01_ses-test_task-fingerfootlips_bold_mcf_smooth.nii.gz
+    └── sub-01_smooth.nii.gz
 
-0 directories, 3 files
+4 directories, 12 files
 </pre>
 </div>
 </div>

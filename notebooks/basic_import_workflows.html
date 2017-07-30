@@ -11943,7 +11943,7 @@ Outputs:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Populating the interactive namespace from numpy and matplotlib
-170727-22:42:04,381 workflow INFO:
+170730-13:17:53,383 workflow INFO:
 	 Generated workflow graph: /output/susan_smooth/graph.dot.png (graph2use=colored, simple_form=True).
 </pre>
 </div>
@@ -12973,57 +12973,57 @@ AMAkUEgAAACY5P8DXQctS63RGZ8AAAAASUVORK5CYII=
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-22:42:04,464 workflow INFO:
+<pre>170730-13:17:54,979 workflow INFO:
 	 Workflow susan_smooth settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-22:42:04,492 workflow INFO:
+170730-13:17:55,8 workflow INFO:
 	 Running in parallel.
-170727-22:42:04,497 workflow INFO:
+170730-13:17:55,14 workflow INFO:
 	 Executing: mask ID: 0
-170727-22:42:04,525 workflow INFO:
+170730-13:17:55,39 workflow INFO:
 	 Executing: median ID: 2
-170727-22:42:04,529 workflow INFO:
+170730-13:17:55,42 workflow INFO:
 	 Executing node mask in dir: /output/susan_smooth/mask
-170727-22:42:04,555 workflow INFO:
+170730-13:17:55,67 workflow INFO:
 	 Executing node median in dir: /output/susan_smooth/median
-170727-22:42:04,601 workflow INFO:
+170730-13:17:55,89 workflow INFO:
 	 Executing node _mask0 in dir: /output/susan_smooth/mask/mapflow/_mask0
-170727-22:42:04,618 workflow INFO:
+170730-13:17:55,115 workflow INFO:
 	 Executing node _median0 in dir: /output/susan_smooth/median/mapflow/_median0
-170727-22:42:04,675 workflow INFO:
+170730-13:17:55,137 workflow INFO:
 	 Running: fslmaths /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -mas /output/sub-01_ses-test_task-fingerfootlips_mask.nii.gz /output/susan_smooth/mask/mapflow/_mask0/sub-01_ses-test_task-fingerfootlips_bold_mask.nii.gz
-170727-22:42:04,692 workflow INFO:
+170730-13:17:55,175 workflow INFO:
 	 Running: fslstats /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -k /output/sub-01_ses-test_task-fingerfootlips_mask.nii.gz -p 50 
-170727-22:42:06,266 interface INFO:
-	 stdout 2017-07-27T22:42:06.266316:1312.000000 
-170727-22:42:06,843 workflow INFO:
+170730-13:17:56,240 interface INFO:
+	 stdout 2017-07-30T13:17:56.240647:1312.000000 
+170730-13:17:56,780 workflow INFO:
 	 [Job finished] jobname: median jobid: 2
-170727-22:42:07,822 workflow INFO:
+170730-13:17:57,761 workflow INFO:
 	 [Job finished] jobname: mask jobid: 0
-170727-22:42:07,826 workflow INFO:
+170730-13:17:57,764 workflow INFO:
 	 Executing: meanfunc2 ID: 1
-170727-22:42:07,843 workflow INFO:
+170730-13:17:57,782 workflow INFO:
 	 Executing node meanfunc2 in dir: /output/susan_smooth/meanfunc2
-170727-22:42:07,881 workflow INFO:
+170730-13:17:57,819 workflow INFO:
 	 Executing node _meanfunc20 in dir: /output/susan_smooth/meanfunc2/mapflow/_meanfunc20
-170727-22:42:07,928 workflow INFO:
+170730-13:17:57,855 workflow INFO:
 	 Running: fslmaths /output/susan_smooth/mask/mapflow/_mask0/sub-01_ses-test_task-fingerfootlips_bold_mask.nii.gz -Tmean /output/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-01_ses-test_task-fingerfootlips_bold_mask_mean.nii.gz
-170727-22:42:10,40 workflow INFO:
+170730-13:17:59,450 workflow INFO:
 	 [Job finished] jobname: meanfunc2 jobid: 1
-170727-22:42:10,44 workflow INFO:
+170730-13:17:59,454 workflow INFO:
 	 Executing: merge ID: 3
-170727-22:42:10,59 workflow INFO:
+170730-13:17:59,470 workflow INFO:
 	 Executing node merge in dir: /output/susan_smooth/merge
-170727-22:42:10,205 workflow INFO:
+170730-13:17:59,559 workflow INFO:
 	 [Job finished] jobname: merge jobid: 3
-170727-22:42:10,209 workflow INFO:
+170730-13:17:59,563 workflow INFO:
 	 Executing: smooth ID: 4
-170727-22:42:10,246 workflow INFO:
+170730-13:17:59,599 workflow INFO:
 	 Executing node smooth in dir: /output/susan_smooth/smooth
-170727-22:42:10,287 workflow INFO:
+170730-13:17:59,639 workflow INFO:
 	 Executing node _smooth0 in dir: /output/susan_smooth/smooth/mapflow/_smooth0
-170727-22:42:10,353 workflow INFO:
+170730-13:17:59,680 workflow INFO:
 	 Running: susan /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz 984.0000000000 1.6986436006 3 1 1 /output/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-01_ses-test_task-fingerfootlips_bold_mask_mean.nii.gz 984.0000000000 /output/susan_smooth/smooth/mapflow/_smooth0/sub-01_ses-test_task-fingerfootlips_bold_smooth.nii.gz
-170727-22:42:46,244 workflow INFO:
+170730-13:18:28,938 workflow INFO:
 	 [Job finished] jobname: smooth jobid: 4
 </pre>
 </div>
@@ -13035,7 +13035,7 @@ AMAkUEgAAACY5P8DXQctS63RGZ8AAAAASUVORK5CYII=
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa2daf158d0&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f251034a748&gt;</pre>
 </div>
 
 </div>
@@ -13100,7 +13100,7 @@ or matplotlib.backends is imported for the first time.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;nilearn.plotting.displays.ZSlicer at 0x7fa2c10e4fd0&gt;</pre>
+<pre>&lt;nilearn.plotting.displays.ZSlicer at 0x7f25085bce48&gt;</pre>
 </div>
 
 </div>
@@ -14104,45 +14104,45 @@ IYTIAXqBF0IIIYQQQgghcoBe4IUQQgghhBBCiBzw/wG8c429tp2TsAAAAABJRU5ErkJggg==
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-22:42:51,436 workflow INFO:
+<pre>170730-13:18:32,544 workflow INFO:
 	 Workflow susan_smooth settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-22:42:51,468 workflow INFO:
+170730-13:18:32,569 workflow INFO:
 	 Running in parallel.
-170727-22:42:51,475 workflow INFO:
+170730-13:18:32,574 workflow INFO:
 	 Executing: mask ID: 0
-170727-22:42:51,497 workflow INFO:
+170730-13:18:32,597 workflow INFO:
 	 [Job finished] jobname: mask jobid: 0
-170727-22:42:51,502 workflow INFO:
+170730-13:18:32,600 workflow INFO:
 	 Executing: median ID: 2
-170727-22:42:51,529 workflow INFO:
+170730-13:18:32,621 workflow INFO:
 	 Executing node median in dir: /output/susan_smooth/median
-170727-22:42:51,572 workflow INFO:
+170730-13:18:32,656 workflow INFO:
 	 Executing node _median0 in dir: /output/susan_smooth/median/mapflow/_median0
-170727-22:42:51,632 workflow INFO:
+170730-13:18:32,712 workflow INFO:
 	 Running: fslstats /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -k /output/sub-01_ses-test_task-fingerfootlips_mask.nii.gz -p 99 
-170727-22:42:53,204 interface INFO:
-	 stdout 2017-07-27T22:42:53.204384:1904.000000 
-170727-22:42:53,529 workflow INFO:
-	 Executing: meanfunc2 ID: 1
-170727-22:42:53,547 workflow INFO:
-	 [Job finished] jobname: meanfunc2 jobid: 1
-170727-22:42:53,804 workflow INFO:
+170730-13:18:33,767 interface INFO:
+	 stdout 2017-07-30T13:18:33.767308:1904.000000 
+170730-13:18:34,361 workflow INFO:
 	 [Job finished] jobname: median jobid: 2
-170727-22:42:53,808 workflow INFO:
+170730-13:18:34,365 workflow INFO:
+	 Executing: meanfunc2 ID: 1
+170730-13:18:34,381 workflow INFO:
+	 [Job finished] jobname: meanfunc2 jobid: 1
+170730-13:18:34,385 workflow INFO:
 	 Executing: merge ID: 3
-170727-22:42:53,828 workflow INFO:
+170730-13:18:34,402 workflow INFO:
 	 Executing node merge in dir: /output/susan_smooth/merge
-170727-22:42:53,955 workflow INFO:
+170730-13:18:34,454 workflow INFO:
 	 [Job finished] jobname: merge jobid: 3
-170727-22:42:53,960 workflow INFO:
+170730-13:18:34,457 workflow INFO:
 	 Executing: smooth ID: 4
-170727-22:42:53,998 workflow INFO:
+170730-13:18:34,493 workflow INFO:
 	 Executing node smooth in dir: /output/susan_smooth/smooth
-170727-22:42:54,99 workflow INFO:
+170730-13:18:34,578 workflow INFO:
 	 Executing node _smooth0 in dir: /output/susan_smooth/smooth/mapflow/_smooth0
-170727-22:42:54,164 workflow INFO:
+170730-13:18:34,633 workflow INFO:
 	 Running: susan /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz 1428.0000000000 1.6986436006 3 1 1 /output/susan_smooth/meanfunc2/mapflow/_meanfunc20/sub-01_ses-test_task-fingerfootlips_bold_mask_mean.nii.gz 1428.0000000000 /output/susan_smooth/smooth/mapflow/_smooth0/sub-01_ses-test_task-fingerfootlips_bold_smooth.nii.gz
-170727-22:43:30,68 workflow INFO:
+170730-13:19:04,922 workflow INFO:
 	 [Job finished] jobname: smooth jobid: 4
 </pre>
 </div>
@@ -14154,7 +14154,7 @@ IYTIAXqBF0IIIYQQQgghcoBe4IUQQgghhBBCiBzw/wG8c429tp2TsAAAAABJRU5ErkJggg==
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7fa2c0f64240&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f2508477470&gt;</pre>
 </div>
 
 </div>
@@ -14204,7 +14204,7 @@ IYTIAXqBF0IIIYQQQgghcoBe4IUQQgghhBBCiBzw/wG8c429tp2TsAAAAABJRU5ErkJggg==
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;nilearn.plotting.displays.ZSlicer at 0x7fa2c12a51d0&gt;</pre>
+<pre>&lt;nilearn.plotting.displays.ZSlicer at 0x7f250879bf28&gt;</pre>
 </div>
 
 </div>

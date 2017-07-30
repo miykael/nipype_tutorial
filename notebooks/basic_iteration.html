@@ -11897,25 +11897,41 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-22:18:44,593 workflow INFO:
+<pre>170730-12:57:00,694 workflow INFO:
 	 Workflow smoothflow settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170727-22:18:44,635 workflow INFO:
+170730-12:57:00,714 workflow INFO:
 	 Running in parallel.
-170727-22:18:44,640 workflow INFO:
+170730-12:57:00,728 workflow INFO:
 	 Executing: skullstrip ID: 0
-170727-22:18:44,654 workflow INFO:
+170730-12:57:00,743 workflow INFO:
+	 Executing node skullstrip in dir: /output/smoothflow/skullstrip
+170730-12:57:00,783 workflow INFO:
+	 Running: bet /data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz /output/smoothflow/skullstrip/sub-01_ses-test_T1w_brain.nii.gz -m
+170730-12:57:04,913 workflow INFO:
 	 [Job finished] jobname: skullstrip jobid: 0
-170727-22:18:44,659 workflow INFO:
+170730-12:57:04,916 workflow INFO:
 	 Executing: iso_smooth.aI.a0 ID: 1
-170727-22:18:44,672 workflow INFO:
-	 [Job finished] jobname: iso_smooth.aI.a0 jobid: 1
-170727-22:18:44,674 workflow INFO:
+170730-12:57:04,925 workflow INFO:
 	 Executing: iso_smooth.aI.a1 ID: 2
-170727-22:18:44,687 workflow INFO:
-	 [Job finished] jobname: iso_smooth.aI.a1 jobid: 2
-170727-22:18:44,689 workflow INFO:
+170730-12:57:04,929 workflow INFO:
+	 Executing node iso_smooth.aI.a0 in dir: /output/smoothflow/_fwhm_4/iso_smooth
+170730-12:57:04,938 workflow INFO:
 	 Executing: iso_smooth.aI.a2 ID: 3
-170727-22:18:44,702 workflow INFO:
+170730-12:57:04,941 workflow INFO:
+	 Executing node iso_smooth.aI.a1 in dir: /output/smoothflow/_fwhm_8/iso_smooth
+170730-12:57:04,955 workflow INFO:
+	 Executing node iso_smooth.aI.a2 in dir: /output/smoothflow/_fwhm_16/iso_smooth
+170730-12:57:04,972 workflow INFO:
+	 Running: fslmaths /output/smoothflow/skullstrip/sub-01_ses-test_T1w_brain.nii.gz -s 1.69864 /output/smoothflow/_fwhm_4/iso_smooth/sub-01_ses-test_T1w_brain_smooth.nii.gz
+170730-12:57:04,992 workflow INFO:
+	 Running: fslmaths /output/smoothflow/skullstrip/sub-01_ses-test_T1w_brain.nii.gz -s 3.39729 /output/smoothflow/_fwhm_8/iso_smooth/sub-01_ses-test_T1w_brain_smooth.nii.gz
+170730-12:57:05,3 workflow INFO:
+	 Running: fslmaths /output/smoothflow/skullstrip/sub-01_ses-test_T1w_brain.nii.gz -s 6.79457 /output/smoothflow/_fwhm_16/iso_smooth/sub-01_ses-test_T1w_brain_smooth.nii.gz
+170730-12:57:09,902 workflow INFO:
+	 [Job finished] jobname: iso_smooth.aI.a0 jobid: 1
+170730-12:57:12,202 workflow INFO:
+	 [Job finished] jobname: iso_smooth.aI.a1 jobid: 2
+170730-12:57:19,175 workflow INFO:
 	 [Job finished] jobname: iso_smooth.aI.a2 jobid: 3
 </pre>
 </div>
@@ -11927,7 +11943,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f67beab6940&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f7d85f9a668&gt;</pre>
 </div>
 
 </div>
@@ -11969,7 +11985,7 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170727-22:18:44,865 workflow INFO:
+<pre>170730-12:57:19,314 workflow INFO:
 	 Generated workflow graph: /output/smoothflow/graph.dot.png (graph2use=exec, simple_form=True).
 </pre>
 </div>
@@ -12366,23 +12382,23 @@ DAUAAAAASUVORK5CYII=
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>/output/smoothflow
-|-- _fwhm_16
-|   `-- iso_smooth
-|       |-- _report
-|       `-- sub-01_ses-test_T1w_brain_smooth.nii.gz
-|-- _fwhm_4
-|   `-- iso_smooth
-|       |-- _report
-|       `-- sub-01_ses-test_T1w_brain_smooth.nii.gz
-|-- _fwhm_8
-|   `-- iso_smooth
-|       |-- _report
-|       `-- sub-01_ses-test_T1w_brain_smooth.nii.gz
-|-- graph.dot.png
-|-- graph_detailed.dot.png
-`-- skullstrip
-    |-- _report
-    `-- sub-01_ses-test_T1w_brain.nii.gz
+├── _fwhm_16
+│   └── iso_smooth
+│       ├── _report
+│       └── sub-01_ses-test_T1w_brain_smooth.nii.gz
+├── _fwhm_4
+│   └── iso_smooth
+│       ├── _report
+│       └── sub-01_ses-test_T1w_brain_smooth.nii.gz
+├── _fwhm_8
+│   └── iso_smooth
+│       ├── _report
+│       └── sub-01_ses-test_T1w_brain_smooth.nii.gz
+├── graph.dot.png
+├── graph_detailed.dot.png
+└── skullstrip
+    ├── _report
+    └── sub-01_ses-test_T1w_brain.nii.gz
 
 11 directories, 6 files
 </pre>
@@ -12464,7 +12480,7 @@ or matplotlib.backends is imported for the first time.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;nilearn.plotting.displays.ZSlicer at 0x7f67a4b51390&gt;</pre>
+<pre>&lt;nilearn.plotting.displays.ZSlicer at 0x7f7d6c02f588&gt;</pre>
 </div>
 
 </div>
