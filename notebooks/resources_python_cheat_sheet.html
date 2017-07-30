@@ -12521,26 +12521,27 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>fig.suptitle('title')            # big figure title
-fig.subplots_adjust(bottom=0.1,
-                    right=0.8,
-                    top=0.9,
-                    wspace=0.2,
-                    hspace=0.5)  # adjust subplot positions
-fig.tight_layout(pad=0.1,
-                 h_pad=0.5,
-                 w_pad=0.5,
-                 rect=None)      # adjust subplots to fit perfectly into fig
-ax.set_xlabel()                  # set xlabel
-ax.set_ylabel()                  # set ylabel
-ax.set_xlim(1, 2)                # sets x limits
-ax.set_ylim(3, 4)                # sets y limits
-ax.set_title('blabla')           # sets the axis title
-ax.set(xlabel='bla')             # set multiple parameters at once
-ax.legend(loc='upper center')    # activate legend
-ax.grid(True, which='both')      # activate grid
-bbox = ax.get_position()         # returns the axes bounding box
-bbox.x0 + bbox.width             # bounding box parameters</p>
+<div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>            <span class="c1"># big figure title</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                    <span class="n">right</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+                    <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+                    <span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                    <span class="n">hspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># adjust subplot positions</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                 <span class="n">h_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                 <span class="n">w_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                 <span class="n">rect</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>      <span class="c1"># adjust subplots to fit perfectly into fig</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">()</span>                  <span class="c1"># set xlabel</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">()</span>                  <span class="c1"># set ylabel</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                <span class="c1"># sets x limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>                <span class="c1"># sets y limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;blabla&#39;</span><span class="p">)</span>           <span class="c1"># sets the axis title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;bla&#39;</span><span class="p">)</span>             <span class="c1"># set multiple parameters at once</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>    <span class="c1"># activate legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>      <span class="c1"># activate grid</span>
+<span class="n">bbox</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>         <span class="c1"># returns the axes bounding box</span>
+<span class="n">bbox</span><span class="o">.</span><span class="n">x0</span> <span class="o">+</span> <span class="n">bbox</span><span class="o">.</span><span class="n">width</span>             <span class="c1"># bounding box parameters</span>
+</pre></div>
 
 </div>
 </div>
@@ -12559,15 +12560,16 @@ bbox.x0 + bbox.width             # bounding box parameters</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>ax.plot(x,y, '-o', c='red', lw=2, label='bla')  # plots a line
-ax.scatter(x,y, s=20, c=color)                  # scatter plot
-ax.pcolormesh(xx,yy,zz, shading='gouraud')      # fast colormesh function
-ax.colormesh(xx,yy,zz, norm=norm)               # slower colormesh function
-ax.contour(xx,yy,zz, cmap='jet')                # contour line plot
-ax.contourf(xx,yy,zz, vmin=2, vmax=4)           # filled contours plot
-n, bins, patch = ax.hist(x, 50)                 # histogram
-ax.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2))  # show image
-ax.specgram(y, FS=0.1, noverlap=128, scale='linear')  # plot a spectrogram</p>
+<div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bla&#39;</span><span class="p">)</span>  <span class="c1"># plots a line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>                  <span class="c1"># scatter plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">)</span>      <span class="c1"># fast colormesh function</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">colormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>               <span class="c1"># slower colormesh function</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>                <span class="c1"># contour line plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>           <span class="c1"># filled contours plot</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patch</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>                 <span class="c1"># histogram</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span>  <span class="c1"># show image</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">specgram</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">FS</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>  <span class="c1"># plot a spectrogram</span>
+</pre></div>
 
 </div>
 </div>

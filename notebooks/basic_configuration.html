@@ -11811,7 +11811,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Global,-workflow-&amp;-node-level">Global, workflow &amp; node level<a class="anchor-link" href="#Global,-workflow-&amp;-node-level">&#182;</a></h1><p>The configuration options can be changed globally (i.e. for all workflows), for just a workflow, or for just a node. The implementations look as follows:</p>
+<h1 id="Global,-workflow-&amp;-node-level">Global, workflow &amp; node level<a class="anchor-link" href="#Global,-workflow-&amp;-node-level">&#182;</a></h1><p>The configuration options can be changed globally (i.e. for all workflows), for just a workflow, or for just a node. The implementations look as follows (note that you should first create directories if you want to change <code>crashdump_dir</code> and <code>log_directory</code>):</p>
 
 </div>
 </div>
@@ -11827,7 +11827,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">config</span><span class="p">,</span> <span class="n">logging</span>
@@ -11839,13 +11839,13 @@ div#notebook {
                            <span class="s1">&#39;hash_method&#39;</span><span class="p">:</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;local_hash_check&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;create_report&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;crashdump_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;/home/jovyan/work/crash_folder&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;crashdump_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;/opt/tutorial/crash_folder&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;use_relative_paths&#39;</span><span class="p">:</span> <span class="s1">&#39;false&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;job_finished_timeout&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">},</span>
              <span class="s1">&#39;logging&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;workflow_level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
                          <span class="s1">&#39;filemanip_level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
                          <span class="s1">&#39;interface_level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
-                         <span class="s1">&#39;log_directory&#39;</span><span class="p">:</span> <span class="s1">&#39;/home/jovyan/work/log_folder&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;log_directory&#39;</span><span class="p">:</span> <span class="s1">&#39;/opt/tutorial/log_folder&#39;</span><span class="p">,</span>
                          <span class="s1">&#39;log_to_file&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">}}</span>
 <span class="n">config</span><span class="o">.</span><span class="n">update_config</span><span class="p">(</span><span class="n">config_dict</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">update_logging</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
@@ -11867,7 +11867,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Workflow</span>
@@ -11881,7 +11881,7 @@ div#notebook {
                         <span class="s1">&#39;filemanip_level&#39;</span> <span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
                         <span class="s1">&#39;interface_level&#39;</span> <span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
                         <span class="s1">&#39;log_to_file&#39;</span> <span class="p">:</span> <span class="s1">&#39;True&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;log_directory&#39;</span> <span class="p">:</span> <span class="s1">&#39;/home/jovyan/work/log_folder&#39;</span><span class="p">}</span>
+                        <span class="s1">&#39;log_directory&#39;</span> <span class="p">:</span> <span class="s1">&#39;/opt/tutorial/log_folder&#39;</span><span class="p">}</span>
 </pre></div>
 
 </div>
@@ -11900,7 +11900,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Node</span>

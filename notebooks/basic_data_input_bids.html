@@ -11818,7 +11818,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
@@ -11829,10 +11829,26 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Failed to import duecredit due to No module named &#39;duecredit&#39;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!tree /data/ds000114/</span>
@@ -11855,7 +11871,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_subjects</span><span class="p">()</span>
@@ -11870,12 +11886,12 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;01&#39;, &#39;02&#39;]</pre>
+<pre>[&#39;01&#39;, &#39;02&#39;, &#39;03&#39;, &#39;04&#39;, &#39;05&#39;, &#39;06&#39;, &#39;07&#39;, &#39;08&#39;, &#39;09&#39;, &#39;10&#39;]</pre>
 </div>
 
 </div>
@@ -11896,7 +11912,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_modalities</span><span class="p">()</span>
@@ -11911,7 +11927,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -11937,7 +11953,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_types</span><span class="p">()</span>
@@ -11952,12 +11968,12 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;bet&#39;, &#39;bold&#39;, &#39;brain&#39;, &#39;dwi&#39;, &#39;events&#39;, &#39;mask&#39;, &#39;smooth&#39;, &#39;T1w&#39;]</pre>
+<pre>[&#39;bold&#39;, &#39;description&#39;, &#39;dwi&#39;, &#39;events&#39;, &#39;T1w&#39;]</pre>
 </div>
 
 </div>
@@ -11968,7 +11984,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_types</span><span class="p">(</span><span class="n">modality</span><span class="o">=</span><span class="s1">&#39;func&#39;</span><span class="p">)</span>
@@ -11983,7 +11999,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -12009,7 +12025,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_tasks</span><span class="p">()</span>
@@ -12024,12 +12040,16 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[7]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;fingerfootlips&#39;, &#39;linebisection&#39;]</pre>
+<pre>[&#39;covertverbgeneration&#39;,
+ &#39;fingerfootlips&#39;,
+ &#39;linebisection&#39;,
+ &#39;overtverbgeneration&#39;,
+ &#39;overtwordrepetition&#39;]</pre>
 </div>
 
 </div>
@@ -12050,7 +12070,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="n">modality</span><span class="o">=</span><span class="s2">&quot;anat&quot;</span><span class="p">)</span>
@@ -12065,16 +12085,13 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[File(filename=&#39;/data/ds000114/sub-01/anat/sub-01_T1w.nii.gz&#39;, type=&#39;T1w&#39;, subject=&#39;01&#39;, modality=&#39;anat&#39;),
- File(filename=&#39;/data/ds000114/sub-01/anat/sub-01_T1w_bet.nii.gz&#39;, type=&#39;bet&#39;, subject=&#39;01&#39;, modality=&#39;anat&#39;),
- File(filename=&#39;/data/ds000114/sub-01/anat/sub-01_T1w_bet_mask.nii.gz&#39;, type=&#39;mask&#39;, subject=&#39;01&#39;, modality=&#39;anat&#39;),
- File(filename=&#39;/data/ds000114/sub-01/anat/T1w_nipype_bet.nii.gz&#39;, subject=&#39;01&#39;, modality=&#39;anat&#39;),
- File(filename=&#39;/data/ds000114/sub-01/anat/T1w_nipype_bet_mask.nii.gz&#39;, subject=&#39;01&#39;, modality=&#39;anat&#39;)]</pre>
+<pre>[File(filename=&#39;/data/ds000114/sub-01/ses-retest/anat/sub-01_ses-retest_T1w.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;retest&#39;, type=&#39;T1w&#39;, modality=&#39;anat&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;T1w&#39;, modality=&#39;anat&#39;)]</pre>
 </div>
 
 </div>
@@ -12095,7 +12112,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])</span>
@@ -12110,13 +12127,21 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[File(filename=&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;, type=&#39;bold&#39;, task=&#39;fingerfootlips&#39;, subject=&#39;01&#39;, modality=&#39;func&#39;),
- File(filename=&#39;/data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz&#39;, type=&#39;bold&#39;, task=&#39;linebisection&#39;, subject=&#39;01&#39;, modality=&#39;func&#39;)]</pre>
+<pre>[File(filename=&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;retest&#39;, type=&#39;bold&#39;, task=&#39;covertverbgeneration&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;retest&#39;, type=&#39;bold&#39;, task=&#39;fingerfootlips&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;retest&#39;, type=&#39;bold&#39;, task=&#39;linebisection&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;retest&#39;, type=&#39;bold&#39;, task=&#39;overtverbgeneration&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;retest&#39;, type=&#39;bold&#39;, task=&#39;overtwordrepetition&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;bold&#39;, task=&#39;covertverbgeneration&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;bold&#39;, task=&#39;fingerfootlips&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;bold&#39;, task=&#39;linebisection&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;bold&#39;, task=&#39;overtverbgeneration&#39;, modality=&#39;func&#39;),
+ File(filename=&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;bold&#39;, task=&#39;overtwordrepetition&#39;, modality=&#39;func&#39;)]</pre>
 </div>
 
 </div>
@@ -12137,7 +12162,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])]</span>
@@ -12152,13 +12177,21 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz&#39;]</pre>
+<pre>[&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]</pre>
 </div>
 
 </div>
@@ -12189,7 +12222,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_niftis</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
@@ -12210,7 +12243,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_niftis</span><span class="p">(</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;/data/ds000114&#39;</span><span class="p">)</span>
@@ -12225,13 +12258,21 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz&#39;]</pre>
+<pre>[&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;,
+ &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]</pre>
 </div>
 
 </div>
@@ -12252,7 +12293,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.pipeline</span> <span class="k">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
@@ -12266,7 +12307,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_niftis</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span>
@@ -12282,7 +12323,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span><span class="o">=</span><span class="s1">&#39;01&#39;</span>
@@ -12302,20 +12343,20 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-20:06:48,67 workflow INFO:
-	 Executing node BIDSDataGrabber in dir: /tmp/tmpxmaghas0/BIDSDataGrabber
+<pre>170727-21:25:30,577 workflow INFO:
+	 Executing node BIDSDataGrabber in dir: /tmp/tmpf7oj920g/BIDSDataGrabber
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>
-bolds = [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz&#39;]</pre>
+bolds = [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]</pre>
 </div>
 
 </div>
@@ -12336,7 +12377,7 @@ bolds = [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">printMe</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
@@ -12353,7 +12394,7 @@ bolds = [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
@@ -12373,17 +12414,17 @@ bolds = [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-20:06:48,655 workflow INFO:
+<pre>170727-21:25:31,883 workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-20:06:48,689 workflow INFO:
+170727-21:25:31,910 workflow INFO:
 	 Running serially.
-170715-20:06:48,691 workflow INFO:
-	 Executing node BIDSDataGrabber in dir: /tmp/tmp3oj49wl6/bids_demo/BIDSDataGrabber
-170715-20:06:49,161 workflow INFO:
-	 Executing node analyzeBOLD in dir: /tmp/tmpg1p720ko/bids_demo/analyzeBOLD
+170727-21:25:31,912 workflow INFO:
+	 Executing node BIDSDataGrabber in dir: /tmp/tmpyqtq03kh/bids_demo/BIDSDataGrabber
+170727-21:25:33,194 workflow INFO:
+	 Executing node analyzeBOLD in dir: /tmp/tmpbt63jk77/bids_demo/analyzeBOLD
 
 
-analyzing [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz&#39;]
+analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
 
 
 </pre>
@@ -12391,12 +12432,12 @@ analyzing [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.g
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f8bf4ffa518&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f81db6cd9e8&gt;</pre>
 </div>
 
 </div>
@@ -12427,7 +12468,7 @@ analyzing [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.g
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">.</span><span class="n">get_subjects</span><span class="p">())</span>
@@ -12446,26 +12487,98 @@ analyzing [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.g
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-20:06:49,195 workflow INFO:
+<pre>170727-21:25:33,297 workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-20:06:49,232 workflow INFO:
+170727-21:25:33,349 workflow INFO:
 	 Running serially.
-170715-20:06:49,234 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmp04hcd8b3/bids_demo/_subject_id_02/BIDSDataGrabber
-170715-20:06:49,661 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmpjx_5r1xs/bids_demo/_subject_id_01/BIDSDataGrabber
-170715-20:06:50,88 workflow INFO:
-	 Executing node analyzeBOLD.a0 in dir: /tmp/tmplisz8wgv/bids_demo/_subject_id_01/analyzeBOLD
+170727-21:25:33,350 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a9 in dir: /tmp/tmp0s1dr8i1/bids_demo/_subject_id_10/BIDSDataGrabber
+170727-21:25:34,370 workflow INFO:
+	 Executing node analyzeBOLD.a9 in dir: /tmp/tmpokmn2kx3/bids_demo/_subject_id_10/analyzeBOLD
 
 
-analyzing [&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz&#39;]
+analyzing [&#39;/data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
 
 
-170715-20:06:50,109 workflow INFO:
-	 Executing node analyzeBOLD.a1 in dir: /tmp/tmpypfcf6g3/bids_demo/_subject_id_02/analyzeBOLD
+170727-21:25:34,398 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a8 in dir: /tmp/tmpq_fsug4r/bids_demo/_subject_id_09/BIDSDataGrabber
+170727-21:25:35,496 workflow INFO:
+	 Executing node analyzeBOLD.a8 in dir: /tmp/tmp2ww36fud/bids_demo/_subject_id_09/analyzeBOLD
 
 
-analyzing [&#39;/data/ds000114/sub-02/func/sub-02_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/func/sub-02_task-linebisection_bold.nii.gz&#39;]
+analyzing [&#39;/data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+
+
+170727-21:25:35,534 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a7 in dir: /tmp/tmp2zbdmcl3/bids_demo/_subject_id_08/BIDSDataGrabber
+170727-21:25:36,589 workflow INFO:
+	 Executing node analyzeBOLD.a7 in dir: /tmp/tmptmuirm8u/bids_demo/_subject_id_08/analyzeBOLD
+
+
+analyzing [&#39;/data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+
+
+170727-21:25:36,614 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a6 in dir: /tmp/tmp5dpnsau9/bids_demo/_subject_id_07/BIDSDataGrabber
+170727-21:25:37,610 workflow INFO:
+	 Executing node analyzeBOLD.a6 in dir: /tmp/tmpgbssdx1m/bids_demo/_subject_id_07/analyzeBOLD
+
+
+analyzing [&#39;/data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+
+
+170727-21:25:37,642 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a5 in dir: /tmp/tmp16404ihq/bids_demo/_subject_id_06/BIDSDataGrabber
+170727-21:25:38,716 workflow INFO:
+	 Executing node analyzeBOLD.a5 in dir: /tmp/tmpfw5e_0nf/bids_demo/_subject_id_06/analyzeBOLD
+
+
+analyzing [&#39;/data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+
+
+170727-21:25:38,742 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a4 in dir: /tmp/tmpun75mxm6/bids_demo/_subject_id_05/BIDSDataGrabber
+170727-21:25:39,710 workflow INFO:
+	 Executing node analyzeBOLD.a4 in dir: /tmp/tmp1lda068k/bids_demo/_subject_id_05/analyzeBOLD
+
+
+analyzing [&#39;/data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+
+
+170727-21:25:39,736 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a3 in dir: /tmp/tmpisplhmfi/bids_demo/_subject_id_04/BIDSDataGrabber
+170727-21:25:40,732 workflow INFO:
+	 Executing node analyzeBOLD.a3 in dir: /tmp/tmpqxtoeln9/bids_demo/_subject_id_04/analyzeBOLD
+
+
+analyzing [&#39;/data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+
+
+170727-21:25:40,758 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a2 in dir: /tmp/tmpv7e5szn4/bids_demo/_subject_id_03/BIDSDataGrabber
+170727-21:25:41,736 workflow INFO:
+	 Executing node analyzeBOLD.a2 in dir: /tmp/tmpudmq1efo/bids_demo/_subject_id_03/analyzeBOLD
+
+
+analyzing [&#39;/data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+
+
+170727-21:25:41,763 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmpkj4dvhp0/bids_demo/_subject_id_02/BIDSDataGrabber
+170727-21:25:42,783 workflow INFO:
+	 Executing node analyzeBOLD.a1 in dir: /tmp/tmp7oqitft9/bids_demo/_subject_id_02/analyzeBOLD
+
+
+analyzing [&#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+
+
+170727-21:25:42,866 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmp9y07zqfk/bids_demo/_subject_id_01/BIDSDataGrabber
+170727-21:25:43,907 workflow INFO:
+	 Executing node analyzeBOLD.a0 in dir: /tmp/tmpdeu5f7x1/bids_demo/_subject_id_01/analyzeBOLD
+
+
+analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
 
 
 </pre>
@@ -12473,12 +12586,12 @@ analyzing [&#39;/data/ds000114/sub-02/func/sub-02_task-fingerfootlips_bold.nii.g
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[18]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f8bea7e67b8&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f81db688ef0&gt;</pre>
 </div>
 
 </div>
@@ -12499,10 +12612,10 @@ analyzing [&#39;/data/ds000114/sub-02/func/sub-02_task-fingerfootlips_bold.nii.g
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;/data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12514,7 +12627,7 @@ analyzing [&#39;/data/ds000114/sub-02/func/sub-02_task-fingerfootlips_bold.nii.g
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -12574,7 +12687,7 @@ More about MapNode in <a href="basic_mapnodes.html">MapNode</a></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">printMetadata</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
@@ -12594,7 +12707,7 @@ More about MapNode in <a href="basic_mapnodes.html">MapNode</a></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
@@ -12614,48 +12727,848 @@ More about MapNode in <a href="basic_mapnodes.html">MapNode</a></p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170715-20:06:50,226 workflow INFO:
+<pre>170727-21:25:44,106 workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;]
-170715-20:06:50,261 workflow INFO:
+170727-21:25:44,155 workflow INFO:
 	 Running serially.
-170715-20:06:50,264 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmpuurnyq3s/bids_demo/_subject_id_01/BIDSDataGrabber
-170715-20:06:50,731 workflow INFO:
-	 Executing node analyzeBOLD2.a0 in dir: /tmp/tmp2dwr9m2c/bids_demo/_subject_id_01/analyzeBOLD2
-170715-20:06:50,750 workflow INFO:
-	 Executing node _analyzeBOLD20 in dir: /tmp/tmp2dwr9m2c/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD20
+170727-21:25:44,157 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a9 in dir: /tmp/tmprmu2bszi/bids_demo/_subject_id_10/BIDSDataGrabber
+170727-21:25:45,133 workflow INFO:
+	 Executing node analyzeBOLD2.a9 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2
+170727-21:25:45,153 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD20
 
 
-analyzing /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz
+analyzing /data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-covertverbgeneration_bold.nii.gz
 TR: 2.5
 
 
-170715-20:06:51,229 workflow INFO:
-	 Executing node _analyzeBOLD21 in dir: /tmp/tmp2dwr9m2c/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD21
+170727-21:25:46,86 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD21
 
 
-analyzing /data/ds000114/sub-01/func/sub-01_task-linebisection_bold.nii.gz
+analyzing /data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-fingerfootlips_bold.nii.gz
 TR: 2.5
 
 
-170715-20:06:51,733 workflow INFO:
-	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmpj4g7rg3_/bids_demo/_subject_id_02/BIDSDataGrabber
-170715-20:06:52,201 workflow INFO:
-	 Executing node analyzeBOLD2.a1 in dir: /tmp/tmpb03padvc/bids_demo/_subject_id_02/analyzeBOLD2
-170715-20:06:52,212 workflow INFO:
-	 Executing node _analyzeBOLD20 in dir: /tmp/tmpb03padvc/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD20
+170727-21:25:46,958 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD22
 
 
-analyzing /data/ds000114/sub-02/func/sub-02_task-fingerfootlips_bold.nii.gz
+analyzing /data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-linebisection_bold.nii.gz
 TR: 2.5
 
 
-170715-20:06:52,638 workflow INFO:
-	 Executing node _analyzeBOLD21 in dir: /tmp/tmpb03padvc/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD21
+170727-21:25:47,915 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD23
 
 
-analyzing /data/ds000114/sub-02/func/sub-02_task-linebisection_bold.nii.gz
+analyzing /data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:25:48,798 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-10/ses-retest/func/sub-10_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:25:49,633 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-covertverbgeneration_bold.nii.gz
 TR: 2.5
+
+
+170727-21:25:50,512 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:25:51,445 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:25:52,412 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:25:53,438 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmp__xsndkc/bids_demo/_subject_id_10/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-10/ses-test/func/sub-10_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:25:54,487 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a8 in dir: /tmp/tmp86tw8qee/bids_demo/_subject_id_09/BIDSDataGrabber
+170727-21:25:55,476 workflow INFO:
+	 Executing node analyzeBOLD2.a8 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2
+170727-21:25:55,499 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:25:56,424 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:25:57,440 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:25:58,498 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:25:59,563 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-09/ses-retest/func/sub-09_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:00,507 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:01,424 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:02,329 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:03,233 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:04,191 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmp3at3ed0b/bids_demo/_subject_id_09/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-09/ses-test/func/sub-09_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:05,817 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a7 in dir: /tmp/tmp62y8l8c9/bids_demo/_subject_id_08/BIDSDataGrabber
+170727-21:26:06,832 workflow INFO:
+	 Executing node analyzeBOLD2.a7 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2
+170727-21:26:06,856 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:07,967 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:09,7 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:10,84 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:11,95 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-08/ses-retest/func/sub-08_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:12,130 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:13,119 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:14,113 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:15,115 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:16,501 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmp6nfmu3cf/bids_demo/_subject_id_08/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-08/ses-test/func/sub-08_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:17,712 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a6 in dir: /tmp/tmp72vnu96i/bids_demo/_subject_id_07/BIDSDataGrabber
+170727-21:26:18,853 workflow INFO:
+	 Executing node analyzeBOLD2.a6 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2
+170727-21:26:18,877 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:19,913 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:21,105 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:22,159 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:23,239 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-07/ses-retest/func/sub-07_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:24,355 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:25,397 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:26,400 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:27,407 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:28,489 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmp_u001ptu/bids_demo/_subject_id_07/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-07/ses-test/func/sub-07_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:29,475 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a5 in dir: /tmp/tmpajuih5a_/bids_demo/_subject_id_06/BIDSDataGrabber
+170727-21:26:30,511 workflow INFO:
+	 Executing node analyzeBOLD2.a5 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2
+170727-21:26:30,533 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:31,566 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:32,689 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:33,745 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:34,729 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-06/ses-retest/func/sub-06_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:35,721 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:36,791 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:37,875 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:38,878 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:39,913 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmp1lv9fnlt/bids_demo/_subject_id_06/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-06/ses-test/func/sub-06_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:41,40 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a4 in dir: /tmp/tmpojvme1bh/bids_demo/_subject_id_05/BIDSDataGrabber
+170727-21:26:42,150 workflow INFO:
+	 Executing node analyzeBOLD2.a4 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2
+170727-21:26:42,175 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:43,225 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:44,276 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:45,309 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:46,387 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-05/ses-retest/func/sub-05_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:47,615 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:48,644 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:50,302 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:51,365 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:52,365 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmpw3oqdkpj/bids_demo/_subject_id_05/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-05/ses-test/func/sub-05_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:53,410 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a3 in dir: /tmp/tmpeeprmi70/bids_demo/_subject_id_04/BIDSDataGrabber
+170727-21:26:54,441 workflow INFO:
+	 Executing node analyzeBOLD2.a3 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2
+170727-21:26:54,465 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:55,472 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:56,483 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:26:57,515 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:58,731 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-04/ses-retest/func/sub-04_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:26:59,757 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:00,772 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:01,820 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:02,890 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:04,16 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmpf20ihfm_/bids_demo/_subject_id_04/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-04/ses-test/func/sub-04_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:05,48 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a2 in dir: /tmp/tmpr8x4bcjb/bids_demo/_subject_id_03/BIDSDataGrabber
+170727-21:27:06,99 workflow INFO:
+	 Executing node analyzeBOLD2.a2 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2
+170727-21:27:06,123 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:07,166 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:08,270 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:09,283 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:10,296 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-03/ses-retest/func/sub-03_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:11,952 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:12,976 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:14,25 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:15,573 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:16,591 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmpsbm4z_4a/bids_demo/_subject_id_03/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-03/ses-test/func/sub-03_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:17,654 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a1 in dir: /tmp/tmp8hkoysb2/bids_demo/_subject_id_02/BIDSDataGrabber
+170727-21:27:18,754 workflow INFO:
+	 Executing node analyzeBOLD2.a1 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2
+170727-21:27:18,831 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:19,874 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:20,878 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:21,916 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:22,900 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:23,837 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:24,854 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:25,873 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:26,922 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:28,17 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmp1dduapvs/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:29,15 workflow INFO:
+	 Executing node BIDSDataGrabber.aI.a0 in dir: /tmp/tmprg_9198s/bids_demo/_subject_id_01/BIDSDataGrabber
+170727-21:27:30,36 workflow INFO:
+	 Executing node analyzeBOLD2.a0 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2
+170727-21:27:30,113 workflow INFO:
+	 Executing node _analyzeBOLD20 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD20
+
+
+analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:31,95 workflow INFO:
+	 Executing node _analyzeBOLD21 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD21
+
+
+analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:32,117 workflow INFO:
+	 Executing node _analyzeBOLD22 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD22
+
+
+analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:33,115 workflow INFO:
+	 Executing node _analyzeBOLD23 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD23
+
+
+analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:34,100 workflow INFO:
+	 Executing node _analyzeBOLD24 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD24
+
+
+analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:35,105 workflow INFO:
+	 Executing node _analyzeBOLD25 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD25
+
+
+analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:36,136 workflow INFO:
+	 Executing node _analyzeBOLD26 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD26
+
+
+analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:37,138 workflow INFO:
+	 Executing node _analyzeBOLD27 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD27
+
+
+analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz
+TR: 2.5
+
+
+170727-21:27:38,223 workflow INFO:
+	 Executing node _analyzeBOLD28 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD28
+
+
+analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz
+TR: 5.0
+
+
+170727-21:27:39,349 workflow INFO:
+	 Executing node _analyzeBOLD29 in dir: /tmp/tmpv1a6bayv/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD29
+
+
+analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz
+TR: 5.0
 
 
 </pre>
@@ -12663,12 +13576,12 @@ TR: 2.5
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f8bea877898&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f81db5366d8&gt;</pre>
 </div>
 
 </div>

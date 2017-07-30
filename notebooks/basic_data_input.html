@@ -11857,13 +11857,13 @@ XNATSource
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">DataGrabber</span><span class="p">,</span> <span class="n">Node</span>
 
 <span class="c1"># Create DataGrabber node</span>
-<span class="n">dg</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">DataGrabber</span><span class="p">(</span><span class="n">infields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;task_name&#39;</span><span class="p">],</span>
+<span class="n">dg</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">DataGrabber</span><span class="p">(</span><span class="n">infields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;ses_name&#39;</span><span class="p">,</span> <span class="s1">&#39;task_name&#39;</span><span class="p">],</span>
                       <span class="n">outfields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;anat&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">]),</span>
           <span class="n">name</span><span class="o">=</span><span class="s1">&#39;datagrabber&#39;</span><span class="p">)</span>
 
@@ -11887,34 +11887,35 @@ XNATSource
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Second, we know that the two files we desire are the the following location:</p>
 
-<pre><code>anat = /data/ds000114/sub-01/anat/sub-01_T1w.nii.gz
-func = /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz
+<pre><code>anat = /data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz
+func = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz
 
 </code></pre>
-<p>We see that the two files only have two dynamic parameters between subjects and task names:</p>
+<p>We see that the two files only have three dynamic parameters between subjects and task names:</p>
 
 <pre><code>subject_id: in this case 'sub-01'
 task_name: in this case fingerfootlips
+ses_name: test
 
 </code></pre>
 <p>This means that we can rewrite the paths as follows:</p>
 
-<pre><code>anat = /data/ds102/[subject_id]/anat/[subject_id]_T1w.nii.gz
-func = /data/ds102/[subject_id]/func/[subject_id]_task-[task_name]_bold.nii.gz
+<pre><code>anat = /data/ds102/[subject_id]/ses-[ses_name]/anat/sub-[subject_id]_ses-[ses_name]_T1w.nii.gz
+func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_name]_task-[task_name]_bold.nii.gz
 
 </code></pre>
-<p>Therefore, we need the parameter <code>subject_id</code> for the anatomical image and the parameter <code>subject_id</code> and <code>task_name</code> for the functional image. In the context of DataGabber, this is specified as follows:</p>
+<p>Therefore, we need the parameters <code>subject_id</code> and <code>ses_name</code> for the anatomical image and the parameters <code>subject_id</code>, <code>ses_name</code> and <code>task_name</code> for the functional image. In the context of DataGabber, this is specified as follows:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">template_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">]],</span>
-                           <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;task_name&#39;</span><span class="p">]]}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">template_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;ses_name&#39;</span><span class="p">]],</span>
+                           <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;ses_name&#39;</span><span class="p">,</span> <span class="s1">&#39;task_name&#39;</span><span class="p">]]}</span>
 </pre></div>
 
 </div>
@@ -11934,11 +11935,11 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-[task_name]_bold.nii.gz
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">field_template</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">%02d</span><span class="s1">/anat/*_T1w.nii.gz&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">%02d</span><span class="s1">/func/*task-</span><span class="si">%s</span><span class="s1">_bold.nii.gz&#39;</span><span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">field_template</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">%02d</span><span class="s1">/ses-</span><span class="si">%s</span><span class="s1">/anat/*_T1w.nii.gz&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">%02d</span><span class="s1">/ses-</span><span class="si">%s</span><span class="s1">/func/*task-</span><span class="si">%s</span><span class="s1">_bold.nii.gz&#39;</span><span class="p">}</span>
 </pre></div>
 
 </div>
@@ -11951,7 +11952,7 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-[task_name]_bold.nii.gz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You'll notice that we use <code>%s</code>, <code>%02d</code> and <code>*</code> for placeholders in the data paths. <code>%s</code> is a placeholder for a string and is filled out by <code>task_name</code>. <code>%02d</code> is a placeholder for a integer number and is filled out by <code>subject_id</code>. <code>*</code> is used as a wild card, e.g. a placeholder for any possible string combination. This is all to set up the <code>DataGrabber</code> node.</p>
+<p>You'll notice that we use <code>%s</code>, <code>%02d</code> and <code>*</code> for placeholders in the data paths. <code>%s</code> is a placeholder for a string and is filled out by <code>task_name</code> or <code>ses_name</code>. <code>%02d</code> is a placeholder for a integer number and is filled out by <code>subject_id</code>. <code>*</code> is used as a wild card, e.g. a placeholder for any possible string combination. This is all to set up the <code>DataGrabber</code> node.</p>
 
 </div>
 </div>
@@ -11961,14 +11962,14 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-[task_name]_bold.nii.gz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now it is up to you how you want to feed the dynamic parameters into the node. You can either do this by using another node (e.g. <code>IdentityInterface</code>) and feed <code>subject_id</code> and <code>task_name</code> as connections to the <code>DataGrabber</code> node or specify them directly as node inputs.</p>
+<p>Now it is up to you how you want to feed the dynamic parameters into the node. You can either do this by using another node (e.g. <code>IdentityInterface</code>) and feed <code>subject_id</code>, <code>ses_name</code> and <code>task_name</code> as connections to the <code>DataGrabber</code> node or specify them directly as node inputs.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using the IdentityInterface</span>
@@ -11976,6 +11977,7 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-[task_name]_bold.nii.gz
 <span class="n">infosource</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">IdentityInterface</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;task_name&#39;</span><span class="p">]),</span>
                   <span class="n">name</span><span class="o">=</span><span class="s2">&quot;infosource&quot;</span><span class="p">)</span>
 <span class="n">infosource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">task_name</span> <span class="o">=</span> <span class="s2">&quot;fingerfootlips&quot;</span>
+<span class="n">infosource</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">ses_name</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
 <span class="n">subject_id_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">infosource</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">subject_id_list</span><span class="p">)]</span>
 </pre></div>
@@ -12000,18 +12002,19 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-[task_name]_bold.nii.gz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you specify the inputs to the <code>DataGrabber</code> node directly, you can do this as follows:</p>
+<p>You can also provide the inputs to the <code>DataGrabber</code> node directly, for one subject you can do this as follows:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specifying the input fields of DataGrabber directly</span>
 <span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">ses_name</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
 <span class="n">dg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">task_name</span> <span class="o">=</span> <span class="s2">&quot;fingerfootlips&quot;</span>
 </pre></div>
 
@@ -12032,7 +12035,7 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-[task_name]_bold.nii.gz
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
@@ -12050,21 +12053,21 @@ func = /data/ds102/[subject_id]/func/[subject_id]_task-[task_name]_bold.nii.gz
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170716-08:56:43,740 workflow INFO:
-	 Executing node datagrabber in dir: /tmp/tmplw952u04/datagrabber
+<pre>170727-19:13:54,954 workflow INFO:
+	 Executing node datagrabber in dir: /tmp/tmpzh0nl8du/datagrabber
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>
-anat = /data/ds000114/sub-01/anat/sub-01_T1w.nii.gz
-func = /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz</pre>
+anat = /data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz
+func = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz</pre>
 </div>
 
 </div>
@@ -12081,14 +12084,15 @@ func = /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz</pre>
 <h1 id="SelectFiles">SelectFiles<a class="anchor-link" href="#SelectFiles">&#182;</a></h1><p><code>SelectFiles</code> is a more flexible alternative to <code>DataGrabber</code>. It uses the {}-based string formating syntax to plug values into string templates and collect the data. These templates can also be combined with glob wild cards. The field names in the formatting template (i.e. the terms in braces) will become inputs fields on the interface, and the keys in the templates dictionary will form the output fields.</p>
 <p>Let's focus again on the data we want to import:</p>
 
-<pre><code>anat = /data/ds000114/sub-01/anat/sub-01_T1w.nii.gz
-func = /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz
+<pre><code>anat = /data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz
+func = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz
 
 </code></pre>
 <p>Now, we can replace those paths with the accoridng {}-based strings.</p>
 
-<pre><code>anat = /data/ds000114/sub-{subject_id}/anat/sub-{subject_id}_T1w.nii.gz
-func = /data/ds000114/sub-{subject_id}/func/sub-{subject_id}_task-{task_name}_bold.nii.gz
+<pre><code>anat = /data/ds000114/sub-{subject_id}/ses-{ses_name}/anat/sub-{subject_id}_ses-{ses_name}_T1w.nii.gz
+func = /data/ds000114/sub-{subject_id}/ses-{ses_name}/func/ \
+        sub-{subject_id}_ses-{ses_name}_task-{task_name}_bold.nii.gz
 
 </code></pre>
 <p>How would this look like as a <code>SelectFiles</code> node?</p>
@@ -12098,14 +12102,14 @@ func = /data/ds000114/sub-{subject_id}/func/sub-{subject_id}_task-{task_name}_bo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
 
 <span class="c1"># String template with {}-based strings</span>
-<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">{subject_id}</span><span class="s1">/anat/sub-</span><span class="si">{subject_id}</span><span class="s1">_T1w.nii.gz&#39;</span><span class="p">,</span>
-             <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">{subject_id}</span><span class="s1">/func/sub-</span><span class="si">{subject_id}</span><span class="s1">_task-</span><span class="si">{task_name}</span><span class="s1">_bold.nii.gz&#39;</span><span class="p">}</span>
+<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">{subject_id}</span><span class="s1">/ses-</span><span class="si">{ses_name}</span><span class="s1">/anat/sub-</span><span class="si">{subject_id}</span><span class="s1">_ses-</span><span class="si">{ses_name}</span><span class="s1">_T1w.nii.gz&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-</span><span class="si">{subject_id}</span><span class="s1">/ses-</span><span class="si">{ses_name}</span><span class="s1">/func/sub-</span><span class="si">{subject_id}</span><span class="s1">_ses-</span><span class="si">{ses_name}</span><span class="s1">_task-</span><span class="si">{task_name}</span><span class="s1">_bold.nii.gz&#39;</span><span class="p">}</span>
 
 <span class="c1"># Create SelectFiles node</span>
 <span class="n">sf</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">),</span>
@@ -12116,6 +12120,7 @@ func = /data/ds000114/sub-{subject_id}/func/sub-{subject_id}_task-{task_name}_bo
 
 <span class="c1"># Feed {}-based placeholder strings with values</span>
 <span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="s1">&#39;01&#39;</span>
+<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">ses_name</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
 <span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">task_name</span> <span class="o">=</span> <span class="s1">&#39;fingerfootlips&#39;</span>
 </pre></div>
 
@@ -12136,7 +12141,7 @@ func = /data/ds000114/sub-{subject_id}/func/sub-{subject_id}_task-{task_name}_bo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
@@ -12154,21 +12159,21 @@ func = /data/ds000114/sub-{subject_id}/func/sub-{subject_id}_task-{task_name}_bo
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170716-08:57:26,899 workflow INFO:
-	 Executing node selectfiles in dir: /tmp/tmpys0agcu4/selectfiles
+<pre>170727-19:18:15,247 workflow INFO:
+	 Executing node selectfiles in dir: /tmp/tmpkxrlth4a/selectfiles
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>
-anat = /data/ds000114/sub-01/anat/sub-01_T1w.nii.gz
-func = /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz</pre>
+anat = /data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz
+func = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz</pre>
 </div>
 
 </div>
@@ -12195,14 +12200,14 @@ func = /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">Node</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span> <span class="k">as</span> <span class="n">opap</span>
 
 <span class="c1"># String template with {}-based strings</span>
-<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-0[1,2]/anat/sub-0[1,2]_T1w.nii.gz&#39;</span><span class="p">}</span>
+<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="s1">&#39;sub-0[1,2]/ses-</span><span class="si">{ses_name}</span><span class="s1">/anat/sub-0[1,2]_ses-</span><span class="si">{ses_name}</span><span class="s1">_T1w.nii.gz&#39;</span><span class="p">}</span>
 
 
 <span class="c1"># Create SelectFiles node</span>
@@ -12211,6 +12216,9 @@ func = /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz</pre>
 
 <span class="c1"># Location of the dataset folder</span>
 <span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_directory</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114&#39;</span>
+
+<span class="c1"># Feed {}-based placeholder strings with values</span>
+<span class="n">sf</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">ses_name</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
 
 <span class="c1"># Print SelectFiles output</span>
 <span class="n">sf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span><span class="o">.</span><span class="n">outputs</span>
@@ -12228,20 +12236,20 @@ func = /data/ds000114/sub-01/func/sub-01_task-fingerfootlips_bold.nii.gz</pre>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170716-08:57:41,262 workflow INFO:
-	 Executing node selectfiles in dir: /tmp/tmpet7ix46z/selectfiles
+<pre>170727-19:21:09,233 workflow INFO:
+	 Executing node selectfiles in dir: /tmp/tmphih2czqa/selectfiles
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>
-anat = [&#39;/data/ds000114/sub-01/anat/sub-01_T1w.nii.gz&#39;, &#39;/data/ds000114/sub-02/anat/sub-02_T1w.nii.gz&#39;]</pre>
+anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz&#39;]</pre>
 </div>
 
 </div>
@@ -12257,7 +12265,7 @@ anat = [&#39;/data/ds000114/sub-01/anat/sub-01_T1w.nii.gz&#39;, &#39;/data/ds000
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As you can see, now <code>anat</code> contains two file paths, one for the first and one for the second subject. As a side node, you could have also gotten them same thing with the wild card <code>*</code>:</p>
 
-<pre><code>'sub-0*/anat/sub-0*_T1w.nii.gz'</code></pre>
+<pre><code>'sub-0*/ses-test/anat/sub-0*_ses-test_T1w.nii.gz'</code></pre>
 
 </div>
 </div>
