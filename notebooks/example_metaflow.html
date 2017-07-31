@@ -11788,7 +11788,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Metaflow">Metaflow<a class="anchor-link" href="#Metaflow">&#182;</a></h1><p>Sometimes, we want to dream big! In this case, let's imagine we want to put all 3 examples (<a href="example_preprocessing.html">preprocessing</a>, <a href="example_1stlevel.html">1st-level</a> and <a href="example_normalize.html">normalization</a>) into one big workflow, called <strong><code>metaflow</code></strong>. Like this, we would only need one script, to run a whole 1st-level fMRI analysis. <strong>That's the power of Nipype!</strong></p>
+<h1 id="Metaflow">Metaflow<a class="anchor-link" href="#Metaflow">&#182;</a></h1><p><strong> Note that this notebook is not updated to the newer dataset used in previous notebooks.</strong></p>
+<p>Sometimes, we want to dream big! In this case, let's imagine we want to put all 3 examples (<a href="example_preprocessing.html">preprocessing</a>, <a href="example_1stlevel.html">1st-level</a> and <a href="example_normalize.html">normalization</a>) into one big workflow, called <strong><code>metaflow</code></strong>. Like this, we would only need one script, to run a whole 1st-level fMRI analysis. <strong>That's the power of Nipype!</strong></p>
 
 </div>
 </div>
@@ -11809,17 +11810,17 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">opj</span>
-<span class="kn">from</span> <span class="nn">nipype.pipeline.engine</span> <span class="kn">import</span> <span class="n">Workflow</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="kn">import</span> <span class="n">Function</span><span class="p">,</span> <span class="n">IdentityInterface</span>
-<span class="kn">from</span> <span class="nn">nipype.algorithms.misc</span> <span class="kn">import</span> <span class="n">Gunzip</span>
-<span class="kn">from</span> <span class="nn">nipype.algorithms.modelgen</span> <span class="kn">import</span> <span class="n">SpecifySPMModel</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.afni</span> <span class="kn">import</span> <span class="n">Resample</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.ants</span> <span class="kn">import</span> <span class="n">ApplyTransforms</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="kn">import</span> <span class="n">Info</span><span class="p">,</span> <span class="n">MCFLIRT</span><span class="p">,</span> <span class="n">FLIRT</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="kn">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">DataSink</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Smooth</span><span class="p">,</span> <span class="n">Normalize12</span><span class="p">,</span> <span class="n">Level1Design</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">opj</span>
+<span class="kn">from</span> <span class="nn">nipype.pipeline.engine</span> <span class="k">import</span> <span class="n">Workflow</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="k">import</span> <span class="n">Function</span><span class="p">,</span> <span class="n">IdentityInterface</span>
+<span class="kn">from</span> <span class="nn">nipype.algorithms.misc</span> <span class="k">import</span> <span class="n">Gunzip</span>
+<span class="kn">from</span> <span class="nn">nipype.algorithms.modelgen</span> <span class="k">import</span> <span class="n">SpecifySPMModel</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.afni</span> <span class="k">import</span> <span class="n">Resample</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.ants</span> <span class="k">import</span> <span class="n">ApplyTransforms</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="k">import</span> <span class="n">Info</span><span class="p">,</span> <span class="n">MCFLIRT</span><span class="p">,</span> <span class="n">FLIRT</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">DataSink</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="k">import</span> <span class="p">(</span><span class="n">Smooth</span><span class="p">,</span> <span class="n">Normalize12</span><span class="p">,</span> <span class="n">Level1Design</span><span class="p">,</span>
                                    <span class="n">EstimateModel</span><span class="p">,</span> <span class="n">EstimateContrast</span><span class="p">)</span>
 </pre></div>
 
@@ -11859,7 +11860,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">experiment_dir</span> <span class="o">=</span> <span class="s1">&#39;/output&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">experiment_dir</span> <span class="o">=</span> <span class="s1">&#39;/output&#39;</span>
 <span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;datasink_metaflow&#39;</span>
 <span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;workingdir&#39;</span>
 
@@ -11912,9 +11913,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># MCFLIRT - motion correction</span>
-<span class="n">mcflirt</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">mean_vol</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                          <span class="n">save_plots</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># MCFLIRT - motion correction</span>
+<span class="n">mcflirt</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">mean_vol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                          <span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                           <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">),</span>
                   <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mcflirt&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;in_file&#39;</span><span class="p">])</span>
 
@@ -11927,7 +11928,7 @@ div#notebook {
 <span class="n">coreg_step1</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">FLIRT</span><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">),</span>
                       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;coreg_step1&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;in_file&#39;</span><span class="p">])</span>
 <span class="n">coreg_step2</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">FLIRT</span><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">,</span>
-                            <span class="n">apply_xfm</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+                            <span class="n">apply_xfm</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
                       <span class="n">name</span><span class="o">=</span><span class="s2">&quot;coreg_step2&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
                                                      <span class="s1">&#39;in_matrix_file&#39;</span><span class="p">])</span>
 
@@ -11955,8 +11956,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># SpecifyModel - Generates SPM-specific Model</span>
-<span class="n">modelspec</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SpecifySPMModel</span><span class="p">(</span><span class="n">concatenate_runs</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># SpecifyModel - Generates SPM-specific Model</span>
+<span class="n">modelspec</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SpecifySPMModel</span><span class="p">(</span><span class="n">concatenate_runs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                                  <span class="n">input_units</span><span class="o">=</span><span class="s1">&#39;secs&#39;</span><span class="p">,</span>
                                  <span class="n">output_units</span><span class="o">=</span><span class="s1">&#39;secs&#39;</span><span class="p">,</span>
                                  <span class="n">time_repetition</span><span class="o">=</span><span class="n">TR</span><span class="p">,</span>
@@ -11998,11 +11999,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Apply Transformation - applies the normalization matrix to contrast images</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply Transformation - applies the normalization matrix to contrast images</span>
 <span class="n">apply2con</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">ApplyTransforms</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="s1">&#39;--float&#39;</span><span class="p">,</span>
                                     <span class="n">input_image_type</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                                     <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;Linear&#39;</span><span class="p">,</span>
-                                    <span class="n">invert_transform_flags</span><span class="o">=</span><span class="p">[</span><span class="bp">False</span><span class="p">],</span>
+                                    <span class="n">invert_transform_flags</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">],</span>
                                     <span class="n">num_threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                                     <span class="n">reference_image</span><span class="o">=</span><span class="n">templateANTs</span><span class="p">,</span>
                                     <span class="n">terminal_output</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">),</span>
@@ -12029,7 +12030,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Gunzip - unzip the contrast image</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Gunzip - unzip the contrast image</span>
 <span class="n">gunzip</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Gunzip</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gunzip&quot;</span><span class="p">)</span>
 
 <span class="c1"># Normalize - normalizes functional and structural images to the MNI template</span>
@@ -12058,7 +12059,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Condition names</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Condition names</span>
 <span class="n">condition_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;congruent&#39;</span><span class="p">,</span> <span class="s1">&#39;incongruent&#39;</span><span class="p">]</span>
 
 <span class="c1"># Contrasts</span>
@@ -12093,11 +12094,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">subjectinfo</span><span class="p">(</span><span class="n">subject_id</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">subjectinfo</span><span class="p">(</span><span class="n">subject_id</span><span class="p">):</span>
 
-    <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-    <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">opj</span>
-    <span class="kn">from</span> <span class="nn">nipype.interfaces.base</span> <span class="kn">import</span> <span class="n">Bunch</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">opj</span>
+    <span class="kn">from</span> <span class="nn">nipype.interfaces.base</span> <span class="k">import</span> <span class="n">Bunch</span>
 
     <span class="n">condition_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;congruent&#39;</span><span class="p">,</span> <span class="s1">&#39;incongruent&#39;</span><span class="p">]</span>
 
@@ -12111,7 +12112,7 @@ div#notebook {
 
         <span class="c1"># Save relevant information</span>
         <span class="n">trailinfo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
-                                  <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                                  <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">trailinfo</span> <span class="o">=</span> <span class="p">[[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">trailinfo</span><span class="p">]</span>
 
         <span class="c1"># Separate onset of conditions</span>
@@ -12141,11 +12142,11 @@ div#notebook {
                            <span class="n">Bunch</span><span class="p">(</span><span class="n">conditions</span><span class="o">=</span><span class="n">condition_names</span><span class="p">,</span>
                                  <span class="n">onsets</span><span class="o">=</span><span class="n">onsetTimes</span><span class="p">,</span>
                                  <span class="n">durations</span><span class="o">=</span><span class="p">[[</span><span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">]],</span>
-                                 <span class="n">amplitudes</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                                 <span class="n">tmod</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                                 <span class="n">pmod</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                                 <span class="n">regressor_names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                                 <span class="n">regressors</span><span class="o">=</span><span class="bp">None</span><span class="p">))</span>
+                                 <span class="n">amplitudes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">tmod</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">pmod</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">regressor_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">regressors</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">subjectinfo</span>  <span class="c1"># this output will later be returned to infosource</span>
 
@@ -12177,7 +12178,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Infosource - a function free node to iterate over the list of subject names</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Infosource - a function free node to iterate over the list of subject names</span>
 <span class="n">infosource</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">IdentityInterface</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
                                             <span class="s1">&#39;contrasts&#39;</span><span class="p">],</span>
                                     <span class="n">contrasts</span><span class="o">=</span><span class="n">contrast_list</span><span class="p">),</span>
@@ -12185,10 +12186,10 @@ div#notebook {
 <span class="n">infosource</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">subject_list</span><span class="p">)]</span>
 
 <span class="c1"># SelectFiles - to grab the data (alternativ to DataGrabber)</span>
-<span class="n">anat_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;ds102&#39;</span><span class="p">,</span> <span class="s1">&#39;{subject_id}&#39;</span><span class="p">,</span> <span class="s1">&#39;anat&#39;</span><span class="p">,</span> <span class="s1">&#39;{subject_id}_T1w.nii.gz&#39;</span><span class="p">)</span>
-<span class="n">func_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;ds102&#39;</span><span class="p">,</span> <span class="s1">&#39;{subject_id}&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;{subject_id}_task-flanker_*_bold.nii.gz&#39;</span><span class="p">)</span>
-<span class="n">transform</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;antsdir&#39;</span><span class="p">,</span> <span class="s1">&#39;{subject_id}&#39;</span><span class="p">,</span> <span class="s1">&#39;transformComposite.h5&#39;</span><span class="p">)</span>
+<span class="n">anat_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;ds102&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;anat&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">_T1w.nii.gz&#39;</span><span class="p">)</span>
+<span class="n">func_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;ds102&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">_task-flanker_*_bold.nii.gz&#39;</span><span class="p">)</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;antsdir&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;transformComposite.h5&#39;</span><span class="p">)</span>
 
 <span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="n">anat_file</span><span class="p">,</span>
              <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="n">func_file</span><span class="p">,</span>
@@ -12240,7 +12241,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create a preprocessing workflow</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a preprocessing workflow</span>
 <span class="n">preproc</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;preproc&#39;</span><span class="p">)</span>
 <span class="n">preproc</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">)</span>
 
@@ -12276,7 +12277,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Initiation of the 1st-level analysis workflow</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiation of the 1st-level analysis workflow</span>
 <span class="n">l1analysis</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;l1analysis&#39;</span><span class="p">)</span>
 <span class="n">l1analysis</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">)</span>
 
@@ -12315,7 +12316,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Specify Normalization-Workflow &amp; Connect Nodes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specify Normalization-Workflow &amp; Connect Nodes</span>
 <span class="n">spmflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;spmflow&#39;</span><span class="p">)</span>
 <span class="n">spmflow</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">)</span>
 
@@ -12333,7 +12334,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Initiation of the ANTs normalization workflow</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiation of the ANTs normalization workflow</span>
 <span class="n">antsflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;antsflow&#39;</span><span class="p">)</span>
 <span class="n">antsflow</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">)</span>
 
@@ -12371,7 +12372,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">metaflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;metaflow&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metaflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;metaflow&#39;</span><span class="p">)</span>
 <span class="n">metaflow</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">)</span>
 </pre></div>
 
@@ -12395,7 +12396,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">metaflow</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">preproc</span><span class="p">,</span> <span class="n">l1analysis</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;smooth.smoothed_files&#39;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metaflow</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">preproc</span><span class="p">,</span> <span class="n">l1analysis</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;smooth.smoothed_files&#39;</span><span class="p">,</span>
                                           <span class="s1">&#39;modelspec.functional_runs&#39;</span><span class="p">),</span>
                                          <span class="p">(</span><span class="s1">&#39;mcflirt.par_file&#39;</span><span class="p">,</span>
                                           <span class="s1">&#39;modelspec.realignment_parameters&#39;</span><span class="p">),</span>
@@ -12426,7 +12427,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">metaflow</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">infosource</span><span class="p">,</span> <span class="n">selectfiles</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metaflow</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">infosource</span><span class="p">,</span> <span class="n">selectfiles</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span>
                                               <span class="s1">&#39;subject_id&#39;</span><span class="p">),</span>
                                              <span class="p">]),</span>
                   <span class="p">(</span><span class="n">selectfiles</span><span class="p">,</span> <span class="n">preproc</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;func&#39;</span><span class="p">,</span> <span class="s1">&#39;mcflirt.in_file&#39;</span><span class="p">),</span>
@@ -12486,11 +12487,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create preproc output graph</span>
-<span class="n">metaflow</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;colored&#39;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">simple_form</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create preproc output graph</span>
+<span class="n">metaflow</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;colored&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">simple_form</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Visualize the graph</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">opj</span><span class="p">(</span><span class="n">metaflow</span><span class="o">.</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;metaflow&#39;</span><span class="p">,</span> <span class="s1">&#39;graph.dot.png&#39;</span><span class="p">))</span>
 </pre></div>
 
@@ -15719,8 +15720,8 @@ AAAAAACgz0LgAQAAAACAPguBBwAAAAAA+iwEHgAAAAAA6LP+H6kTPmbhZc2AAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Visualize the detailed graph</span>
-<span class="n">metaflow</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">simple_form</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize the detailed graph</span>
+<span class="n">metaflow</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">simple_form</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">opj</span><span class="p">(</span><span class="n">metaflow</span><span class="o">.</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;metaflow&#39;</span><span class="p">,</span> <span class="s1">&#39;graph_detailed.dot.png&#39;</span><span class="p">))</span>
 </pre></div>
 
@@ -23340,7 +23341,7 @@ AFR5zpLWOroIAAAAAAAAAAAAAADsaP//A5tZRhyvOjImAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">metaflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_procs&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metaflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_procs&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
 </pre></div>
 
 </div>

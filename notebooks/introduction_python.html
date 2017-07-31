@@ -12851,9 +12851,9 @@ log(...)
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">y</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="ow">not</span> <span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">x</span> <span class="ow">and</span> <span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">x</span> <span class="ow">or</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">and</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">or</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12969,7 +12969,7 @@ True
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13010,7 +13010,7 @@ True
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">b</span> <span class="o">*=</span> <span class="mi">3</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13115,7 +13115,7 @@ True
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># replace a substring in a string with something else</span>
 <span class="n">s2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13421,7 +13421,7 @@ True
 <div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;str1&quot;</span> <span class="o">+</span> <span class="s2">&quot;str2&quot;</span> <span class="o">+</span> <span class="s2">&quot;str3&quot;</span><span class="p">)</span>  <span class="c1"># strings added with + are concatenated without space</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;str1&quot;</span> <span class="o">+</span> <span class="s2">&quot;str2&quot;</span> <span class="o">+</span> <span class="s2">&quot;str3&quot;</span><span class="p">)</span>  <span class="c1"># strings added with + are concatenated without space</span>
 </pre></div>
 
 </div>
@@ -13450,9 +13450,9 @@ True
 <div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;str1&quot;</span> <span class="s2">&quot;str2&quot;</span> <span class="s2">&quot;str3&quot;</span><span class="p">)</span>      <span class="c1"># The print statement concatenates strings differently</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;str1&quot;</span><span class="p">,</span> <span class="s2">&quot;str2&quot;</span><span class="p">,</span> <span class="s2">&quot;str3&quot;</span><span class="p">)</span>    <span class="c1"># depending on how the inputs are specified</span>
-<span class="nb">print</span> <span class="p">((</span><span class="s2">&quot;str1&quot;</span><span class="p">,</span> <span class="s2">&quot;str2&quot;</span><span class="p">,</span> <span class="s2">&quot;str3&quot;</span><span class="p">))</span>  <span class="c1"># See the three different outputs below</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;str1&quot;</span> <span class="s2">&quot;str2&quot;</span> <span class="s2">&quot;str3&quot;</span><span class="p">)</span>      <span class="c1"># The print function concatenates strings differently</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;str1&quot;</span><span class="p">,</span> <span class="s2">&quot;str2&quot;</span><span class="p">,</span> <span class="s2">&quot;str3&quot;</span><span class="p">)</span>    <span class="c1"># depending on how the inputs are specified</span>
+<span class="nb">print</span><span class="p">((</span><span class="s2">&quot;str1&quot;</span><span class="p">,</span> <span class="s2">&quot;str2&quot;</span><span class="p">,</span> <span class="s2">&quot;str3&quot;</span><span class="p">))</span>  <span class="c1"># See the three different outputs below</span>
 </pre></div>
 
 </div>
@@ -13483,7 +13483,7 @@ str1 str2 str3
 <div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;str1&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>       <span class="c1"># The print statements converts all arguments to strings</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;str1&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>       <span class="c1"># The print function converts all arguments to strings</span>
 </pre></div>
 
 </div>
@@ -13512,7 +13512,7 @@ str1 str2 str3
 <div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;value = </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">1</span>.0)       # we can use C-style string formatting
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;value = </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="k">1</span>.0)       # we can use C-style string formatting
 </pre></div>
 
 </div>
@@ -13553,7 +13553,7 @@ str1 str2 str3
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;value1 = </span><span class="si">%.2f</span><span class="s2">. value2 = </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">3.1415</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13594,7 +13594,7 @@ str1 str2 str3
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="s1">&#39;value1 = </span><span class="si">{:.2f}</span><span class="s1">, value2 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">s3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13690,7 +13690,7 @@ String: ---
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">strString</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This is</span>
 <span class="s2">a multiline</span>
 <span class="s2">string.&quot;&quot;&quot;</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">strString</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">strString</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13721,7 +13721,7 @@ string.
 <div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This </span><span class="si">{verb}</span><span class="s2"> a </span><span class="si">{noun}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">noun</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">verb</span> <span class="o">=</span> <span class="s2">&quot;is&quot;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This </span><span class="si">{verb}</span><span class="s2"> a </span><span class="si">{noun}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">noun</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">verb</span> <span class="o">=</span> <span class="s2">&quot;is&quot;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -13811,8 +13811,8 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13852,9 +13852,9 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -13938,7 +13938,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14057,7 +14057,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert a string to a list by type casting:</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
 <span class="n">s2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
@@ -14104,7 +14104,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sorting lists</span>
 <span class="n">s2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14150,7 +14150,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
 <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14192,7 +14192,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;p&quot;</span>
 <span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;t&quot;</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14223,7 +14223,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">]</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14269,7 +14269,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <span class="n">l</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">l</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14310,7 +14310,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14352,7 +14352,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">l</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
 <span class="k">del</span> <span class="n">l</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14394,8 +14394,8 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">point</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14483,8 +14483,8 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
           <span class="s2">&quot;parameter2&quot;</span> <span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
           <span class="s2">&quot;parameter3&quot;</span> <span class="p">:</span> <span class="mf">3.0</span><span class="p">,}</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14555,9 +14555,9 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 <div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;parameter1 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter1&quot;</span><span class="p">]))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;parameter2 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter2&quot;</span><span class="p">]))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;parameter3 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter3&quot;</span><span class="p">]))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter1 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter1&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter2 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter2&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter3 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter3&quot;</span><span class="p">]))</span>
 </pre></div>
 
 </div>
@@ -14594,10 +14594,10 @@ parameter3 = 3.0
 <span class="c1"># add a new entry</span>
 <span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter4&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;D&quot;</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;parameter1 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter1&quot;</span><span class="p">]))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;parameter2 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter2&quot;</span><span class="p">]))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;parameter3 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter3&quot;</span><span class="p">]))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;parameter4 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter4&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter1 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter1&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter2 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter2&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter3 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter3&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter4 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter4&quot;</span><span class="p">]))</span>
 </pre></div>
 
 </div>
@@ -14643,8 +14643,8 @@ parameter4 = D
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="c1"># Error below! Notice a single space at the start of the line</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Value is &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;I repeat, the value is &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value is &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I repeat, the value is &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14697,13 +14697,13 @@ I repeat, the value is  5
 <span class="n">statement2</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="k">if</span> <span class="n">statement1</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;statement1 is True&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;statement1 is True&quot;</span><span class="p">)</span>
     
 <span class="k">elif</span> <span class="n">statement2</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;statement2 is True&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;statement2 is True&quot;</span><span class="p">)</span>
     
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;statement1 and statement2 are False&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;statement1 and statement2 are False&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14748,7 +14748,7 @@ I repeat, the value is  5
 
 <span class="k">if</span> <span class="n">statement1</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">statement2</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;both statement1 and statement2 are True&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;both statement1 and statement2 are True&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14780,7 +14780,7 @@ I repeat, the value is  5
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Bad indentation!</span>
 <span class="k">if</span> <span class="n">statement1</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">statement2</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;both statement1 and statement2 are True&quot;</span><span class="p">)</span>  <span class="c1"># this line is not properly indented</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;both statement1 and statement2 are True&quot;</span><span class="p">)</span>  <span class="c1"># this line is not properly indented</span>
 </pre></div>
 
 </div>
@@ -14797,7 +14797,7 @@ I repeat, the value is  5
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-77-ca876cc9f972&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">4</span>
-<span class="ansi-red-fg">    print (&#34;both statement1 and statement2 are True&#34;)  # this line is not properly indented</span>
+<span class="ansi-red-fg">    print(&#34;both statement1 and statement2 are True&#34;)  # this line is not properly indented</span>
         ^
 <span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block
 </pre>
@@ -14816,9 +14816,9 @@ I repeat, the value is  5
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">statement1</span> <span class="o">=</span> <span class="kc">False</span> 
 
 <span class="k">if</span> <span class="n">statement1</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;printed if statement1 is True&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;printed if statement1 is True&quot;</span><span class="p">)</span>
     
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;still inside the if block&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;still inside the if block&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14832,9 +14832,9 @@ I repeat, the value is  5
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">statement1</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;printed if statement1 is True&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;printed if statement1 is True&quot;</span><span class="p">)</span>
     
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;now outside the if block&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;now outside the if block&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14874,7 +14874,7 @@ I repeat, the value is  5
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">),</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
 </pre></div>
 
 </div>
@@ -14916,7 +14916,7 @@ I repeat, the value is  5
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span> <span class="c1"># by default range start at 0</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">),</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
 </pre></div>
 
 </div>
@@ -14959,7 +14959,7 @@ I repeat, the value is  5
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">x</span><span class="p">),</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
 </pre></div>
 
 </div>
@@ -14994,7 +14994,7 @@ I repeat, the value is  5
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;scientific&quot;</span><span class="p">,</span> <span class="s2">&quot;computing&quot;</span><span class="p">,</span> <span class="s2">&quot;with&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">]:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15037,7 +15037,7 @@ python
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot; = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot; = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -15080,7 +15080,7 @@ parameter4 = D
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15125,7 +15125,7 @@ parameter4 = D
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rangelist</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">rangelist</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">rangelist</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">rangelist</span><span class="p">:</span>
     <span class="c1"># Check if number is one of</span>
@@ -15138,7 +15138,7 @@ parameter4 = D
         <span class="c1"># &quot;Continue&quot; starts the next iteration</span>
         <span class="c1"># of the loop. It&#39;s rather useless here,</span>
         <span class="c1"># as it&#39;s the last statement of the loop.</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
         <span class="k">continue</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="c1"># The &quot;else&quot; clause is optional and is</span>
@@ -15189,7 +15189,7 @@ parameter4 = D
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15231,11 +15231,11 @@ parameter4 = D
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     
     <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
     
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15291,7 +15291,7 @@ done
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
     <span class="c1"># block belonging to the function</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
 
 <span class="n">say_hello</span><span class="p">()</span> <span class="c1"># call the function</span>
 </pre></div>
@@ -15336,9 +15336,9 @@ done
     <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="s1">&#39;is maximum&#39;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;is equal to&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;is equal to&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;is maximum&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;is maximum&#39;</span><span class="p">)</span>
 
 <span class="c1"># directly pass literal values</span>
 <span class="n">print_max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -15390,12 +15390,12 @@ done
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
 
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Changed local x to&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Changed local x to&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
 <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;x is still&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is still&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15441,12 +15441,12 @@ x is still 50
 <span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">x</span>
 
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Changed global x to&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Changed global x to&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
 <span class="n">func</span><span class="p">()</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Value of x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15492,7 +15492,7 @@ Value of x is 2
 <span class="sd">    Print a string &#39;s&#39; and tell how many characters it has    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="nb">print</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="s2">&quot; has &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; characters&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="s2">&quot; has &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; characters&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15695,7 +15695,7 @@ func1(s)
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">x4</span> <span class="o">=</span> <span class="n">powers</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">x3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15736,7 +15736,7 @@ func1(s)
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;evaluating myfunc for x = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; using exponent p = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;evaluating myfunc for x = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; using exponent p = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="n">p</span>
 </pre></div>
 
@@ -15892,9 +15892,9 @@ func1(s)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">args_func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Formal arg:&quot;</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Formal arg:&quot;</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;additioanl arg:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;additioanl arg:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 
 <span class="n">args_func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
@@ -15929,11 +15929,11 @@ additioanl arg: [1, 2, 3]
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">kwargs_func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;kwargs is now a dictionary...</span><span class="se">\n</span><span class="s2">Type: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">Content: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">kwargs</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;kwargs is now a dictionary...</span><span class="se">\n</span><span class="s2">Type: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">Content: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">kwargs</span><span class="p">))</span>
 
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Formal arg:&quot;</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Formal arg:&quot;</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;another keyword arg: </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;another keyword arg: </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
     
 <span class="n">kwargs_func</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">myarg2</span><span class="o">=</span><span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="n">myarg3</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -16139,7 +16139,7 @@ another keyword arg: myarg3: 3
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># this will invoke the __init__ method in the Point class</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">p1</span><span class="p">)</span>          <span class="c1"># this will invoke the __str__ method</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>          <span class="c1"># this will invoke the __str__ method</span>
 </pre></div>
 
 </div>
@@ -16179,10 +16179,10 @@ another keyword arg: myarg3: 3
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
 
 <span class="n">p2</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -16222,11 +16222,11 @@ Point at [1.250000, 2.500000]
 <div class="prompt input_prompt">In&nbsp;[113]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">p1</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -16664,11 +16664,11 @@ except:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
     <span class="c1"># generate an error: the variable test is not defined</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">test</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Caught an exception&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught an exception&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -16711,13 +16711,13 @@ Caught an exception
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
     <span class="c1"># generate an error: the variable test is not defined</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">test</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Caught an exception:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught an exception:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 <span class="k">finally</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This block is executed after the try- and except-block.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This block is executed after the try- and except-block.&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -16753,7 +16753,7 @@ This block is executed after the try- and except-block.
         <span class="c1"># Division by zero raises an exception</span>
         <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
     <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Oops, invalid.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Oops, invalid.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Exception didn&#39;t occur, we&#39;re good.</span>
         <span class="k">pass</span>
@@ -16761,7 +16761,7 @@ This block is executed after the try- and except-block.
         <span class="c1"># This is executed after the code block is run</span>
         <span class="c1"># and all exceptions have been handled, even</span>
         <span class="c1"># if a new exception is raised while handling.</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;We&#39;re done with that.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We&#39;re done with that.&quot;</span><span class="p">)</span>
 
 <span class="n">some_function</span><span class="p">()</span>
 </pre></div>
@@ -16919,7 +16919,7 @@ ds102	sub010	D	25.24
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                          <span class="c1"># close the file again</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -16970,7 +16970,7 @@ ds102	sub010	D	25.24
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_new</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data_new</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -17103,7 +17103,7 @@ ds102	sub010	D	25.24
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1"># close file again</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">datatxt</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -17188,7 +17188,7 @@ ds102	sub010	D	25.24
     <span class="n">datatxt</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">datatxt</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">datatxt</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 
 </div>

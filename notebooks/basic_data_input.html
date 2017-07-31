@@ -11813,33 +11813,55 @@ XNATSource
 <h1 id="Dataset-structure">Dataset structure<a class="anchor-link" href="#Dataset-structure">&#182;</a></h1><p>To be able to import data, you first need to be aware about the structure of your dataset. The structure of the dataset for this tutorial is according to BIDS, and looks as follows:</p>
 
 <pre><code>ds000114
+├── CHANGES
 ├── dataset_description.json
 ├── derivatives
+│   ├── fmriprep
+│   │   └── sub01...sub10
+│   │        └── ...
 │   ├── freesurfer
-│   │   └── ...
+│       ├── fsaverage
+│       ├── fsaverage5
+│   │   └── sub01...sub10
+│   │        └── ...
 ├── dwi.bval
 ├── dwi.bvec
 ├── sub-01
-│   ├── anat
-│   │   └── sub-01_T1w.nii.gz
-│   └── func
-│       ├── sub-01_task-fingerfootlips_bold.nii.gz
-│       ├── sub-01_task-linebisection_bold.nii.gz
-│       └── sub-01_task-linebisection_events.tsv
-│   └── dwi
-│       └── sub-01_dwi.nii.gz
-├── sub-02
-│   ├── anat
-│   │   └── sub-02_T1w.nii.gz
-│   └── func
-│       ├── sub-02_task-fingerfootlips_bold.nii.gz
-│       ├── sub-02_task-linebisection_bold.nii.gz
-│       └── sub-02_task-linebisection_events.tsv
-│   └── dwi
-│       └── sub-02_dwi.nii.gz
+│   ├── ses-retest    
+│       ├── anat
+│       │   └── sub-01_ses-retest_T1w.nii.gz
+│       ├──func
+│           ├── sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz
+│           ├── sub-01_ses-retest_task-fingerfootlips_bold.nii.gz
+│           ├── sub-01_ses-retest_task-linebisection_bold.nii.gz
+│           ├── sub-01_ses-retest_task-linebisection_events.tsv
+│           ├── sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz
+│           └── sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz
+│       └── dwi
+│           └── sub-01_ses-retest_dwi.nii.gz
+│   ├── ses-test    
+│       ├── anat
+│       │   └── sub-01_ses-test_T1w.nii.gz
+│       ├──func
+│           ├── sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+│           ├── sub-01_ses-test_task-fingerfootlips_bold.nii.gz
+│           ├── sub-01_ses-test_task-linebisection_bold.nii.gz
+│           ├── sub-01_ses-test_task-linebisection_events.tsv
+│           ├── sub-01_ses-test_task-overtverbgeneration_bold.nii.gz
+│           └── sub-01_ses-test_task-overtwordrepetition_bold.nii.gz
+│       └── dwi
+│           └── sub-01_ses-retest_dwi.nii.gz
+├── sub-02..sub-10
+│   └── ...
+├── task-covertverbgeneration_bold.json
+├── task-covertverbgeneration_events.tsv
 ├── task-fingerfootlips_bold.json
 ├── task-fingerfootlips_events.tsv
-└── task-linebisection_bold.json</code></pre>
+├── task-linebisection_bold.json
+├── task-overtverbgeneration_bold.json
+├── task-overtverbgeneration_events.tsv
+├── task-overtwordrepetition_bold.json
+└── task-overtwordrepetition_events.tsv</code></pre>
 
 </div>
 </div>
@@ -12053,8 +12075,8 @@ func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_na
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170730-12:25:32,161 workflow INFO:
-	 Executing node datagrabber in dir: /tmp/tmplmop1pqt/datagrabber
+<pre>170731-16:49:15,196 workflow INFO:
+	 Executing node datagrabber in dir: /tmp/tmpzjje_eve/datagrabber
 </pre>
 </div>
 </div>
@@ -12159,8 +12181,8 @@ func = /data/ds000114/sub-{subject_id}/ses-{ses_name}/func/ \
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170730-12:25:34,430 workflow INFO:
-	 Executing node selectfiles in dir: /tmp/tmp5z9bopfl/selectfiles
+<pre>170731-16:49:26,226 workflow INFO:
+	 Executing node selectfiles in dir: /tmp/tmph1rm2buv/selectfiles
 </pre>
 </div>
 </div>
@@ -12236,8 +12258,8 @@ func = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_b
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170730-12:25:35,400 workflow INFO:
-	 Executing node selectfiles in dir: /tmp/tmp59333sfs/selectfiles
+<pre>170731-16:49:27,447 workflow INFO:
+	 Executing node selectfiles in dir: /tmp/tmperd7urq6/selectfiles
 </pre>
 </div>
 </div>
@@ -12361,8 +12383,8 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170730-12:25:39,247 workflow INFO:
-	 Executing node fssource in dir: /tmp/tmpo_jxbjpx/fssource
+<pre>170731-16:49:48,883 workflow INFO:
+	 Executing node fssource in dir: /tmp/tmpg2wzxfkr/fssource
 </pre>
 </div>
 </div>
@@ -12448,8 +12470,8 @@ inflated: [&#39;/data/ds000114/derivatives/freesurfer/sub-01/surf/lh.inflated&#3
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>170730-12:25:41,991 workflow INFO:
-	 Executing node fssource in dir: /tmp/tmpo_jxbjpx/fssource
+<pre>170731-16:49:59,487 workflow INFO:
+	 Executing node fssource in dir: /tmp/tmpg2wzxfkr/fssource
 </pre>
 </div>
 </div>
