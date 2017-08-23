@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>basic_interfaces_caching</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11783,122 +11783,74 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Memory-caching">Memory caching<a class="anchor-link" href="#Memory-caching">&#182;</a></h1><p>In <a href="basic_worflow.html">Workflow notebook</a> you learnt about <code>Workflows</code> that specify processing by an execution graph and offer efficient recomputing. However, sometimes you might want to use <code>Interfaces</code> that gives better control of the execution of each step and can be easily combine with any Python code. Unfortunately, <code>Interfaces</code> do not offer any caching and you always dully recompute your task.</p>
+<p>Solution to this problem can be a <code>caching</code> mechanism supported by Nipype. Nipype caching relies on the <code>Memory</code> class and creates an execution context that is bound to a disk cache.
+When you instantiate the class you should provide <code>base_dir</code> and additional subdirectory called <code>nipype_mem</code> will be automatically created.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;style&gt;.container { width:75% !important; }&lt;/style&gt;
-&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css_backup/mobile-package-094623.css&#39;&gt;
-&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css_backup/homepage-package-3bd234.css&#39;&gt;
-        
-&lt;body&gt;
-  &lt;article id=&quot;homepage&quot;&gt;
-    &lt;a id=&quot;library-section&quot;&gt;&lt;/a&gt;
-    &lt;div class=&quot;library-section&quot;&gt;
-      &lt;div class=&quot;section-separator library-section-separator&quot;&gt;
-        &lt;center&gt;&lt;img src=&quot;static/images/logoNipype_tutorial.png&quot; width=700&gt;&lt;/center&gt;
-        &lt;p&gt;Welcome to the Nipype Tutorial!
-           This tutorial is based on &lt;a href=&quot;https://github.com/djarecka/nipype_tutorial&quot;&gt;Michael Notter&#39;s tutorial&lt;/a&gt;, but it&#39;s updated to Python 3 and current version of Nipype.   
-            It covers the basic concepts and most common use cases of Nipype and will teach
-            you everything so that you can start creating your own workflows in no time. We recommend that you start with
-            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
-            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
-            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
-            &lt;/p&gt;&lt;p&gt;
-            All of the notebooks used in this tutorial can be found on &lt;a href=&quot;https://github.com/djarecka/nipype_tutorial/&quot;&gt;github.com/djarecka/nipype_tutorial&lt;/a&gt;.
-            &lt;/p&gt;&lt;p&gt;
-            For the tutorial, we will use a Docker container. You need to install a &lt;a href=&quot;http://www.docker.com/&quot;&gt;Docker&lt;/a&gt; and download a docker image that provides you a 
-            neuroimaging environment based on a Debian system, with working Python 3 software (including Nipype, matplotlib,
-            nibabel, numpy, pandas, scipy, and more), FSL, AFNI, ANTs and SPM12 (no license needed).
-            &lt;/p&gt;&lt;p&gt;
-            For everything that isn&#39;t covered in this tutorial, check out the &lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;main homepage&lt;/a&gt;. 
-            &lt;/p&gt;
-      &lt;/div&gt;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.caching</span> <span class="k">import</span> <span class="n">Memory</span>
+<span class="n">mem</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="n">base_dir</span><span class="o">=</span><span class="s1">&#39;/output/workingdir&#39;</span><span class="p">)</span>
+</pre></div>
 
-      &lt;!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
-            argument to either science, computing, humanities, test-prep or economics-finance-domain--&gt;
+</div>
+</div>
+</div>
 
-      &lt;!--to change the number of rows per column, change the last number in &#39;pure-u-1-3&#39;.
-       For example, to have three columns, change the value to &#39;pure-u-1-3&#39;--&gt;
-        
-      &lt;h2 class=&quot;domain-header economics-finance-domain&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Introduction&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container economics-finance-domain&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_nipype.html&quot;&gt;Nipype&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_jupyter-notebook.html&quot;&gt;Jupyter-Notebook&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_dataset.html&quot;&gt;BIDS &amp; Tutorial Dataset&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_docker.html&quot;&gt;Docker&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_python.html&quot;&gt;Python&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section is meant as a general overview. It should give you a short introduction to the main topics that
-          you need to understand to use Nipype and this tutorial.&lt;/p&gt;
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we want to ask for caching for the <code>BET</code> interface, we can use <code>cache</code> method that takes interfaces classes as an argument.</p>
 
-      &lt;h2 class=&quot;domain-header humanities&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Basic Concepts&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container humanities&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_interfaces.html&quot;&gt;Interfaces&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_nodes.html&quot;&gt;Nodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_workflow.html&quot;&gt;Workflow&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_interfaces_caching.html&quot;&gt;Interfaces Caching&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_graph_visualization.html&quot;&gt;Graph Visualization&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_input.html&quot;&gt;Data Input&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_input_bids.html&quot;&gt;Data Input with BIDS&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_data_output.html&quot;&gt;Data Output&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_iteration.html&quot;&gt;Iteration / Iterables&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_mapnodes.html&quot;&gt;MapNodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_function_nodes.html&quot;&gt;Function Nodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_joinnodes.html&quot;&gt;JoinNodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_model_specification.html&quot;&gt;Model Specification&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_import_workflows.html&quot;&gt;Import existing Workflows&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_plugins.html&quot;&gt;Execution Plugins&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_configuration.html&quot;&gt;Execution Configuration&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/basic_error_and_crashes.html&quot;&gt;Errors &amp; Crashes&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
-          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
-          to create any kind of Nipype workflow.&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces</span> <span class="k">import</span> <span class="n">fsl</span>
+<span class="n">bet_mem</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">fsl</span><span class="o">.</span><span class="n">BET</span><span class="p">)</span>
+</pre></div>
 
-      &lt;h2 class=&quot;domain-header science&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Workflow Examples&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container science&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_preprocessing.html&quot;&gt;Preprocessing&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_1stlevel.html&quot;&gt;1st-level Analysis&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_normalize.html&quot;&gt;Normalize Data&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_2ndlevel.html&quot;&gt;2nd-level Analysis&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/example_metaflow.html&quot;&gt;Metaflow&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;In this section you will find some practical examples that show you how to use Nipype in a &quot;real world&quot; scenario.&lt;/p&gt;
+</div>
+</div>
+</div>
 
-      &lt;h2 class=&quot;domain-header test-prep&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container test-prep&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;http://nipype.readthedocs.io/en/latest/users/install.html&quot;&gt;Install Nipype&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_resources.html&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_help.html&quot;&gt;Where to find Help&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/resources_python_cheat_sheet.html&quot;&gt;Python Cheat Sheet&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;Nipype (homepage)&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section will give you helpful links and resources, so that you always know where to go to learn more.&lt;/p&gt;
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, <code>bet_mem</code> can be applied as a function with inputs of the <code>BET</code> interface as the function arguments. Those inputs are given as keyword arguments, bearing the same name as the name in the inputs specs of the interface.</p>
 
-    &lt;/div&gt;
-  &lt;/article&gt;
-&lt;/body&gt;
-
-&lt;!--The following code will cause the code cell to disappear--&gt;
-
-&lt;script&gt;
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $(&#39;div.input&#39;).hide();
- } else {
- $(&#39;div.input&#39;).show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-&lt;/script&gt;
-
-&lt;hr/&gt;
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bet_mem</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz&quot;</span><span class="p">,</span>
+        <span class="n">out_file</span><span class="o">=</span><span class="s2">&quot;/output/sub-02_T1w_brain.nii.gz&quot;</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11912,118 +11864,22 @@ $( document ).ready(code_toggle);
 <div class="output_area">
 <div class="prompt"></div>
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170822-22:29:13,445 workflow INFO:
+	 Executing node 0cb4fbaf1687a0cccdf631a94c9deece in dir: /output/workingdir/nipype_mem/nipype-interfaces-fsl-preprocess-BET/0cb4fbaf1687a0cccdf631a94c9deece
+170822-22:29:13,495 workflow INFO:
+	 Running: bet /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz /output/sub-02_T1w_brain.nii.gz -m
+</pre>
+</div>
+</div>
 
-<div class="output_html rendered_html output_subarea ">
-<style>.container { width:75% !important; }</style>
-<link rel='stylesheet' type='text/css' href='static/css_backup/mobile-package-094623.css'>
-<link rel='stylesheet' type='text/css' href='static/css_backup/homepage-package-3bd234.css'>
-        
-<body>
-  <article id="homepage">
-    <a id="library-section"></a>
-    <div class="library-section">
-      <div class="section-separator library-section-separator">
-        <center><img src="static/images/logoNipype_tutorial.png" width=700></center>
-        <p>Welcome to the Nipype Tutorial!
-           This tutorial is based on <a href="https://github.com/djarecka/nipype_tutorial">Michael Notter's tutorial</a>, but it's updated to Python 3 and current version of Nipype.   
-            It covers the basic concepts and most common use cases of Nipype and will teach
-            you everything so that you can start creating your own workflows in no time. We recommend that you start with
-            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
-            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
-            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
-            </p><p>
-            All of the notebooks used in this tutorial can be found on <a href="https://github.com/djarecka/nipype_tutorial/">github.com/djarecka/nipype_tutorial</a>.
-            </p><p>
-            For the tutorial, we will use a Docker container. You need to install a <a href="http://www.docker.com/">Docker</a> and download a docker image that provides you a 
-            neuroimaging environment based on a Debian system, with working Python 3 software (including Nipype, matplotlib,
-            nibabel, numpy, pandas, scipy, and more), FSL, AFNI, ANTs and SPM12 (no license needed).
-            </p><p>
-            For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>. 
-            </p>
-      </div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
 
-      <!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
-            argument to either science, computing, humanities, test-prep or economics-finance-domain-->
 
-      <!--to change the number of rows per column, change the last number in 'pure-u-1-3'.
-       For example, to have three columns, change the value to 'pure-u-1-3'-->
-        
-      <h2 class="domain-header economics-finance-domain"><a class="domain-title">Introduction</a></h2>
-      <div class="pure-g domain-table-container economics-finance-domain">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_nipype.html">Nipype</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_jupyter-notebook.html">Jupyter-Notebook</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_dataset.html">BIDS & Tutorial Dataset</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_docker.html">Docker</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_python.html">Python</a>
-      </div>
-      <p>This section is meant as a general overview. It should give you a short introduction to the main topics that
-          you need to understand to use Nipype and this tutorial.</p>
 
-      <h2 class="domain-header humanities"><a class="domain-title">Basic Concepts</a></h2>
-      <div class="pure-g domain-table-container humanities">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_interfaces.html">Interfaces</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_nodes.html">Nodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_workflow.html">Workflow</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_interfaces_caching.html">Interfaces Caching</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_graph_visualization.html">Graph Visualization</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_input.html">Data Input</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_input_bids.html">Data Input with BIDS</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_data_output.html">Data Output</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_iteration.html">Iteration / Iterables</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_mapnodes.html">MapNodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_function_nodes.html">Function Nodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_joinnodes.html">JoinNodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_model_specification.html">Model Specification</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_import_workflows.html">Import existing Workflows</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_plugins.html">Execution Plugins</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_configuration.html">Execution Configuration</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/basic_error_and_crashes.html">Errors & Crashes</a>
-      </div>
-      <p>This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
-          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
-          to create any kind of Nipype workflow.</p>
-
-      <h2 class="domain-header science"><a class="domain-title">Workflow Examples</a></h2>
-      <div class="pure-g domain-table-container science">
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_preprocessing.html">Preprocessing</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_1stlevel.html">1st-level Analysis</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_normalize.html">Normalize Data</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_2ndlevel.html">2nd-level Analysis</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/example_metaflow.html">Metaflow</a>
-      </div>
-      <p>In this section you will find some practical examples that show you how to use Nipype in a "real world" scenario.</p>
-
-      <h2 class="domain-header test-prep"><a class="domain-title">Useful Resources & Links</a></h2>
-      <div class="pure-g domain-table-container test-prep">
-        <a class="subject-link pure-u-1-4" target="_blank" href="http://nipype.readthedocs.io/en/latest/users/install.html">Install Nipype</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_resources.html">Useful Resources & Links</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_help.html">Where to find Help</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/resources_python_cheat_sheet.html">Python Cheat Sheet</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="http://nipype.readthedocs.io/en/latest/">Nipype (homepage)</a>
-      </div>
-      <p>This section will give you helpful links and resources, so that you always know where to go to learn more.</p>
-
-    </div>
-  </article>
-</body>
-
-<!--The following code will cause the code cell to disappear-->
-
-<script>
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- } else {
- $('div.input').show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-</script>
-
-<hr/>
-
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;nipype.interfaces.base.InterfaceResult at 0x7f6e1bdf6c88&gt;</pre>
 </div>
 
 </div>
@@ -12031,6 +11887,209 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can seen <code>bet</code> command was run as expected. We can now check the content of caching file:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> ls -l /output/workingdir/nipype_mem
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>total 4
+drwxr-xr-x 3 neuro users  102 Aug 10 01:59 log.2017
+-rw-r--r-- 1 neuro users 1050 Aug 22 22:29 log.current
+drwxr-xr-x 3 neuro users  102 Aug 22 22:29 nipype-interfaces-fsl-preprocess-BET
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A special subdirectory for our interface has been created. Let's try to run this command again:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bet_mem</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz&quot;</span><span class="p">,</span>
+        <span class="n">out_file</span><span class="o">=</span><span class="s2">&quot;/output/sub-02_T1w_brain.nii.gz&quot;</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170822-22:29:20,433 workflow INFO:
+	 Executing node 0cb4fbaf1687a0cccdf631a94c9deece in dir: /output/workingdir/nipype_mem/nipype-interfaces-fsl-preprocess-BET/0cb4fbaf1687a0cccdf631a94c9deece
+170822-22:29:20,453 workflow INFO:
+	 Collecting precomputed outputs
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;nipype.interfaces.base.InterfaceResult at 0x7f6e1bdf61d0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, the <code>bet</code> command was not run, but  precomputed outputs were collected!</p>
+<p>If you created cached results that you're not going reuse, you can use <a href="http://nipy.org/nipype/0.10.0/users/caching_tutorial.html#nipype.caching.Memory.clear_runs_since">Memory.clear_runs_since()</a> to flush the cache. Note, that if you use the method without any argument it will remove results used before current date, so will keep the results we've just calculated, let's check:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mem</span><span class="o">.</span><span class="n">clear_runs_since</span><span class="p">()</span>
+<span class="n">bet_mem</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz&quot;</span><span class="p">,</span>
+        <span class="n">out_file</span><span class="o">=</span><span class="s2">&quot;/output/sub-02_T1w_brain.nii.gz&quot;</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170822-22:29:28,408 workflow INFO:
+	 Executing node 0cb4fbaf1687a0cccdf631a94c9deece in dir: /output/workingdir/nipype_mem/nipype-interfaces-fsl-preprocess-BET/0cb4fbaf1687a0cccdf631a94c9deece
+170822-22:29:28,427 workflow INFO:
+	 Collecting precomputed outputs
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;nipype.interfaces.base.InterfaceResult at 0x7f6e1bdf6c18&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can see, Nipype again collected the old results. If we want to remove everything, we have to put some future date:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mem</span><span class="o">.</span><span class="n">clear_runs_since</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>removing directory: /output/workingdir/nipype_mem/nipype-interfaces-fsl-preprocess-BET
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also check <a href="http://nipy.org/nipype/0.10.0/users/caching_tutorial.html#nipype.caching.Memory.clear_runs_since">Memory.clear_runs_since()</a>.</p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
