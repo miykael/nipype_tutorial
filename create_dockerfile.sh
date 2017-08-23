@@ -15,5 +15,6 @@ docker run --rm kaczmarj/neurodocker generate -b neurodebian:stretch-non-free -p
     --miniconda python_version=2.7 \
             env_name="afni27" \
             add_to_path=False \
+    --expose 8888 \
     --workdir /home/neuro \
     --no-check-urls > Dockerfile
