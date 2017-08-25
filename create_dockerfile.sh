@@ -29,7 +29,6 @@ docker run --rm kaczmarj/neurodocker generate -b neurodebian:stretch-non-free -p
                 add_to_path=False \
     --instruction "RUN bash -c \"source activate afni27 && python -m ipykernel install --user --name afni27 --display-name Py2-afni \" " \
     --instruction "RUN bash -c \"source activate neuro && python -c 'from nilearn import datasets; haxby_dataset = datasets.fetch_haxby()' \" " \
-    --instruction "RUN bash -c \"echo c.NotebookApp.ip = \'*\' > ~/.jupyter/jupyter_notebook_config.py\" " \
-    --expose 8888 \
-    --workdir /home/neuro \
+    --instruction "RUN bash -c \"echo c.NotebookApp.ip = \'0.0.0.0\' > ~/.jupyter/jupyter_notebook_config.py\" " \
+    --workdir /opt/tutorial \
     --no-check-urls > Dockerfile

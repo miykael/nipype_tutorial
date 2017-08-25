@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-08-25 09:59:01
+# Timestamp: 2017-08-25 12:18:04
 
 FROM neurodebian:stretch-non-free
 
@@ -199,9 +199,7 @@ RUN bash -c "source activate afni27 && python -m ipykernel install --user --name
 RUN bash -c "source activate neuro && python -c 'from nilearn import datasets; haxby_dataset = datasets.fetch_haxby()' " 
 
 # User-defined instruction
-RUN bash -c "echo c.NotebookApp.ip = \'*\' > ~/.jupyter/jupyter_notebook_config.py" 
+RUN bash -c "echo c.NotebookApp.ip = \'0.0.0.0\' > ~/.jupyter/jupyter_notebook_config.py" 
 
-EXPOSE 8888
-
-WORKDIR /home/neuro
+WORKDIR /opt/tutorial
 
