@@ -15,7 +15,7 @@ docker run --rm kaczmarj/neurodocker generate -b neurodebian:stretch-non-free -p
     --instruction "RUN curl -sSL https://dl.dropbox.com/s/lfuppfhuhi1li9t/cifti-data.tgz?dl=0 | tar zx -C / " \
     --user=neuro \
     --miniconda python_version=3.6 \
-                conda_install="jupyter jupyterlab traits pandas matplotlib scikit-learn seaborn swig reprozip reprounzip altair traitsui apptools configobj vtk jupyter_contrib_nbextensions bokeh scikit-image" \
+                conda_install="jupyter jupyterlab traits pandas matplotlib scikit-learn seaborn swig reprozip reprounzip altair traitsui apptools configobj vtk jupyter_contrib_nbextensions bokeh scikit-image codecov cython joblib nitime" \
                 env_name="neuro" \
                 pip_install="https://github.com/nipy/nibabel/archive/master.zip https://github.com/nipy/nipype/tarball/master nilearn https://github.com/INCF/pybids/archive/master.zip datalad dipy nipy duecredit pymvpa2 mayavi git+https://github.com/jupyterhub/nbrsessionproxy.git" \
     --instruction "RUN bash -c \"source activate neuro && python -m ipykernel install --user --name neuro --display-name Py3-neuro \" " \
@@ -29,5 +29,7 @@ docker run --rm kaczmarj/neurodocker generate -b neurodebian:stretch-non-free -p
                 add_to_path=False \
     --instruction "RUN bash -c \"source activate afni27 && python -m ipykernel install --user --name afni27 --display-name Py2-afni \" " \
     --instruction "RUN bash -c \"source activate neuro && python -c 'from nilearn import datasets; haxby_dataset = datasets.fetch_haxby()' \" " \
+    --instruction "RUN bash -c \"echo c.NotebookApp.ip = \'*\' > ~/.jupyter/jupyter_notebook_config.py\" " \
+    --expose 8888 \
     --workdir /home/neuro \
     --no-check-urls > Dockerfile

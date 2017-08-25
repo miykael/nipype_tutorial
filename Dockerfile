@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-08-24 05:15:22
+# Timestamp: 2017-08-25 09:59:01
 
 FROM neurodebian:stretch-non-free
 
@@ -162,7 +162,7 @@ RUN echo "Downloading Miniconda installer ..." \
 # Create conda environment
 #-------------------------
 RUN conda create -y -q --name neuro python=3.6 \
-    	jupyter jupyterlab traits pandas matplotlib scikit-learn seaborn swig reprozip reprounzip altair traitsui apptools configobj vtk jupyter_contrib_nbextensions bokeh scikit-image \
+    	jupyter jupyterlab traits pandas matplotlib scikit-learn seaborn swig reprozip reprounzip altair traitsui apptools configobj vtk jupyter_contrib_nbextensions bokeh scikit-image codecov cython joblib nitime \
     && sync && conda clean -tipsy && sync \
     && /bin/bash -c "source activate neuro \
     	&& pip install -q --no-cache-dir \
@@ -197,6 +197,11 @@ RUN bash -c "source activate afni27 && python -m ipykernel install --user --name
 
 # User-defined instruction
 RUN bash -c "source activate neuro && python -c 'from nilearn import datasets; haxby_dataset = datasets.fetch_haxby()' " 
+
+# User-defined instruction
+RUN bash -c "echo c.NotebookApp.ip = \'*\' > ~/.jupyter/jupyter_notebook_config.py" 
+
+EXPOSE 8888
 
 WORKDIR /home/neuro
 
