@@ -30,6 +30,9 @@ docker run --rm kaczmarj/neurodocker generate -b neurodebian:stretch-non-free -p
     --instruction "RUN curl -sSL https://osf.io/dhzv7/download?version=3 | tar zx -C /data/ds000114/derivatives/fmriprep" \
     --workdir /repos \
     --instruction "RUN cd /repos && git clone https://github.com/neuro-data-science/neuroviz.git && git clone https://github.com/neuro-data-science/neuroML.git && git clone https://github.com/ReproNim/reproducible-imaging.git && git clone https://github.com/miykael/nipype_tutorial.git && git clone https://github.com/jmumford/nhwEfficiency.git && git clone https://github.com/jmumford/R-tutorial.git" \
+    --instruction "ENV FSLDIR=\"/usr/share/fsl\"" \
+    --instruction "RUN . \${FSLDIR}/5.0/etc/fslconf/fsl.sh" \
+    --instruction "ENV PATH=\"\${FSLDIR}/5.0/bin:\${PATH}\"" \
     --instruction "ENV PATH=\"\${PATH}:/usr/lib/rstudio-server/bin\" " \
     --instruction "ENV LD_LIBRARY_PATH=\"/usr/lib/R/lib:\${LD_LIBRARY_PATH}\" " \
     --instruction "RUN bash -c \"echo c.NotebookApp.ip = \'0.0.0.0\' > ~/.jupyter/jupyter_notebook_config.py\" " \

@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-09-03 16:21:50
+# Timestamp: 2017-09-03 17:45:24
 
 FROM neurodebian:stretch-non-free
 
@@ -211,6 +211,15 @@ WORKDIR /repos
 RUN cd /repos && git clone https://github.com/neuro-data-science/neuroviz.git && git clone https://github.com/neuro-data-science/neuroML.git && git clone https://github.com/ReproNim/reproducible-imaging.git && git clone https://github.com/miykael/nipype_tutorial.git && git clone https://github.com/jmumford/nhwEfficiency.git && git clone https://github.com/jmumford/R-tutorial.git
 
 # User-defined instruction
+ENV FSLDIR="/usr/share/fsl"
+
+# User-defined instruction
+RUN . ${FSLDIR}/5.0/etc/fslconf/fsl.sh
+
+# User-defined instruction
+ENV PATH="${FSLDIR}/5.0/bin:${PATH}"
+
+# User-defined instruction
 ENV PATH="${PATH}:/usr/lib/rstudio-server/bin" 
 
 # User-defined instruction
@@ -359,6 +368,18 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "instruction", \
+    \n      "ENV FSLDIR=\"/usr/share/fsl\"" \
+    \n    ], \
+    \n    [ \
+    \n      "instruction", \
+    \n      "RUN . ${FSLDIR}/5.0/etc/fslconf/fsl.sh" \
+    \n    ], \
+    \n    [ \
+    \n      "instruction", \
+    \n      "ENV PATH=\"${FSLDIR}/5.0/bin:${PATH}\"" \
+    \n    ], \
+    \n    [ \
+    \n      "instruction", \
     \n      "ENV PATH=\"${PATH}:/usr/lib/rstudio-server/bin\" " \
     \n    ], \
     \n    [ \
@@ -370,7 +391,7 @@ RUN echo '{ \
     \n      "RUN bash -c \"echo c.NotebookApp.ip = \\'0.0.0.0\\' > ~/.jupyter/jupyter_notebook_config.py\" " \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2017-09-03 16:21:50", \
+    \n  "generation_timestamp": "2017-09-03 17:45:24", \
     \n  "neurodocker_version": "0.2.0-30-g4b9bd64" \
     \n}' > /neurodocker/neurodocker_specs.json
 
