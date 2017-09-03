@@ -5,9 +5,11 @@
 
 docker run --rm kaczmarj/neurodocker generate -b neurodebian:stretch-non-free -p apt \
     --instruction "RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -" \
-    --install fsl dcm2niix convert3d ants graphviz tree git-annex-standalone vim emacs-nox nano less ncdu tig git-annex-remote-rclone build-essential nodejs r-recommended psmisc libapparmor1 sudo dc \
+    --install dcm2niix convert3d ants graphviz tree git-annex-standalone vim emacs-nox nano less ncdu tig git-annex-remote-rclone build-essential nodejs r-recommended psmisc libapparmor1 sudo dc \
     --instruction "RUN apt-get update && apt-get install -yq xvfb mesa-utils libgl1-mesa-dri && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* " \
     --afni version=latest \
+    --fsl version=5.0.10 \
+    --instruction "RUN rm -rf /opt/fsl/bin/FSLeyes /opt/fsl/data/first /opt/fsl/fslpython" \
     --freesurfer version=6.0.0 min=True \
     --spm version=12 matlab_version=R2017a \
     --instruction "RUN curl -sSL https://dl.dropbox.com/s/lfuppfhuhi1li9t/cifti-data.tgz?dl=0 | tar zx -C / " \
@@ -30,9 +32,6 @@ docker run --rm kaczmarj/neurodocker generate -b neurodebian:stretch-non-free -p
     --instruction "RUN curl -sSL https://osf.io/dhzv7/download?version=3 | tar zx -C /data/ds000114/derivatives/fmriprep" \
     --workdir /repos \
     --instruction "RUN cd /repos && git clone https://github.com/neuro-data-science/neuroviz.git && git clone https://github.com/neuro-data-science/neuroML.git && git clone https://github.com/ReproNim/reproducible-imaging.git && git clone https://github.com/miykael/nipype_tutorial.git && git clone https://github.com/jmumford/nhwEfficiency.git && git clone https://github.com/jmumford/R-tutorial.git" \
-    --instruction "ENV FSLDIR=\"/usr/share/fsl\"" \
-    --instruction "RUN . \${FSLDIR}/5.0/etc/fslconf/fsl.sh" \
-    --instruction "ENV PATH=\"\${FSLDIR}/5.0/bin:\${PATH}\"" \
     --instruction "ENV PATH=\"\${PATH}:/usr/lib/rstudio-server/bin\" " \
     --instruction "ENV LD_LIBRARY_PATH=\"/usr/lib/R/lib:\${LD_LIBRARY_PATH}\" " \
     --instruction "RUN bash -c \"echo c.NotebookApp.ip = \'0.0.0.0\' > ~/.jupyter/jupyter_notebook_config.py\" " \

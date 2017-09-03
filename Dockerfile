@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-09-03 17:45:24
+# Timestamp: 2017-09-03 18:36:53
 
 FROM neurodebian:stretch-non-free
 
@@ -36,8 +36,7 @@ ENTRYPOINT ["/neurodocker/startup.sh"]
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 
 RUN apt-get update -qq \
-    && apt-get install -y -q --no-install-recommends fsl \
-                                                     dcm2niix \
+    && apt-get install -y -q --no-install-recommends dcm2niix \
                                                      convert3d \
                                                      ants \
                                                      graphviz \
@@ -97,6 +96,29 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends ed gsl-bin
     | tar zx -C /opt/afni --strip-components=1 \
     && /opt/afni/rPkgsInstall -pkgs ALL \
     && rm -rf /tmp/*
+
+#-----------------------------------------------------------
+# Install FSL v5.0.10
+# FSL is non-free. If you are considering commerical use
+# of this Docker image, please consult the relevant license:
+# https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+#-----------------------------------------------------------
+RUN apt-get update -qq && apt-get install -yq --no-install-recommends dc \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && echo "Downloading FSL ..." \
+    && curl -sSL https://fsl.fmrib.ox.ac.uk/fsldownloads/fsl-5.0.10-centos6_64.tar.gz \
+    | tar zx -C /opt \
+    && /bin/bash /opt/fsl/etc/fslconf/fslpython_install.sh -q -f /opt/fsl \
+    && sed -i '$iecho Some packages in this Docker container are non-free' $ND_ENTRYPOINT \
+    && sed -i '$iecho If you are considering commercial use of this container, please consult the relevant license:' $ND_ENTRYPOINT \
+    && sed -i '$iecho https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence' $ND_ENTRYPOINT \
+    && sed -i '$isource $FSLDIR/etc/fslconf/fsl.sh' $ND_ENTRYPOINT
+ENV FSLDIR=/opt/fsl \
+    PATH=/opt/fsl/bin:$PATH
+
+# User-defined instruction
+RUN rm -rf /opt/fsl/bin/FSLeyes /opt/fsl/data/first /opt/fsl/fslpython
 
 #--------------------------
 # Install FreeSurfer v6.0.0
@@ -211,15 +233,6 @@ WORKDIR /repos
 RUN cd /repos && git clone https://github.com/neuro-data-science/neuroviz.git && git clone https://github.com/neuro-data-science/neuroML.git && git clone https://github.com/ReproNim/reproducible-imaging.git && git clone https://github.com/miykael/nipype_tutorial.git && git clone https://github.com/jmumford/nhwEfficiency.git && git clone https://github.com/jmumford/R-tutorial.git
 
 # User-defined instruction
-ENV FSLDIR="/usr/share/fsl"
-
-# User-defined instruction
-RUN . ${FSLDIR}/5.0/etc/fslconf/fsl.sh
-
-# User-defined instruction
-ENV PATH="${FSLDIR}/5.0/bin:${PATH}"
-
-# User-defined instruction
 ENV PATH="${PATH}:/usr/lib/rstudio-server/bin" 
 
 # User-defined instruction
@@ -246,7 +259,6 @@ RUN echo '{ \
     \n    [ \
     \n      "install", \
     \n      [ \
-    \n        "fsl", \
     \n        "dcm2niix", \
     \n        "convert3d", \
     \n        "ants", \
@@ -278,6 +290,16 @@ RUN echo '{ \
     \n      { \
     \n        "version": "latest" \
     \n      } \
+    \n    ], \
+    \n    [ \
+    \n      "fsl", \
+    \n      { \
+    \n        "version": "5.0.10" \
+    \n      } \
+    \n    ], \
+    \n    [ \
+    \n      "instruction", \
+    \n      "RUN rm -rf /opt/fsl/bin/FSLeyes /opt/fsl/data/first /opt/fsl/fslpython" \
     \n    ], \
     \n    [ \
     \n      "freesurfer", \
@@ -368,18 +390,6 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "instruction", \
-    \n      "ENV FSLDIR=\"/usr/share/fsl\"" \
-    \n    ], \
-    \n    [ \
-    \n      "instruction", \
-    \n      "RUN . ${FSLDIR}/5.0/etc/fslconf/fsl.sh" \
-    \n    ], \
-    \n    [ \
-    \n      "instruction", \
-    \n      "ENV PATH=\"${FSLDIR}/5.0/bin:${PATH}\"" \
-    \n    ], \
-    \n    [ \
-    \n      "instruction", \
     \n      "ENV PATH=\"${PATH}:/usr/lib/rstudio-server/bin\" " \
     \n    ], \
     \n    [ \
@@ -391,7 +401,7 @@ RUN echo '{ \
     \n      "RUN bash -c \"echo c.NotebookApp.ip = \\'0.0.0.0\\' > ~/.jupyter/jupyter_notebook_config.py\" " \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2017-09-03 17:45:24", \
+    \n  "generation_timestamp": "2017-09-03 18:36:53", \
     \n  "neurodocker_version": "0.2.0-30-g4b9bd64" \
     \n}' > /neurodocker/neurodocker_specs.json
 
