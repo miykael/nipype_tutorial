@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-09-03 16:21:04
+# Timestamp: 2017-09-03 16:21:50
 
 FROM neurodebian:stretch-non-free
 
@@ -200,7 +200,7 @@ RUN echo 'neuro:neuro' | chpasswd && usermod -aG sudo neuro
 USER neuro
 
 # User-defined instruction
-RUN bash -c "source activate neuro3 && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && datalad get -r -J8 ds000114/sub-0[12]/ses-test/anat && datalad get -r -J8 ds000114/sub-0[12]/ses-test/func/*fingerfootlips* && datalad get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/anat && datalad get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/ses-test/func/*fingerfootlips* && datalad get -r -J8 ds000114/derivatives/freesurfer/sub-0[12] && datalad get -r -J8 ds000114/derivatives/freesurfer/fsaverage5" 
+RUN bash -c "source activate neuro3 && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && datalad --on-failure ignore get -r -J8 ds000114/sub-0[12]/ses-test/anat && datalad --on-failure ignore get -r -J8 ds000114/sub-0[12]/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/anat && datalad --on-failure ignore get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J8 ds000114/derivatives/freesurfer/sub-0[12] && datalad --on-failure ignore get -r -J8 ds000114/derivatives/freesurfer/fsaverage5" 
 
 # User-defined instruction
 RUN curl -sSL https://osf.io/dhzv7/download?version=3 | tar zx -C /data/ds000114/derivatives/fmriprep
@@ -343,7 +343,7 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "instruction", \
-    \n      "RUN bash -c \"source activate neuro3 && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && datalad get -r -J8 ds000114/sub-0[12]/ses-test/anat && datalad get -r -J8 ds000114/sub-0[12]/ses-test/func/*fingerfootlips* && datalad get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/anat && datalad get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/ses-test/func/*fingerfootlips* && datalad get -r -J8 ds000114/derivatives/freesurfer/sub-0[12] && datalad get -r -J8 ds000114/derivatives/freesurfer/fsaverage5\" " \
+    \n      "RUN bash -c \"source activate neuro3 && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && datalad --on-failure ignore get -r -J8 ds000114/sub-0[12]/ses-test/anat && datalad --on-failure ignore get -r -J8 ds000114/sub-0[12]/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/anat && datalad --on-failure ignore get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J8 ds000114/derivatives/freesurfer/sub-0[12] && datalad --on-failure ignore get -r -J8 ds000114/derivatives/freesurfer/fsaverage5\" " \
     \n    ], \
     \n    [ \
     \n      "instruction", \
@@ -370,7 +370,7 @@ RUN echo '{ \
     \n      "RUN bash -c \"echo c.NotebookApp.ip = \\'0.0.0.0\\' > ~/.jupyter/jupyter_notebook_config.py\" " \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2017-09-03 16:21:04", \
+    \n  "generation_timestamp": "2017-09-03 16:21:50", \
     \n  "neurodocker_version": "0.2.0-30-g4b9bd64" \
     \n}' > /neurodocker/neurodocker_specs.json
 
