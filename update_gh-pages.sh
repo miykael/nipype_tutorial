@@ -1,5 +1,23 @@
 #!/bin/bash
 
+while true; do
+    read -p "Did you submit all other changes and are you ready to update the pages? " yn
+    case $yn in
+        [Yy]* )
+
+
+
+TIMESTAMP=`date +'%Y-%m-%d %H:%M:%S'`
+
+# Reset the counts of all notebook cells
+for h in `find -name "*.ipynb"`
+do
+    sed -i 's/^.*\execution_count\b.*$/   "execution_count": null,/'  $h
+done
+git add *
+git commit -m "reset counts of all notebook cells - ${TIMESTAMP}"
+git push
+
 # Create a temporary folder
 TMP_DIR=`mktemp -d`
 
@@ -46,7 +64,6 @@ do
 done
 
 # Submit changes with current timestamp
-TIMESTAMP=`date +'%Y-%m-%d %H:%M:%S'`
 git add *
 git commit -a -m "Update gh-pages - ${TIMESTAMP}"
 git push origin gh-pages
@@ -56,3 +73,11 @@ rm -rf "$TMP_DIR"
 
 # Go back to the master branch
 git checkout master
+
+
+
+                break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
