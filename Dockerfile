@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-09-03 18:36:53
+# Timestamp: 2017-09-06 14:26:38
 
 FROM neurodebian:stretch-non-free
 
@@ -36,9 +36,9 @@ ENTRYPOINT ["/neurodocker/startup.sh"]
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 
 RUN apt-get update -qq \
-    && apt-get install -y -q --no-install-recommends dcm2niix \
+    && apt-get install -y -q --no-install-recommends ants \
+                                                     dcm2niix \
                                                      convert3d \
-                                                     ants \
                                                      graphviz \
                                                      tree \
                                                      git-annex-standalone \
@@ -59,66 +59,13 @@ RUN apt-get update -qq \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# User-defined instruction
-RUN apt-get update && apt-get install -yq xvfb mesa-utils libgl1-mesa-dri && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
-
-#--------------------
-# Install AFNI latest
-#--------------------
-ENV PATH=/opt/afni:$PATH
-RUN apt-get update -qq && apt-get install -yq --no-install-recommends ed gsl-bin libglu1-mesa-dev libglib2.0-0 libglw1-mesa \
-    libgomp1 libjpeg62 libxm4 netpbm tcsh xfonts-base xvfb \
-    && libs_path=/usr/lib/x86_64-linux-gnu \
-    && if [ -f $libs_path/libgsl.so.19 ]; then \
-           ln $libs_path/libgsl.so.19 $libs_path/libgsl.so.0; \
-       fi \
-    # Install libxp (not in all ubuntu/debian repositories) \
-    && apt-get install -yq --no-install-recommends libxp6 \
-    || /bin/bash -c " \
-       curl --retry 5 -o /tmp/libxp6.deb -sSL http://mirrors.kernel.org/debian/pool/main/libx/libxp/libxp6_1.0.2-2_amd64.deb \
-       && dpkg -i /tmp/libxp6.deb && rm -f /tmp/libxp6.deb" \
-    # Install libpng12 (not in all ubuntu/debian repositories) \
-    && apt-get install -yq --no-install-recommends libpng12-0 \
-    || /bin/bash -c " \
-       curl -o /tmp/libpng12.deb -sSL http://mirrors.kernel.org/debian/pool/main/libp/libpng/libpng12-0_1.2.49-1%2Bdeb7u2_amd64.deb \
-       && dpkg -i /tmp/libpng12.deb && rm -f /tmp/libpng12.deb" \
-    # Install R \
-    && apt-get install -yq --no-install-recommends \
-    	r-base-dev r-cran-rmpi \
-     || /bin/bash -c " \
-        curl -o /tmp/install_R.sh -sSL https://gist.githubusercontent.com/kaczmarj/8e3792ae1af70b03788163c44f453b43/raw/0577c62e4771236adf0191c826a25249eb69a130/R_installer_debian_ubuntu.sh \
-        && /bin/bash /tmp/install_R.sh" \
+RUN apt-get update -qq \
+    && apt-get install -y -q --no-install-recommends afni \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && echo "Downloading AFNI ..." \
-    && mkdir -p /opt/afni \
-    && curl -sSL --retry 5 https://afni.nimh.nih.gov/pub/dist/tgz/linux_openmp_64.tgz \
-    | tar zx -C /opt/afni --strip-components=1 \
-    && /opt/afni/rPkgsInstall -pkgs ALL \
-    && rm -rf /tmp/*
-
-#-----------------------------------------------------------
-# Install FSL v5.0.10
-# FSL is non-free. If you are considering commerical use
-# of this Docker image, please consult the relevant license:
-# https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
-#-----------------------------------------------------------
-RUN apt-get update -qq && apt-get install -yq --no-install-recommends dc \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && echo "Downloading FSL ..." \
-    && curl -sSL https://fsl.fmrib.ox.ac.uk/fsldownloads/fsl-5.0.10-centos6_64.tar.gz \
-    | tar zx -C /opt \
-    && /bin/bash /opt/fsl/etc/fslconf/fslpython_install.sh -q -f /opt/fsl \
-    && sed -i '$iecho Some packages in this Docker container are non-free' $ND_ENTRYPOINT \
-    && sed -i '$iecho If you are considering commercial use of this container, please consult the relevant license:' $ND_ENTRYPOINT \
-    && sed -i '$iecho https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence' $ND_ENTRYPOINT \
-    && sed -i '$isource $FSLDIR/etc/fslconf/fsl.sh' $ND_ENTRYPOINT
-ENV FSLDIR=/opt/fsl \
-    PATH=/opt/fsl/bin:$PATH
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # User-defined instruction
-RUN rm -rf /opt/fsl/bin/FSLeyes /opt/fsl/data/first /opt/fsl/fslpython
+ENV PATH=/usr/lib/afni/bin:$PATH 
 
 #--------------------------
 # Install FreeSurfer v6.0.0
@@ -132,6 +79,14 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends bc libgomp
     && curl -sSL https://dl.dropbox.com/s/nnzcfttc41qvt31/recon-all-freesurfer6-3.min.tgz | tar xz -C /opt \
     && sed -i '$isource $FREESURFER_HOME/SetUpFreeSurfer.sh' $ND_ENTRYPOINT
 ENV FREESURFER_HOME=/opt/freesurfer
+
+RUN apt-get update -qq \
+    && apt-get install -y -q --no-install-recommends fsl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# User-defined instruction
+RUN sed -i '$iFSLDIR=/usr/share/fsl\n. ${FSLDIR}/5.0/etc/fslconf/fsl.sh\nPATH=${FSLDIR}/5.0/bin:${PATH}\nexport FSLDIR PATH' $ND_ENTRYPOINT
 
 #----------------------
 # Install MCR and SPM12
@@ -185,11 +140,11 @@ RUN echo "Downloading Miniconda installer ..." \
 # Create conda environment
 #-------------------------
 RUN conda create -y -q --name neuro3 \
-    	python=3.6 jupyter jupyterlab traits pandas matplotlib scikit-learn seaborn swig reprozip reprounzip altair traitsui apptools configobj jupyter_contrib_nbextensions bokeh scikit-image codecov nitime cython joblib jupyterhub=0.7.2 \
+    	python=3.6 altair apptools bokeh codecov configobj cython joblib jupyter jupyter_contrib_nbextensions jupyterhub jupyterlab matplotlib nitime pandas reprounzip reprozip scikit-image scikit-learn seaborn swig traits traitsui \
     && sync && conda clean -tipsy && sync \
     && /bin/bash -c "source activate neuro3 \
     	&& pip install -q --no-cache-dir \
-    	https://github.com/nipy/nibabel/archive/master.zip https://github.com/nipy/nipype/tarball/master nilearn https://github.com/INCF/pybids/archive/master.zip datalad dipy nipy duecredit pymvpa2 git+https://github.com/jupyterhub/nbserverproxy.git git+https://github.com/jupyterhub/nbrsessionproxy.git https://github.com/satra/mapalign/archive/master.zip pprocess " \
+    	https://github.com/nipy/nipype/tarball/master https://github.com/nipy/nibabel/archive/master.zip https://github.com/INCF/pybids/archive/master.zip git+https://github.com/jupyterhub/nbserverproxy.git git+https://github.com/jupyterhub/nbrsessionproxy.git https://github.com/satra/mapalign/archive/master.zip datalad dipy duecredit nilearn nipy niworkflows pprocess pymvpa2" \
     && sync
 ENV PATH=/opt/conda/envs/neuro3/bin:$PATH
 
@@ -203,43 +158,40 @@ RUN bash -c "source activate neuro3 && pip install --no-cache-dir --pre --upgrad
 RUN bash -c "source activate neuro3 && pip install --no-cache-dir --upgrade https://github.com/maartenbreddels/ipyvolume/archive/master.zip && jupyter nbextension install --py --sys-prefix ipyvolume && jupyter nbextension enable --py --sys-prefix ipyvolume" 
 
 # User-defined instruction
-RUN bash -c "source activate neuro3 && jupyter nbextension enable rubberband/main && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" 
+RUN bash -c "source activate neuro3 && pip install --no-cache-dir git+https://github.com/data-8/gitautosync && jupyter serverextension enable --py nbgitautosync --sys-prefix" 
+
+# User-defined instruction
+RUN bash -c "source activate neuro3 && jupyter nbextension enable rubberband/main && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main && jupyter nbextension enable vega --py --sys-prefix" 
 
 # User-defined instruction
 RUN bash -c "source activate neuro3 && jupyter serverextension enable --sys-prefix --py nbserverproxy && jupyter serverextension enable --sys-prefix --py nbrsessionproxy && jupyter nbextension install --sys-prefix --py nbrsessionproxy && jupyter nbextension enable --sys-prefix --py nbrsessionproxy" 
 
-# User-defined instruction
-RUN bash -c "source activate neuro3 && pip install --no-cache-dir git+https://github.com/data-8/gitautosync && jupyter serverextension enable --py nbgitautosync --sys-prefix" 
-
 USER root
-
-# User-defined instruction
-RUN mkdir /data && chown neuro /data && chmod 777 /data && mkdir /output && chown neuro /output && chmod 777 /output && mkdir /repos && chown neuro /repos && chmod 777 /repos
 
 # User-defined instruction
 RUN echo 'neuro:neuro' | chpasswd && usermod -aG sudo neuro
 
+# User-defined instruction
+RUN mkdir /data && chown neuro /data && chmod 777 /data && mkdir /output && chown neuro /output && chmod 777 /output && mkdir /repos && chown neuro /repos && chmod 777 /repos
+
 USER neuro
-
-# User-defined instruction
-RUN bash -c "source activate neuro3 && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && datalad --on-failure ignore get -r -J8 ds000114/sub-0[12]/ses-test/anat && datalad --on-failure ignore get -r -J8 ds000114/sub-0[12]/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/anat && datalad --on-failure ignore get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J8 ds000114/derivatives/freesurfer/sub-0[12] && datalad --on-failure ignore get -r -J8 ds000114/derivatives/freesurfer/fsaverage5" 
-
-# User-defined instruction
-RUN curl -sSL https://osf.io/dhzv7/download?version=3 | tar zx -C /data/ds000114/derivatives/fmriprep
-
-WORKDIR /repos
 
 # User-defined instruction
 RUN cd /repos && git clone https://github.com/neuro-data-science/neuroviz.git && git clone https://github.com/neuro-data-science/neuroML.git && git clone https://github.com/ReproNim/reproducible-imaging.git && git clone https://github.com/miykael/nipype_tutorial.git && git clone https://github.com/jmumford/nhwEfficiency.git && git clone https://github.com/jmumford/R-tutorial.git
 
 # User-defined instruction
-ENV PATH="${PATH}:/usr/lib/rstudio-server/bin" 
+RUN bash -c "source activate neuro3 && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && datalad --on-failure ignore get -r -J4 ds000114/sub-01/ses-test/anat && datalad --on-failure ignore get -r -J4 ds000114/sub-01/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J4 ds000114/derivatives/fmriprep/sub-01/anat && datalad --on-failure ignore get -r -J4 ds000114/derivatives/fmriprep/sub-01/ses-test/func/*fingerfootlips*" 
+
+# User-defined instruction
+RUN curl -sSL https://osf.io/dhzv7/download?version=3 | tar zx -C /data/ds000114/derivatives/fmriprep
 
 # User-defined instruction
 ENV LD_LIBRARY_PATH="/usr/lib/R/lib:${LD_LIBRARY_PATH}" 
 
 # User-defined instruction
 RUN bash -c "echo c.NotebookApp.ip = \'0.0.0.0\' > ~/.jupyter/jupyter_notebook_config.py" 
+
+WORKDIR /repos
 
 #--------------------------------------
 # Save container specifications to JSON
@@ -259,9 +211,9 @@ RUN echo '{ \
     \n    [ \
     \n      "install", \
     \n      [ \
+    \n        "ants", \
     \n        "dcm2niix", \
     \n        "convert3d", \
-    \n        "ants", \
     \n        "graphviz", \
     \n        "tree", \
     \n        "git-annex-standalone", \
@@ -282,24 +234,14 @@ RUN echo '{ \
     \n      ] \
     \n    ], \
     \n    [ \
-    \n      "instruction", \
-    \n      "RUN apt-get update && apt-get install -yq xvfb mesa-utils libgl1-mesa-dri && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* " \
-    \n    ], \
-    \n    [ \
-    \n      "afni", \
-    \n      { \
-    \n        "version": "latest" \
-    \n      } \
-    \n    ], \
-    \n    [ \
-    \n      "fsl", \
-    \n      { \
-    \n        "version": "5.0.10" \
-    \n      } \
+    \n      "install", \
+    \n      [ \
+    \n        "afni" \
+    \n      ] \
     \n    ], \
     \n    [ \
     \n      "instruction", \
-    \n      "RUN rm -rf /opt/fsl/bin/FSLeyes /opt/fsl/data/first /opt/fsl/fslpython" \
+    \n      "ENV PATH=/usr/lib/afni/bin:$PATH " \
     \n    ], \
     \n    [ \
     \n      "freesurfer", \
@@ -307,6 +249,16 @@ RUN echo '{ \
     \n        "version": "6.0.0", \
     \n        "min": true \
     \n      } \
+    \n    ], \
+    \n    [ \
+    \n      "install", \
+    \n      [ \
+    \n        "fsl" \
+    \n      ] \
+    \n    ], \
+    \n    [ \
+    \n      "instruction", \
+    \n      "RUN sed -i '$iFSLDIR=/usr/share/fsl\\n. ${FSLDIR}/5.0/etc/fslconf/fsl.sh\\nPATH=${FSLDIR}/5.0/bin:${PATH}\\nexport FSLDIR PATH' $ND_ENTRYPOINT" \
     \n    ], \
     \n    [ \
     \n      "spm", \
@@ -326,10 +278,10 @@ RUN echo '{ \
     \n    [ \
     \n      "miniconda", \
     \n      { \
-    \n        "conda_install": "python=3.6 jupyter jupyterlab traits pandas matplotlib scikit-learn seaborn swig reprozip reprounzip altair traitsui apptools configobj jupyter_contrib_nbextensions bokeh scikit-image codecov nitime cython joblib jupyterhub=0.7.2", \
+    \n        "conda_install": "python=3.6 altair apptools bokeh codecov configobj cython joblib jupyter jupyter_contrib_nbextensions jupyterhub jupyterlab matplotlib nitime pandas reprounzip reprozip scikit-image scikit-learn seaborn swig traits traitsui", \
     \n        "env_name": "neuro3", \
     \n        "add_to_path": true, \
-    \n        "pip_install": "https://github.com/nipy/nibabel/archive/master.zip https://github.com/nipy/nipype/tarball/master nilearn https://github.com/INCF/pybids/archive/master.zip datalad dipy nipy duecredit pymvpa2 git+https://github.com/jupyterhub/nbserverproxy.git git+https://github.com/jupyterhub/nbrsessionproxy.git https://github.com/satra/mapalign/archive/master.zip pprocess " \
+    \n        "pip_install": "https://github.com/nipy/nipype/tarball/master https://github.com/nipy/nibabel/archive/master.zip https://github.com/INCF/pybids/archive/master.zip git+https://github.com/jupyterhub/nbserverproxy.git git+https://github.com/jupyterhub/nbrsessionproxy.git https://github.com/satra/mapalign/archive/master.zip datalad dipy duecredit nilearn nipy niworkflows pprocess pymvpa2" \
     \n      } \
     \n    ], \
     \n    [ \
@@ -346,15 +298,15 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "instruction", \
-    \n      "RUN bash -c \"source activate neuro3 && jupyter nbextension enable rubberband/main && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main\" " \
+    \n      "RUN bash -c \"source activate neuro3 && pip install --no-cache-dir git+https://github.com/data-8/gitautosync && jupyter serverextension enable --py nbgitautosync --sys-prefix\" " \
+    \n    ], \
+    \n    [ \
+    \n      "instruction", \
+    \n      "RUN bash -c \"source activate neuro3 && jupyter nbextension enable rubberband/main && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main && jupyter nbextension enable vega --py --sys-prefix\" " \
     \n    ], \
     \n    [ \
     \n      "instruction", \
     \n      "RUN bash -c \"source activate neuro3 && jupyter serverextension enable --sys-prefix --py nbserverproxy && jupyter serverextension enable --sys-prefix --py nbrsessionproxy && jupyter nbextension install --sys-prefix --py nbrsessionproxy && jupyter nbextension enable --sys-prefix --py nbrsessionproxy\" " \
-    \n    ], \
-    \n    [ \
-    \n      "instruction", \
-    \n      "RUN bash -c \"source activate neuro3 && pip install --no-cache-dir git+https://github.com/data-8/gitautosync && jupyter serverextension enable --py nbgitautosync --sys-prefix\" " \
     \n    ], \
     \n    [ \
     \n      "user", \
@@ -362,11 +314,11 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "instruction", \
-    \n      "RUN mkdir /data && chown neuro /data && chmod 777 /data && mkdir /output && chown neuro /output && chmod 777 /output && mkdir /repos && chown neuro /repos && chmod 777 /repos" \
+    \n      "RUN echo 'neuro:neuro' | chpasswd && usermod -aG sudo neuro" \
     \n    ], \
     \n    [ \
     \n      "instruction", \
-    \n      "RUN echo 'neuro:neuro' | chpasswd && usermod -aG sudo neuro" \
+    \n      "RUN mkdir /data && chown neuro /data && chmod 777 /data && mkdir /output && chown neuro /output && chmod 777 /output && mkdir /repos && chown neuro /repos && chmod 777 /repos" \
     \n    ], \
     \n    [ \
     \n      "user", \
@@ -374,23 +326,15 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "instruction", \
-    \n      "RUN bash -c \"source activate neuro3 && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && datalad --on-failure ignore get -r -J8 ds000114/sub-0[12]/ses-test/anat && datalad --on-failure ignore get -r -J8 ds000114/sub-0[12]/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/anat && datalad --on-failure ignore get -r -J8 ds000114/derivatives/fmriprep/sub-0[12]/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J8 ds000114/derivatives/freesurfer/sub-0[12] && datalad --on-failure ignore get -r -J8 ds000114/derivatives/freesurfer/fsaverage5\" " \
-    \n    ], \
-    \n    [ \
-    \n      "instruction", \
-    \n      "RUN curl -sSL https://osf.io/dhzv7/download?version=3 | tar zx -C /data/ds000114/derivatives/fmriprep" \
-    \n    ], \
-    \n    [ \
-    \n      "workdir", \
-    \n      "/repos" \
-    \n    ], \
-    \n    [ \
-    \n      "instruction", \
     \n      "RUN cd /repos && git clone https://github.com/neuro-data-science/neuroviz.git && git clone https://github.com/neuro-data-science/neuroML.git && git clone https://github.com/ReproNim/reproducible-imaging.git && git clone https://github.com/miykael/nipype_tutorial.git && git clone https://github.com/jmumford/nhwEfficiency.git && git clone https://github.com/jmumford/R-tutorial.git" \
     \n    ], \
     \n    [ \
     \n      "instruction", \
-    \n      "ENV PATH=\"${PATH}:/usr/lib/rstudio-server/bin\" " \
+    \n      "RUN bash -c \"source activate neuro3 && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && datalad --on-failure ignore get -r -J4 ds000114/sub-01/ses-test/anat && datalad --on-failure ignore get -r -J4 ds000114/sub-01/ses-test/func/*fingerfootlips* && datalad --on-failure ignore get -r -J4 ds000114/derivatives/fmriprep/sub-01/anat && datalad --on-failure ignore get -r -J4 ds000114/derivatives/fmriprep/sub-01/ses-test/func/*fingerfootlips*\" " \
+    \n    ], \
+    \n    [ \
+    \n      "instruction", \
+    \n      "RUN curl -sSL https://osf.io/dhzv7/download?version=3 | tar zx -C /data/ds000114/derivatives/fmriprep" \
     \n    ], \
     \n    [ \
     \n      "instruction", \
@@ -399,9 +343,13 @@ RUN echo '{ \
     \n    [ \
     \n      "instruction", \
     \n      "RUN bash -c \"echo c.NotebookApp.ip = \\'0.0.0.0\\' > ~/.jupyter/jupyter_notebook_config.py\" " \
+    \n    ], \
+    \n    [ \
+    \n      "workdir", \
+    \n      "/repos" \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2017-09-03 18:36:53", \
+    \n  "generation_timestamp": "2017-09-06 14:26:38", \
     \n  "neurodocker_version": "0.2.0-30-g4b9bd64" \
     \n}' > /neurodocker/neurodocker_specs.json
 
