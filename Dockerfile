@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-11-03 19:55:05
+# Timestamp: 2017-11-04 21:52:47
 
 FROM neurodebian:stretch-non-free
 
@@ -190,7 +190,7 @@ USER neuro
 
 # User-defined BASH instruction
 RUN bash -c "source activate neuro && cd	/data && datalad install -r ///workshops/nih-2017/ds000114 \
-    && cd /data/ds000114 && datalad get sub-*/ses-test/anat && datalad get sub-*/ses-test/func/*fingerfootlips* && datalad get derivatives/fmriprep/sub-*/anat && datalad get derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips*"
+    && cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat && datalad get  -r -J4 derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips*"
 
 WORKDIR /home/neuro
 
@@ -305,7 +305,7 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run_bash", \
-    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114\\n&& cd /data/ds000114 && datalad get sub-*/ses-test/anat && datalad get sub-*/ses-test/func/*fingerfootlips* && datalad get derivatives/fmriprep/sub-*/anat && datalad get derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips*" \
+    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114\\n&& cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat && datalad get  -r -J4 derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips*" \
     \n    ], \
     \n    [ \
     \n      "workdir", \
@@ -318,6 +318,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2017-11-03 19:55:05", \
+    \n  "generation_timestamp": "2017-11-04 21:52:47", \
     \n  "neurodocker_version": "0.3.1-19-g8d02eb4" \
     \n}' > /neurodocker/neurodocker_specs.json
