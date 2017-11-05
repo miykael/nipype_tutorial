@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-11-05 15:20:29
+# Timestamp: 2017-11-05 18:55:19
 
 FROM neurodebian:stretch-non-free
 
@@ -32,50 +32,8 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends  \
     && chmod -R 777 /neurodocker && chmod a+s /neurodocker
 ENTRYPOINT ["/neurodocker/startup.sh"]
 
-#--------------------
-# Install AFNI latest
-#--------------------
-ENV PATH=/opt/afni:$PATH
-RUN apt-get update -qq && apt-get install -yq --no-install-recommends ed gsl-bin libglu1-mesa-dev libglib2.0-0 libglw1-mesa \
-    libgomp1 libjpeg62 libxm4 netpbm tcsh xfonts-base xvfb python \
-    && libs_path=/usr/lib/x86_64-linux-gnu \
-    && if [ -f $libs_path/libgsl.so.19 ]; then \
-           ln $libs_path/libgsl.so.19 $libs_path/libgsl.so.0; \
-       fi \
-    && echo "Install libxp (not in all ubuntu/debian repositories)" \
-    && apt-get install -yq --no-install-recommends libxp6 \
-    || /bin/bash -c " \
-       curl --retry 5 -o /tmp/libxp6.deb -sSL http://mirrors.kernel.org/debian/pool/main/libx/libxp/libxp6_1.0.2-2_amd64.deb \
-       && dpkg -i /tmp/libxp6.deb && rm -f /tmp/libxp6.deb" \
-    && echo "Install libpng12 (not in all ubuntu/debian repositories" \
-    && apt-get install -yq --no-install-recommends libpng12-0 \
-    || /bin/bash -c " \
-       curl -o /tmp/libpng12.deb -sSL http://mirrors.kernel.org/debian/pool/main/libp/libpng/libpng12-0_1.2.49-1%2Bdeb7u2_amd64.deb \
-       && dpkg -i /tmp/libpng12.deb && rm -f /tmp/libpng12.deb" \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && echo "Downloading AFNI ..." \
-    && mkdir -p /opt/afni \
-    && curl -sSL --retry 5 https://afni.nimh.nih.gov/pub/dist/tgz/linux_openmp_64.tgz \
-    | tar zx -C /opt/afni --strip-components=1
-
-#--------------------------
-# Install FreeSurfer v6.0.0
-#--------------------------
-# Install version minimized for recon-all
-# See https://github.com/freesurfer/freesurfer/issues/70
-RUN apt-get update -qq && apt-get install -yq --no-install-recommends bc libgomp1 libxmu6 libxt6 tcsh perl \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && echo "Downloading minimized FreeSurfer ..." \
-    && curl -sSL https://dl.dropbox.com/s/nnzcfttc41qvt31/recon-all-freesurfer6-3.min.tgz | tar xz -C /opt \
-    && sed -i '$isource $FREESURFER_HOME/SetUpFreeSurfer.sh' $ND_ENTRYPOINT
-ENV FREESURFER_HOME=/opt/freesurfer
-
 RUN apt-get update -qq \
-    && apt-get install -y -q --no-install-recommends dcm2niix \
-                                                     convert3d \
-                                                     ants \
+    && apt-get install -y -q --no-install-recommends convert3d \
                                                      fsl \
                                                      gcc \
                                                      g++ \
@@ -151,19 +109,14 @@ RUN conda create -y -q --name neuro python=3.6 \
                                     matplotlib \
                                     scikit-learn \
                                     seaborn \
-                                    swig \
-                                    reprozip \
-                                    reprounzip \
     && sync && conda clean -tipsy && sync \
     && /bin/bash -c "source activate neuro \
       && pip install -q --no-cache-dir https://github.com/nipy/nipype/tarball/master \
                                        https://github.com/INCF/pybids/tarball/master \
                                        nilearn \
                                        datalad[full] \
-                                       dipy \
                                        nipy \
-                                       duecredit \
-                                       pymvpa2" \
+                                       duecredit" \
     && sync \
     && sed -i '$isource activate neuro' $ND_ENTRYPOINT
 
@@ -172,11 +125,6 @@ RUN bash -c "source activate neuro && jupyter nbextension enable exercise2/main 
 
 # User-defined instruction
 RUN mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py
-
-# User-defined instruction
-RUN mkdir /home/neuro/nipype_tutorial
-
-COPY [".", "/home/neuro/nipype_tutorial"]
 
 USER root
 
@@ -193,10 +141,15 @@ USER neuro
 
 # User-defined BASH instruction
 RUN bash -c "source activate neuro && cd	/data && datalad install -r ///workshops/nih-2017/ds000114 \
-    && cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat && datalad get  -r -J4 derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips* && datalad get -r -J4 derivatives/freesurfer/sub-01"
+    && cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*h5 && datalad get -r -J4 derivatives/freesurfer/sub-01"
 
 # User-defined BASH instruction
 RUN bash -c "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz"
+
+# User-defined instruction
+RUN mkdir /home/neuro/nipype_tutorial
+
+COPY [".", "/home/neuro/nipype_tutorial"]
 
 WORKDIR /home/neuro
 
@@ -214,25 +167,9 @@ RUN echo '{ \
     \n      "neurodebian:stretch-non-free" \
     \n    ], \
     \n    [ \
-    \n      "afni", \
-    \n      { \
-    \n        "version": "latest", \
-    \n        "install_python2": "true" \
-    \n      } \
-    \n    ], \
-    \n    [ \
-    \n      "freesurfer", \
-    \n      { \
-    \n        "version": "6.0.0", \
-    \n        "min": true \
-    \n      } \
-    \n    ], \
-    \n    [ \
     \n      "install", \
     \n      [ \
-    \n        "dcm2niix", \
     \n        "convert3d", \
-    \n        "ants", \
     \n        "fsl", \
     \n        "gcc", \
     \n        "g++", \
@@ -268,8 +205,8 @@ RUN echo '{ \
     \n    [ \
     \n      "miniconda", \
     \n      { \
-    \n        "conda_install": "python=3.6 jupyter jupyterlab jupyter_contrib_nbextensions traits pandas matplotlib scikit-learn seaborn swig reprozip reprounzip", \
-    \n        "pip_install": "https://github.com/nipy/nipype/tarball/master https://github.com/INCF/pybids/tarball/master nilearn datalad[full] dipy nipy duecredit pymvpa2", \
+    \n        "conda_install": "python=3.6 jupyter jupyterlab jupyter_contrib_nbextensions traits pandas matplotlib scikit-learn seaborn", \
+    \n        "pip_install": "https://github.com/nipy/nipype/tarball/master https://github.com/INCF/pybids/tarball/master nilearn datalad[full] nipy duecredit", \
     \n        "env_name": "neuro", \
     \n        "activate": "True" \
     \n      } \
@@ -281,17 +218,6 @@ RUN echo '{ \
     \n    [ \
     \n      "run", \
     \n      "mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \\\"0.0.0.0\\\" > ~/.jupyter/jupyter_notebook_config.py" \
-    \n    ], \
-    \n    [ \
-    \n      "run", \
-    \n      "mkdir /home/neuro/nipype_tutorial" \
-    \n    ], \
-    \n    [ \
-    \n      "copy", \
-    \n      [ \
-    \n        ".", \
-    \n        "/home/neuro/nipype_tutorial" \
-    \n      ] \
     \n    ], \
     \n    [ \
     \n      "user", \
@@ -315,11 +241,22 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run_bash", \
-    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114\\n&& cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat && datalad get  -r -J4 derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips* && datalad get -r -J4 derivatives/freesurfer/sub-01" \
+    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114\\n&& cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*h5 && datalad get -r -J4 derivatives/freesurfer/sub-01" \
     \n    ], \
     \n    [ \
     \n      "run_bash", \
     \n      "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz" \
+    \n    ], \
+    \n    [ \
+    \n      "run", \
+    \n      "mkdir /home/neuro/nipype_tutorial" \
+    \n    ], \
+    \n    [ \
+    \n      "copy", \
+    \n      [ \
+    \n        ".", \
+    \n        "/home/neuro/nipype_tutorial" \
+    \n      ] \
     \n    ], \
     \n    [ \
     \n      "workdir", \
@@ -332,6 +269,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2017-11-05 15:20:29", \
+    \n  "generation_timestamp": "2017-11-05 18:55:19", \
     \n  "neurodocker_version": "0.3.1-19-g8d02eb4" \
     \n}' > /neurodocker/neurodocker_specs.json
