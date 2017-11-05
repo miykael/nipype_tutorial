@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-11-04 21:52:47
+# Timestamp: 2017-11-05 15:20:29
 
 FROM neurodebian:stretch-non-free
 
@@ -173,7 +173,10 @@ RUN bash -c "source activate neuro && jupyter nbextension enable exercise2/main 
 # User-defined instruction
 RUN mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py
 
-COPY [".", "/home/neuro/"]
+# User-defined instruction
+RUN mkdir /home/neuro/nipype_tutorial
+
+COPY [".", "/home/neuro/nipype_tutorial"]
 
 USER root
 
@@ -190,7 +193,10 @@ USER neuro
 
 # User-defined BASH instruction
 RUN bash -c "source activate neuro && cd	/data && datalad install -r ///workshops/nih-2017/ds000114 \
-    && cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat && datalad get  -r -J4 derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips*"
+    && cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat && datalad get  -r -J4 derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips* && datalad get -r -J4 derivatives/freesurfer/sub-01"
+
+# User-defined BASH instruction
+RUN bash -c "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz"
 
 WORKDIR /home/neuro
 
@@ -277,10 +283,14 @@ RUN echo '{ \
     \n      "mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \\\"0.0.0.0\\\" > ~/.jupyter/jupyter_notebook_config.py" \
     \n    ], \
     \n    [ \
+    \n      "run", \
+    \n      "mkdir /home/neuro/nipype_tutorial" \
+    \n    ], \
+    \n    [ \
     \n      "copy", \
     \n      [ \
     \n        ".", \
-    \n        "/home/neuro/" \
+    \n        "/home/neuro/nipype_tutorial" \
     \n      ] \
     \n    ], \
     \n    [ \
@@ -305,7 +315,11 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run_bash", \
-    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114\\n&& cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat && datalad get  -r -J4 derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips*" \
+    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114\\n&& cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat && datalad get  -r -J4 derivatives/fmriprep/sub-*/ses-test/func/*fingerfootlips* && datalad get -r -J4 derivatives/freesurfer/sub-01" \
+    \n    ], \
+    \n    [ \
+    \n      "run_bash", \
+    \n      "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz" \
     \n    ], \
     \n    [ \
     \n      "workdir", \
@@ -318,6 +332,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2017-11-04 21:52:47", \
+    \n  "generation_timestamp": "2017-11-05 15:20:29", \
     \n  "neurodocker_version": "0.3.1-19-g8d02eb4" \
     \n}' > /neurodocker/neurodocker_specs.json
