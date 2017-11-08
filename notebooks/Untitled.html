@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>example_preprocessing</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Untitled</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11781,390 +11781,13 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Example-1:-Preprocessing-Workflow">Example 1: Preprocessing Workflow<a class="anchor-link" href="#Example-1:-Preprocessing-Workflow">&#182;</a></h1><p>This is meant as a very simple example for a preprocessing workflow. In this workflow we will conduct the following steps:</p>
-<ol>
-<li>Motion correction of functional images with FSL's MCFLIRT</li>
-<li>Coregistration of functional images to anatomical images (according to FSL's FEAT pipeline)</li>
-<li>Smoothing of coregistrated functional images with FWHM set to 4mm and 8mm</li>
-<li>Artifact Detection in functional images (to detect outlier volumes)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For every subject we have one anatomical T1w and 5 functional images. As a short recap, the image properties of the anatomy and the <strong>fingerfootlips</strong> functional image are:</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>%%bash
-<span class="nb">cd</span> /data/ds000114/sub-01/ses-test
-nib-ls a*/*.nii.gz f*/*fingerfootlips*.nii.gz
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>So, let's start!</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Imports">Imports<a class="anchor-link" href="#Imports">&#182;</a></h2><p>First, let's import all modules we later will be needing.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">opj</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="k">import</span> <span class="p">(</span><span class="n">BET</span><span class="p">,</span> <span class="n">ExtractROI</span><span class="p">,</span> <span class="n">FAST</span><span class="p">,</span> <span class="n">FLIRT</span><span class="p">,</span> <span class="n">ImageMaths</span><span class="p">,</span>
-                                   <span class="n">MCFLIRT</span><span class="p">,</span> <span class="n">SliceTimer</span><span class="p">,</span> <span class="n">Threshold</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="k">import</span> <span class="n">Smooth</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="k">import</span> <span class="n">IdentityInterface</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">SelectFiles</span><span class="p">,</span> <span class="n">DataSink</span>
-<span class="kn">from</span> <span class="nn">nipype.algorithms.rapidart</span> <span class="k">import</span> <span class="n">ArtifactDetect</span>
-<span class="kn">from</span> <span class="nn">nipype.pipeline.engine</span> <span class="k">import</span> <span class="n">Workflow</span><span class="p">,</span> <span class="n">Node</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Experiment-parameters">Experiment parameters<a class="anchor-link" href="#Experiment-parameters">&#182;</a></h2><p>It's always a good idea to specify all parameters that might change between experiments at the beginning of your script. We will use one functional image for fingerfootlips task for ten subjects.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">experiment_dir</span> <span class="o">=</span> <span class="s1">&#39;/output&#39;</span>
-<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;datasink&#39;</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;workingdir&#39;</span>
-
-<span class="c1"># list of subject identifiers</span>
-<span class="n">subject_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sub-01&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-02&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-03&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-04&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-05&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;sub-06&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-07&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-08&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-09&#39;</span><span class="p">,</span> <span class="s1">&#39;sub-10&#39;</span><span class="p">]</span>
-
-<span class="c1"># list of session identifiers</span>
-<span class="n">task_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fingerfootlips&#39;</span><span class="p">]</span>
-
-<span class="c1"># Smoothing widths to apply</span>
-<span class="n">fwhm</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-
-<span class="c1"># TR of functional images</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/data/ds000114/task-fingerfootlips_bold.json&#39;</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-    <span class="n">task_info</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="n">TR</span> <span class="o">=</span> <span class="n">task_info</span><span class="p">[</span><span class="s1">&#39;RepetitionTime&#39;</span><span class="p">]</span>
-
-<span class="c1"># Isometric resample of functional images to voxel size (in mm)</span>
-<span class="n">iso_size</span> <span class="o">=</span> <span class="mi">4</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Specify-Nodes-for-the-main-workflow">Specify Nodes for the main workflow<a class="anchor-link" href="#Specify-Nodes-for-the-main-workflow">&#182;</a></h2><p>Initiate all the different interfaces (represented as nodes) that you want to use in your workflow.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ExtractROI - skip dummy scans</span>
-<span class="n">extract</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">ExtractROI</span><span class="p">(</span><span class="n">t_min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t_size</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
-               <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">,</span>
-               <span class="n">name</span><span class="o">=</span><span class="s2">&quot;extract&quot;</span><span class="p">)</span>
-
-<span class="c1"># MCFLIRT - motion correction</span>
-<span class="n">mcflirt</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">(</span><span class="n">mean_vol</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                       <span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                       <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">),</span>
-               <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mcflirt&quot;</span><span class="p">)</span>
-
-<span class="c1"># SliceTimer - correct for slice wise acquisition</span>
-<span class="n">slicetimer</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SliceTimer</span><span class="p">(</span><span class="n">index_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                             <span class="n">interleaved</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                             <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">,</span>
-                             <span class="n">time_repetition</span><span class="o">=</span><span class="n">TR</span><span class="p">),</span>
-                  <span class="n">name</span><span class="o">=</span><span class="s2">&quot;slicetimer&quot;</span><span class="p">)</span>
-
-<span class="c1"># Smooth - image smoothing</span>
-<span class="n">smooth</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Smooth</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;smooth&quot;</span><span class="p">)</span>
-<span class="n">smooth</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;fwhm&quot;</span><span class="p">,</span> <span class="n">fwhm</span><span class="p">)</span>
-
-<span class="c1"># Artifact Detection - determines outliers in functional images</span>
-<span class="n">art</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">ArtifactDetect</span><span class="p">(</span><span class="n">norm_threshold</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                          <span class="n">zintensity_threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                          <span class="n">mask_type</span><span class="o">=</span><span class="s1">&#39;spm_global&#39;</span><span class="p">,</span>
-                          <span class="n">parameter_source</span><span class="o">=</span><span class="s1">&#39;FSL&#39;</span><span class="p">,</span>
-                          <span class="n">use_differences</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
-                          <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">),</span>
-           <span class="n">name</span><span class="o">=</span><span class="s2">&quot;art&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Coregistration-Workflow">Coregistration Workflow<a class="anchor-link" href="#Coregistration-Workflow">&#182;</a></h2><p>Initiate a workflow that coregistrates the functional images to the anatomical image (according to FSL's FEAT pipeline).</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># BET - Skullstrip anatomical Image</span>
-<span class="n">bet_anat</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">BET</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                    <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                    <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI_GZ&#39;</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bet_anat&quot;</span><span class="p">)</span>
-
-<span class="c1"># FAST - Image Segmentation</span>
-<span class="n">segmentation</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">FAST</span><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI_GZ&#39;</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;segmentation&quot;</span><span class="p">)</span>
-
-<span class="c1"># Select WM segmentation file from segmentation output</span>
-<span class="k">def</span> <span class="nf">get_wm</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="c1"># Threshold - Threshold WM probability image</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Threshold</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                           <span class="n">args</span><span class="o">=</span><span class="s1">&#39;-bin&#39;</span><span class="p">,</span>
-                           <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI_GZ&#39;</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;threshold&quot;</span><span class="p">)</span>
-
-<span class="c1"># FLIRT - pre-alignment of functional images to anatomical images</span>
-<span class="n">coreg_pre</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">FLIRT</span><span class="p">(</span><span class="n">dof</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI_GZ&#39;</span><span class="p">),</span>
-                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;coreg_pre&quot;</span><span class="p">)</span>
-
-<span class="c1"># FLIRT - coregistration of functional images to anatomical images with BBR</span>
-<span class="n">coreg_bbr</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">FLIRT</span><span class="p">(</span><span class="n">dof</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
-                       <span class="n">cost</span><span class="o">=</span><span class="s1">&#39;bbr&#39;</span><span class="p">,</span>
-                       <span class="n">schedule</span><span class="o">=</span><span class="n">opj</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;FSLDIR&#39;</span><span class="p">),</span>
-                                    <span class="s1">&#39;etc/flirtsch/bbr.sch&#39;</span><span class="p">),</span>
-                       <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI_GZ&#39;</span><span class="p">),</span>
-                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;coreg_bbr&quot;</span><span class="p">)</span>
-
-<span class="c1"># Apply coregistration warp to functional images</span>
-<span class="n">applywarp</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">FLIRT</span><span class="p">(</span><span class="n">interp</span><span class="o">=</span><span class="s1">&#39;spline&#39;</span><span class="p">,</span>
-                       <span class="n">apply_isoxfm</span><span class="o">=</span><span class="n">iso_size</span><span class="p">,</span>
-                       <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">),</span>
-                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;applywarp&quot;</span><span class="p">)</span>
-
-<span class="c1"># Apply coregistration warp to mean file</span>
-<span class="n">applywarp_mean</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">FLIRT</span><span class="p">(</span><span class="n">interp</span><span class="o">=</span><span class="s1">&#39;spline&#39;</span><span class="p">,</span>
-                            <span class="n">apply_isoxfm</span><span class="o">=</span><span class="n">iso_size</span><span class="p">,</span>
-                            <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI_GZ&#39;</span><span class="p">),</span>
-                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;applywarp_mean&quot;</span><span class="p">)</span>
-
-<span class="c1"># Create a coregistration workflow</span>
-<span class="n">coregwf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;coregwf&#39;</span><span class="p">)</span>
-<span class="n">coregwf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">)</span>
-
-<span class="c1"># Connect all components of the coregistration workflow</span>
-<span class="n">coregwf</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">bet_anat</span><span class="p">,</span> <span class="n">segmentation</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_files&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">segmentation</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="p">[((</span><span class="s1">&#39;partial_volume_files&#39;</span><span class="p">,</span> <span class="n">get_wm</span><span class="p">),</span>
-                                             <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">bet_anat</span><span class="p">,</span> <span class="n">coreg_pre</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;reference&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">threshold</span><span class="p">,</span> <span class="n">coreg_bbr</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;wm_seg&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">coreg_pre</span><span class="p">,</span> <span class="n">coreg_bbr</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_matrix_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_matrix_file&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">coreg_bbr</span><span class="p">,</span> <span class="n">applywarp</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_matrix_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_matrix_file&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">bet_anat</span><span class="p">,</span> <span class="n">applywarp</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;reference&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">coreg_bbr</span><span class="p">,</span> <span class="n">applywarp_mean</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_matrix_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_matrix_file&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">bet_anat</span><span class="p">,</span> <span class="n">applywarp_mean</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;reference&#39;</span><span class="p">)]),</span>
-                 <span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Specify-input-&amp;-output-stream">Specify input &amp; output stream<a class="anchor-link" href="#Specify-input-&amp;-output-stream">&#182;</a></h2><p>Specify where the input data can be found &amp; where and how to save the output data.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Infosource - a function free node to iterate over the list of subject names</span>
-<span class="n">infosource</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">IdentityInterface</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;task_name&#39;</span><span class="p">]),</span>
-                  <span class="n">name</span><span class="o">=</span><span class="s2">&quot;infosource&quot;</span><span class="p">)</span>
-<span class="n">infosource</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">subject_list</span><span class="p">),</span>
-                        <span class="p">(</span><span class="s1">&#39;task_name&#39;</span><span class="p">,</span> <span class="n">task_list</span><span class="p">)]</span>
-
-<span class="c1"># SelectFiles - to grab the data (alternativ to DataGrabber)</span>
-<span class="n">anat_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;derivatives&#39;</span><span class="p">,</span> <span class="s1">&#39;fmriprep&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;anat&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">_t1w_preproc.nii.gz&#39;</span><span class="p">)</span>
-<span class="n">func_file</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;ses-test&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;</span><span class="si">{subject_id}</span><span class="s1">_ses-test_task-</span><span class="si">{task_name}</span><span class="s1">_bold.nii.gz&#39;</span><span class="p">)</span>
-
-<span class="n">templates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;anat&#39;</span><span class="p">:</span> <span class="n">anat_file</span><span class="p">,</span>
-             <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="n">func_file</span><span class="p">}</span>
-<span class="n">selectfiles</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">SelectFiles</span><span class="p">(</span><span class="n">templates</span><span class="p">,</span>
-                               <span class="n">base_directory</span><span class="o">=</span><span class="s1">&#39;/data/ds000114&#39;</span><span class="p">),</span>
-                   <span class="n">name</span><span class="o">=</span><span class="s2">&quot;selectfiles&quot;</span><span class="p">)</span>
-
-<span class="c1"># Datasink - creates output folder for important outputs</span>
-<span class="n">datasink</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">DataSink</span><span class="p">(</span><span class="n">base_directory</span><span class="o">=</span><span class="n">experiment_dir</span><span class="p">,</span>
-                         <span class="n">container</span><span class="o">=</span><span class="n">output_dir</span><span class="p">),</span>
-                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;datasink&quot;</span><span class="p">)</span>
-
-<span class="c1">## Use the following DataSink output substitutions</span>
-<span class="n">substitutions</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;_subject_id_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;_task_name_&#39;</span><span class="p">,</span> <span class="s1">&#39;/task-&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;_fwhm_&#39;</span><span class="p">,</span> <span class="s1">&#39;fwhm-&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;_roi&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;_mcf&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;_st&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;_flirt&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;.nii_mean_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;_mean&#39;</span><span class="p">),</span>
-                 <span class="p">(</span><span class="s1">&#39;.nii.par&#39;</span><span class="p">,</span> <span class="s1">&#39;.par&#39;</span><span class="p">),</span>
-                 <span class="p">]</span>
-<span class="n">subjFolders</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;fwhm-</span><span class="si">%s</span><span class="s1">/&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;fwhm-</span><span class="si">%s</span><span class="s1">_&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fwhm</span><span class="p">]</span>
-<span class="n">substitutions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">subjFolders</span><span class="p">)</span>
-<span class="n">datasink</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">substitutions</span> <span class="o">=</span> <span class="n">substitutions</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Specify-Workflow">Specify Workflow<a class="anchor-link" href="#Specify-Workflow">&#182;</a></h2><p>Create a workflow and connect the interface nodes and the I/O stream to each other.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a preprocessing workflow</span>
-<span class="n">preproc</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;preproc&#39;</span><span class="p">)</span>
-<span class="n">preproc</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">)</span>
-
-<span class="c1"># Connect all components of the preprocessing workflow</span>
-<span class="n">preproc</span><span class="o">.</span><span class="n">connect</span><span class="p">([(</span><span class="n">infosource</span><span class="p">,</span> <span class="n">selectfiles</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="s1">&#39;subject_id&#39;</span><span class="p">),</span>
-                                            <span class="p">(</span><span class="s1">&#39;task_name&#39;</span><span class="p">,</span> <span class="s1">&#39;task_name&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">selectfiles</span><span class="p">,</span> <span class="n">extract</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;func&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">extract</span><span class="p">,</span> <span class="n">mcflirt</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;roi_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">slicetimer</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_file&#39;</span><span class="p">)]),</span>
-
-                 <span class="p">(</span><span class="n">selectfiles</span><span class="p">,</span> <span class="n">coregwf</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;anat&#39;</span><span class="p">,</span> <span class="s1">&#39;bet_anat.in_file&#39;</span><span class="p">),</span>
-                                         <span class="p">(</span><span class="s1">&#39;anat&#39;</span><span class="p">,</span> <span class="s1">&#39;coreg_bbr.reference&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">coregwf</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;coreg_pre.in_file&#39;</span><span class="p">),</span>
-                                     <span class="p">(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;coreg_bbr.in_file&#39;</span><span class="p">),</span>
-                                     <span class="p">(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;applywarp_mean.in_file&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">slicetimer</span><span class="p">,</span> <span class="n">coregwf</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;slice_time_corrected_file&#39;</span><span class="p">,</span> <span class="s1">&#39;applywarp.in_file&#39;</span><span class="p">)]),</span>
-                 
-                 <span class="p">(</span><span class="n">coregwf</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;applywarp.out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_files&#39;</span><span class="p">)]),</span>
-
-                 <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@par&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;smoothed_files&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@smooth&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">coregwf</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;applywarp_mean.out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@mean&#39;</span><span class="p">)]),</span>
-
-                 <span class="p">(</span><span class="n">coregwf</span><span class="p">,</span> <span class="n">art</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;applywarp.out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;realigned_files&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">art</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;realignment_parameters&#39;</span><span class="p">)]),</span>
-
-                 <span class="p">(</span><span class="n">coregwf</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;coreg_bbr.out_matrix_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@mat_file&#39;</span><span class="p">),</span>
-                                      <span class="p">(</span><span class="s1">&#39;bet_anat.out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@brain&#39;</span><span class="p">)]),</span>
-                 <span class="p">(</span><span class="n">art</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;outlier_files&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@outlier_files&#39;</span><span class="p">),</span>
-                                  <span class="p">(</span><span class="s1">&#39;plot_files&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@plot_files&#39;</span><span class="p">)]),</span>
-                 <span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Visualize-the-workflow">Visualize the workflow<a class="anchor-link" href="#Visualize-the-workflow">&#182;</a></h2><p>It always helps to visualize your workflow.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create preproc output graph</span>
-<span class="n">preproc</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;colored&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">simple_form</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Visualize the graph</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">opj</span><span class="p">(</span><span class="n">preproc</span><span class="o">.</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;preproc&#39;</span><span class="p">,</span> <span class="s1">&#39;graph.dot.png&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.ants.resampling</span> <span class="k">import</span> <span class="n">WarpTimeSeriesImageMultiTransform</span>
+<span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Node</span>
 </pre></div>
 
 </div>
@@ -12174,12 +11797,10 @@ nib-ls a*/*.nii.gz f*/*fingerfootlips*.nii.gz
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize the detailed graph</span>
-<span class="n">preproc</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">simple_form</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">opj</span><span class="p">(</span><span class="n">preproc</span><span class="o">.</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;preproc&#39;</span><span class="p">,</span> <span class="s1">&#39;graph_detailed.dot.png&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nn</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">WarpTimeSeriesImageMultiTransform</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12187,21 +11808,16 @@ nib-ls a*/*.nii.gz f*/*fingerfootlips*.nii.gz
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Run-the-Workflow">Run the Workflow<a class="anchor-link" href="#Run-the-Workflow">&#182;</a></h2><p>Now that everything is ready, we can run the preprocessing workflow. Change <code>n_procs</code> to the number of jobs/cores you want to use. <strong>Note</strong> that if  you're using a Docker container and FLIRT fails to run without any good reason, you might need to change memory settings in the Docker preferences (6 GB should be enough for this workflow).</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">preproc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_procs&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nw</span> <span class="o">=</span> <span class="n">WarpTimeSeriesImageMultiTransform</span><span class="p">()</span>
+<span class="n">nw</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">input_image</span> <span class="o">=</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;</span>
+<span class="n">nw</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">reference_image</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;</span>
+<span class="n">nw</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">transformation_series</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;</span><span class="p">,</span> <span class="s1">&#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;</span><span class="p">]</span>
+<span class="n">nw</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">invert_affine</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12209,113 +11825,184 @@ nib-ls a*/*.nii.gz f*/*fingerfootlips*.nii.gz
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Inspect-output">Inspect output<a class="anchor-link" href="#Inspect-output">&#182;</a></h2><p>Let's check the structure of the output folder, to see if we have everything we wanted to save.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree /output/datasink/preproc
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nw</span><span class="o">.</span><span class="n">cmdline</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[34]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;WarpTimeSeriesImageMultiTransform 4 /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz sub-01_ses-test_task-covertverbgeneration_bold_wtsimt.nii.gz -R /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;</pre>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Visualize-results">Visualize results<a class="anchor-link" href="#Visualize-results">&#182;</a></h2><p>Let's check the effect of the different smoothing kernels.</p>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">image</span><span class="p">,</span> <span class="n">plotting</span>
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span>
-    <span class="s1">&#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_preproc.nii.gz&#39;</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;T1&quot;</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span> <span class="n">annotate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-
-<span class="n">out_path</span> <span class="o">=</span> <span class="s1">&#39;/output/datasink/preproc/sub-01/task-fingerfootlips&#39;</span>
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span><span class="n">opj</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s1">&#39;sub-01_ses-test_task-fingerfootlips_bold_mean.nii.gz&#39;</span><span class="p">),</span>
-                  <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 0mm&quot;</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span> <span class="n">annotate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">mean_img</span><span class="p">(</span><span class="n">opj</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s1">&#39;fwhm-4_ssub-01_ses-test_task-fingerfootlips_bold.nii&#39;</span><span class="p">)),</span>
-                  <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 4mm&quot;</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span> <span class="n">annotate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">mean_img</span><span class="p">(</span><span class="n">opj</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s1">&#39;fwhm-8_ssub-01_ses-test_task-fingerfootlips_bold.nii&#39;</span><span class="p">)),</span>
-                  <span class="n">title</span><span class="o">=</span><span class="s2">&quot;fwhm = 8mm&quot;</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;ortho&#39;</span><span class="p">,</span> <span class="n">annotate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">draw_cross</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nw</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>170926-19:59:32,197 interface INFO:
+	 stdout 2017-09-26T19:59:32.196971:FIELD: /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+170926-19:59:32,199 interface INFO:
+	 stdout 2017-09-26T19:59:32.196971:FIELD: /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+170926-19:59:32,200 interface INFO:
+	 stdout 2017-09-26T19:59:32.196971:moving_image_filename: /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+170926-19:59:32,201 interface INFO:
+	 stdout 2017-09-26T19:59:32.196971:output_image_filename: sub-01_ses-test_task-covertverbgeneration_bold_wtsimt.nii.gz
+170926-19:59:32,203 interface INFO:
+	 stdout 2017-09-26T19:59:32.196971:reference_image_filename: /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+170926-19:59:32,204 interface INFO:
+	 stdout 2017-09-26T19:59:32.196971:[0/2]: FIELD: /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+170926-19:59:32,205 interface INFO:
+	 stdout 2017-09-26T19:59:32.196971:[1/2]: FIELD: /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+170926-19:59:32,708 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: Four-D image size: [64, 64, 30, 173]
+170926-19:59:32,709 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: 4D-In-Spc [4, 4, 3.99997, 2.5]
+170926-19:59:32,710 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: 4D-In-Org [-130.642, 97.4732, -80.6466, 0]
+170926-19:59:32,711 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: 4D-In-Size [64, 64, 30, 173]
+170926-19:59:32,713 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: 4D-In-Dir 0.998679 0.0510639 -0.00575022 0
+170926-19:59:32,714 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0.0513566 -0.995651 0.0777228 0
+170926-19:59:32,715 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0.00175639 0.0779154 0.996958 0
+170926-19:59:32,716 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0 0 0 1
+170926-19:59:32,718 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:
+170926-19:59:32,720 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: ...... 
+170926-19:59:32,722 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: 4D-Out-Spc [4, 4, 3.99997, 2.5]
+170926-19:59:32,724 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: 4D-Out-Org [-130.642, 97.4732, -80.6466, 0]
+170926-19:59:32,725 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: 4D-Out-Size [64, 64, 30, 173]
+170926-19:59:32,726 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466: 4D-Out-Dir 1 0 0 0
+170926-19:59:32,727 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0 1 0 0
+170926-19:59:32,729 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0 0 1 0
+170926-19:59:32,730 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0 0 0 1
+170926-19:59:32,732 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:
+170926-19:59:32,734 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0 % done ... 1 0 0
+170926-19:59:32,736 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0 1 0
+170926-19:59:32,737 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:0 0 1
+170926-19:59:32,738 interface INFO:
+	 stdout 2017-09-26T19:59:32.708466:
+170926-19:59:55,150 interface INFO:
+	 stdout 2017-09-26T19:59:55.150492:9.82659 % done ... 19.6532 % done ... 29.4798 % done ... 39.3064 % done ... 49.1329 % done ... 58.9595 % done ... 68.7861 % done ... 78.6127 % done ... 88.4393 % done ... 98.2659 % done ...  100 % complete 
+</pre>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let's investigate the motion parameters. How much did the subject move and turn in the scanner?</p>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[35]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;nipype.interfaces.base.InterfaceResult at 0x7f9415115cf8&gt;</pre>
+</div>
+
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">par</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;/output/datasink/preproc/sub-01/task-fingerfootlips/sub-01_ses-test_task-fingerfootlips_bold.par&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rotation (radians)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span> <span class="mi">3</span><span class="p">:])</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (TR)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;translation (mm)&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nw</span><span class="o">.</span><span class="n">output_spec</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-36-785a9203dedd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>nw<span class="ansi-blue-fg">.</span>output_image
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;WarpTimeSeriesImageMultiTransform&#39; object has no attribute &#39;output_image&#39;</pre>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>There seems to be a rather drastic motion around volume 102. Let's check if the outliers detection algorithm was able to pick this up.</p>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">outlier_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;/output/datasink/preproc/sub-01/task-fingerfootlips/art.sub-01_ses-test_task-fingerfootlips_bold_outliers.txt&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Outliers were detected at volumes: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">outlier_ids</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">SVG</span>
-<span class="n">SVG</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;/output/datasink/preproc/sub-01/task-fingerfootlips/plot.sub-01_ses-test_task-fingerfootlips_bold.svg&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>

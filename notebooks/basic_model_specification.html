@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11783,8 +11781,7 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11793,8 +11790,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11815,7 +11811,7 @@ durations = [[3], [3], [3]]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.base</span> <span class="k">import</span> <span class="n">Bunch</span>
@@ -11836,8 +11832,7 @@ durations = [[3], [3], [3]]
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11850,8 +11845,7 @@ durations = [[3], [3], [3]]
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11862,7 +11856,7 @@ durations = [[3], [3], [3]]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat /data/ds000114/task-fingerfootlips_events.tsv
@@ -11872,40 +11866,8 @@ durations = [[3], [3], [3]]
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>onset	duration	weight	trial_type
-10	15.0	1	Finger
-40	15.0	1	Foot
-70	15.0	1	Lips
-100	15.0	1	Finger
-130	15.0	1	Foot
-160	15.0	1	Lips
-190	15.0	1	Finger
-220	15.0	1	Foot
-250	15.0	1	Lips
-280	15.0	1	Finger
-310	15.0	1	Foot
-340	15.0	1	Lips
-370	15.0	1	Finger
-400	15.0	1	Foot
-430	15.0	1	Lips
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11916,7 +11878,7 @@ durations = [[3], [3], [3]]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11928,88 +11890,8 @@ durations = [[3], [3], [3]]
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>onset</th>
-      <th>duration</th>
-      <th>weight</th>
-      <th>trial_type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10</td>
-      <td>15.0</td>
-      <td>1</td>
-      <td>Finger</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>40</td>
-      <td>15.0</td>
-      <td>1</td>
-      <td>Foot</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>70</td>
-      <td>15.0</td>
-      <td>1</td>
-      <td>Lips</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>100</td>
-      <td>15.0</td>
-      <td>1</td>
-      <td>Finger</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>130</td>
-      <td>15.0</td>
-      <td>1</td>
-      <td>Foot</td>
-    </tr>
-  </tbody>
-</table>
 </div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12020,7 +11902,7 @@ durations = [[3], [3], [3]]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">trialinfo</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;trial_type&#39;</span><span class="p">):</span>
@@ -12031,42 +11913,8 @@ durations = [[3], [3], [3]]
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(&#39;Finger&#39;,     onset  duration  weight trial_type
-0      10      15.0       1     Finger
-3     100      15.0       1     Finger
-6     190      15.0       1     Finger
-9     280      15.0       1     Finger
-12    370      15.0       1     Finger)
-(&#39;Foot&#39;,     onset  duration  weight trial_type
-1      40      15.0       1       Foot
-4     130      15.0       1       Foot
-7     220      15.0       1       Foot
-10    310      15.0       1       Foot
-13    400      15.0       1       Foot)
-(&#39;Lips&#39;,     onset  duration  weight trial_type
-2      70      15.0       1       Lips
-5     160      15.0       1       Lips
-8     250      15.0       1       Lips
-11    340      15.0       1       Lips
-14    430      15.0       1       Lips)
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12077,7 +11925,7 @@ durations = [[3], [3], [3]]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.base</span> <span class="k">import</span> <span class="n">Bunch</span>
@@ -12098,32 +11946,6 @@ durations = [[3], [3], [3]]
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[(&#39;conditions&#39;, [&#39;Finger&#39;, &#39;Foot&#39;, &#39;Lips&#39;]),
- (&#39;onsets&#39;,
-  [[10, 100, 190, 280, 370],
-   [40, 130, 220, 310, 400],
-   [70, 160, 250, 340, 430]]),
- (&#39;durations&#39;,
-  [[15.0, 15.0, 15.0, 15.0, 15.0],
-   [15.0, 15.0, 15.0, 15.0, 15.0],
-   [15.0, 15.0, 15.0, 15.0, 15.0]])]</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

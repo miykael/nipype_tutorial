@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11783,8 +11781,7 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11793,8 +11790,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11807,7 +11803,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.caching</span> <span class="kn">import</span> <span class="n">Memory</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.caching</span> <span class="k">import</span> <span class="n">Memory</span>
 <span class="n">mem</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -11816,8 +11812,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11830,8 +11825,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="kn">import</span> <span class="n">Realign</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="kn">import</span> <span class="n">MCFLIRT</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="k">import</span> <span class="n">Realign</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.fsl</span> <span class="k">import</span> <span class="n">MCFLIRT</span>
 
 <span class="n">spm_realign</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">Realign</span><span class="p">)</span>
 <span class="n">fsl_realign</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">MCFLIRT</span><span class="p">)</span>
@@ -11842,8 +11837,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11856,8 +11850,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">spm_results</span> <span class="o">=</span> <span class="n">spm_realign</span><span class="p">(</span><span class="n">in_files</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">register_to_mean</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">fsl_results</span> <span class="o">=</span> <span class="n">fsl_realign</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">ref_vol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spm_results</span> <span class="o">=</span> <span class="n">spm_realign</span><span class="p">(</span><span class="n">in_files</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">register_to_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fsl_results</span> <span class="o">=</span> <span class="n">fsl_realign</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">ref_vol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11870,7 +11864,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">);</span><span class="n">plot</span><span class="p">(</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">fsl_results</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">par_file</span><span class="p">)[:,</span> <span class="mi">3</span><span class="p">:])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">);</span><span class="n">plot</span><span class="p">(</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">fsl_results</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">par_file</span><span class="p">)[:,</span> <span class="mi">3</span><span class="p">:])</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">);</span><span class="n">plot</span><span class="p">(</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">spm_results</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">realignment_parameters</span><span class="p">)[:,:</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
@@ -11884,8 +11878,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">spm_results</span> <span class="o">=</span> <span class="n">spm_realign</span><span class="p">(</span><span class="n">in_files</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">register_to_mean</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">fsl_results</span> <span class="o">=</span> <span class="n">fsl_realign</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">ref_vol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spm_results</span> <span class="o">=</span> <span class="n">spm_realign</span><span class="p">(</span><span class="n">in_files</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">register_to_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fsl_results</span> <span class="o">=</span> <span class="n">fsl_realign</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s1">&#39;ds107.nii&#39;</span><span class="p">,</span> <span class="n">ref_vol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">save_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11893,8 +11887,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11907,7 +11900,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span> <span class="k">as</span> <span class="n">opap</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span> <span class="k">as</span> <span class="n">opap</span>
 <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">opap</span><span class="p">(</span><span class="s1">&#39;../ds107/sub001/BOLD/task001_run001/bold.nii.gz&#39;</span><span class="p">),</span>
          <span class="n">opap</span><span class="p">(</span><span class="s1">&#39;../ds107/sub001/BOLD/task001_run002/bold.nii.gz&#39;</span><span class="p">)]</span>
 <span class="n">converter</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">MRIConvert</span><span class="p">)</span>
@@ -11927,7 +11920,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tutorial_dir</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">tutorial_dir</span><span class="p">)</span>
 </pre></div>
 
 </div>

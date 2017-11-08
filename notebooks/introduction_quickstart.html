@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>y_index_with_advanced_and_developer_section</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>introduction_quickstart</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11783,307 +11781,333 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Quickstart">Quickstart<a class="anchor-link" href="#Quickstart">&#182;</a></h1><p><strong>This is a very quick non-imaging introduction to Nipype workflows. For more comprehensive introduction, check the next section of the tutorial.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://raw.github.com/satra/intro2nipype/master/images/arch.png" alt="Nipype architecture"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><a href="http://nipype.readthedocs.io/en/latest/">Existing documentation</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=cofpD1lhmKU">Visualizing the evolution of Nipype</a></p>
+</li>
+<li><p>This notebook taken from <a href="https://github.com/ReproNim/reproducible-imaging">reproducible-imaging repository</a></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Import-a-few-things-from-nipype">Import a few things from nipype<a class="anchor-link" href="#Import-a-few-things-from-nipype">&#182;</a></h4>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;style&gt;.container { width:75% !important; }&lt;/style&gt;
-&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;../static/css_backup/mobile-package-094623.css&#39;&gt;
-&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;../static/css_backup/homepage-package-3bd234.css&#39;&gt;
-        
-&lt;body&gt;
-  &lt;article id=&quot;homepage&quot;&gt;
-    &lt;a id=&quot;library-section&quot;&gt;&lt;/a&gt;
-    &lt;div class=&quot;library-section&quot;&gt;
-      &lt;div class=&quot;section-separator library-section-separator&quot;&gt;
-        &lt;center&gt;&lt;img src=&quot;../static/images/logoNipype_tutorial.png&quot; width=700&gt;&lt;/center&gt;
-        &lt;p&gt;Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
-            you everything so that you can start creating your own workflows in no time. We recommend that you start with
-            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
-            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
-            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
-            &lt;/p&gt;&lt;p&gt;
-            All of the notebooks used in this tutorial can be found on &lt;a href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;github.com/miykael/nipype_tutorial&lt;/a&gt;.
-            But if you want to have the real experience and want to go through the computations by yourself, we highly
-            recommend you to do the &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Nipype Course&lt;/a&gt;. This course
-            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
-            Nipype yourself. For the tutorial, you need to install a &lt;a href=&quot;www.docker.com/&quot;&gt;Docker&lt;/a&gt; image on your system that provides you a 
-            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
-            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
-            neuroimaging environment is based on the docker images under &lt;a href=&quot;https://github.com/miykael/nipype_env&quot;&gt;github.com/miykael/nipype_env&lt;/a&gt;,
-            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
-            &lt;/p&gt;&lt;p&gt;
-            For everything that isn&#39;t covered in this tutorial, check out the &lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;main homepage&lt;/a&gt;.
-            And if you haven&#39;t had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
-            the &lt;a href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;detailed beginner&#39;s guide&lt;/a&gt;.
-            &lt;/p&gt;
-      &lt;/div&gt;
-
-      &lt;!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
-            argument to either science, computing, humanities, test-prep or economics-finance-domain--&gt;
-
-      &lt;!--to change the number of rows per column, change the last number in &#39;pure-u-1-3&#39;.
-       For example, to have three columns, change the value to &#39;pure-u-1-3&#39;--&gt;
-        
-      &lt;h2 class=&quot;domain-header economics-finance-domain&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Introduction&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container economics-finance-domain&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_nipype.html&quot;&gt;Nipype&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_jupyter-notebook.html&quot;&gt;Jupyter-Notebook&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_dataset.html&quot;&gt;Tutorial Dataset&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_docker.html&quot;&gt;Docker&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;introduction_python.html&quot;&gt;Python&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section is meant as a general overview. It should give you a short introduction to the main topics that
-          you need to understand to use Nipype and this tutorial.&lt;/p&gt;
-
-      &lt;h2 class=&quot;domain-header humanities&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Basic Concepts&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container humanities&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_interfaces.html&quot;&gt;Interfaces&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_nodes.html&quot;&gt;Nodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_workflow.html&quot;&gt;Workflow&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_graph_visualization.html&quot;&gt;Graph Visualization&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_data_input.html&quot;&gt;Data Input&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_data_output.html&quot;&gt;Data Output&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_iteration.html&quot;&gt;Iteration / Iterables&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_mapnodes.html&quot;&gt;MapNodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_function_nodes.html&quot;&gt;Function Nodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_joinnodes.html&quot;&gt;JoinNodes&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_model_specification.html&quot;&gt;Model Specification&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_import_workflows.html&quot;&gt;Import existing Workflows&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_plugins.html&quot;&gt;Execution Plugins&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_configuration.html&quot;&gt;Execution Configuration&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;basic_error_and_crashes.html&quot;&gt;Errors &amp; Crashes&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
-          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
-          to create any kind of Nipype workflow.&lt;/p&gt;
-
-      &lt;h2 class=&quot;domain-header science&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Workflow Examples&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container science&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_preprocessing.html&quot;&gt;Preprocessing&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_1stlevel.html&quot;&gt;1st-level Analysis&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_normalize.html&quot;&gt;Normalize Data&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;example_2ndlevel.html&quot;&gt;2nd-level Analysis&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;In this section you will find some practical examples that show you how to use Nipype in a &quot;real world&quot; scenario.&lt;/p&gt;
-
-      &lt;h2 class=&quot;domain-header computing&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Advanced Concepts&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container computing&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_commandline.html&quot;&gt;Commandline Interface*&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_caching.html&quot;&gt;Caching*&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_databases.html&quot;&gt;Import from Database*&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_export_workflow.html&quot;&gt;Save Workflow to File*&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_resources_and_profiling.html&quot;&gt;Resources &amp; Profiling*&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_advanced_debug.html&quot;&gt;Debug*&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.&lt;/p&gt;
-        
-      &lt;h2 class=&quot;domain-header math&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;For Developer&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container math&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_report_issue.html&quot;&gt;Report Issues*&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_github.html&quot;&gt;Help via Github*&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;z_development_interface.html&quot;&gt;Create your own Interface*&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.&lt;/p&gt;
-        
-      &lt;h2 class=&quot;domain-header test-prep&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;&lt;/h2&gt;
-      &lt;div class=&quot;pure-g domain-table-container test-prep&quot;&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_installation.html&quot;&gt;Install Nipype&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_resources.html&quot;&gt;Useful Resources &amp; Links&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_help.html&quot;&gt;Where to find Help&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;resources_python_cheat_sheet.html&quot;&gt;Python Cheat Sheet&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;Nipype (homepage)&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://miykael.github.io/nipype-beginner-s-guide/&quot;&gt;Nipype Beginner&#39;s Guide&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;Github of Nipype Tutorial&lt;/a&gt;
-        &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://github.com/miykael/nipype_course&quot;&gt;Github of Nipype Course&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;p&gt;This section will give you helpful links and resources, so that you always know where to go to learn more.&lt;/p&gt;
-
-    &lt;/div&gt;
-  &lt;/article&gt;
-&lt;/body&gt;
-
-&lt;!--The following code will cause the code cell to disappear--&gt;
-
-&lt;script&gt;
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $(&#39;div.input&#39;).hide();
- } else {
- $(&#39;div.input&#39;).show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-&lt;/script&gt;
-
-&lt;hr/&gt;
-
-&lt;h2&gt;You want to help with this tutorial?&lt;/h2&gt;
-&lt;p&gt;Find the github repo of this tutorial under &lt;a href=&quot;https://github.com/miykael/nipype_course&quot;&gt;https://github.com/miykael/nipype_course&lt;/a&gt;.
-    Feel free to send a pull request or leave an &lt;a href=&quot;https://github.com/miykael/nipype_tutorial/issues&quot;&gt;issue&lt;/a&gt; with your feedback or ideas.
-&lt;/p&gt;
-To inspect the html code of this page, click: &lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Show HTML code&quot;&gt;&lt;/form&gt;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Workflow</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Function</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Creating Workflow with one Node that adds two numbers</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
-<div class="output_area">
-<div class="prompt"></div>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 
+<span class="n">adder</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                      <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">],</span>
+                      <span class="n">function</span><span class="o">=</span><span class="nb">sum</span><span class="p">),</span> 
+             <span class="n">name</span><span class="o">=</span><span class="s1">&#39;a_plus_b&#39;</span><span class="p">)</span>
 
-<div class="output_html rendered_html output_subarea ">
-<style>.container { width:75% !important; }</style>
-<link rel='stylesheet' type='text/css' href='../static/css_backup/mobile-package-094623.css'>
-<link rel='stylesheet' type='text/css' href='../static/css_backup/homepage-package-3bd234.css'>
-        
-<body>
-  <article id="homepage">
-    <a id="library-section"></a>
-    <div class="library-section">
-      <div class="section-separator library-section-separator">
-        <center><img src="../static/images/logoNipype_tutorial.png" width=700></center>
-        <p>Welcome to the Nipype Tutorial! It covers the basic concepts and most common use cases of Nipype and will teach
-            you everything so that you can start creating your own workflows in no time. We recommend that you start with
-            the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
-            basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
-            examples section shows you a real example how you can use Nipype to analyze an actual dataset.
-            </p><p>
-            All of the notebooks used in this tutorial can be found on <a href="https://github.com/miykael/nipype_tutorial">github.com/miykael/nipype_tutorial</a>.
-            But if you want to have the real experience and want to go through the computations by yourself, we highly
-            recommend you to do the <a href="https://github.com/miykael/nipype_course">Nipype Course</a>. This course
-            gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
-            Nipype yourself. For the tutorial, you need to install a <a href="www.docker.com/">Docker</a> image on your system that provides you a 
-            neuroimaging environment based on a Debian system, with working Python software (including Nipype, dipy, matplotlib,
-            nibabel, nipy, numpy, pandas, scipy, seaborn and more), FSL, AFNI, ANTs and SPM12 (no license needed). This
-            neuroimaging environment is based on the docker images under <a href="https://github.com/miykael/nipype_env">github.com/miykael/nipype_env</a>,
-            which allow you to run toolboxes like FSL, AFNI and ANTs on any system, including Windows.
-            </p><p>
-            For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>.
-            And if you haven't had enough and want to learn even more about Nipype and Neuroimaging, make sure to look at
-            the <a href="https://miykael.github.io/nipype-beginner-s-guide/">detailed beginner's guide</a>.
-            </p>
-      </div>
+<span class="n">adder</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">adder</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
 
-      <!--Comment: to change the color of the title or section, change the second h2 class argument and the third div
-            argument to either science, computing, humanities, test-prep or economics-finance-domain-->
+<span class="n">wf</span><span class="o">.</span><span class="n">add_nodes</span><span class="p">([</span><span class="n">adder</span><span class="p">])</span>
 
-      <!--to change the number of rows per column, change the last number in 'pure-u-1-3'.
-       For example, to have three columns, change the value to 'pure-u-1-3'-->
-        
-      <h2 class="domain-header economics-finance-domain"><a class="domain-title">Introduction</a></h2>
-      <div class="pure-g domain-table-container economics-finance-domain">
-        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_nipype.html">Nipype</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_jupyter-notebook.html">Jupyter-Notebook</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_dataset.html">Tutorial Dataset</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_docker.html">Docker</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="introduction_python.html">Python</a>
-      </div>
-      <p>This section is meant as a general overview. It should give you a short introduction to the main topics that
-          you need to understand to use Nipype and this tutorial.</p>
+<span class="n">wf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 
-      <h2 class="domain-header humanities"><a class="domain-title">Basic Concepts</a></h2>
-      <div class="pure-g domain-table-container humanities">
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_interfaces.html">Interfaces</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_nodes.html">Nodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_workflow.html">Workflow</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_graph_visualization.html">Graph Visualization</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_data_input.html">Data Input</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_data_output.html">Data Output</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_iteration.html">Iteration / Iterables</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_mapnodes.html">MapNodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_function_nodes.html">Function Nodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_joinnodes.html">JoinNodes</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_model_specification.html">Model Specification</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_import_workflows.html">Import existing Workflows</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_plugins.html">Execution Plugins</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_configuration.html">Execution Configuration</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="basic_error_and_crashes.html">Errors & Crashes</a>
-      </div>
-      <p>This section will introduce you to all of the key players in Nipype. Basic concepts that you need to learn to
-          fully understand and appreciate Nipype. Once you understand this section, you will know all that you need to know
-          to create any kind of Nipype workflow.</p>
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-      <h2 class="domain-header science"><a class="domain-title">Workflow Examples</a></h2>
-      <div class="pure-g domain-table-container science">
-        <a class="subject-link pure-u-1-4" target="_blank" href="example_preprocessing.html">Preprocessing</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="example_1stlevel.html">1st-level Analysis</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="example_normalize.html">Normalize Data</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="example_2ndlevel.html">2nd-level Analysis</a>
-      </div>
-      <p>In this section you will find some practical examples that show you how to use Nipype in a "real world" scenario.</p>
+<span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+</pre></div>
 
-      <h2 class="domain-header computing"><a class="domain-title">Advanced Concepts</a></h2>
-      <div class="pure-g domain-table-container computing">
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_commandline.html">Commandline Interface*</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_caching.html">Caching*</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_databases.html">Import from Database*</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_export_workflow.html">Save Workflow to File*</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_resources_and_profiling.html">Resources & Profiling*</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_advanced_debug.html">Debug*</a>
-      </div>
-      <p>PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.</p>
-        
-      <h2 class="domain-header math"><a class="domain-title">For Developer</a></h2>
-      <div class="pure-g domain-table-container math">
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_report_issue.html">Report Issues*</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_github.html">Help via Github*</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="z_development_interface.html">Create your own Interface*</a>
-      </div>
-      <p>PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT PLACEHOLDER TEXT.</p>
-        
-      <h2 class="domain-header test-prep"><a class="domain-title">Useful Resources & Links</a></h2>
-      <div class="pure-g domain-table-container test-prep">
-        <a class="subject-link pure-u-1-4" target="_blank" href="resources_installation.html">Install Nipype</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="resources_resources.html">Useful Resources & Links</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="resources_help.html">Where to find Help</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="resources_python_cheat_sheet.html">Python Cheat Sheet</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="http://nipype.readthedocs.io/en/latest/">Nipype (homepage)</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="https://miykael.github.io/nipype-beginner-s-guide/">Nipype Beginner's Guide</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_tutorial">Github of Nipype Tutorial</a>
-        <a class="subject-link pure-u-1-4" target="_blank" href="https://github.com/miykael/nipype_course">Github of Nipype Course</a>
-      </div>
-      <p>This section will give you helpful links and resources, so that you always know where to go to learn more.</p>
-
-    </div>
-  </article>
-</body>
-
-<!--The following code will cause the code cell to disappear-->
-
-<script>
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- } else {
- $('div.input').show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-</script>
-
-<hr/>
-
-<h2>You want to help with this tutorial?</h2>
-<p>Find the github repo of this tutorial under <a href="https://github.com/miykael/nipype_course">https://github.com/miykael/nipype_course</a>.
-    Feel free to send a pull request or leave an <a href="https://github.com/miykael/nipype_tutorial/issues">issue</a> with your feedback or ideas.
-</p>
-To inspect the html code of this page, click: <form action="javascript:code_toggle()"><input type="submit" value="Show HTML code"></form>
+</div>
+</div>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Creating a second node and connecting to the <code>hello</code> Workflow</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
+
+
+<span class="n">concater</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;some_list&#39;</span><span class="p">],</span>
+                         <span class="n">function</span><span class="o">=</span><span class="n">concat</span><span class="p">),</span> 
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;concat_a_b&#39;</span><span class="p">)</span>
+
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">adder</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">concater</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">concater</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And we can check results of our Workflow, we should see a list:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will try to add additional Node that adds one:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plus_one</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">plusone</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                        <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;out&#39;</span><span class="p">],</span>
+                        <span class="n">function</span><span class="o">=</span><span class="n">plus_one</span><span class="p">),</span> 
+               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;add_1&#39;</span><span class="p">)</span>
+
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">concater</span><span class="p">,</span> <span class="s1">&#39;some_list&#39;</span><span class="p">,</span> <span class="n">plusone</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">eg</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="k">except</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RuntimeError:&quot;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This time the workflow didn't execute cleanly and we got an error. We can use <code>nipypecli</code> to read the crashfile (note, that if you have multiple crashfiles in the directory you'll have to provide a full name):</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nipypecli crash crash*
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It clearly shows the problematic Node and its input. We tried to add an integer to a list, this operation is not allowed in Python.</p>
+<p>Let's try using MapNode</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">MapNode</span>
+
+<span class="n">plusone</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                           <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;out&#39;</span><span class="p">],</span>
+                           <span class="n">function</span><span class="o">=</span><span class="n">plus_one</span><span class="p">),</span> 
+                  <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                  <span class="n">name</span><span class="o">=</span><span class="s1">&#39;add_1&#39;</span><span class="p">)</span>
+
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="s1">&#39;hello_mapnode&#39;</span><span class="p">)</span>
+
+<span class="n">adder</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                      <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">],</span>
+                      <span class="n">function</span><span class="o">=</span><span class="nb">sum</span><span class="p">),</span> 
+             <span class="n">name</span><span class="o">=</span><span class="s1">&#39;a_plus_b&#39;</span><span class="p">)</span>
+
+<span class="n">adder</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">adder</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">adder</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">concater</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">concater</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">concater</span><span class="p">,</span> <span class="s1">&#39;some_list&#39;</span><span class="p">,</span> <span class="n">plusone</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+
+<span class="n">wf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now the workflow finished without problems, let's see the results from <code>hello.add_1</code>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And now we will run the example with <code>iterables</code>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">adder</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">adder</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we have 6 nodes, we can check results for <code>hello.add_1.a1</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -12093,7 +12117,674 @@ To inspect the html code of this page, click: <form action="javascript:code_togg
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can plot a general structure of the workflow:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;hello_mapnode/graph.dot.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And more detailed structure with all nodes:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;hello_mapnode/graph_detailed.dot.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will introduce another iterables, for the concater Node:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">concater</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;hello_mapnode/graph_detailed.dot.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we will introduce JoinNode that allows us to merge results together:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">merge_and_scale_data</span><span class="p">(</span><span class="n">data2</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+
+<span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">JoinNode</span>
+<span class="n">joiner</span> <span class="o">=</span> <span class="n">JoinNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;data2&#39;</span><span class="p">],</span>
+                          <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;data_scaled&#39;</span><span class="p">],</span>
+                          <span class="n">function</span><span class="o">=</span><span class="n">merge_and_scale_data</span><span class="p">),</span>
+                 <span class="n">name</span><span class="o">=</span><span class="s1">&#39;join_scale_data&#39;</span><span class="p">,</span>
+                 <span class="n">joinsource</span><span class="o">=</span><span class="n">adder</span><span class="p">,</span>
+                 <span class="n">joinfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;data2&#39;</span><span class="p">])</span>
+
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">plusone</span><span class="p">,</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span> <span class="n">joiner</span><span class="p">,</span> <span class="s1">&#39;data2&#39;</span><span class="p">)</span>
+
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's check the output of <code>hello.join_scale_data.a0</code> node:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;hello_mapnode/graph.dot.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;hello_mapnode/graph_detailed.dot.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> eg = wf.run(plugin=&#39;MultiProc&#39;, plugin_args={&#39;n_procs&#39;: 2})
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;alt&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> eg = wf.run(plugin=&#39;MultiProc&#39;, plugin_args={&#39;n_procs&#39;: 2})
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> eg = wf.run(plugin=&#39;MultiProc&#39;, plugin_args={&#39;n_procs&#39;: 2})
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1">&#182;</a></h3><p>Create a workflow to calculate a sum of factorials of numbers from a range between $n_{min}$ and $n_{max}$, i.e.:</p>
+$$\sum _{k=n_{min}}^{n_{max}} k! = 0! + 1! +2! + 3! + \cdots$$<p></p>
+<p>if $n_{min}=0$ and $n_{max}=3$
+$$\sum _{k=0}^{3} k! = 0! + 1! +2! + 3!  =  1 + 1 + 2 + 6 = 10$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Workflow</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Function</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">range_fun</span><span class="p">(</span><span class="n">n_min</span><span class="p">,</span> <span class="n">n_max</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_min</span><span class="p">,</span> <span class="n">n_max</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># print(&quot;FACTORIAL, {}&quot;.format(n))</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">summing</span><span class="p">(</span><span class="n">terms</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span>
+
+<span class="n">wf_ex1</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="s1">&#39;ex1&#39;</span><span class="p">)</span>
+<span class="n">wf_ex1</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="n">range_nd</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_min&#39;</span><span class="p">,</span> <span class="s1">&#39;n_max&#39;</span><span class="p">],</span>
+                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;range_list&#39;</span><span class="p">],</span>
+                         <span class="n">function</span><span class="o">=</span><span class="n">range_fun</span><span class="p">),</span> 
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;range_list&#39;</span><span class="p">)</span>
+
+<span class="n">factorial_nd</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">],</span>
+                                <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fact_out&#39;</span><span class="p">],</span>
+                                <span class="n">function</span><span class="o">=</span><span class="n">factorial</span><span class="p">),</span> 
+                       <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">],</span>
+                       <span class="n">name</span><span class="o">=</span><span class="s1">&#39;factorial&#39;</span><span class="p">)</span>
+
+<span class="n">summing_nd</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;terms&#39;</span><span class="p">],</span>
+                           <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sum_out&#39;</span><span class="p">],</span>
+                           <span class="n">function</span><span class="o">=</span><span class="n">summing</span><span class="p">),</span> 
+                  <span class="n">name</span><span class="o">=</span><span class="s1">&#39;summing&#39;</span><span class="p">)</span>
+
+
+<span class="n">range_nd</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">n_min</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">range_nd</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">n_max</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">wf_ex1</span><span class="o">.</span><span class="n">add_nodes</span><span class="p">([</span><span class="n">range_nd</span><span class="p">])</span>
+<span class="n">wf_ex1</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">range_nd</span><span class="p">,</span> <span class="s1">&#39;range_list&#39;</span><span class="p">,</span> <span class="n">factorial_nd</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)</span>
+<span class="n">wf_ex1</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">factorial_nd</span><span class="p">,</span> <span class="s1">&#39;fact_out&#39;</span><span class="p">,</span> <span class="n">summing_nd</span><span class="p">,</span> <span class="s2">&quot;terms&quot;</span><span class="p">)</span>
+
+
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf_ex1</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>let's print all nodes:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>the final result should be 10:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>we can also check the results of two other nodes:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#write your code here</span>
+
+<span class="c1"># 1. write 3 functions: one that return a list of number from specific range, </span>
+<span class="c1">#    second that returns n! (you can use math.factorial) and third that sums the elements from a list</span>
+
+<span class="c1"># 2. create a workflow and define the working directory</span>
+
+<span class="c1"># 3. define 3 nodes using Node and MapNode and connect them within the workflow</span>
+
+<span class="c1"># 4. run the workflow and check the results</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise-2">Exercise 2<a class="anchor-link" href="#Exercise-2">&#182;</a></h3><p>Create a workflow to calculate the following sum for chosen $n$ and five different values of $x$:  $0$, $\frac{1}{2} \pi$, $\pi$, $\frac{3}{2} \pi$, and $ 2 \pi$.</p>
+<p>$\sum _{{k=0}}^{{n}}{\frac  {(-1)^{k}}{(2k+1)!}}x^{{2k+1}}\quad =x-{\frac  {x^{3}}{3!}}+{\frac  {x^{5}}{5!}}-\cdots $</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we can reuse function from previous exercise, but they need some edits</span>
+<span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">Workflow</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">JoinNode</span><span class="p">,</span> <span class="n">Function</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">range_fun</span><span class="p">(</span><span class="n">n_max</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_max</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">term</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="n">fract</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">polyn</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">k</span> <span class="o">*</span> <span class="n">polyn</span> <span class="o">/</span> <span class="n">fract</span>
+
+<span class="k">def</span> <span class="nf">summing</span><span class="p">(</span><span class="n">terms</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span>
+
+<span class="n">wf_ex2</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="s1">&#39;ex2&#39;</span><span class="p">)</span>
+<span class="n">wf_ex2</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="n">range_nd</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_max&#39;</span><span class="p">],</span>
+                         <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;range_list&#39;</span><span class="p">],</span>
+                         <span class="n">function</span><span class="o">=</span><span class="n">range_fun</span><span class="p">),</span> 
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;range_list&#39;</span><span class="p">)</span>
+
+<span class="n">term_nd</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">],</span>
+                           <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;term_out&#39;</span><span class="p">],</span>
+                           <span class="n">function</span><span class="o">=</span><span class="n">term</span><span class="p">),</span> 
+                  <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">],</span>
+                  <span class="n">name</span><span class="o">=</span><span class="s1">&#39;term&#39;</span><span class="p">)</span>
+
+<span class="n">summing_nd</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;terms&#39;</span><span class="p">],</span>
+                           <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sum_out&#39;</span><span class="p">],</span>
+                           <span class="n">function</span><span class="o">=</span><span class="n">summing</span><span class="p">),</span> 
+                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;summing&#39;</span><span class="p">)</span>
+
+
+<span class="n">range_nd</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">n_max</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">x_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">]</span>
+
+<span class="n">term_nd</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">x_list</span><span class="p">)</span>
+
+<span class="n">wf_ex2</span><span class="o">.</span><span class="n">add_nodes</span><span class="p">([</span><span class="n">range_nd</span><span class="p">])</span>
+<span class="n">wf_ex2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">range_nd</span><span class="p">,</span> <span class="s1">&#39;range_list&#39;</span><span class="p">,</span> <span class="n">term_nd</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">wf_ex2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">term_nd</span><span class="p">,</span> <span class="s1">&#39;term_out&#39;</span><span class="p">,</span> <span class="n">summing_nd</span><span class="p">,</span> <span class="s2">&quot;terms&quot;</span><span class="p">)</span>
+
+
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf_ex2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>let's check all nodes</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>let's print all results of <code>ex2.summing</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Great, we just implemented pretty good Sine function! Those number should be approximately 0, 1, 0, -1 and 0. If they are not, try to increase $n_max$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># write your solution here</span>
+
+<span class="c1"># 1. write 3 functions: one that return a list of number from a range between 0 and some n, </span>
+<span class="c1">#    second that returns a term for a specific k, and third that sums the elements from a list</span>
+
+<span class="c1"># 2. create a workflow and define the working directory</span>
+
+<span class="c1"># 3. define 3 nodes using Node and MapNode and connect them within the workflow</span>
+
+<span class="c1"># 4. use iterables for 4 values of x</span>
+
+<span class="c1"># 5. run the workflow and check the final results for every value of x</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Exercise-2a">Exercise 2a<a class="anchor-link" href="#Exercise-2a">&#182;</a></h3><p>Use JoinNode to combine results from Exercise 2 in one container, e.g. a dictionary, that takes value $x$ as a key and the result from <code>summing</code> Node as a value.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">merge_results</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">results</span><span class="p">))</span>
+
+<span class="n">join_nd</span> <span class="o">=</span> <span class="n">JoinNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">],</span>
+                            <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;results_cont&#39;</span><span class="p">],</span>
+                            <span class="n">function</span><span class="o">=</span><span class="n">merge_results</span><span class="p">),</span>
+                   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;merge&#39;</span><span class="p">,</span>
+                   <span class="n">joinsource</span><span class="o">=</span><span class="n">term_nd</span><span class="p">,</span> <span class="c1"># this is the node that used iterables for x</span>
+                   <span class="n">joinfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">])</span>
+
+<span class="c1"># taking the list of arguments from the previous part </span>
+<span class="n">join_nd</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x_list</span>
+
+<span class="c1"># connecting a new node to the summing_nd</span>
+<span class="n">wf_ex2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">summing_nd</span><span class="p">,</span> <span class="s2">&quot;sum_out&quot;</span><span class="p">,</span> <span class="n">join_nd</span><span class="p">,</span> <span class="s2">&quot;results&quot;</span><span class="p">)</span>
+
+<span class="n">eg</span> <span class="o">=</span> <span class="n">wf_ex2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>let's print all nodes</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>and results from <code>merge</code> Node:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">eg</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># write your code here</span>
+
+<span class="c1"># 1. create an additional function that takes 2 list and combines them into one container, e.g. dictionary</span>
+
+<span class="c1"># 2. use JoinNode to define a new node that merge results from Exercise 2 and connect it to the workflow</span>
+
+<span class="c1"># 3. run the workflow and check the results of the merging node</span>
 </pre></div>
 
 </div>

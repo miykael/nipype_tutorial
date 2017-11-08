@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11783,8 +11781,7 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11794,8 +11791,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11803,8 +11799,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11830,8 +11825,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11847,9 +11841,9 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">]</span>      <span class="c1"># manually initialization</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>                      <span class="c1"># initialization through a function</span>
 <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">nu</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">nu</span> <span class="ow">in</span> <span class="n">b</span><span class="p">]</span>           <span class="c1"># initialize through list comprehension</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">nu</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">nu</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="n">nu</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># list comprehension with condition</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">nu</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">nu</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="n">nu</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">]</span> <span class="c1"># list comprehension with condition</span>
 <span class="n">e</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                          <span class="c1"># access element</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>                       <span class="c1"># access a slice of the list</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>                        <span class="c1"># access a slice of the list</span>
 <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;re&#39;</span><span class="p">,</span> <span class="s1">&#39;bl&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;gr&#39;</span><span class="p">]</span>         <span class="c1"># list concatenation</span>
 <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;re&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>                    <span class="c1"># repeat a list</span>
 <span class="p">[</span><span class="s1">&#39;re&#39;</span><span class="p">,</span> <span class="s1">&#39;bl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;re&#39;</span><span class="p">)</span>          <span class="c1"># returns index of &#39;re&#39;</span>
@@ -11863,8 +11857,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11888,8 +11881,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11914,8 +11906,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11929,15 +11920,15 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>             <span class="c1"># assignment</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>    <span class="c1"># change and assign, try also `*=` and `/=`</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>         <span class="c1"># assign a list</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>            <span class="c1"># change and assign, try also `*=` and `/=`</span>
 <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span>             <span class="c1"># addition</span>
 <span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>             <span class="c1"># integer division (python2) or float division (python3)</span>
 <span class="mi">3</span> <span class="o">//</span> <span class="mi">2</span>            <span class="c1"># integer division</span>
 <span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span>             <span class="c1"># multiplication</span>
 <span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span>            <span class="c1"># exponent</span>
 <span class="mi">3</span> <span class="o">%</span> <span class="mi">2</span>             <span class="c1"># remainder</span>
-<span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>             <span class="c1"># absolute value</span>
+<span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>           <span class="c1"># absolute value</span>
 <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>            <span class="c1"># equal</span>
 <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>             <span class="c1"># larger</span>
 <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">1</span>             <span class="c1"># smaller</span>
@@ -11954,8 +11945,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12008,8 +11998,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12027,7 +12016,7 @@ div#notebook {
     <span class="k">return</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span>
 
 <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">myfunc</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">myfunc</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
 
 <span class="c1"># Class</span>
 <span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -12068,8 +12057,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12077,8 +12065,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12086,31 +12073,44 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><object>?  # Information about the object</p>
-<p><object>.<TAB>  # tab completion</p>
-<h1 id="measure-runtime-of-a-function:">measure runtime of a function:<a class="anchor-link" href="#measure-runtime-of-a-function:">&#182;</a></h1><p>%timeit range(1000)
-100000 loops, best of 3: 7.76 us per loop</p>
-<h1 id="run-scripts-and-debug">run scripts and debug<a class="anchor-link" href="#run-scripts-and-debug">&#182;</a></h1><p>%run
-%run -d  # run in debug mode
-%run -t  # measures execution time
-%run -p  # runs a profiler
-%debug  # jumps to the debugger after an exception</p>
-<p>%pdb  # run debugger automatically on exception</p>
-<h1 id="examine-history">examine history<a class="anchor-link" href="#examine-history">&#182;</a></h1><p>%history
-%history ~1/1-5  # lines 1-5 of last session</p>
-<h1 id="run-shell-commands">run shell commands<a class="anchor-link" href="#run-shell-commands">&#182;</a></h1><p>!make  # prefix command with "!"</p>
-<h1 id="clean-namespace">clean namespace<a class="anchor-link" href="#clean-namespace">&#182;</a></h1><p>%reset</p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span><span class="err">?</span>       <span class="c1"># Information about the object</span>
+<span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;.&lt;</span><span class="n">TAB</span><span class="o">&gt;</span>  <span class="c1"># tab completion</span>
+
+<span class="c1"># measure runtime of a function:</span>
+<span class="o">%</span><span class="k">timeit</span> range(1000)
+<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">7.76</span> <span class="n">us</span> <span class="n">per</span> <span class="n">loop</span>
+
+<span class="c1"># run scripts and debug</span>
+<span class="o">%</span><span class="k">run</span>
+<span class="o">%</span><span class="k">run</span> -d  # run in debug mode
+<span class="o">%</span><span class="k">run</span> -t  # measures execution time
+<span class="o">%</span><span class="k">run</span> -p  # runs a profiler
+<span class="o">%</span><span class="k">debug</span>   # jumps to the debugger after an exception
+
+<span class="o">%</span><span class="k">pdb</span>     # run debugger automatically on exception
+
+<span class="c1"># examine history</span>
+<span class="o">%</span><span class="k">history</span>
+<span class="o">%</span><span class="k">history</span> ~1/1-5  # lines 1-5 of last session
+
+<span class="c1"># run shell commands</span>
+<span class="o">!</span>make  # prefix <span class="nb">command</span> with <span class="s2">&quot;!&quot;</span>
+
+<span class="c1"># clean namespace</span>
+<span class="o">%</span><span class="k">reset</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12118,31 +12118,24 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>n  # execute next line</p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span>  <span class="c1"># execute next line</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="NumPy-(import-numpy-as-np)">NumPy (import numpy as np)<a class="anchor-link" href="#NumPy-(import-numpy-as-np)">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="array-initialization">array initialization<a class="anchor-link" href="#array-initialization">&#182;</a></h3>
+<h2 id="NumPy">NumPy<a class="anchor-link" href="#NumPy">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12158,6 +12151,14 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="array-initialization">array initialization<a class="anchor-link" href="#array-initialization">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12182,8 +12183,7 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12191,19 +12191,21 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>np.fromfile(fname/object, dtype=np.float32, count=5)  # read binary data from file
-np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from file</p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">fname</span><span class="o">/</span><span class="nb">object</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># read binary data from file</span>
+<span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="o">/</span><span class="nb">object</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>   <span class="c1"># read ascii data from file</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12235,8 +12237,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12258,7 +12259,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <span class="n">a</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>             <span class="c1"># return array with values of the indices</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>       <span class="c1"># transform to 10 x 10 matrix</span>
 <span class="n">a</span><span class="o">.</span><span class="n">T</span>                         <span class="c1"># return transposed view</span>
-<span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># transpose array to new axis order</span>
+<span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>     <span class="c1"># transpose array to new axis order</span>
 <span class="n">a</span><span class="p">[</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">]</span>                    <span class="c1"># returns array that fulfills element-wise condition</span>
 </pre></div>
 
@@ -12267,8 +12268,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12281,7 +12281,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span>                          <span class="c1"># returns array with boolean values</span>
 <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># element-wise logical and</span>
 <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>   <span class="c1"># element-wise logical or</span>
@@ -12294,8 +12294,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12308,7 +12307,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">*</span> <span class="mi">5</span>              <span class="c1"># multiplication with scalar</span>
 <span class="n">a</span> <span class="o">+</span> <span class="mi">5</span>              <span class="c1"># addition with scalar</span>
 <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>              <span class="c1"># addition with array b</span>
@@ -12317,7 +12316,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>      <span class="c1"># a to the power b</span>
 <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>          <span class="c1"># sine</span>
 <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>          <span class="c1"># cosine</span>
-<span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>    <span class="c1"># arctan(y/x)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>   <span class="c1"># arctan(y/x)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>       <span class="c1"># arcsin</span>
 <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>      <span class="c1"># degrees to radians</span>
 <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>      <span class="c1"># radians to degrees</span>
@@ -12330,8 +12329,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12360,8 +12358,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12374,8 +12371,8 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># integrate along axis 0</span>
-<span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">xp</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">fp</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>      <span class="c1"># interpolate function xp, yp at points x</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>          <span class="c1"># integrate along axis 0</span>
+<span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">xp</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">fp</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="c1"># interpolate function xp, yp at points x</span>
 </pre></div>
 
 </div>
@@ -12383,8 +12380,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12397,11 +12393,11 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>             <span class="c1"># complex fourier transform of y</span>
-<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>   <span class="c1"># fft frequencies for a given length</span>
-<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>    <span class="c1"># shifts zero frequency to the middle</span>
-<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>            <span class="c1"># real fourier transform of y</span>
-<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># real fft frequencies for a given length</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>                   <span class="c1"># complex fourier transform of y</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># fft frequencies for a given length</span>
+<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>          <span class="c1"># shifts zero frequency to the middle</span>
+<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>                  <span class="c1"># real fourier transform of y</span>
+<span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>         <span class="c1"># real fft frequencies for a given length</span>
 </pre></div>
 
 </div>
@@ -12409,8 +12405,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12434,8 +12429,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12452,7 +12446,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">23032</span><span class="p">)</span>                       <span class="c1"># resets the seed value</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>                         <span class="c1"># 200 random numbers in [0, 1)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>               <span class="c1"># 200 random numbers in [1, 30)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>       <span class="c1"># 300 random integers between [1, 15]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>       <span class="c1"># 300 random integers between [1, 15]</span>
 </pre></div>
 
 </div>
@@ -12460,21 +12454,11 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Matplotlib-(import-matplotlib.pyplot-as-plt)">Matplotlib (import matplotlib.pyplot as plt)<a class="anchor-link" href="#Matplotlib-(import-matplotlib.pyplot-as-plt)">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="figures-and-axes">figures and axes<a class="anchor-link" href="#figures-and-axes">&#182;</a></h3>
+<h2 id="Matplotlib">Matplotlib<a class="anchor-link" href="#Matplotlib">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12491,15 +12475,23 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="figures-and-axes">figures and axes<a class="anchor-link" href="#figures-and-axes">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>  <span class="c1"># initialize figure</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                        <span class="c1"># add second subplot in a 3 x 2 grid</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>       <span class="c1"># return fig and array of axes in a 5 x 2 grid</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">left</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=.</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=.</span><span class="mi">8</span><span class="p">)</span>     <span class="c1"># manually add axes at a certain position</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>        <span class="c1"># initialize figure</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                              <span class="c1"># add second subplot in a 3 x 2 grid</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>             <span class="c1"># return fig and array of axes in a 5 x 2 grid</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">left</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=.</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=.</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># manually add axes at a certain position</span>
 </pre></div>
 
 </div>
@@ -12507,8 +12499,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12516,12 +12507,12 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>            <span class="c1"># big figure title</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>            <span class="c1"># big figure title</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
                     <span class="n">right</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
                     <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
@@ -12530,7 +12521,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
                  <span class="n">h_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
                  <span class="n">w_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                 <span class="n">rect</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>      <span class="c1"># adjust subplots to fit perfectly into fig</span>
+                 <span class="n">rect</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>      <span class="c1"># adjust subplots to fit perfectly into fig</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">()</span>                  <span class="c1"># set xlabel</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">()</span>                  <span class="c1"># set ylabel</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                <span class="c1"># sets x limits</span>
@@ -12538,7 +12529,7 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;blabla&#39;</span><span class="p">)</span>           <span class="c1"># sets the axis title</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;bla&#39;</span><span class="p">)</span>             <span class="c1"># set multiple parameters at once</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>    <span class="c1"># activate legend</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>      <span class="c1"># activate grid</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>      <span class="c1"># activate grid</span>
 <span class="n">bbox</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>         <span class="c1"># returns the axes bounding box</span>
 <span class="n">bbox</span><span class="o">.</span><span class="n">x0</span> <span class="o">+</span> <span class="n">bbox</span><span class="o">.</span><span class="n">width</span>             <span class="c1"># bounding box parameters</span>
 </pre></div>
@@ -12546,8 +12537,9 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12555,12 +12547,12 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bla&#39;</span><span class="p">)</span>  <span class="c1"># plots a line</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bla&#39;</span><span class="p">)</span>  <span class="c1"># plots a line</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>                  <span class="c1"># scatter plot</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">)</span>      <span class="c1"># fast colormesh function</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">colormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>               <span class="c1"># slower colormesh function</span>
@@ -12573,6 +12565,8 @@ np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from fil
 
 </div>
 </div>
+</div>
+
 </div>
     </div>
   </div>

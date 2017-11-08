@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11783,25 +11781,24 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Memory-caching">Memory caching<a class="anchor-link" href="#Memory-caching">&#182;</a></h1><p>In <a href="basic_worflow.html">Workflow notebook</a> you learnt about <code>Workflows</code> that specify processing by an execution graph and offer efficient recomputing. However, sometimes you might want to use <code>Interfaces</code> that gives better control of the execution of each step and can be easily combine with any Python code. Unfortunately, <code>Interfaces</code> do not offer any caching and you always dully recompute your task.</p>
 <p>Solution to this problem can be a <code>caching</code> mechanism supported by Nipype. Nipype caching relies on the <code>Memory</code> class and creates an execution context that is bound to a disk cache.
-When you instantiate the class you should provide <code>base_dir</code> and additional subdirectory called <code>nipype_mem</code> will be automatically created.</p>
+When you instantiate the class you should provide <code>base_dir</code> (that has to be an existing directory) and additional subdirectory called <code>nipype_mem</code> will be automatically created.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.caching</span> <span class="k">import</span> <span class="n">Memory</span>
-<span class="n">mem</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="n">base_dir</span><span class="o">=</span><span class="s1">&#39;/output/workingdir&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span>%%bash
+mkdir -p /output/workingdir_mem
 </pre></div>
 
 </div>
@@ -11809,8 +11806,21 @@ When you instantiate the class you should provide <code>base_dir</code> and addi
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.caching</span> <span class="k">import</span> <span class="n">Memory</span>
+<span class="n">mem</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">(</span><span class="n">base_dir</span><span class="o">=</span><span class="s1">&#39;/output/workingdir_mem&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11821,7 +11831,7 @@ When you instantiate the class you should provide <code>base_dir</code> and addi
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces</span> <span class="k">import</span> <span class="n">fsl</span>
@@ -11833,8 +11843,7 @@ When you instantiate the class you should provide <code>base_dir</code> and addi
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11845,7 +11854,7 @@ When you instantiate the class you should provide <code>base_dir</code> and addi
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bet_mem</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz&quot;</span><span class="p">,</span>
@@ -11857,39 +11866,8 @@ When you instantiate the class you should provide <code>base_dir</code> and addi
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170822-22:29:13,445 workflow INFO:
-	 Executing node 0cb4fbaf1687a0cccdf631a94c9deece in dir: /output/workingdir/nipype_mem/nipype-interfaces-fsl-preprocess-BET/0cb4fbaf1687a0cccdf631a94c9deece
-170822-22:29:13,495 workflow INFO:
-	 Running: bet /data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz /output/sub-02_T1w_brain.nii.gz -m
-</pre>
 </div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;nipype.interfaces.base.InterfaceResult at 0x7f6e1bdf6c88&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11900,38 +11878,18 @@ When you instantiate the class you should provide <code>base_dir</code> and addi
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> ls -l /output/workingdir/nipype_mem
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> ls -l /output/workingdir_mem/nipype_mem
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>total 4
-drwxr-xr-x 3 neuro users  102 Aug 10 01:59 log.2017
--rw-r--r-- 1 neuro users 1050 Aug 22 22:29 log.current
-drwxr-xr-x 3 neuro users  102 Aug 22 22:29 nipype-interfaces-fsl-preprocess-BET
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11942,7 +11900,7 @@ drwxr-xr-x 3 neuro users  102 Aug 22 22:29 nipype-interfaces-fsl-preprocess-BET
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bet_mem</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s2">&quot;/data/ds000114/sub-02/ses-test/anat/sub-02_ses-test_T1w.nii.gz&quot;</span><span class="p">,</span>
@@ -11954,39 +11912,8 @@ drwxr-xr-x 3 neuro users  102 Aug 22 22:29 nipype-interfaces-fsl-preprocess-BET
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170822-22:29:20,433 workflow INFO:
-	 Executing node 0cb4fbaf1687a0cccdf631a94c9deece in dir: /output/workingdir/nipype_mem/nipype-interfaces-fsl-preprocess-BET/0cb4fbaf1687a0cccdf631a94c9deece
-170822-22:29:20,453 workflow INFO:
-	 Collecting precomputed outputs
-</pre>
 </div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;nipype.interfaces.base.InterfaceResult at 0x7f6e1bdf61d0&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11998,7 +11925,7 @@ drwxr-xr-x 3 neuro users  102 Aug 22 22:29 nipype-interfaces-fsl-preprocess-BET
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mem</span><span class="o">.</span><span class="n">clear_runs_since</span><span class="p">()</span>
@@ -12011,39 +11938,8 @@ drwxr-xr-x 3 neuro users  102 Aug 22 22:29 nipype-interfaces-fsl-preprocess-BET
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>170822-22:29:28,408 workflow INFO:
-	 Executing node 0cb4fbaf1687a0cccdf631a94c9deece in dir: /output/workingdir/nipype_mem/nipype-interfaces-fsl-preprocess-BET/0cb4fbaf1687a0cccdf631a94c9deece
-170822-22:29:28,427 workflow INFO:
-	 Collecting precomputed outputs
-</pre>
 </div>
-</div>
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;nipype.interfaces.base.InterfaceResult at 0x7f6e1bdf6c18&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12054,7 +11950,7 @@ drwxr-xr-x 3 neuro users  102 Aug 22 22:29 nipype-interfaces-fsl-preprocess-BET
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mem</span><span class="o">.</span><span class="n">clear_runs_since</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -12064,25 +11960,8 @@ drwxr-xr-x 3 neuro users  102 Aug 22 22:29 nipype-interfaces-fsl-preprocess-BET
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>removing directory: /output/workingdir/nipype_mem/nipype-interfaces-fsl-preprocess-BET
-</pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
