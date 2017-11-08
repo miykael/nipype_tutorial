@@ -11848,7 +11848,7 @@ div#notebook {
 </code></pre>
 <p>However if you want use your version of notebooks, safes notebooks output locally or use you local data, you can also mount your local directories, e.g.:</p>
 
-<pre><code>docker run -it --rm -v /path/to/nipype_tutorial/:/opt/tutorial -v /path/to/data/:/data -v /path/to/output/:/output -p 8888:8888 djarecka/nipype_tutorial jupyter notebook
+<pre><code>docker run -it --rm -v /path/to/nipype_tutorial/:/home/neuro/nipype_tutorial -v /path/to/data/:/data -v /path/to/output/:/output -p 8888:8888 djarecka/nipype_tutorial jupyter notebook
 
 </code></pre>
 <p>But what do those flags mean?</p>
@@ -11856,7 +11856,7 @@ div#notebook {
 <li>The <code>-it</code> flag tells docker that it should open an interactive container instance.</li>
 <li>The <code>--rm</code> flag tells docker that the container should automatically be removed after we close docker.</li>
 <li>The <code>-p</code> flag specifies which port we want to make available for docker.</li>
-<li>The <code>-v</code> flag tells docker which folders should be mount to make them accesible inside the container. Here: <code>/path/to/nipype_tutorial</code> is your local directory where you downloaded <a href="https://github.com/miykael/nipype_tutorial/">Nipype Tutorial repository</a>. <code>/path/to/data/</code> is a directory where you have dataset <a href="https://openfmri.org/dataset/ds000114/"><code>ds000114</code></a>, and <code>/path/to/output</code> can be an empty directory that will be used for output. The second part of the <code>-v</code> flag (here: <code>/opt/tutorial</code>, <code>/data</code> or <code>/output</code>) specifies under which path the mounted folders can be found inside the container. <strong>Important</strong>: To use the <code>tutorial</code>, <code>data</code> and <code>output</code> folder, you first need to create them on your system!</li>
+<li>The <code>-v</code> flag tells docker which folders should be mount to make them accesible inside the container. Here: <code>/path/to/nipype_tutorial</code> is your local directory where you downloaded <a href="https://github.com/miykael/nipype_tutorial/">Nipype Tutorial repository</a>. <code>/path/to/data/</code> is a directory where you have dataset <a href="https://openfmri.org/dataset/ds000114/"><code>ds000114</code></a>, and <code>/path/to/output</code> can be an empty directory that will be used for output. The second part of the <code>-v</code> flag (here: <code>/home/neuro/nipype_tutorial</code>, <code>/data</code> or <code>/output</code>) specifies under which path the mounted folders can be found inside the container. <strong>Important</strong>: To use the <code>tutorial</code>, <code>data</code> and <code>output</code> folder, you first need to create them on your system!</li>
 <li><code>sdjarecka/nipype_tutorial</code> tells docker which image you want to run.</li>
 <li><code>jupyter notebook</code> tells that you want to run directly the jupyter notebook command within the container. Alternatively, you can also use <code>jupyter-lab</code>, <code>bash</code> or <code>ipython</code>.</li>
 </ul>
@@ -11878,7 +11878,7 @@ div#notebook {
 <p>Please replace <code>username</code> with the name of the current user on your system. <strong>Pay attention</strong> that the folder paths in the docker terminal are not backslash (<code>\</code>) as we usually have in Windows. Also, <code>C:\</code> needs to be specified as <code>/c/</code>.</p>
 </li>
 <li><p>Now, we can open run the container with the command from above:</p>
-<p><code>docker run -it --rm -v /c/Users/username/path/to/nipype_tutorial/:/opt/tutorial -v /c/Users/username/path/to/data/:/data -v /c/Users/username/path/to/output/:/output -p 8888:8888 djarecka/nipype_tutorial</code></p>
+<p><code>docker run -it --rm -v /c/Users/username/path/to/nipype_tutorial/:/home/neuro/nipype_tutorial -v /c/Users/username/path/to/data/:/data -v /c/Users/username/path/to/output/:/output -p 8888:8888 djarecka/nipype_tutorial</code></p>
 </li>
 <li><p>Once the docker image is downloaded, it will show you an URL that looks something like this:</p>
 <p><code>http://localhost:8888/?token=0312c1ef3b61d7a44ff5346d3d150c23249a548850e13868</code></p>
@@ -11897,7 +11897,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Docker-tips-and-tricks">Docker tips and tricks<a class="anchor-link" href="#Docker-tips-and-tricks">&#182;</a></h1><h2 id="Access-Docker-Container-with-bash-or-ipython">Access Docker Container with <code>bash</code> or <code>ipython</code><a class="anchor-link" href="#Access-Docker-Container-with-bash-or-ipython">&#182;</a></h2><p>You don't have to open a jupyter notebook when you run <code>djarecka/nipype_tutorial</code>. You can also access the docker container directly with <code>bash</code> or <code>ipython</code> by adding it to the end of your command, i.e.:</p>
 
-<pre><code>docker run -it --rm -v /path/to/nipype_tutorial/:/opt/tutorial -v /path/to/data/:/data -v /path/to/output/:/output -p 8888:8888 djarecka/nipype_tutorial bash
+<pre><code>docker run -it --rm -v /path/to/nipype_tutorial/:/home/neuro/nipype_tutorial -v /path/to/data/:/data -v /path/to/output/:/output -p 8888:8888 djarecka/nipype_tutorial bash
 
 </code></pre>
 <p>This also works with other software commands, such as <code>bet</code> etc.</p>
