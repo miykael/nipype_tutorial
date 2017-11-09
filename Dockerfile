@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2017-11-05 18:55:19
+# Timestamp: 2017-11-08 20:40:41
 
 FROM neurodebian:stretch-non-free
 
@@ -34,6 +34,7 @@ ENTRYPOINT ["/neurodocker/startup.sh"]
 
 RUN apt-get update -qq \
     && apt-get install -y -q --no-install-recommends convert3d \
+                                                     ants \
                                                      fsl \
                                                      gcc \
                                                      g++ \
@@ -129,9 +130,6 @@ RUN mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupy
 USER root
 
 # User-defined instruction
-RUN chown -R neuro /home/neuro
-
-# User-defined instruction
 RUN mkdir /data && chmod 777 /data && chmod a+s /data
 
 # User-defined instruction
@@ -146,10 +144,14 @@ RUN bash -c "source activate neuro && cd	/data && datalad install -r ///workshop
 # User-defined BASH instruction
 RUN bash -c "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz"
 
-# User-defined instruction
-RUN mkdir /home/neuro/nipype_tutorial
-
 COPY [".", "/home/neuro/nipype_tutorial"]
+
+USER root
+
+# User-defined instruction
+RUN chown -R neuro /home/neuro/nipype_tutorial
+
+USER neuro
 
 WORKDIR /home/neuro
 
@@ -170,6 +172,7 @@ RUN echo '{ \
     \n      "install", \
     \n      [ \
     \n        "convert3d", \
+    \n        "ants", \
     \n        "fsl", \
     \n        "gcc", \
     \n        "g++", \
@@ -225,10 +228,6 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run", \
-    \n      "chown -R neuro /home/neuro" \
-    \n    ], \
-    \n    [ \
-    \n      "run", \
     \n      "mkdir /data && chmod 777 /data && chmod a+s /data" \
     \n    ], \
     \n    [ \
@@ -248,15 +247,23 @@ RUN echo '{ \
     \n      "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz" \
     \n    ], \
     \n    [ \
-    \n      "run", \
-    \n      "mkdir /home/neuro/nipype_tutorial" \
-    \n    ], \
-    \n    [ \
     \n      "copy", \
     \n      [ \
     \n        ".", \
     \n        "/home/neuro/nipype_tutorial" \
     \n      ] \
+    \n    ], \
+    \n    [ \
+    \n      "user", \
+    \n      "root" \
+    \n    ], \
+    \n    [ \
+    \n      "run", \
+    \n      "chown -R neuro /home/neuro/nipype_tutorial" \
+    \n    ], \
+    \n    [ \
+    \n      "user", \
+    \n      "neuro" \
     \n    ], \
     \n    [ \
     \n      "workdir", \
@@ -269,6 +276,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2017-11-05 18:55:19", \
+    \n  "generation_timestamp": "2017-11-08 20:40:41", \
     \n  "neurodocker_version": "0.3.1-19-g8d02eb4" \
     \n}' > /neurodocker/neurodocker_specs.json
