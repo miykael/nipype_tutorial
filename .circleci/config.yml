@@ -7,7 +7,6 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
-      - run: echo "A first hello"
       - run: 
           name: docker build
           no_output_timeout: 60m
