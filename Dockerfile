@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-02-26 17:10:01
+# Timestamp: 2018-02-26 18:15:43
 
 FROM neurodebian:stretch-non-free
 
@@ -90,7 +90,7 @@ ENV CONDA_DIR=/opt/conda \
     PATH=/opt/conda/bin:$PATH
 RUN echo "Downloading Miniconda installer ..." \
     && miniconda_installer=/tmp/miniconda.sh \
-    && curl -sSL --retry 5 -o $miniconda_installer https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && curl -sSL --retry 5 -o $miniconda_installer https://repo.continuum.io/miniconda/Miniconda3-4.3.31-Linux-x86_64.sh \
     && /bin/bash $miniconda_installer -b -p $CONDA_DIR \
     && rm -f $miniconda_installer \
     && conda config --system --prepend channels conda-forge \
@@ -210,6 +210,7 @@ RUN echo '{ \
     \n    [ \
     \n      "miniconda", \
     \n      { \
+    \n        "miniconda_version": "4.3.31", \
     \n        "conda_install": "python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions traits pandas matplotlib scikit-learn seaborn nbformat", \
     \n        "pip_install": "https://github.com/nipy/nipype/tarball/master https://github.com/INCF/pybids/tarball/master nilearn datalad[full] nipy duecredit", \
     \n        "env_name": "neuro", \
@@ -278,6 +279,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-02-26 17:10:01", \
+    \n  "generation_timestamp": "2018-02-26 18:15:43", \
     \n  "neurodocker_version": "0.3.2-7-g4b0f32d" \
     \n}' > /neurodocker/neurodocker_specs.json
