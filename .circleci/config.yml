@@ -11,10 +11,10 @@ jobs:
           name: docker build
           no_output_timeout: 60m
           command: |
-	    e=1 && for i in {1..5}; do
+            e=1 && for i in {1..5}; do
               docker build -t djarecka/nipype_tutorial:$CIRCLE_BRANCH .
-	      && e=0 && break || sleep 15
-	    done && [ "$e" -eq "0" ]
+              && e=0 && break || sleep 15
+            done && [ "$e" -eq "0" ]
       - run:
           name: docker run
           no_output_timeout: 60m
