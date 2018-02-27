@@ -6,6 +6,12 @@ import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
 from nbconvert.preprocessors.execute import CellExecutionError
 
+
+def test_version():
+    import nipype
+    print("nipype version: ", nipype.__version__)
+
+
 def _notebook_run(path):
     """
     Execute a notebook via nbconvert and collect output.
