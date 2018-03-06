@@ -12,7 +12,7 @@ docker run --rm kaczmarj/neurodocker:master generate -b neurodebian:stretch-non-
                  traits pandas matplotlib scikit-learn seaborn nbformat" \
   pip_install="https://github.com/nipy/nipype/tarball/master 
                https://github.com/INCF/pybids/tarball/master 
-               nilearn datalad[full] nipy duecredit" \
+               nilearn datalad[full]==0.9.1 nipy duecredit" \
   env_name="neuro" \
   activate=True \
 --run-bash "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
