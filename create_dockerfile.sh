@@ -21,8 +21,7 @@ docker run --rm kaczmarj/neurodocker:master generate -b neurodebian:stretch-non-
 --run 'mkdir /data && chmod 777 /data && chmod a+s /data' \
 --run 'mkdir /output && chmod 777 /output && chmod a+s /output' \
 --user=neuro \
---run-bash 'source activate neuro && cd	/data && datalad install -r ///workshops/nih-2017/ds000114
-&& cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*h5 && datalad get -r -J4 derivatives/freesurfer/sub-01' \
+--run-bash 'source activate neuro && cd	/data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && paths="///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r -J4 sub-*/ses-test/anat  sub-*/ses-test/func/*fingerfootlips* derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*h5  derivatives/freesurfer/sub-01" && datalad --report-status=failure get -r -J4 "$paths"  || datalad --report-status=failure get -r "$paths"' \
 --run-bash 'curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz' \
 --copy . "/home/neuro/nipype_tutorial" \
 --user=root \

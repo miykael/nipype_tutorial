@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-03-07 04:57:59
+# Timestamp: 2018-03-07 15:33:37
 
 FROM neurodebian:stretch-non-free
 
@@ -140,8 +140,7 @@ RUN mkdir /output && chmod 777 /output && chmod a+s /output
 USER neuro
 
 # User-defined BASH instruction
-RUN bash -c "source activate neuro && cd	/data && datalad install -r ///workshops/nih-2017/ds000114 \
-    && cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*h5 && datalad get -r -J4 derivatives/freesurfer/sub-01"
+RUN bash -c "source activate neuro && cd	/data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && paths=\"///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r -J4 sub-*/ses-test/anat  sub-*/ses-test/func/*fingerfootlips* derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*h5  derivatives/freesurfer/sub-01\" && datalad --report-status=failure get -r -J4 \"$paths\"  || datalad --report-status=failure get -r \"$paths\""
 
 # User-defined BASH instruction
 RUN bash -c "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz"
@@ -243,7 +242,7 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run_bash", \
-    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114\\n&& cd /data/ds000114 && datalad get -r -J4 sub-*/ses-test/anat && datalad get  -r -J4 sub-*/ses-test/func/*fingerfootlips* && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz && datalad get  -r -J4 derivatives/fmriprep/sub-*/anat/*h5 && datalad get -r -J4 derivatives/freesurfer/sub-01" \
+    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && paths=\"///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r -J4 sub-*/ses-test/anat  sub-*/ses-test/func/*fingerfootlips* derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*h5  derivatives/freesurfer/sub-01\" && datalad --report-status=failure get -r -J4 \"$paths\"  || datalad --report-status=failure get -r \"$paths\"" \
     \n    ], \
     \n    [ \
     \n      "run_bash", \
@@ -279,6 +278,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-03-07 04:57:59", \
+    \n  "generation_timestamp": "2018-03-07 15:33:37", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json
