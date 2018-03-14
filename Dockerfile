@@ -108,7 +108,7 @@ RUN conda create -y -q --name neuro python=3.6 \
                                     jupyter_contrib_nbextensions \
                                     traits \
                                     pandas \
-                                    matplotlib=2.1.2 \
+                                    matplotlib \
                                     scikit-learn \
                                     seaborn \
                                     nbformat \
@@ -210,7 +210,7 @@ RUN echo '{ \
     \n      "miniconda", \
     \n      { \
     \n        "miniconda_version": "4.3.31", \
-    \n        "conda_install": "python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions traits pandas matplotlib=2.1.2 scikit-learn seaborn nbformat", \
+    \n        "conda_install": "python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions traits pandas matplotlib scikit-learn seaborn nbformat", \
     \n        "pip_install": "https://github.com/nipy/nipype/tarball/master https://github.com/INCF/pybids/tarball/master nilearn datalad[full]==0.9.1 nipy duecredit", \
     \n        "env_name": "neuro", \
     \n        "activate": true \

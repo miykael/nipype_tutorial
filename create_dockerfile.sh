@@ -8,10 +8,10 @@ docker run --rm kaczmarj/neurodocker:master generate -b neurodebian:stretch-non-
 --spm version=12 matlab_version=R2017a \
 --user=neuro \
 --miniconda miniconda_version="4.3.31" \
-  conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions 
-                 traits pandas matplotlib=2.1.2 scikit-learn seaborn nbformat" \
-  pip_install="https://github.com/nipy/nipype/tarball/master 
-               https://github.com/INCF/pybids/tarball/master 
+  conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
+                 traits pandas matplotlib scikit-learn seaborn nbformat" \
+  pip_install="https://github.com/nipy/nipype/tarball/master
+               https://github.com/INCF/pybids/tarball/master
                nilearn datalad[full]==0.9.1 nipy duecredit" \
   env_name="neuro" \
   activate=True \
