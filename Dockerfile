@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-03-07 15:33:37
+# Timestamp: 2018-03-16 11:30:14
 
 FROM neurodebian:stretch-non-free
 
@@ -110,8 +110,10 @@ RUN conda create -y -q --name neuro python=3.6 \
                                     pandas \
                                     matplotlib \
                                     scikit-learn \
+                                    scikit-image \
                                     seaborn \
                                     nbformat \
+                                    nb_conda \
     && sync && conda clean -tipsy && sync \
     && /bin/bash -c "source activate neuro \
       && pip install -q --no-cache-dir https://github.com/nipy/nipype/tarball/master \
@@ -140,10 +142,7 @@ RUN mkdir /output && chmod 777 /output && chmod a+s /output
 USER neuro
 
 # User-defined BASH instruction
-RUN bash -c "source activate neuro && cd	/data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && paths=\"///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r -J4 sub-*/ses-test/anat  sub-*/ses-test/func/*fingerfootlips* derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*h5  derivatives/freesurfer/sub-01\" && datalad --report-status=failure get -r -J4 \"$paths\"  || datalad --report-status=failure get -r \"$paths\""
-
-# User-defined BASH instruction
-RUN bash -c "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz"
+RUN bash -c "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-*/ses-test/anat sub-*/ses-test/func/*fingerfootlips*"
 
 COPY [".", "/home/neuro/nipype_tutorial"]
 
@@ -210,7 +209,7 @@ RUN echo '{ \
     \n      "miniconda", \
     \n      { \
     \n        "miniconda_version": "4.3.31", \
-    \n        "conda_install": "python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions traits pandas matplotlib scikit-learn seaborn nbformat", \
+    \n        "conda_install": "python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda", \
     \n        "pip_install": "https://github.com/nipy/nipype/tarball/master https://github.com/INCF/pybids/tarball/master nilearn datalad[full]==0.9.1 nipy duecredit", \
     \n        "env_name": "neuro", \
     \n        "activate": true \
@@ -242,11 +241,7 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run_bash", \
-    \n      "source activate neuro && cd\t/data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && paths=\"///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r -J4 sub-*/ses-test/anat  sub-*/ses-test/func/*fingerfootlips* derivatives/fmriprep/sub-*/anat/*space-mni152nlin2009casym_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*t1w_preproc.nii.gz  derivatives/fmriprep/sub-*/anat/*h5  derivatives/freesurfer/sub-01\" && datalad --report-status=failure get -r -J4 \"$paths\"  || datalad --report-status=failure get -r \"$paths\"" \
-    \n    ], \
-    \n    [ \
-    \n      "run_bash", \
-    \n      "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz" \
+    \n      "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-*/ses-test/anat sub-*/ses-test/func/*fingerfootlips*" \
     \n    ], \
     \n    [ \
     \n      "copy", \
@@ -278,6 +273,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-03-07 15:33:37", \
+    \n  "generation_timestamp": "2018-03-16 11:30:14", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json
