@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-03-17 00:20:22
+# Timestamp: 2018-03-20 12:07:05
 
 FROM neurodebian:stretch-non-free
 
@@ -142,7 +142,7 @@ RUN mkdir /output && chmod 777 /output && chmod a+s /output
 USER neuro
 
 # User-defined BASH instruction
-RUN bash -c "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-*/ses-test/anat sub-*/ses-test/func/*fingerfootlips*"
+RUN bash -c "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*"
 
 COPY [".", "/home/neuro/nipype_tutorial"]
 
@@ -241,7 +241,7 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run_bash", \
-    \n      "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-*/ses-test/anat sub-*/ses-test/func/*fingerfootlips*" \
+    \n      "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*" \
     \n    ], \
     \n    [ \
     \n      "copy", \
@@ -273,6 +273,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-03-17 00:20:22", \
+    \n  "generation_timestamp": "2018-03-20 12:07:05", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json

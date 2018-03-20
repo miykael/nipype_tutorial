@@ -21,7 +21,7 @@ docker run --rm kaczmarj/neurodocker:master generate -b neurodebian:stretch-non-
 --run 'mkdir /data && chmod 777 /data && chmod a+s /data' \
 --run 'mkdir /output && chmod 777 /output && chmod a+s /output' \
 --user=neuro \
---run-bash 'source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-*/ses-test/anat sub-*/ses-test/func/*fingerfootlips*' \
+--run-bash 'source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*' \
 --copy . "/home/neuro/nipype_tutorial" \
 --user=root \
 --run 'chown -R neuro /home/neuro/nipype_tutorial' \
