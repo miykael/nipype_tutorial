@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-03-20 12:07:05
+# Timestamp: 2018-03-20 14:05:57
 
 FROM neurodebian:stretch-non-free
 
@@ -144,6 +144,9 @@ USER neuro
 # User-defined BASH instruction
 RUN bash -c "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*"
 
+# User-defined BASH instruction
+RUN bash -c "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && find /data/ds000114/derivatives/fmriprep -type f -not -name 1mm_T1.nii.gz -delete"
+
 COPY [".", "/home/neuro/nipype_tutorial"]
 
 USER root
@@ -244,6 +247,10 @@ RUN echo '{ \
     \n      "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*" \
     \n    ], \
     \n    [ \
+    \n      "run_bash", \
+    \n      "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && find /data/ds000114/derivatives/fmriprep -type f -not -name 1mm_T1.nii.gz -delete" \
+    \n    ], \
+    \n    [ \
     \n      "copy", \
     \n      [ \
     \n        ".", \
@@ -273,6 +280,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-03-20 12:07:05", \
+    \n  "generation_timestamp": "2018-03-20 14:05:57", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json
