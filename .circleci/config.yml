@@ -7,16 +7,16 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
-      - run: 
+      - run:
           name: docker build
           no_output_timeout: 60m
           command: |
             for i in {1..5}; do
-              docker build -t djarecka/nipype_tutorial:$CIRCLE_BRANCH . && break || sleep 15
-            done 
+              docker build -t miykael/nipype_tutorial:$CIRCLE_BRANCH . && break || sleep 15
+            done
       - run:
           name: docker run
           no_output_timeout: 90m
           command: |
-            docker run -it --rm djarecka/nipype_tutorial:$CIRCLE_BRANCH pytest -v -s /home/neuro/nipype_tutorial/test_notebooks.py
-         
+            docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH pytest -v -s /home/neuro/nipype_tutorial/test_notebooks.py
+
