@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-03-20 14:05:57
+# Timestamp: 2018-03-23 20:22:13
 
 FROM neurodebian:stretch-non-free
 
@@ -154,6 +154,9 @@ USER root
 # User-defined instruction
 RUN chown -R neuro /home/neuro/nipype_tutorial
 
+# User-defined BASH instruction
+RUN bash -c "rm -rf /opt/conda/pkgs/*"
+
 USER neuro
 
 WORKDIR /home/neuro
@@ -266,6 +269,10 @@ RUN echo '{ \
     \n      "chown -R neuro /home/neuro/nipype_tutorial" \
     \n    ], \
     \n    [ \
+    \n      "run_bash", \
+    \n      "rm -rf /opt/conda/pkgs/*" \
+    \n    ], \
+    \n    [ \
     \n      "user", \
     \n      "neuro" \
     \n    ], \
@@ -280,6 +287,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-03-20 14:05:57", \
+    \n  "generation_timestamp": "2018-03-23 20:22:13", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json
