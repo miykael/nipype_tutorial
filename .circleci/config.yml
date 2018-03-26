@@ -6,6 +6,8 @@ jobs:
     working_directory: ~/docker_image
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: docker build
           no_output_timeout: 60m
