@@ -14,31 +14,40 @@ jobs:
             for i in {1..5}; do
               docker build -t miykael/nipype_tutorial:$CIRCLE_BRANCH . && break || sleep 15
             done
+
   notebooks_basic:
     docker:
       - image: docker:17.10.0-ce-git
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: run basic notebooks
           no_output_timeout: 90m
           command: |
             docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH pytest -v -s /home/neuro/nipype_tutorial/tests/test_notebooks_basic.py
+
   notebooks_introduction:
     docker:
       - image: docker:17.10.0-ce-git
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: run basic notebooks
           no_output_timeout: 90m
           command: |
             docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH pytest -v -s /home/neuro/nipype_tutorial/tests/test_notebooks_introduction.py
+
   notebooks_example:
     docker:
       - image: docker:17.10.0-ce-git
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: run example notebooks
           no_output_timeout: 120m
