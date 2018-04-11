@@ -187,148 +187,120 @@ ol.styled-list {
   padding-top: 25px;
 }
 
-.domain-header.science .domain-title {
-  color: #94424f;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.humanities .domain-title {
-  color: #ad3434;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.economics-finance-domain .domain-title {
-  color: #b77033;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.cs .domain-title {
-  color: #437a39;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.hour-of-code .domain-title {
-  color: #437a39;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.computer-programming .domain-title {
-  color: #437a39;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.computing .domain-title {
-  color: #437a39;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.partner-content .domain-title {
-  color: #218270;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.math .domain-title {
-  color: #1c758a;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-header.test-prep .domain-title {
-  color: #644172;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
 .domain-table-container {
   border-top: 2px solid #314453;
   border-left: 1px solid #ddd;
   margin-top: 3px;
 }
 
-.domain-table-container.science {
+.domain-header.color01 .domain-title {
+  color: #94424f;
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color01 {
   border-top: 2px solid #94424f;
 }
 
-.domain-table-container.science .subject-link:hover {
+.domain-table-container.color01 .subject-link:hover {
   background: #94424f;
 }
 
-.domain-table-container.humanities {
-  border-top: 2px solid #ad3434;
+.domain-header.color02 .domain-title {
+  color: #94424f;
+  margin-left: -10px;
+  padding: 3px 10px;
 }
 
-.domain-table-container.humanities .subject-link:hover {
-  background: #ad3434;
+.domain-table-container.color02 {
+  border-top: 2px solid #94424f;
 }
 
-.domain-table-container.economics-finance-domain {
-  border-top: 2px solid #b77033;
+.domain-table-container.color02 .subject-link:hover {
+  background: #94424f;
 }
 
-.domain-table-container.economics-finance-domain .subject-link:hover {
-  background: #b77033;
+.domain-header.color03 .domain-title {
+  color: #94424f;
+  margin-left: -10px;
+  padding: 3px 10px;
 }
 
-.domain-table-container.cs {
-  border-top: 2px solid #437a39;
+.domain-table-container.color03 {
+  border-top: 2px solid #94424f;
 }
 
-.domain-table-container.cs .subject-link:hover {
-  background: #437a39;
+.domain-table-container.color03 .subject-link:hover {
+  background: #94424f;
 }
 
-.domain-table-container.hour-of-code {
-  border-top: 2px solid #437a39;
+.domain-header.color04 .domain-title {
+  color: #94424f;
+  margin-left: -10px;
+  padding: 3px 10px;
 }
 
-.domain-table-container.hour-of-code .subject-link:hover {
-  background: #437a39;
+.domain-table-container.color04 {
+  border-top: 2px solid #94424f;
 }
 
-.domain-table-container.computer-programming {
-  border-top: 2px solid #437a39;
+.domain-table-container.color04 .subject-link:hover {
+  background: #94424f;
 }
 
-.domain-table-container.computer-programming .subject-link:hover {
-  background: #437a39;
+.domain-header.color05 .domain-title {
+  color: #94424f;
+  margin-left: -10px;
+  padding: 3px 10px;
 }
 
-.domain-table-container.computing {
-  border-top: 2px solid #437a39;
+.domain-table-container.color05 {
+  border-top: 2px solid #94424f;
 }
 
-.domain-table-container.computing .subject-link:hover {
-  background: #437a39;
+.domain-table-container.color05 .subject-link:hover {
+  background: #94424f;
 }
 
-.domain-table-container.partner-content {
-  border-top: 2px solid #218270;
+.domain-header.color06 .domain-title {
+  color: #94424f;
+  margin-left: -10px;
+  padding: 3px 10px;
 }
 
-.domain-table-container.partner-content .subject-link:hover {
-  background: #218270;
+.domain-table-container.color06 {
+  border-top: 2px solid #94424f;
 }
 
-.domain-table-container.math {
-  border-top: 2px solid #1c758a;
+.domain-table-container.color06 .subject-link:hover {
+  background: #94424f;
 }
 
-.domain-table-container.math .subject-link:hover {
-  background: #1c758a;
+.domain-header.color07 .domain-title {
+  color: #94424f;
+  margin-left: -10px;
+  padding: 3px 10px;
 }
 
-.domain-table-container.test-prep {
-  border-top: 2px solid #644172;
+.domain-table-container.color07 {
+  border-top: 2px solid #94424f;
 }
 
-.domain-table-container.test-prep .subject-link:hover {
-  background: #644172;
+.domain-table-container.color07 .subject-link:hover {
+  background: #94424f;
+}
+
+.domain-header.color08 .domain-title {
+  color: #94424f;
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color08 {
+  border-top: 2px solid #94424f;
+}
+
+.domain-table-container.color08 .subject-link:hover {
+  background: #94424f;
 }
