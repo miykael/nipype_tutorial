@@ -194,113 +194,99 @@ ol.styled-list {
 }
 
 .domain-header.color01 .domain-title {
-  color: #94424f;
+  color: hsl(0, 60%, 50%);
   margin-left: -10px;
   padding: 3px 10px;
 }
 
 .domain-table-container.color01 {
-  border-top: 2px solid #94424f;
+  border-top: 2px solid hsl(0, 60%, 50%);
 }
 
 .domain-table-container.color01 .subject-link:hover {
-  background: #94424f;
+  background: hsl(0, 60%, 50%);
 }
 
 .domain-header.color02 .domain-title {
-  color: #94424f;
+  color: hsl(20, 60%, 50%);
   margin-left: -10px;
   padding: 3px 10px;
 }
 
 .domain-table-container.color02 {
-  border-top: 2px solid #94424f;
+  border-top: 2px solid hsl(20, 60%, 50%);
 }
 
 .domain-table-container.color02 .subject-link:hover {
-  background: #94424f;
+  background: hsl(20, 60%, 50%);
 }
 
 .domain-header.color03 .domain-title {
-  color: #94424f;
+  color: hsl(50, 60%, 50%);
   margin-left: -10px;
   padding: 3px 10px;
 }
 
 .domain-table-container.color03 {
-  border-top: 2px solid #94424f;
+  border-top: 2px solid hsl(50, 60%, 50%);
 }
 
 .domain-table-container.color03 .subject-link:hover {
-  background: #94424f;
+  background: hsl(50, 60%, 50%);
 }
 
 .domain-header.color04 .domain-title {
-  color: #94424f;
+  color: hsl(150, 60%, 50%);
   margin-left: -10px;
   padding: 3px 10px;
 }
 
 .domain-table-container.color04 {
-  border-top: 2px solid #94424f;
+  border-top: 2px solid hsl(150, 60%, 50%);
 }
 
 .domain-table-container.color04 .subject-link:hover {
-  background: #94424f;
+  background: hsl(150, 60%, 50%);
 }
 
 .domain-header.color05 .domain-title {
-  color: #94424f;
+  color: hsl(205, 60%, 50%);
   margin-left: -10px;
   padding: 3px 10px;
 }
 
 .domain-table-container.color05 {
-  border-top: 2px solid #94424f;
+  border-top: 2px solid hsl(205, 60%, 50%);
 }
 
 .domain-table-container.color05 .subject-link:hover {
-  background: #94424f;
+  background: hsl(205, 60%, 50%);
 }
 
 .domain-header.color06 .domain-title {
-  color: #94424f;
+  color: hsl(240, 60%, 50%);
   margin-left: -10px;
   padding: 3px 10px;
 }
 
 .domain-table-container.color06 {
-  border-top: 2px solid #94424f;
+  border-top: 2px solid hsl(240, 60%, 50%);
 }
 
 .domain-table-container.color06 .subject-link:hover {
-  background: #94424f;
+  background: hsl(240, 60%, 50%);
 }
 
 .domain-header.color07 .domain-title {
-  color: #94424f;
+  color: hsl(280, 60%, 50%);
   margin-left: -10px;
   padding: 3px 10px;
 }
 
 .domain-table-container.color07 {
-  border-top: 2px solid #94424f;
+  border-top: 2px solid hsl(280, 60%, 50%);
 }
 
 .domain-table-container.color07 .subject-link:hover {
-  background: #94424f;
-}
-
-.domain-header.color08 .domain-title {
-  color: #94424f;
-  margin-left: -10px;
-  padding: 3px 10px;
-}
-
-.domain-table-container.color08 {
-  border-top: 2px solid #94424f;
-}
-
-.domain-table-container.color08 .subject-link:hover {
-  background: #94424f;
+  background: hsl(280, 60%, 50%);
 }
