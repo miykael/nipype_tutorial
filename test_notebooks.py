@@ -20,8 +20,7 @@ def _notebook_run(path):
     kernel_name = 'python%d' % sys.version_info[0]
     this_file_directory = os.path.dirname(__file__)
     errors = []
-    
-    
+
     with open(path) as f:
         nb = nbformat.read(f, as_version=4)
         nb.metadata.get('kernelspec', {})['name'] = kernel_name
@@ -30,7 +29,7 @@ def _notebook_run(path):
         try:
             ep.preprocess(nb, {'metadata': {'path': this_file_directory}})
 
-        except CellExecutionError as e: 
+        except CellExecutionError as e:
             if "SKIP" in e.traceback:
                 print(str(e.traceback).split("\n")[-2])
             else:
@@ -42,14 +41,16 @@ def _notebook_run(path):
 Dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "notebooks")
 
 @pytest.mark.parametrize("notebook", glob(os.path.join(Dir_path, "basic*.ipynb")) +
-                         [os.path.join(Dir_path, "introduction_python.ipynb"), 
+                         [os.path.join(Dir_path, "introduction_python.ipynb"),
                           os.path.join(Dir_path, "introduction_quickstart.ipynb")] +
-                         [os.path.join(Dir_path, "example_preprocessing.ipynb"), 
+                         [os.path.join(Dir_path, "example_preprocessing.ipynb"),
                           os.path.join(Dir_path, "example_1stlevel.ipynb"),
-                          os.path.join(Dir_path, "example_normalize.ipynb"), 
-                          os.path.join(Dir_path, "example_2ndlevel.ipynb")])
+                          os.path.join(Dir_path, "example_normalize.ipynb"),
+                          os.path.join(Dir_path, "example_2ndlevel.ipynb")] +
+                         [os.path.join(Dir_path, "handson_preprocessing.ipynb"),
+                          os.path.join(Dir_path, "handson_analysis.ipynb")])
 def test_notebooks(notebook):
     t0 = time.time()
     nb, errors = _notebook_run(notebook)
-    print("time", time.time()-t0)
+    print("time", time.time() - t0)
     assert errors == []
