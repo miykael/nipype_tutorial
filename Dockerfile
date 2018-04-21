@@ -159,7 +159,7 @@ RUN bash -c "rm -rf /opt/conda/pkgs/*"
 
 USER neuro
 
-WORKDIR /home/neuro
+WORKDIR /home/neuro/nipype_tutorial
 
 CMD ["jupyter-notebook"]
 
@@ -278,7 +278,7 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "workdir", \
-    \n      "/home/neuro" \
+    \n      "/home/neuro/nipype_tutorial" \
     \n    ], \
     \n    [ \
     \n      "cmd", \

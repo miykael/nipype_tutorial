@@ -28,6 +28,6 @@ docker run --rm kaczmarj/neurodocker:master generate -b neurodebian:stretch-non-
 --run 'chown -R neuro /home/neuro/nipype_tutorial' \
 --run-bash 'rm -rf /opt/conda/pkgs/*' \
 --user=neuro \
---workdir /home/neuro \
+--workdir /home/neuro/nipype_tutorial \
 --cmd "jupyter-notebook" \
 --no-check-urls > Dockerfile
