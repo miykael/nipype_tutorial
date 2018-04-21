@@ -43,6 +43,7 @@ Dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "notebooks"
 
 @pytest.mark.parametrize("notebook", glob(os.path.join(Dir_path, "basic*.ipynb")) +
                          [os.path.join(Dir_path, "introduction_python.ipynb"),
+                          os.path.join(Dir_path, "introduction_dataset.ipynb"),
                           os.path.join(Dir_path, "introduction_quickstart.ipynb"),
                           os.path.join(Dir_path, "introduction_showcase.ipynb")] +
                          [os.path.join(Dir_path, "example_preprocessing.ipynb"),
