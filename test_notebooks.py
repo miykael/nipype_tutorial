@@ -21,7 +21,6 @@ def _notebook_run(path):
     this_file_directory = os.path.dirname(__file__)
     errors = []
 
-
     with open(path) as f:
         nb = nbformat.read(f, as_version=4)
         nb.metadata.get('kernelspec', {})['name'] = kernel_name
@@ -49,9 +48,12 @@ Dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "notebooks"
                          [os.path.join(Dir_path, "example_preprocessing.ipynb"),
                           os.path.join(Dir_path, "example_1stlevel.ipynb"),
                           os.path.join(Dir_path, "example_normalize.ipynb"),
-                          os.path.join(Dir_path, "example_2ndlevel.ipynb")])
+                          os.path.join(Dir_path, "example_2ndlevel.ipynb")] +
+                         [os.path.join(Dir_path, "handson_preprocessing.ipynb"),
+                          os.path.join(Dir_path, "handson_analysis.ipynb")])
+
 def test_notebooks(notebook):
     t0 = time.time()
     nb, errors = _notebook_run(notebook)
-    print("time", time.time()-t0)
+    print("time", time.time() - t0)
     assert errors == []
