@@ -30,7 +30,7 @@ def _notebook_run(path):
             ep.preprocess(nb, {'metadata': {'path': this_file_directory}})
 
         except CellExecutionError as e:
-            if "SKIP" in e.traceback:
+            if "TAB" in e.traceback or "CRASH" in e.traceback:
                 print(str(e.traceback).split("\n")[-2])
             else:
                 raise e
@@ -40,16 +40,15 @@ def _notebook_run(path):
 
 Dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "notebooks")
 
-@pytest.mark.parametrize("notebook", glob(os.path.join(Dir_path, "basic*.ipynb")) +
-                         [os.path.join(Dir_path, "introduction_python.ipynb"),
-                          os.path.join(Dir_path, "introduction_dataset.ipynb"),
-                          os.path.join(Dir_path, "introduction_quickstart.ipynb"),
-                          os.path.join(Dir_path, "introduction_showcase.ipynb")] +
+@pytest.mark.parametrize("notebook",
+                         glob(os.path.join(Dir_path, "introduction_*.ipynb")) +
+                         glob(os.path.join(Dir_path, "basic*.ipynb")) +
+                         glob(os.path.join(Dir_path, "advanced*.ipynb")) +
                          [os.path.join(Dir_path, "example_preprocessing.ipynb"),
                           os.path.join(Dir_path, "example_1stlevel.ipynb"),
                           os.path.join(Dir_path, "example_normalize.ipynb"),
-                          os.path.join(Dir_path, "example_2ndlevel.ipynb")] +
-                         [os.path.join(Dir_path, "handson_preprocessing.ipynb"),
+                          os.path.join(Dir_path, "example_2ndlevel.ipynb"),
+                          os.path.join(Dir_path, "handson_preprocessing.ipynb"),
                           os.path.join(Dir_path, "handson_analysis.ipynb")])
 
 def test_notebooks(notebook):
