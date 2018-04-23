@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-03-24 08:22:29
+# Timestamp: 2018-04-23 18:54:53
 
 FROM neurodebian:stretch-non-free
 
@@ -48,6 +48,7 @@ RUN apt-get update -qq \
                                                      ncdu \
                                                      tig \
                                                      git-annex-remote-rclone \
+                                                     octave \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -191,7 +192,8 @@ RUN echo '{ \
     \n        "less", \
     \n        "ncdu", \
     \n        "tig", \
-    \n        "git-annex-remote-rclone" \
+    \n        "git-annex-remote-rclone", \
+    \n        "octave" \
     \n      ] \
     \n    ], \
     \n    [ \
@@ -287,6 +289,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-03-24 08:22:29", \
+    \n  "generation_timestamp": "2018-04-23 18:54:53", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json
