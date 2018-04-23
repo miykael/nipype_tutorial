@@ -10,8 +10,7 @@ from nipype.interfaces.fsl import Info
 experiment_dir = '/output'
 output_dir = 'antsdir'
 working_dir = 'workingdir'
-subject_list = ['sub-01', 'sub-02', 'sub-03', 'sub-04', 'sub-05',
-                'sub-06', 'sub-07', 'sub-08', 'sub-09', 'sub-10']
+subject_list = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']
 
 # Location of template file
 template = '/data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c/1mm_T1.nii.gz'
@@ -57,7 +56,7 @@ infosource = Node(IdentityInterface(fields=['subject_id']),
 infosource.iterables = [('subject_id', subject_list)]
 
 # SelectFiles - to grab the data (alternative to DataGrabber)
-anat_file = opj('{subject_id}', 'ses-test', 'anat', '{subject_id}_ses-test_T1w.nii.gz')
+anat_file = opj('sub-{subject_id}', 'ses-test', 'anat', 'sub-{subject_id}_ses-test_T1w.nii.gz')
 templates = {'anat': anat_file}
 
 selectfiles = Node(SelectFiles(templates,
