@@ -92,6 +92,7 @@ def test_notebooks(notebook):
 
     if 'example' in notebook or 'handson' in notebook:
         notebook = reduce_notebook_load(notebook)
+        print('Testing shortened notebook.')
 
     t0 = time.time()
     nb, errors = _notebook_run(notebook)
