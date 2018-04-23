@@ -55,24 +55,20 @@ def reduce_notebook_load(path):
                     line = line.replace(
                         "[\'02\', \'03\', \'04\', \'07\', \'08\', \'09\']",
                         "[\'02\', \'07\']")
-                    output_file.write(line)
             elif '/example' in path:
+
                 # Reduce subject_list in example notebooks
                 if "subject_list = ['01', '02', '03'," in line:
                     line = line.replace(
                       "[\'01\', \'02\', \'03\', \'04\', \'05\', \'06\', \'07\', \'08\', \'09\', \'10\']",
                       "[\'01\', \'02\']")
-                    output_file.write(line)
 
                 # Force plotting of sub-03-10 to be sub-02 in example_1stlevel
                 if 'example_1stlevel' in path and "/sub-" in line:
                     for s in range(3, 11):
                         line = line.replace('sub-%02d' % s, 'sub-02')
-                    output_file.write(line)
-                    print(line)
 
-            else:
-                output_file.write(line)
+            output_file.write(line)
 
     return path_short
 
