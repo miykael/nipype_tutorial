@@ -61,7 +61,16 @@ def reduce_notebook_load(path):
                 if "subject_list = ['01', '02', '03'," in line:
                     line = line.replace(
                       "[\'01\', \'02\', \'03\', \'04\', \'05\', \'06\', \'07\', \'08\', \'09\', \'10\']",
-                      "[\'01\', \'02\']")
+                      "[\'02\', \'03\']")
+
+                elif "subject_list = ['02', '03'," in line:
+                    line = line.replace(
+                      "[\'02\', \'03\', \'04\', \'05\', \'07\', \'08\', \'09\']",
+                      "[\'02\', \'03\']")
+
+                # Restrict output plots to subject 02
+                elif "sub-01" in line:
+                    line = line.replace("sub-01", "sub-02")
 
                 # Force plotting of sub-03-10 to be sub-02 in example_1stlevel
                 if 'example_1stlevel' in path and "/sub-" in line:
