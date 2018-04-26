@@ -88,6 +88,7 @@ Dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "notebooks"
                          glob(os.path.join(Dir_path, "introduction_*.ipynb")) +
                          glob(os.path.join(Dir_path, "basic*.ipynb")) +
                          glob(os.path.join(Dir_path, "advanced*.ipynb")) +
+                         glob(os.path.join(Dir_path, "tutorial*.ipynb")) +
                          [os.path.join(Dir_path, "example_preprocessing.ipynb"),
                           os.path.join(Dir_path, "example_1stlevel.ipynb"),
                           os.path.join(Dir_path, "example_normalize.ipynb"),
