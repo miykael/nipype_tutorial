@@ -3,7 +3,7 @@ from os.path import join as opj
 from nipype.interfaces.ants import Registration
 from nipype.interfaces.utility import IdentityInterface
 from nipype.interfaces.io import SelectFiles, DataSink
-from nipype.pipeline.engine import Workflow, Node
+from nipype import Workflow, Node
 from nipype.interfaces.fsl import Info
 
 # Specify variables
