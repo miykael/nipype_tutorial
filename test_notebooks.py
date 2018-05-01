@@ -85,9 +85,9 @@ def reduce_notebook_load(path):
 Dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "notebooks")
 
 @pytest.mark.parametrize("notebook",
-                         glob(os.path.join(Dir_path, "introduction_*.ipynb")) +
-                         glob(os.path.join(Dir_path, "basic*.ipynb")) +
-                         glob(os.path.join(Dir_path, "advanced*.ipynb")) +
+                         sorted(glob(os.path.join(Dir_path, "introduction_*.ipynb"))) +
+                         sorted(glob(os.path.join(Dir_path, "basic*.ipynb"))) +
+                         sorted(glob(os.path.join(Dir_path, "advanced*.ipynb"))) +
                          [os.path.join(Dir_path, "example_preprocessing.ipynb"),
                           os.path.join(Dir_path, "example_1stlevel.ipynb"),
                           os.path.join(Dir_path, "example_normalize.ipynb"),
