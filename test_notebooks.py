@@ -30,7 +30,7 @@ def _notebook_run(path):
             ep.preprocess(nb, {'metadata': {'path': this_file_directory}})
 
         except CellExecutionError as e:
-            if "TAB" in e.traceback or "CRASH" in e.traceback:
+            if "TAB" in e.traceback:
                 print(str(e.traceback).split("\n")[-2])
             else:
                 raise e
