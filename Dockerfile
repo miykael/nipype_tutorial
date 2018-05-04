@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-04-23 18:54:53
+# Timestamp: 2018-05-04 08:38:32
 
 FROM neurodebian:stretch-non-free
 
@@ -120,7 +120,7 @@ RUN conda create -y -q --name neuro python=3.6 \
       && pip install -q --no-cache-dir https://github.com/nipy/nipype/tarball/master \
                                        https://github.com/INCF/pybids/tarball/master \
                                        nilearn \
-                                       datalad[full] \
+                                       datalad_neuroimaging \
                                        nipy \
                                        duecredit" \
     && sync \
@@ -218,7 +218,7 @@ RUN echo '{ \
     \n      { \
     \n        "miniconda_version": "4.3.31", \
     \n        "conda_install": "python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda", \
-    \n        "pip_install": "https://github.com/nipy/nipype/tarball/master https://github.com/INCF/pybids/tarball/master nilearn datalad[full] nipy duecredit", \
+    \n        "pip_install": "https://github.com/nipy/nipype/tarball/master https://github.com/INCF/pybids/tarball/master nilearn datalad_neuroimaging nipy duecredit", \
     \n        "env_name": "neuro", \
     \n        "activate": true \
     \n      } \
@@ -289,6 +289,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-04-23 18:54:53", \
+    \n  "generation_timestamp": "2018-05-04 08:38:32", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json

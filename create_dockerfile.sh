@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker run --rm kaczmarj/neurodocker:master generate -b neurodebian:stretch-non-free -p apt \
+docker run --rm kaczmarj/neurodocker:v0.3.2 generate -b neurodebian:stretch-non-free -p apt \
 --install convert3d ants fsl gcc g++ graphviz tree \
           git-annex-standalone vim emacs-nox nano less ncdu \
           tig git-annex-remote-rclone octave \
@@ -12,7 +12,7 @@ docker run --rm kaczmarj/neurodocker:master generate -b neurodebian:stretch-non-
                  traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
   pip_install="https://github.com/nipy/nipype/tarball/master
                https://github.com/INCF/pybids/tarball/master
-               nilearn datalad[full] nipy duecredit" \
+               nilearn datalad_neuroimaging nipy duecredit" \
   env_name="neuro" \
   activate=True \
 --run-bash "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
