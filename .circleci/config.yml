@@ -18,4 +18,4 @@ jobs:
           name: docker run
           no_output_timeout: 120m
           command: |
-            docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH pytest --nbval -v -s /home/neuro/nipype_tutorial/notebooks/basic_*.ipynb
+            docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH pytest --nbval -v -s /home/neuro/nipype_tutorial/notebooks/basic_*.ipynb /home/neuro/nipype_tutorial/notebooks/introduction_*.ipynb /home/neuro/nipype_tutorial/notebooks/advanced_*.ipynb /home/neuro/nipype_tutorial/notebooks/example_preprocessing.ipynb /home/neuro/nipype_tutorial/notebooks/example_1stlevel.ipynb /home/neuro/nipype_tutorial/notebooks/example_normalize.ipynb /home/neuro/nipype_tutorial/notebooks/example_2ndlevel.ipynb /home/neuro/nipype_tutorial/notebooks/handson_preprocessing.ipynb /home/neuro/nipype_tutorial/notebooks/handson_analysis.ipynb
