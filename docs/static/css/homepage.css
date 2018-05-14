@@ -1,0 +1,292 @@
+html,body {
+  height: 100%;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Helvetica','Corbel',sans-serif;
+  font-size: 14px;
+  margin: 0;
+  color: #444;
+  line-height: 1.4;
+  min-width: 1000px;
+}
+
+article {
+  padding: 0 20px;
+  position: relative;
+}
+
+h1,h2,h3,h4,h5 {
+  color: #111;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 25px;
+  margin-bottom: 22px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 22px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+h4 {
+  font-size: 15px;
+  margin-bottom: 22px;
+}
+
+h5 {
+  font-size: 15px;
+  margin-bottom: -22px;
+}
+
+p {
+  font-size: 14px;
+  margin: 22px 0;
+}
+
+b,strong {
+  font-weight: bold;
+}
+
+em,cite {
+  font-style: italic;
+}
+
+hr {
+  background: #CCC;
+  border: 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.075);
+  clear: both;
+  color: #CCC;
+  display: block;
+  height: 1px;
+  margin: 18px 0 36px 0;
+  padding: 0;
+  width: 100%;
+}
+
+hr.thin {
+  margin-bottom: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: .40;
+  filter: alpha(opacity=40);
+  width: 50%;
+}
+
+a:link,a:visited,header a:visited,footer a:visited,.visited-no-recolor a:visited,a.visited-no-recolor:visited {
+  color: #005987;
+}
+
+a:link.no-underline,a:visited.no-underline,header a:visited.no-underline,footer a:visited.no-underline,.visited-no-recolor a:visited.no-underline,a.visited-no-recolor:visited.no-underline {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #7d00ad;
+}
+
+a:link:hover,a:link:focus,a:visited:hover,a:visited:focus {
+  color: #707070;
+}
+
+a:link:hover.no-underline,a:link:focus.no-underline,a:visited:hover.no-underline,a:visited:focus.no-underline {
+  text-decoration: none;
+}
+
+form {
+  display: inline;
+}
+
+.fixed-width {
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+ul.styled-list {
+  margin-left: 16px;
+}
+
+ul.styled-list {
+  list-style: disc;
+}
+
+ol.styled-list {
+  list-style: decimal;
+}
+
+#homepage p {
+  opacity: .8;
+}
+
+.section-separator {
+  margin: 50px auto;
+  position: relative;
+}
+
+.section-separator h2 {
+  color: #898989;
+  text-align: center;
+  width: auto;
+  font-size: 140%;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+#homepage .section-separator hr {
+  position: relative;
+  margin: 0;
+  top: -1em;
+}
+
+.library-section .section-separator {
+  margin: 30px auto;
+}
+
+.library-section .library-section-separator {
+  margin-bottom: 5px;
+}
+
+.library-section li {
+  margin-bottom: -0.5em;
+}
+
+.domain-table-container .subject-link {
+  background: #fdfdfd;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  font-family: inherit;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+.domain-table-container .subject-link:hover {
+  background: #314453;
+  color: #fff;
+  text-decoration: none;
+}
+
+.domain-header {
+  color: #314453;
+  margin-bottom: 0;
+  padding-left: 10px;
+  padding-top: 25px;
+}
+
+.domain-table-container {
+  border-top: 2px solid #314453;
+  border-left: 1px solid #ddd;
+  margin-top: 3px;
+}
+
+.domain-header.color01 .domain-title {
+  color: hsl(0, 60%, 50%);
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color01 {
+  border-top: 2px solid hsl(0, 60%, 50%);
+}
+
+.domain-table-container.color01 .subject-link:hover {
+  background: hsl(0, 60%, 50%);
+}
+
+.domain-header.color02 .domain-title {
+  color: hsl(20, 60%, 50%);
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color02 {
+  border-top: 2px solid hsl(20, 60%, 50%);
+}
+
+.domain-table-container.color02 .subject-link:hover {
+  background: hsl(20, 60%, 50%);
+}
+
+.domain-header.color03 .domain-title {
+  color: hsl(50, 60%, 50%);
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color03 {
+  border-top: 2px solid hsl(50, 60%, 50%);
+}
+
+.domain-table-container.color03 .subject-link:hover {
+  background: hsl(50, 60%, 50%);
+}
+
+.domain-header.color04 .domain-title {
+  color: hsl(150, 60%, 50%);
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color04 {
+  border-top: 2px solid hsl(150, 60%, 50%);
+}
+
+.domain-table-container.color04 .subject-link:hover {
+  background: hsl(150, 60%, 50%);
+}
+
+.domain-header.color05 .domain-title {
+  color: hsl(205, 60%, 50%);
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color05 {
+  border-top: 2px solid hsl(205, 60%, 50%);
+}
+
+.domain-table-container.color05 .subject-link:hover {
+  background: hsl(205, 60%, 50%);
+}
+
+.domain-header.color06 .domain-title {
+  color: hsl(240, 60%, 50%);
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color06 {
+  border-top: 2px solid hsl(240, 60%, 50%);
+}
+
+.domain-table-container.color06 .subject-link:hover {
+  background: hsl(240, 60%, 50%);
+}
+
+.domain-header.color07 .domain-title {
+  color: hsl(280, 60%, 50%);
+  margin-left: -10px;
+  padding: 3px 10px;
+}
+
+.domain-table-container.color07 {
+  border-top: 2px solid hsl(280, 60%, 50%);
+}
+
+.domain-table-container.color07 .subject-link:hover {
+  background: hsl(280, 60%, 50%);
+}
