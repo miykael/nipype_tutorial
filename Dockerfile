@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-05-07 20:43:57
+# Timestamp: 2018-05-14 11:52:36
 
 FROM neurodebian:stretch-non-free
 
@@ -129,16 +129,16 @@ RUN conda create -y -q --name neuro python=3.6 \
 # User-defined BASH instruction
 RUN bash -c "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main"
 
-# User-defined instruction
-RUN mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py
+# User-defined BASH instruction
+RUN bash -c "mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \\"0.0.0.0\\" > ~/.jupyter/jupyter_notebook_config.py"
 
 USER root
 
-# User-defined instruction
-RUN mkdir /data && chmod 777 /data && chmod a+s /data
+# User-defined BASH instruction
+RUN bash -c "mkdir /data && chmod 777 /data && chmod a+s /data"
 
-# User-defined instruction
-RUN mkdir /output && chmod 777 /output && chmod a+s /output
+# User-defined BASH instruction
+RUN bash -c "mkdir /output && chmod 777 /output && chmod a+s /output"
 
 USER neuro
 
@@ -150,10 +150,13 @@ RUN bash -c "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorag
 
 COPY [".", "/home/neuro/nipype_tutorial"]
 
+# User-defined BASH instruction
+RUN bash -c "printf \"[user]\n\tname = miykael\n\temail = michaelnotter@hotmail.com\n\" > ~/.gitconfig"
+
 USER root
 
-# User-defined instruction
-RUN chown -R neuro /home/neuro/nipype_tutorial
+# User-defined BASH instruction
+RUN bash -c "chown -R neuro /home/neuro/nipype_tutorial"
 
 # User-defined BASH instruction
 RUN bash -c "rm -rf /opt/conda/pkgs/*"
@@ -228,7 +231,7 @@ RUN echo '{ \
     \n      "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
     \n    ], \
     \n    [ \
-    \n      "run", \
+    \n      "run_bash", \
     \n      "mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \\\"0.0.0.0\\\" > ~/.jupyter/jupyter_notebook_config.py" \
     \n    ], \
     \n    [ \
@@ -236,11 +239,11 @@ RUN echo '{ \
     \n      "root" \
     \n    ], \
     \n    [ \
-    \n      "run", \
+    \n      "run_bash", \
     \n      "mkdir /data && chmod 777 /data && chmod a+s /data" \
     \n    ], \
     \n    [ \
-    \n      "run", \
+    \n      "run_bash", \
     \n      "mkdir /output && chmod 777 /output && chmod a+s /output" \
     \n    ], \
     \n    [ \
@@ -263,11 +266,15 @@ RUN echo '{ \
     \n      ] \
     \n    ], \
     \n    [ \
+    \n      "run_bash", \
+    \n      "printf \"[user]\\\n\\tname = miykael\\\n\\temail = michaelnotter@hotmail.com\\\n\" > ~/.gitconfig" \
+    \n    ], \
+    \n    [ \
     \n      "user", \
     \n      "root" \
     \n    ], \
     \n    [ \
-    \n      "run", \
+    \n      "run_bash", \
     \n      "chown -R neuro /home/neuro/nipype_tutorial" \
     \n    ], \
     \n    [ \
@@ -289,6 +296,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-05-07 20:43:57", \
+    \n  "generation_timestamp": "2018-05-14 11:52:36", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json
