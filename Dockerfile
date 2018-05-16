@@ -5,7 +5,7 @@
 # pull request on our GitHub repository:
 #     https://github.com/kaczmarj/neurodocker
 #
-# Timestamp: 2018-05-16 08:08:30
+# Timestamp: 2018-05-16 09:31:36
 
 FROM neurodebian:stretch-non-free
 
@@ -126,8 +126,8 @@ RUN conda create -y -q --name neuro python=3.6 \
     && sync \
     && sed -i '$isource activate neuro' $ND_ENTRYPOINT
 
-# User-defined instruction
-RUN source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main
+# User-defined BASH instruction
+RUN bash -c "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main"
 
 USER root
 
@@ -140,15 +140,15 @@ RUN mkdir /output && chmod 777 /output && chmod a+s /output
 USER neuro
 
 # User-defined instruction
-RUN source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad update -r && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*
+RUN printf "[user]\n\tname = miykael\n\temail = michaelnotter@hotmail.com\n" > ~/.gitconfig
+
+# User-defined BASH instruction
+RUN bash -c "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad update -r && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*"
 
 # User-defined instruction
 RUN curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && find /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c -type f -not -name ?mm_T1.nii.gz -not -name ?mm_brainmask.nii.gz -not -name ?mm_tpm*.nii.gz -delete
 
 COPY [".", "/home/neuro/nipype_tutorial"]
-
-# User-defined instruction
-RUN printf "[user]\n\tname = miykael\n\temail = michaelnotter@hotmail.com\n" > ~/.gitconfig
 
 USER root
 
@@ -227,7 +227,7 @@ RUN echo '{ \
     \n      } \
     \n    ], \
     \n    [ \
-    \n      "run", \
+    \n      "run_bash", \
     \n      "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
     \n    ], \
     \n    [ \
@@ -248,6 +248,10 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run", \
+    \n      "printf \"[user]\\\n\\tname = miykael\\\n\\temail = michaelnotter@hotmail.com\\\n\" > ~/.gitconfig" \
+    \n    ], \
+    \n    [ \
+    \n      "run_bash", \
     \n      "source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad update -r && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*" \
     \n    ], \
     \n    [ \
@@ -260,10 +264,6 @@ RUN echo '{ \
     \n        ".", \
     \n        "/home/neuro/nipype_tutorial" \
     \n      ] \
-    \n    ], \
-    \n    [ \
-    \n      "run", \
-    \n      "printf \"[user]\\\n\\tname = miykael\\\n\\temail = michaelnotter@hotmail.com\\\n\" > ~/.gitconfig" \
     \n    ], \
     \n    [ \
     \n      "user", \
@@ -296,6 +296,6 @@ RUN echo '{ \
     \n      ] \
     \n    ] \
     \n  ], \
-    \n  "generation_timestamp": "2018-05-16 08:08:30", \
+    \n  "generation_timestamp": "2018-05-16 09:31:36", \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json
