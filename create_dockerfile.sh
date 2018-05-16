@@ -22,10 +22,10 @@ docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
            --run 'mkdir /data && chmod 777 /data && chmod a+s /data' \
            --run 'mkdir /output && chmod 777 /output && chmod a+s /output' \
            --user=neuro \
+           --run 'printf "[user]\n\tname = miykael\n\temail = michaelnotter@hotmail.com\n" > ~/.gitconfig' \
            --run-bash 'source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad update -r && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*' \
            --run 'curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && find /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c -type f -not -name ?mm_T1.nii.gz -not -name ?mm_brainmask.nii.gz -not -name ?mm_tpm*.nii.gz -delete' \
            --copy . "/home/neuro/nipype_tutorial" \
-           --run 'printf "[user]\n\tname = miykael\n\temail = michaelnotter@hotmail.com\n" > ~/.gitconfig' \
            --user=root \
            --run 'chown -R neuro /home/neuro/nipype_tutorial' \
            --run 'rm -rf /opt/conda/pkgs/*' \
