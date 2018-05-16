@@ -15,20 +15,20 @@ docker run --rm kaczmarj/neurodocker:v0.3.2 generate -b neurodebian:stretch-non-
                nilearn datalad[full] nipy duecredit" \
   env_name="neuro" \
   activate=True \
---run-bash "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
---run-bash 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
+--run "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
 --user=root \
---run-bash 'mkdir /data && chmod 777 /data && chmod a+s /data' \
---run-bash 'mkdir /output && chmod 777 /output && chmod a+s /output' \
+--run 'mkdir /data && chmod 777 /data && chmod a+s /data' \
+--run 'mkdir /output && chmod 777 /output && chmod a+s /output' \
 --user=neuro \
---run-bash 'source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad update -r && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*' \
---run-bash 'curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && find /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c -type f -not -name ?mm_T1.nii.gz -not -name ?mm_brainmask.nii.gz -not -name ?mm_tpm*.nii.gz -delete' \
+--run 'source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad update -r && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*' \
+--run 'curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && find /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c -type f -not -name ?mm_T1.nii.gz -not -name ?mm_brainmask.nii.gz -not -name ?mm_tpm*.nii.gz -delete' \
 --copy . "/home/neuro/nipype_tutorial" \
---run-bash 'printf "[user]\n\tname = miykael\n\temail = michaelnotter@hotmail.com\n" > ~/.gitconfig' \
+--run 'printf "[user]\n\tname = miykael\n\temail = michaelnotter@hotmail.com\n" > ~/.gitconfig' \
 --user=root \
---run-bash 'chown -R neuro /home/neuro/nipype_tutorial' \
---run-bash 'rm -rf /opt/conda/pkgs/*' \
+--run 'chown -R neuro /home/neuro/nipype_tutorial' \
+--run 'rm -rf /opt/conda/pkgs/*' \
 --user=neuro \
+--run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
 --workdir /home/neuro/nipype_tutorial \
 --cmd "jupyter-notebook" \
 --no-check-urls > Dockerfile
