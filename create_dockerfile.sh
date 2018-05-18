@@ -1,13 +1,13 @@
 #!/bin/bash
 
-docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
+docker run --rm kaczmarj/neurodocker:master generate docker\
            --base neurodebian:stretch-non-free \
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \
                      git-annex-standalone vim emacs-nox nano less ncdu \
                      tig git-annex-remote-rclone octave \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
-           --spm version=12 matlab_version=R2017a \
+           --spm12 version=dev \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
@@ -15,7 +15,7 @@ docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
              pip_install="https://github.com/nipy/nipype/tarball/master
                           https://github.com/INCF/pybids/tarball/master
                           nilearn datalad[full] nipy duecredit nbval" \
-             env_name="neuro" \
+             create_env="neuro" \
              activate=True \
            --run-bash "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
            --user=root \
@@ -32,5 +32,4 @@ docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
            --user=neuro \
            --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
            --workdir /home/neuro/nipype_tutorial \
-           --cmd "jupyter-notebook" \
-           --no-check-urls > Dockerfile
+           --cmd "jupyter-notebook" > Dockerfile
