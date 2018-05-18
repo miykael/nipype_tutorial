@@ -1,47 +1,16 @@
+import os
+import time
 from glob import glob
-import sys, os, time
-import pytest, pdb
-
-import nbformat
-from nbconvert.preprocessors import ExecutePreprocessor
-from nbconvert.preprocessors.execute import CellExecutionError
-
 
 def test_version():
     import nipype
     print("nipype version: ", nipype.__version__)
 
 
-def _notebook_run(path):
-    """
-    Execute a notebook via nbconvert and collect output.
-    :returns (parsed nb object, execution errors)
-    """
-    kernel_name = 'python%d' % sys.version_info[0]
-    this_file_directory = os.path.dirname(__file__)
-    errors = []
-
-    with open(path) as f:
-        nb = nbformat.read(f, as_version=4)
-        nb.metadata.get('kernelspec', {})['name'] = kernel_name
-        ep = ExecutePreprocessor(kernel_name=kernel_name, timeout=7200) #, allow_errors=True
-
-        try:
-            ep.preprocess(nb, {'metadata': {'path': this_file_directory}})
-
-        except CellExecutionError as e:
-            if "TAB" in e.traceback:
-                print(str(e.traceback).split("\n")[-2])
-            else:
-                raise e
-
-    return nb, errors
-
-
 def reduce_notebook_load(path):
     """
     Changes the number of subjects in examples and hands-on to two,
-    to reduce computation time on circleci.
+    to reduce computation time on CircleCi.
     """
 
     path_short = path[:-6] + '_short.ipynb'
@@ -82,27 +51,25 @@ def reduce_notebook_load(path):
     return path_short
 
 
-Dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "notebooks")
+if __name__ == '__main__':
 
-@pytest.mark.parametrize("notebook",
-                         sorted(glob(os.path.join(Dir_path, "introduction_*.ipynb"))) +
-                         sorted(glob(os.path.join(Dir_path, "basic*.ipynb"))) +
-                         sorted(glob(os.path.join(Dir_path, "advanced*.ipynb"))) +
-                         [os.path.join(Dir_path, "example_preprocessing.ipynb"),
-                          os.path.join(Dir_path, "example_1stlevel.ipynb"),
-                          os.path.join(Dir_path, "example_normalize.ipynb"),
-                          os.path.join(Dir_path, "example_2ndlevel.ipynb"),
-                          os.path.join(Dir_path, "handson_preprocessing.ipynb"),
-                          os.path.join(Dir_path, "handson_analysis.ipynb")])
-
-def test_notebooks(notebook):
     test_version()
 
-    if 'example' in notebook or 'handson' in notebook:
-        notebook = reduce_notebook_load(notebook)
-        print('Testing shortened notebook.')
+    notebooks = sorted(glob("/home/neuro/nipype_tutorial/notebooks/introduction_*.ipynb")) + \
+                sorted(glob("/home/neuro/nipype_tutorial/notebooks/basic*.ipynb")) + \
+                sorted(glob("/home/neuro/nipype_tutorial/notebooks/advanced*.ipynb"))
 
-    t0 = time.time()
-    nb, errors = _notebook_run(notebook)
-    print("time", time.time() - t0)
-    assert errors == []
+    for n in ["/home/neuro/nipype_tutorial/notebooks/example_preprocessing.ipynb",
+              "/home/neuro/nipype_tutorial/notebooks/example_1stlevel.ipynb",
+              "/home/neuro/nipype_tutorial/notebooks/example_normalize.ipynb",
+              "/home/neuro/nipype_tutorial/notebooks/example_2ndlevel.ipynb",
+              "/home/neuro/nipype_tutorial/notebooks/handson_preprocessing.ipynb",
+              "/home/neuro/nipype_tutorial/notebooks/handson_analysis.ipynb"]:
+
+        print('Reducing: %s' % n)
+        notebooks.append(reduce_notebook_load(n))
+
+    for test in notebooks:
+        t0 = time.time()
+        os.system('pytest --nbval-lax --nbval-cell-timeout 7200 -v -s %s' % test)
+        print("time", time.time() - t0)
