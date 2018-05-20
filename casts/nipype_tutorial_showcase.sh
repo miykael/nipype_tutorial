@@ -1,4 +1,4 @@
-say "Import nipype building blocks"
+say "Nipype Showcase"
 show "Import nipype building blocks"
 run "from nipype import Node, Workflow"
 
@@ -27,12 +27,13 @@ run "smooth = Node(Smooth(fwhm=4), name='smooth')"
 
 say "Create Workflow"
 show "Create Workflow"
-run "preproc01 = Workflow(name='preproc01', base_dir='.')"
+run "preproc01 = Workflow(name='preproc_flow', base_dir='.')"
 
 say "Connect nodes within the workflow"
 show "Connect nodes within the workflow"
 run "preproc01.connect([(slicetimer, mcflirt, [('slice_time_corrected_file', 'in_file')]),
-                   (mcflirt, smooth, [('out_file', 'in_file')])])
+                   (mcflirt, smooth, [('out_file', 'in_file')])
+                   ])
 "
 
 say "Create a visualization of the workflow"
@@ -41,7 +42,7 @@ run "preproc01.write_graph(graph2use='orig')"
 
 say "Visualize the figure"
 show "Visualize the figure"
-run "!eog preproc01/graph_detailed.png
+run "!eog preproc_flow/graph_detailed.png
 "
 
 say "Feed some input to the workflow"
