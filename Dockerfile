@@ -127,7 +127,8 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
              nilearn \
              datalad[full] \
              nipy \
-             duecredit" \
+             duecredit \
+             nbval" \
     && rm -rf ~/.cache/pip/* \
     && sync \
     && sed -i '$isource activate neuro' $ND_ENTRYPOINT
@@ -231,6 +232,7 @@ RUN echo '{ \
     \n          "nilearn", \
     \n          "datalad[full]", \
     \n          "nipy", \
+    \n          "nbval", \
     \n          "duecredit" \
     \n        ], \
     \n        "create_env": "neuro", \
