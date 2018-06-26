@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker run --rm kaczmarj/neurodocker:master generate docker\
+docker run --rm kaczmarj/neurodocker:master generate docker \
            --base neurodebian:stretch-non-free \
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \
