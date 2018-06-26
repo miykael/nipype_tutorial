@@ -55,7 +55,7 @@ run "%time preproc01.run('MultiProc', plugin_args={'n_procs': 5})"
 
 say "Investigate the output"
 show "Investigate the output"
-run "!tree preproc01 -I '*js|*json|*pklz|_report|*.dot|*html'"
+run "!tree preproc_flow -I '*js|*json|*pklz|_report|*.dot|*html'"
 
 say "Change the size of the smoothing kernel"
 show "Change the size of the smoothing kernel"
