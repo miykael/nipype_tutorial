@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 from glob import glob
 
@@ -55,21 +56,41 @@ if __name__ == '__main__':
 
     test_version()
 
-    notebooks = sorted(glob("/home/neuro/nipype_tutorial/notebooks/introduction_*.ipynb")) + \
-                sorted(glob("/home/neuro/nipype_tutorial/notebooks/basic*.ipynb")) + \
-                sorted(glob("/home/neuro/nipype_tutorial/notebooks/advanced*.ipynb"))
+    # Notebooks that should be tested
+    notebooks = []
 
-    for n in ["/home/neuro/nipype_tutorial/notebooks/example_preprocessing.ipynb",
-              "/home/neuro/nipype_tutorial/notebooks/example_1stlevel.ipynb",
-              "/home/neuro/nipype_tutorial/notebooks/example_normalize.ipynb",
-              "/home/neuro/nipype_tutorial/notebooks/example_2ndlevel.ipynb",
-              "/home/neuro/nipype_tutorial/notebooks/handson_preprocessing.ipynb",
-              "/home/neuro/nipype_tutorial/notebooks/handson_analysis.ipynb"]:
+    # Test mode that should be run
+    test_mode = int(sys.argv[1])
 
-        print('Reducing: %s' % n)
-        notebooks.append(reduce_notebook_load(n))
+    # Specifies which tests should be run
+    if test_mode == 1:
+
+        # Test introduction, basic and advanced notebooks
+        notebooks += sorted(glob("/home/neuro/nipype_tutorial/notebooks/introduction*.ipynb"))
+        notebooks += sorted(glob("/home/neuro/nipype_tutorial/notebooks/basic*.ipynb"))
+        notebooks += sorted(glob("/home/neuro/nipype_tutorial/notebooks/advanced*.ipynb"))
+
+    elif test_mode == 2:
+
+        # Test example notebooks
+        for n in ["/home/neuro/nipype_tutorial/notebooks/example_preprocessing.ipynb",
+                  "/home/neuro/nipype_tutorial/notebooks/example_1stlevel.ipynb",
+                  "/home/neuro/nipype_tutorial/notebooks/example_normalize.ipynb",
+                  "/home/neuro/nipype_tutorial/notebooks/example_2ndlevel.ipynb"]:
+
+            print('Reducing: %s' % n)
+            notebooks.append(reduce_notebook_load(n))
+
+    elif test_mode == 3:
+
+        # Test hands-on notebooks
+        for n in ["/home/neuro/nipype_tutorial/notebooks/handson_preprocessing.ipynb",
+                  "/home/neuro/nipype_tutorial/notebooks/handson_analysis.ipynb"]:
+
+            print('Reducing: %s' % n)
+            notebooks.append(reduce_notebook_load(n))
 
     for test in notebooks:
-        t0 = time.time()
-        os.system('pytest --nbval-lax --nbval-cell-timeout 7200 -v -s %s' % test)
-        print("time", time.time() - t0)
+        pytest_cmd = 'pytest --nbval-lax --nbval-cell-timeout 7200 -v -s %s' % test
+        print(pytest_cmd)
+        os.system(pytest_cmd)

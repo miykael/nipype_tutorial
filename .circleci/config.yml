@@ -2,20 +2,72 @@ version: 2
 jobs:
   build:
     docker:
-      - image: docker:17.10.0-ce-git
+      - image: docker:18.05.0-ce-git
+    steps:
+      - checkout
+  test_1:
+    docker:
+      - image: docker:18.05.0-ce-git
     steps:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
-          name: docker build
+          name: docker build 1
           no_output_timeout: 60m
           command: |
-            for i in {1..5}; do
-              docker build -t miykael/nipype_tutorial:$CIRCLE_BRANCH . && break || sleep 15
-            done
+            docker build -t miykael/nipype_tutorial:$CIRCLE_BRANCH .
       - run:
-          name: docker run
+          name: run tests 1
           no_output_timeout: 120m
           command: |
-            docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH python /home/neuro/nipype_tutorial/test_notebooks.py
+            docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH python /home/neuro/nipype_tutorial/test_notebooks.py 1
+  test_2:
+    docker:
+      - image: docker:18.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: docker build 2
+          no_output_timeout: 60m
+          command: |
+            docker build -t miykael/nipype_tutorial:$CIRCLE_BRANCH .
+      - run:
+          name: run tests 2
+          no_output_timeout: 120m
+          command: |
+            docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH python /home/neuro/nipype_tutorial/test_notebooks.py 2
+  test_3:
+    docker:
+      - image: docker:18.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: docker build 3
+          no_output_timeout: 60m
+          command: |
+            docker build -t miykael/nipype_tutorial:$CIRCLE_BRANCH .
+      - run:
+          name: run tests 3
+          no_output_timeout: 120m
+          command: |
+            docker run -it --rm miykael/nipype_tutorial:$CIRCLE_BRANCH python /home/neuro/nipype_tutorial/test_notebooks.py 3
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test_1:
+          requires:
+            - build
+      - test_2:
+          requires:
+            - build
+      - test_3:
+          requires:
+            - build
