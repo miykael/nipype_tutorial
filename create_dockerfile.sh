@@ -5,7 +5,7 @@ docker run --rm kaczmarj/neurodocker:master generate docker \
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \
                      git-annex-standalone vim emacs-nox nano less ncdu \
-                     tig git-annex-remote-rclone octave \
+                     tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
            --spm12 version=dev \
            --user=neuro \
