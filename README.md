@@ -2,11 +2,12 @@
 
 [![CircleCi](https://img.shields.io/circleci/project/miykael/nipype_tutorial/master.svg?maxAge=2592000)](https://circleci.com/gh/miykael/nipype_tutorial/tree/master)
 [![GitHub issues](https://img.shields.io/github/issues/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/issues/)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/pull/)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/pulls/)
 [![GitHub contributors](https://img.shields.io/github/contributors/miykael/nipype_tutorial.svg)](https://GitHub.com/miykael/nipype_tutorial/graphs/contributors/)
+[![GitHub Commits](https://github-basic-badges.herokuapp.com/commits/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/commits/master)
 [![GitHub size](https://github-size-badge.herokuapp.com/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/archive/master.zip)
 [![Docker Hub](https://img.shields.io/docker/pulls/miykael/nipype_tutorial.svg?maxAge=2592000)](https://hub.docker.com/r/miykael/nipype_tutorial/)
-[![GitHub HitCount](http://hits.dwyl.io/miykael/nipype_tutorial/nipype_tutorial.svg)](http://hits.dwyl.io/miykael/nipype_tutorial/nipype_tutorial)
+[![GitHub HitCount](http://hits.dwyl.io/miykael/nipype_tutorial.svg)](http://hits.dwyl.io/miykael/nipype_tutorial)
 
 This is the Nipype Tutorial in Jupyter Notebook format. You can access the tutorial in two ways:
 
