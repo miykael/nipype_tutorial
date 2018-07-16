@@ -4,11 +4,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/pull/)
 [![GitHub contributors](https://img.shields.io/github/contributors/miykael/nipype_tutorial.svg)](https://GitHub.com/miykael/nipype_tutorial/graphs/contributors/)
-[![GitHub version](https://badge.fury.io/gh/miykael%2FStrapDown.js.svg)](https://github.com/miykael/nipype_tutorial/StrapDown.js)
 [![GitHub size](https://github-size-badge.herokuapp.com/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/archive/master.zip)
 [![Docker Hub](https://img.shields.io/docker/pulls/miykael/nipype_tutorial.svg?maxAge=2592000)](https://hub.docker.com/r/miykael/nipype_tutorial/)
 [![GitHub HitCount](http://hits.dwyl.io/miykael/nipype_tutorial/nipype_tutorial.svg)](http://hits.dwyl.io/miykael/nipype_tutorial/nipype_tutorial)
-[![Google Analytics](https://ga-beacon.appspot.com/UA-92929997-1/github.com/miykael/nipype_tutorial/badges/README.md)](https://github.com/miykael/nipype_tutorial/badges/)
 
 This is the Nipype Tutorial in Jupyter Notebook format. You can access the tutorial in two ways:
 
