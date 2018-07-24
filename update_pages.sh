@@ -43,9 +43,8 @@ do
 
 done
 
-# Copy static and reveal.js folder to docs/, plus some additional files
+# Copy static folder to docs/, plus some additional files
 cp -r static docs/.
-cp -r notebooks/reveal.js docs/notebooks/.
 cp -r notebooks/*.html docs/notebooks/.
 
 # Submit changes with current timestamp
