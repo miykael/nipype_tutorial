@@ -1,1 +1,0 @@
-/media/line/mindhive/Dropbox/projects/nipype_tutorial/docs/notebooks/reveal.js
