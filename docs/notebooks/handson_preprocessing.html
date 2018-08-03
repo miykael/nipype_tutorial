@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -13046,7 +13046,7 @@ action summary:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mask_func</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">ApplyMask</span><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;NIFTI&#39;</span><span class="p">),</span>
-                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mask_func&quot;</span><span class="p">,</span> 
+                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mask_func&quot;</span><span class="p">,</span>
                     <span class="n">iterfield</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;in_file&quot;</span><span class="p">])</span>
 </pre></div>
 
@@ -13439,7 +13439,7 @@ mcflirt -in /output/work_preproc/_subject_id_07/slicetime/asub-07_ses-test_task-
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -13506,7 +13506,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -13675,7 +13675,7 @@ fslmaths /output/work_preproc/_subject_id_07/applywarp/asub-07_ses-test_task-fin
 
 180514-10:01:49,99 workflow INFO:
 	 [Node] Running &#34;_median0&#34; (&#34;nipype.interfaces.fsl.utils.ImageStats&#34;), a CommandLine Interface with command:
-fslstats /output/work_preproc/_subject_id_07/applywarp/asub-07_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_07/mask_GM/c1sub-07_ses-test_T1w_flirt_thresh.nii -p 50 
+fslstats /output/work_preproc/_subject_id_07/applywarp/asub-07_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_07/mask_GM/c1sub-07_ses-test_T1w_flirt_thresh.nii -p 50
 180514-10:01:50,433 workflow INFO:
 	 [Node] Finished &#34;_median0&#34;.
 180514-10:01:50,438 workflow INFO:
@@ -15279,7 +15279,7 @@ fslmaths /output/work_preproc/susan/_subject_id_07/smooth/mapflow/_smooth0/asub-
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -15359,7 +15359,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16368,7 +16368,7 @@ mcflirt -in /output/work_preproc/_subject_id_03/slicetime/asub-03_ses-test_task-
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16448,7 +16448,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16573,7 +16573,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16653,7 +16653,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -17173,7 +17173,7 @@ fslmaths /output/work_preproc/_subject_id_04/resample/c1sub-04_ses-test_T1w_flir
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -17253,7 +17253,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -17431,7 +17431,7 @@ flirt -in /output/work_preproc/_subject_id_02/mcflirt/asub-02_ses-test_task-fing
 fslmaths /output/work_preproc/_subject_id_09/applywarp/asub-09_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -mas /output/work_preproc/_subject_id_09/mask_GM/c1sub-09_ses-test_T1w_flirt_thresh.nii /output/work_preproc/susan/_subject_id_09/mask/mapflow/_mask0/asub-09_ses-test_task-fingerfootlips_bold_roi_mcf_flirt_mask.nii.gz
 180514-10:11:19,244 workflow INFO:
 	 [Node] Running &#34;_median0&#34; (&#34;nipype.interfaces.fsl.utils.ImageStats&#34;), a CommandLine Interface with command:
-fslstats /output/work_preproc/_subject_id_09/applywarp/asub-09_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_09/mask_GM/c1sub-09_ses-test_T1w_flirt_thresh.nii -p 50 
+fslstats /output/work_preproc/_subject_id_09/applywarp/asub-09_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_09/mask_GM/c1sub-09_ses-test_T1w_flirt_thresh.nii -p 50
 
 
 180514-10:11:20,501 workflow INFO:
@@ -17599,14 +17599,14 @@ fslmaths /output/work_preproc/_subject_id_03/applywarp/asub-03_ses-test_task-fin
 fslmaths /output/work_preproc/_subject_id_08/applywarp/asub-08_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -mas /output/work_preproc/_subject_id_08/mask_GM/c1sub-08_ses-test_T1w_flirt_thresh.nii /output/work_preproc/susan/_subject_id_08/mask/mapflow/_mask0/asub-08_ses-test_task-fingerfootlips_bold_roi_mcf_flirt_mask.nii.gz
 180514-10:11:35,252 workflow INFO:
 	 [Node] Running &#34;_median0&#34; (&#34;nipype.interfaces.fsl.utils.ImageStats&#34;), a CommandLine Interface with command:
-fslstats /output/work_preproc/_subject_id_08/applywarp/asub-08_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_08/mask_GM/c1sub-08_ses-test_T1w_flirt_thresh.nii -p 50 
+fslstats /output/work_preproc/_subject_id_08/applywarp/asub-08_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_08/mask_GM/c1sub-08_ses-test_T1w_flirt_thresh.nii -p 50
 
 180514-10:11:35,264 workflow INFO:
 	 [Node] Setting-up &#34;_median0&#34; in &#34;/output/work_preproc/susan/_subject_id_03/median/mapflow/_median0&#34;.
 
 180514-10:11:35,282 workflow INFO:
 	 [Node] Running &#34;_median0&#34; (&#34;nipype.interfaces.fsl.utils.ImageStats&#34;), a CommandLine Interface with command:
-fslstats /output/work_preproc/_subject_id_03/applywarp/asub-03_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_03/mask_GM/c1sub-03_ses-test_T1w_flirt_thresh.nii -p 50 
+fslstats /output/work_preproc/_subject_id_03/applywarp/asub-03_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_03/mask_GM/c1sub-03_ses-test_T1w_flirt_thresh.nii -p 50
 180514-10:11:37,155 workflow INFO:
 	 [MultiProc] Running 7 tasks, and 0 jobs ready. Free memory (GB): 52.54/53.94, Free processors: 1/8.
                      Currently running:
@@ -17785,7 +17785,7 @@ fslmaths /output/work_preproc/_subject_id_04/applywarp/asub-04_ses-test_task-fin
 	 [Node] Setting-up &#34;_median0&#34; in &#34;/output/work_preproc/susan/_subject_id_04/median/mapflow/_median0&#34;.
 180514-10:12:01,292 workflow INFO:
 	 [Node] Running &#34;_median0&#34; (&#34;nipype.interfaces.fsl.utils.ImageStats&#34;), a CommandLine Interface with command:
-fslstats /output/work_preproc/_subject_id_04/applywarp/asub-04_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_04/mask_GM/c1sub-04_ses-test_T1w_flirt_thresh.nii -p 50 
+fslstats /output/work_preproc/_subject_id_04/applywarp/asub-04_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_04/mask_GM/c1sub-04_ses-test_T1w_flirt_thresh.nii -p 50
 180514-10:12:03,178 workflow INFO:
 	 [MultiProc] Running 6 tasks, and 0 jobs ready. Free memory (GB): 52.74/53.94, Free processors: 2/8.
                      Currently running:
@@ -18180,7 +18180,7 @@ fslmaths /output/work_preproc/_subject_id_02/applywarp/asub-02_ses-test_task-fin
 
 180514-10:13:11,338 workflow INFO:
 	 [Node] Running &#34;_median0&#34; (&#34;nipype.interfaces.fsl.utils.ImageStats&#34;), a CommandLine Interface with command:
-fslstats /output/work_preproc/_subject_id_02/applywarp/asub-02_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_02/mask_GM/c1sub-02_ses-test_T1w_flirt_thresh.nii -p 50 
+fslstats /output/work_preproc/_subject_id_02/applywarp/asub-02_ses-test_task-fingerfootlips_bold_roi_mcf_flirt.nii -k /output/work_preproc/_subject_id_02/mask_GM/c1sub-02_ses-test_T1w_flirt_thresh.nii -p 50
 180514-10:13:12,579 workflow INFO:
 	 [Node] Finished &#34;_median0&#34;.
 180514-10:13:12,585 workflow INFO:
@@ -18332,9 +18332,9 @@ fslmaths /output/work_preproc/susan/_subject_id_02/smooth/mapflow/_smooth0/asub-
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>

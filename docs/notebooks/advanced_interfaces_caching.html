@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -12077,9 +12077,9 @@ fslmerge -t sub-01_ses-test_task-fingerfootlips_bold_merged.nii.gz /data/ds00011
 <h2 id="Usage-patterns:-working-efficiently-with-caching">Usage patterns: working efficiently with caching<a class="anchor-link" href="#Usage-patterns:-working-efficiently-with-caching">&#182;</a></h2><p>The goal of the <code>caching</code> module is to enable writing plain Python code rather than workflows. Use it: instead of data grabber nodes, use for instance the <code>glob</code> module. To vary parameters, use <code>for</code> loops. To make reusable code, write Python functions.</p>
 <p>One good rule of thumb to respect is to avoid the usage of explicit filenames apart from the outermost inputs and outputs of your processing. The reason being that the caching mechanism of <code>nipy.caching</code> takes care of generating the unique hashes, ensuring that, when you vary parameters, files are not overridden by the output of different computations.</p>
 <div class="alert alert-info">
-**Debuging**:  
-If you need to inspect the running environment of the nodes, it may be useful to know where they were executed. With `nipype.caching`, you do not control this location as it is encoded by hashes.  
-To find out where an operation has been persisted, simply look in it's output variable:  
+**Debuging**:
+If you need to inspect the running environment of the nodes, it may be useful to know where they were executed. With `nipype.caching`, you do not control this location as it is encoded by hashes.
+To find out where an operation has been persisted, simply look in it's output variable:
 ```out.runtime.cwd```
 </div><p>Finally, the more you explore different parameters, the more you risk creating cached results that will never be reused. Keep in mind that it may be useful to flush the cache using <a href="http://nipype.readthedocs.io/en/latest/api/generated/nipype.caching.memory.html#nipype.caching.memory.Memory.clear_previous_runs"><code>Memory.clear_previous_runs</code></a> or <a href="http://nipype.readthedocs.io/en/latest/api/generated/nipype.caching.memory.html#nipype.caching.memory.Memory.clear_runs_since"><code>Memory.clear_runs_since</code></a>.</p>
 
@@ -12097,9 +12097,9 @@ To find out where an operation has been persisted, simply look in it's output va
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>

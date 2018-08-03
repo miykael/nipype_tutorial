@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -12308,20 +12308,20 @@ AffineTransform (0x55d8723769d0)
   Reference Count: 3
   Modified Time: 660
   Debug: Off
-  Object Name: 
-  Observers: 
+  Object Name:
+  Observers:
     none
-  Matrix: 
-    1.0201 -0.00984231 0.00283729 
-    -0.245557 0.916396 0.324585 
-    -0.0198016 -0.00296066 0.988634 
+  Matrix:
+    1.0201 -0.00984231 0.00283729
+    -0.245557 0.916396 0.324585
+    -0.0198016 -0.00296066 0.988634
   Offset: [2.00569, -15.15, -1.26341]
   Center: [-3.37801, 17.4338, 8.46811]
   Translation: [1.79024, -13.0295, -1.34439]
-  Inverse: 
-    0.982713 0.0105343 -0.00627888 
-    0.256084 1.09282 -0.359526 
-    0.0204499 0.00348366 1.01029 
+  Inverse:
+    0.982713 0.0105343 -0.00627888
+    0.256084 1.09282 -0.359526
+    0.0204499 0.00348366 1.01029
   Singular: 0
 
 </pre>
@@ -12710,7 +12710,7 @@ TraitError: The trait &#39;in_file&#39; of a TransformInfoInputSpec instance is 
 
 <span class="k">class</span> <span class="nc">TransformInfoOutputSpec</span><span class="p">(</span><span class="n">TraitedSpec</span><span class="p">):</span>
     <span class="n">translation</span> <span class="o">=</span> <span class="n">traits</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">traits</span><span class="o">.</span><span class="n">Float</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the translation component of the input transform&#39;</span><span class="p">)</span>
-    
+
 <span class="k">class</span> <span class="nc">TransformInfo</span><span class="p">(</span><span class="n">CommandLine</span><span class="p">):</span>
     <span class="n">_cmd</span> <span class="o">=</span> <span class="s1">&#39;antsTransformInfo&#39;</span>
     <span class="n">input_spec</span> <span class="o">=</span> <span class="n">TransformInfoInputSpec</span>
@@ -12845,20 +12845,20 @@ AffineTransform (0x5577045809d0)
   Reference Count: 3
   Modified Time: 660
   Debug: Off
-  Object Name: 
-  Observers: 
+  Object Name:
+  Observers:
     none
-  Matrix: 
-    1.0201 -0.00984231 0.00283729 
-    -0.245557 0.916396 0.324585 
-    -0.0198016 -0.00296066 0.988634 
+  Matrix:
+    1.0201 -0.00984231 0.00283729
+    -0.245557 0.916396 0.324585
+    -0.0198016 -0.00296066 0.988634
   Offset: [2.00569, -15.15, -1.26341]
   Center: [-3.37801, 17.4338, 8.46811]
   Translation: [1.79024, -13.0295, -1.34439]
-  Inverse: 
-    0.982713 0.0105343 -0.00627888 
-    0.256084 1.09282 -0.359526 
-    0.0204499 0.00348366 1.01029 
+  Inverse:
+    0.982713 0.0105343 -0.00627888
+    0.256084 1.09282 -0.359526
+    0.0204499 0.00348366 1.01029
   Singular: 0
 
 </pre>
@@ -12888,25 +12888,25 @@ AffineTransform (0x5577045809d0)
     <span class="n">_cmd</span> <span class="o">=</span> <span class="s1">&#39;antsTransformInfo&#39;</span>
     <span class="n">input_spec</span> <span class="o">=</span> <span class="n">TransformInfoInputSpec</span>
     <span class="n">output_spec</span> <span class="o">=</span> <span class="n">TransformInfoOutputSpec</span>
-            
+
     <span class="k">def</span> <span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span>
         <span class="kn">import</span> <span class="nn">re</span>
-        
+
         <span class="c1"># Run the command line as a natural CommandLine interface</span>
         <span class="n">runtime</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">TransformInfo</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_run_interface</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
 
         <span class="c1"># Search transform in the standard output</span>
         <span class="n">expr_tra</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;Translation:\s+\[(?P&lt;translation&gt;[0-9\.-]+,\s[0-9\.-]+,\s[0-9\.-]+)\]&#39;</span><span class="p">)</span>
         <span class="n">trans</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">expr_tra</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">runtime</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;translation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)]</span>
-        
+
         <span class="c1"># Save it for later use in _list_outputs</span>
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_result&#39;</span><span class="p">,</span> <span class="n">trans</span><span class="p">)</span>
-        
+
         <span class="c1"># Good to go</span>
         <span class="k">return</span> <span class="n">runtime</span>
-    
+
     <span class="k">def</span> <span class="nf">_list_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        
+
         <span class="c1"># Get the attribute saved during _run_interface</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;translation&#39;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_result&#39;</span><span class="p">)}</span>
 </pre></div>
@@ -13010,25 +13010,25 @@ AffineTransform (0x5577045809d0)
     <span class="n">_cmd</span> <span class="o">=</span> <span class="s1">&#39;antsTransformInfo&#39;</span>
     <span class="n">input_spec</span> <span class="o">=</span> <span class="n">TransformInfoInputSpec</span>
     <span class="n">output_spec</span> <span class="o">=</span> <span class="n">TransformInfoOutputSpec</span>
-            
+
     <span class="k">def</span> <span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span>
         <span class="kn">import</span> <span class="nn">re</span>
-        
+
         <span class="c1"># Run the command line as a natural CommandLine interface</span>
         <span class="n">runtime</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">TransformInfo</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_run_interface</span><span class="p">(</span><span class="n">runtime</span><span class="p">)</span>
 
         <span class="c1"># Search transform in the standard output</span>
         <span class="n">expr_tra</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;Translation:\s+\[(?P&lt;translation&gt;[0-9\.-]+,\s[0-9\.-]+,\s[0-9\.-]+)\]&#39;</span><span class="p">)</span>
         <span class="n">trans</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">expr_tra</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">runtime</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;translation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)]</span>
-        
+
         <span class="c1"># Save it for later use in _list_outputs</span>
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_result&#39;</span><span class="p">,</span> <span class="n">trans</span><span class="p">)</span>
-        
+
         <span class="c1"># Good to go</span>
         <span class="k">return</span> <span class="n">runtime</span>
-    
+
     <span class="k">def</span> <span class="nf">_list_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        
+
         <span class="c1"># Get the attribute saved during _run_interface</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;translation&#39;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_result&#39;</span><span class="p">)}</span>
 </pre></div>
@@ -13097,16 +13097,16 @@ AffineTransform (0x5577045809d0)
 
     <span class="c1"># Do not set exists=True for output files!</span>
     <span class="n">out_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">argstr</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the output image&#39;</span><span class="p">)</span>
-    
+
 <span class="k">class</span> <span class="nc">CustomBETOutputSpec</span><span class="p">(</span><span class="n">TraitedSpec</span><span class="p">):</span>
     <span class="n">out_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the output image&#39;</span><span class="p">)</span>
     <span class="n">mask_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;path/name of binary brain mask (if generated)&quot;</span><span class="p">)</span>
-    
+
 <span class="k">class</span> <span class="nc">CustomBET</span><span class="p">(</span><span class="n">CommandLine</span><span class="p">):</span>
     <span class="n">_cmd</span> <span class="o">=</span> <span class="s1">&#39;bet&#39;</span>
     <span class="n">input_spec</span> <span class="o">=</span> <span class="n">CustomBETInputSpec</span>
     <span class="n">output_spec</span> <span class="o">=</span> <span class="n">CustomBETOutputSpec</span>
-    
+
     <span class="k">def</span> <span class="nf">_list_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="c1"># Get the attribute saved during _run_interface</span>
@@ -13204,21 +13204,21 @@ AffineTransform (0x5577045809d0)
     <span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nb</span>
     <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
     <span class="kn">from</span> <span class="nn">scipy.ndimage.interpolation</span> <span class="k">import</span> <span class="n">affine_transform</span>
-    
+
     <span class="c1"># Load the data</span>
     <span class="n">nii</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">nii</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
-    
+
     <span class="c1"># Create the transformation matrix</span>
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">trans</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">translation</span><span class="p">)</span> <span class="o">/</span> <span class="n">nii</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">get_zooms</span><span class="p">()[:</span><span class="mi">3</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">])</span>
-    
+
     <span class="c1"># Apply the transformation matrix</span>
     <span class="n">newdata</span> <span class="o">=</span> <span class="n">affine_transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">matrix</span><span class="o">=</span><span class="n">matrix</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">trans</span><span class="p">)</span>
-    
+
     <span class="c1"># Save the new data in a new NIfTI image</span>
     <span class="n">nb</span><span class="o">.</span><span class="n">Nifti1Image</span><span class="p">(</span><span class="n">newdata</span><span class="p">,</span> <span class="n">nii</span><span class="o">.</span><span class="n">affine</span><span class="p">,</span> <span class="n">nii</span><span class="o">.</span><span class="n">header</span><span class="p">)</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="n">out_file</span><span class="p">)</span>
-    
+
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Translated file now is here: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">out_file</span><span class="p">)</span>
 </pre></div>
 
@@ -13557,7 +13557,7 @@ AffineTransform (0x5577045809d0)
     <span class="n">out_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the output image&#39;</span><span class="p">)</span> <span class="c1"># Do not set exists=True !!</span>
     <span class="n">translation</span> <span class="o">=</span> <span class="n">traits</span><span class="o">.</span><span class="n">List</span><span class="p">([</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">traits</span><span class="o">.</span><span class="n">Float</span><span class="p">,</span> <span class="n">usedefault</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                               <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the translation component of the input transform&#39;</span><span class="p">)</span>
-    
+
 <span class="k">class</span> <span class="nc">TranslateImageOutputSpec</span><span class="p">(</span><span class="n">TraitedSpec</span><span class="p">):</span>
     <span class="n">out_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the output image&#39;</span><span class="p">)</span>
 </pre></div>
@@ -13709,7 +13709,7 @@ Outputs::
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>It crashed with...
-NotImplementedError: 
+NotImplementedError:
 </pre>
 </div>
 </div>
@@ -13735,16 +13735,16 @@ NotImplementedError:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">TranslateImage</span><span class="p">(</span><span class="n">BaseInterface</span><span class="p">):</span>
     <span class="n">input_spec</span> <span class="o">=</span> <span class="n">TranslateImageInputSpec</span>
     <span class="n">output_spec</span> <span class="o">=</span> <span class="n">TranslateImageOutputSpec</span>
-    
+
     <span class="k">def</span> <span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span>
-        
+
         <span class="c1"># Call our python code here:</span>
         <span class="n">translate_image</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">translation</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">out_file</span>
         <span class="p">)</span>
-        
+
         <span class="c1"># And we are done</span>
         <span class="k">return</span> <span class="n">runtime</span>
 </pre></div>
@@ -13809,7 +13809,7 @@ NotImplementedError:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Translated file now is here: translated_nipype.nii.gz
 It crashed with...
-NotImplementedError: 
+NotImplementedError:
 </pre>
 </div>
 </div>
@@ -13840,14 +13840,14 @@ NotImplementedError:
     <span class="n">out_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the output image&#39;</span><span class="p">)</span> <span class="c1"># Do not set exists=True !!</span>
     <span class="n">translation</span> <span class="o">=</span> <span class="n">traits</span><span class="o">.</span><span class="n">List</span><span class="p">([</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">traits</span><span class="o">.</span><span class="n">Float</span><span class="p">,</span> <span class="n">usedefault</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                               <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the translation component of the input transform&#39;</span><span class="p">)</span>
-    
+
 <span class="k">class</span> <span class="nc">TranslateImageOutputSpec</span><span class="p">(</span><span class="n">TraitedSpec</span><span class="p">):</span>
     <span class="n">out_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s1">&#39;the output image&#39;</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">TranslateImage</span><span class="p">(</span><span class="n">BaseInterface</span><span class="p">):</span>
     <span class="n">input_spec</span> <span class="o">=</span> <span class="n">TranslateImageInputSpec</span>
     <span class="n">output_spec</span> <span class="o">=</span> <span class="n">TranslateImageOutputSpec</span>
-    
+
     <span class="k">def</span> <span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span>
 
         <span class="c1"># Call our python code here:</span>
@@ -13996,7 +13996,7 @@ NotImplementedError:
 <span class="k">class</span> <span class="nc">BrainVolumeMATLABInputSpec</span><span class="p">(</span><span class="n">BaseInterfaceInputSpec</span><span class="p">):</span>
     <span class="n">in_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">script_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
+
 <span class="k">class</span> <span class="nc">BrainVolumeMATLABOutputSpec</span><span class="p">(</span><span class="n">TraitedSpec</span><span class="p">):</span>
     <span class="n">volume</span> <span class="o">=</span> <span class="n">traits</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s1">&#39;brain volume&#39;</span><span class="p">)</span>
 
@@ -14226,7 +14226,7 @@ total = sum(data(:) &gt; 0)</pre>
 <span class="k">class</span> <span class="nc">BrainVolumeMATLABInputSpec</span><span class="p">(</span><span class="n">BaseInterfaceInputSpec</span><span class="p">):</span>
     <span class="n">in_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">script_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
+
 <span class="k">class</span> <span class="nc">BrainVolumeMATLABOutputSpec</span><span class="p">(</span><span class="n">TraitedSpec</span><span class="p">):</span>
     <span class="n">volume</span> <span class="o">=</span> <span class="n">traits</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s1">&#39;brain volume&#39;</span><span class="p">)</span>
 
@@ -14234,16 +14234,16 @@ total = sum(data(:) &gt; 0)</pre>
     <span class="n">input_spec</span> <span class="o">=</span> <span class="n">BrainVolumeMATLABInputSpec</span>
     <span class="n">output_spec</span> <span class="o">=</span> <span class="n">BrainVolumeMATLABOutputSpec</span>
 
-    <span class="k">def</span> <span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span> 
+    <span class="k">def</span> <span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span>
         <span class="c1"># Save the image in matlab format as tmp_image.mat</span>
         <span class="n">tmp_image</span> <span class="o">=</span> <span class="s1">&#39;tmp_image&#39;</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
         <span class="n">savemat</span><span class="p">(</span><span class="n">tmp_image</span><span class="p">,</span> <span class="p">{</span><span class="sa">b</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">},</span> <span class="n">do_compression</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        
+
         <span class="c1"># Load script</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">script_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">script_file</span><span class="p">:</span>
             <span class="n">script_content</span> <span class="o">=</span> <span class="n">script_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        
+
         <span class="c1"># Replace the input_image.mat file for the actual input of this interface</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;newscript.m&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">script_file</span><span class="p">:</span>
             <span class="n">script_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">script_content</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;input_image.mat&#39;</span><span class="p">,</span> <span class="s1">&#39;tmp_image.mat&#39;</span><span class="p">))</span>
@@ -14251,7 +14251,7 @@ total = sum(data(:) &gt; 0)</pre>
         <span class="c1"># Run a matlab command</span>
         <span class="n">mlab</span> <span class="o">=</span> <span class="n">CommandLine</span><span class="p">(</span><span class="s1">&#39;octave&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="s1">&#39;newscript.m&#39;</span><span class="p">,</span> <span class="n">terminal_output</span><span class="o">=</span><span class="s1">&#39;stream&#39;</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-        
+
         <span class="n">expr_tra</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;total\ =\s+(?P&lt;total&gt;[0-9]+)&#39;</span><span class="p">)</span>
         <span class="n">volume</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">expr_tra</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()[</span><span class="s1">&#39;total&#39;</span><span class="p">])</span>
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_result&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span>
@@ -14394,7 +14394,7 @@ volume = 5308353
 <span class="k">class</span> <span class="nc">BrainVolumeMATLABInputSpec</span><span class="p">(</span><span class="n">BaseInterfaceInputSpec</span><span class="p">):</span>
     <span class="n">in_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">script_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mandatory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
+
 <span class="k">class</span> <span class="nc">BrainVolumeMATLABOutputSpec</span><span class="p">(</span><span class="n">TraitedSpec</span><span class="p">):</span>
     <span class="n">volume</span> <span class="o">=</span> <span class="n">traits</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s1">&#39;brain volume&#39;</span><span class="p">)</span>
     <span class="n">out_file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s1">&#39;output file containing total brain volume&#39;</span><span class="p">)</span>  <span class="c1"># This line was added</span>
@@ -14403,16 +14403,16 @@ volume = 5308353
     <span class="n">input_spec</span> <span class="o">=</span> <span class="n">BrainVolumeMATLABInputSpec</span>
     <span class="n">output_spec</span> <span class="o">=</span> <span class="n">BrainVolumeMATLABOutputSpec</span>
 
-    <span class="k">def</span> <span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span> 
+    <span class="k">def</span> <span class="nf">_run_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runtime</span><span class="p">):</span>
         <span class="c1"># Save the image in matlab format as tmp_image.mat</span>
         <span class="n">tmp_image</span> <span class="o">=</span> <span class="s1">&#39;tmp_image&#39;</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
         <span class="n">savemat</span><span class="p">(</span><span class="n">tmp_image</span><span class="p">,</span> <span class="p">{</span><span class="sa">b</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">},</span> <span class="n">do_compression</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        
+
         <span class="c1"># Load script</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">script_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">script_file</span><span class="p">:</span>
             <span class="n">script_content</span> <span class="o">=</span> <span class="n">script_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        
+
         <span class="c1"># Replace the input_image.mat file for the actual input of this interface</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;newscript.m&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">script_file</span><span class="p">:</span>
             <span class="n">script_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">script_content</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;input_image.mat&#39;</span><span class="p">,</span> <span class="s1">&#39;tmp_image.mat&#39;</span><span class="p">))</span>
@@ -14420,17 +14420,17 @@ volume = 5308353
         <span class="c1"># Run a matlab command</span>
         <span class="n">mlab</span> <span class="o">=</span> <span class="n">CommandLine</span><span class="p">(</span><span class="s1">&#39;octave&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="s1">&#39;newscript.m&#39;</span><span class="p">,</span> <span class="n">terminal_output</span><span class="o">=</span><span class="s1">&#39;stream&#39;</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-        
+
         <span class="n">expr_tra</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;total\ =\s+(?P&lt;total&gt;[0-9]+)&#39;</span><span class="p">)</span>
         <span class="n">volume</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">expr_tra</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()[</span><span class="s1">&#39;total&#39;</span><span class="p">])</span>
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_result&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span>
-        
+
         <span class="c1"># Write total brain volume into a file</span>
         <span class="n">out_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;volume.txt&#39;</span><span class="p">)</span>
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_out_file&#39;</span><span class="p">,</span> <span class="n">out_fname</span><span class="p">)</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;volume.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
             <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">volume</span>)
-        
+
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">runtime</span>
 
     <span class="k">def</span> <span class="nf">_list_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -14573,9 +14573,9 @@ volume = 5308353
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>

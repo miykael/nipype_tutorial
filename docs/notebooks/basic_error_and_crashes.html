@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -11954,7 +11954,7 @@ RuntimeError: Workflow did not execute cleanly. Check log for details
 <h3 id="Investigating-the-crash">Investigating the crash<a class="anchor-link" href="#Investigating-the-crash">&#182;</a></h3><p>Hidden, in the log file you can find the relevant information:</p>
 
 <pre><code>OSError: No files were found matching func template: /data/ds000114/sub-11/ses-test/func/sub-11_ses-test_task-fingerfootlips_bold.nii.gz
-Interface SelectFiles failed to run. 
+Interface SelectFiles failed to run.
 
 170904-05:48:13,727 workflow INFO:
      ***********************************
@@ -12021,7 +12021,7 @@ subject_id = sub-11
 
 
 
-Traceback: 
+Traceback:
 Traceback (most recent call last):
   File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/plugins/linear.py&#34;, line 44, in run
     node.run(updatehash=updatehash)
@@ -12098,7 +12098,7 @@ subject_id = sub-11
 
 
 
-Traceback: 
+Traceback:
 Traceback (most recent call last):
   File &#34;/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/pipeline/plugins/linear.py&#34;, line 44, in run
     node.run(updatehash=updatehash)
@@ -13161,7 +13161,7 @@ connected.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This will lead to the error:</p>
-<div class="highlight"><pre><span></span><span class="ne">Exception</span><span class="p">:</span> 
+<div class="highlight"><pre><span></span><span class="ne">Exception</span><span class="p">:</span>
 <span class="n">Trying</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">preprocWF</span><span class="o">.</span><span class="n">mcflirt_NEW</span><span class="p">:</span><span class="n">out_file</span> <span class="n">to</span> <span class="n">preprocWF</span><span class="o">.</span><span class="n">smooth</span><span class="p">:</span><span class="n">in_file</span> <span class="n">but</span> <span class="nb">input</span> <span class="s1">&#39;in_file&#39;</span> <span class="n">of</span> <span class="n">node</span> <span class="s1">&#39;preprocWF.smooth&#39;</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">connected</span><span class="o">.</span>
 </pre></div>
 
@@ -13170,9 +13170,9 @@ connected.
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>

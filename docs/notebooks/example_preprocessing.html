@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -12225,7 +12225,7 @@ sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz  int16  [ 6
                                      <span class="p">(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;coreg_bbr.in_file&#39;</span><span class="p">),</span>
                                      <span class="p">(</span><span class="s1">&#39;mean_img&#39;</span><span class="p">,</span> <span class="s1">&#39;applywarp_mean.in_file&#39;</span><span class="p">)]),</span>
                  <span class="p">(</span><span class="n">slicetimer</span><span class="p">,</span> <span class="n">coregwf</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;slice_time_corrected_file&#39;</span><span class="p">,</span> <span class="s1">&#39;applywarp.in_file&#39;</span><span class="p">)]),</span>
-                 
+
                  <span class="p">(</span><span class="n">coregwf</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;applywarp.out_file&#39;</span><span class="p">,</span> <span class="s1">&#39;in_files&#39;</span><span class="p">)]),</span>
 
                  <span class="p">(</span><span class="n">mcflirt</span><span class="p">,</span> <span class="n">datasink</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;par_file&#39;</span><span class="p">,</span> <span class="s1">&#39;preproc.@par&#39;</span><span class="p">)]),</span>
@@ -13780,7 +13780,7 @@ flirt -in /output/workingdir/preproc/_subject_id_09_task_name_fingerfootlips/mcf
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -13845,7 +13845,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -14105,7 +14105,7 @@ flirt -in /output/workingdir/preproc/_subject_id_08_task_name_fingerfootlips/sli
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -14170,7 +14170,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -14446,7 +14446,7 @@ flirt -in /output/workingdir/preproc/_subject_id_06_task_name_fingerfootlips/mcf
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -14511,7 +14511,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -14804,7 +14804,7 @@ flirt -in /output/workingdir/preproc/_subject_id_04_task_name_fingerfootlips/mcf
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -14869,7 +14869,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -15295,7 +15295,7 @@ fast -S 1 /output/workingdir/preproc/coregwf/_subject_id_02_task_name_fingerfoot
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -15360,7 +15360,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -15844,7 +15844,7 @@ flirt -in /output/workingdir/preproc/_subject_id_03_task_name_fingerfootlips/mcf
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -15909,7 +15909,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16219,7 +16219,7 @@ flirt -in /output/workingdir/preproc/_subject_id_03_task_name_fingerfootlips/sli
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16284,7 +16284,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16527,7 +16527,7 @@ flirt -in /output/workingdir/preproc/_subject_id_01_task_name_fingerfootlips/sli
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16592,7 +16592,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16794,7 +16794,7 @@ flirt -in /output/workingdir/preproc/_subject_id_02_task_name_fingerfootlips/sli
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning: 
+<pre>/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:542: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -16859,7 +16859,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 
 
   matplotlib.use(config.get(&#34;execution&#34;, &#34;matplotlib_backend&#34;))
-/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning: 
+/opt/conda/envs/neuro/lib/python3.6/site-packages/nipype/algorithms/rapidart.py:398: UserWarning:
 This call to matplotlib.use() has no effect because the backend has already
 been chosen; matplotlib.use() must be called *before* pylab, matplotlib.pyplot,
 or matplotlib.backends is imported for the first time.
@@ -17981,9 +17981,9 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>

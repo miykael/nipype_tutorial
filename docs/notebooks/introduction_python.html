@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -12049,7 +12049,7 @@ div#notebook {
 
 log(...)
     log(x[, base])
-    
+
     Return the logarithm of x to the given base.
     If the base not specified, returns the natural logarithm (base e) of x.
 
@@ -12474,7 +12474,7 @@ log(...)
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span>
  <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
  <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
  <span class="mi">1</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
@@ -13711,7 +13711,7 @@ str1 str2 str3
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Newlines are indicated by 
+<pre>Newlines are indicated by
 And tabs by 	.
 Newlines are indicated by \nAnd tabs by \t. Printed as rawstring
 </pre>
@@ -14811,10 +14811,10 @@ One thing you should remember is that wrong indentation rises <code>IndentationE
 
 <span class="k">if</span> <span class="n">statement1</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;statement1 is True&quot;</span><span class="p">)</span>
-    
+
 <span class="k">elif</span> <span class="n">statement2</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;statement2 is True&quot;</span><span class="p">)</span>
-    
+
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;statement1 and statement2 are False&quot;</span><span class="p">)</span>
 </pre></div>
@@ -14909,11 +14909,11 @@ One thing you should remember is that wrong indentation rises <code>IndentationE
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">statement1</span> <span class="o">=</span> <span class="kc">False</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">statement1</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="k">if</span> <span class="n">statement1</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;printed if statement1 is True&quot;</span><span class="p">)</span>
-    
+
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;still inside the if block&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -14929,7 +14929,7 @@ One thing you should remember is that wrong indentation rises <code>IndentationE
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">statement1</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;printed if statement1 is True&quot;</span><span class="p">)</span>
-    
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;now outside the if block&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -15338,9 +15338,9 @@ parameter4 = D
 
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    
+
     <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-    
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -15601,7 +15601,7 @@ Value of x is 2
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Print a string &#39;s&#39; and tell how many characters it has    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="nb">print</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="s2">&quot; has &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; characters&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -16059,7 +16059,7 @@ additioanl arg: [1, 2, 3]
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Formal arg:&quot;</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;another keyword arg: </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
-    
+
 <span class="n">kwargs_func</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">myarg2</span><span class="o">=</span><span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="n">myarg3</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
@@ -16107,7 +16107,7 @@ another keyword arg: myarg3: 3
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-    
+
 <span class="c1"># is equivalent to </span>
 
 <span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -16226,21 +16226,21 @@ another keyword arg: myarg3: 3
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Simple class for representing a point in a Cartesian coordinate system.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a new Point at x, y.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-        
+
     <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Translate the point by dx and dy in the x and y direction.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>
-        
+
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span><span class="p">(</span><span class="s2">&quot;Point at [</span><span class="si">%f</span><span class="s2">, </span><span class="si">%f</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
 </pre></div>
@@ -16412,7 +16412,7 @@ def my_function():
     Example function
     &quot;&quot;&quot;
     return my_variable
-    
+
 class MyClass:
     &quot;&quot;&quot;
     Example class.
@@ -16420,13 +16420,13 @@ class MyClass:
 
     def __init__(self):
         self.variable = my_variable
-        
+
     def set_variable(self, new_value):
         &quot;&quot;&quot;
         Set self.variable to a new value
         &quot;&quot;&quot;
         self.variable = new_value
-        
+
     def get_variable(self):
         return self.variable
 </pre></div>
@@ -16520,26 +16520,26 @@ DESCRIPTION
 CLASSES
     builtins.object
         MyClass
-    
+
     class MyClass(builtins.object)
      |  Example class.
-     |  
+     |
      |  Methods defined here:
-     |  
+     |
      |  __init__(self)
      |      Initialize self.  See help(type(self)) for accurate signature.
-     |  
+     |
      |  get_variable(self)
-     |  
+     |
      |  set_variable(self, new_value)
      |      Set self.variable to a new value
-     |  
+     |
      |  ----------------------------------------------------------------------
      |  Data descriptors defined here:
-     |  
+     |
      |  __dict__
      |      dictionary for instance variables (if defined)
-     |  
+     |
      |  __weakref__
      |      list of weak references to the object (if defined)
 
@@ -16600,7 +16600,7 @@ FILE
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mymodule</span><span class="o">.</span><span class="n">my_function</span><span class="p">()</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mymodule</span><span class="o">.</span><span class="n">my_function</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -16633,7 +16633,7 @@ FILE
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_class</span> <span class="o">=</span> <span class="n">mymodule</span><span class="o">.</span><span class="n">MyClass</span><span class="p">()</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_class</span> <span class="o">=</span> <span class="n">mymodule</span><span class="o">.</span><span class="n">MyClass</span><span class="p">()</span>
 <span class="n">my_class</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">my_class</span><span class="o">.</span><span class="n">get_variable</span><span class="p">()</span>
 </pre></div>
@@ -17392,9 +17392,9 @@ ds102	sub010	D	25.24
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>

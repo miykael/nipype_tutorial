@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -12505,8 +12505,8 @@ data_scaled = [1150.7970627481727, 2711.321904675856, 3786.9480560460365]</pre>
 <span class="k">def</span> <span class="nf">split_dob</span><span class="p">(</span><span class="n">dob_string</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">dob_string</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
-<span class="n">split_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dob_string&quot;</span><span class="p">],</span> 
-                              <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;split_list&quot;</span><span class="p">],</span> 
+<span class="n">split_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dob_string&quot;</span><span class="p">],</span>
+                              <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;split_list&quot;</span><span class="p">],</span>
                               <span class="n">function</span><span class="o">=</span><span class="n">split_dob</span><span class="p">),</span>
                     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;splitting&quot;</span><span class="p">)</span>
 
@@ -12531,8 +12531,8 @@ data_scaled = [1150.7970627481727, 2711.321904675856, 3786.9480560460365]</pre>
     <span class="n">str_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">str_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">str_list</span>
 
-<span class="n">cleaning_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;str_list&quot;</span><span class="p">],</span> 
-                              <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;str_list_clean&quot;</span><span class="p">],</span> 
+<span class="n">cleaning_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;str_list&quot;</span><span class="p">],</span>
+                              <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;str_list_clean&quot;</span><span class="p">],</span>
                               <span class="n">function</span><span class="o">=</span><span class="n">remove_comma</span><span class="p">),</span>
                     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cleaning&quot;</span><span class="p">)</span>
 
@@ -12554,11 +12554,11 @@ data_scaled = [1150.7970627481727, 2711.321904675856, 3786.9480560460365]</pre>
     <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
 
 
-<span class="n">datetime_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date_list&quot;</span><span class="p">],</span> 
-                                  <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">],</span> 
+<span class="n">datetime_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date_list&quot;</span><span class="p">],</span>
+                                  <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">],</span>
                               <span class="n">function</span><span class="o">=</span><span class="n">datetime_format</span><span class="p">),</span>
                     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
-    
+
 </pre></div>
 
 </div>
@@ -12577,8 +12577,8 @@ data_scaled = [1150.7970627481727, 2711.321904675856, 3786.9480560460365]</pre>
     <span class="n">datetime_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">datetime_list</span>
 
-<span class="n">sorting_node</span> <span class="o">=</span> <span class="n">JoinNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;datetime_list&quot;</span><span class="p">],</span> 
-                              <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dob_sorted&quot;</span><span class="p">],</span> 
+<span class="n">sorting_node</span> <span class="o">=</span> <span class="n">JoinNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;datetime_list&quot;</span><span class="p">],</span>
+                              <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dob_sorted&quot;</span><span class="p">],</span>
                               <span class="n">function</span><span class="o">=</span><span class="n">sorting_dob</span><span class="p">),</span>
                     <span class="n">joinsource</span><span class="o">=</span><span class="n">split_node</span><span class="p">,</span> <span class="c1"># this is the node that used iterables for x</span>
                     <span class="n">joinfield</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;datetime_list&#39;</span><span class="p">],</span>
@@ -12860,9 +12860,9 @@ dob_sorted = [datetime.datetime(1782, 4, 2, 0, 0), datetime.datetime(1984, 2, 10
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>

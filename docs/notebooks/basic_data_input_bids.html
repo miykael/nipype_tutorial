@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -12240,11 +12240,11 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_niftis</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
     <span class="c1"># Remember that all the necesary imports need to be INSIDE the function for the Function Interface to work!</span>
     <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
-    
+
     <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-    
+
     <span class="n">bolds</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])</span>
-    
+
     <span class="k">return</span> <span class="n">bolds</span>
 </pre></div>
 
@@ -12402,7 +12402,7 @@ bolds = [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cover
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">printMe</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    
+
 <span class="n">analyzeBOLD</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMe</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;paths&quot;</span><span class="p">],</span>
                             <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeBOLD&quot;</span><span class="p">)</span>
 </pre></div>
@@ -12510,16 +12510,16 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 
 <span class="k">def</span> <span class="nf">get_T1w</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
-    
+
     <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-    
+
     <span class="n">T1w</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">modality</span><span class="o">=</span><span class="s2">&quot;anat&quot;</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
-    
+
     <span class="k">return</span> <span class="n">T1w</span>
 
-<span class="n">ex2_BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_T1w</span><span class="p">,</span> 
+<span class="n">ex2_BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_T1w</span><span class="p">,</span>
                                     <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
-                                       <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1w&quot;</span><span class="p">]),</span> 
+                                       <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1w&quot;</span><span class="p">]),</span>
                            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ex2&quot;</span><span class="p">)</span>
 <span class="n">ex2_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114&quot;</span>
 
@@ -12755,7 +12755,7 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
     <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TR: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="s2">&quot;RepetitionTime&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    
+
 <span class="n">analyzeBOLD2</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMetadata</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
                              <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeBOLD2&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">)</span>
 <span class="n">analyzeBOLD2</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114/&quot;</span>
@@ -13110,17 +13110,17 @@ TR: 5.0
     <span class="c1"># Remember that all the necesary imports need to be INSIDE the function </span>
     <span class="c1"># for the Function Interface to work!</span>
     <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
-    
+
     <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-    
+
     <span class="n">bolds</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])</span>
-    
+
     <span class="k">return</span> <span class="n">bolds</span>
 
 
-<span class="n">ex3_BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_niftis</span><span class="p">,</span> 
+<span class="n">ex3_BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_niftis</span><span class="p">,</span>
                                     <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
-                                    <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bolds&quot;</span><span class="p">]),</span> 
+                                    <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bolds&quot;</span><span class="p">]),</span>
                            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ex3_BIDSDataGrabber&quot;</span><span class="p">)</span>
 <span class="n">ex3_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114&quot;</span>
 <span class="n">ex3_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span><span class="o">=</span><span class="s1">&#39;01&#39;</span>
@@ -13140,13 +13140,13 @@ TR: 5.0
 <span class="k">def</span> <span class="nf">printMetadata_et</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TR: &quot;</span><span class="o">+</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TR: &quot;</span><span class="o">+</span>
           <span class="nb">str</span><span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="s2">&quot;RepetitionTime&quot;</span><span class="p">])</span> <span class="o">+</span>
           <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">ET: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="s2">&quot;EchoTime&quot;</span><span class="p">])</span><span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    
-<span class="n">ex3_analyzeBOLD2</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMetadata_et</span><span class="p">,</span> 
+
+<span class="n">ex3_analyzeBOLD2</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMetadata_et</span><span class="p">,</span>
                                     <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
-                                    <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> 
+                                    <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span>
                            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ex3&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">)</span>
 <span class="n">ex3_analyzeBOLD2</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114/&quot;</span>
 
@@ -13337,9 +13337,9 @@ ET: 0.05
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>

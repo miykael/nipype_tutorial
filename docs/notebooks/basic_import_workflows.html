@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -12033,7 +12033,7 @@ fslmaths /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips
 	 [Node] Outdated cache found for &#34;_median0&#34;.
 180514-09:21:34,490 workflow INFO:
 	 [Node] Running &#34;_median0&#34; (&#34;nipype.interfaces.fsl.utils.ImageStats&#34;), a CommandLine Interface with command:
-fslstats /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -k /output/sub-01_ses-test_task-fingerfootlips_mask.nii.gz -p 50 
+fslstats /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -k /output/sub-01_ses-test_task-fingerfootlips_mask.nii.gz -p 50
 180514-09:21:35,617 workflow INFO:
 	 [Node] Finished &#34;_median0&#34;.
 180514-09:21:35,623 workflow INFO:
@@ -12276,12 +12276,12 @@ fslmaths /output/susan_smooth/smooth/mapflow/_smooth0/sub-01_ses-test_task-finge
 
 <div class="output_text output_subarea output_execute_result">
 <pre>
-inputnode = 
+inputnode =
 fwhm = 4
 in_files = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz
 mask_file = /output/sub-01_ses-test_task-fingerfootlips_mask.nii.gz
 
-mask = 
+mask =
 args = &lt;undefined&gt;
 environ = {&#39;FSLOUTPUTTYPE&#39;: &#39;NIFTI_GZ&#39;}
 ignore_exception = False
@@ -12293,7 +12293,7 @@ output_type = NIFTI_GZ
 suffix = _mask
 terminal_output = &lt;undefined&gt;
 
-meanfunc2 = 
+meanfunc2 =
 args = &lt;undefined&gt;
 environ = {&#39;FSLOUTPUTTYPE&#39;: &#39;NIFTI_GZ&#39;}
 ignore_exception = False
@@ -12306,7 +12306,7 @@ output_type = NIFTI_GZ
 suffix = _mean
 terminal_output = &lt;undefined&gt;
 
-median = 
+median =
 args = &lt;undefined&gt;
 environ = {&#39;FSLOUTPUTTYPE&#39;: &#39;NIFTI_GZ&#39;}
 ignore_exception = False
@@ -12315,13 +12315,13 @@ output_type = NIFTI_GZ
 split_4d = &lt;undefined&gt;
 terminal_output = &lt;undefined&gt;
 
-merge = 
+merge =
 axis = hstack
 ignore_exception = False
 no_flatten = False
 ravel_inputs = False
 
-multi_inputs = 
+multi_inputs =
 function_str = def cartesian_product(fwhms, in_files, usans, btthresh):
     from nipype.utils.filemanip import ensure_list
     # ensure all inputs are lists
@@ -12341,10 +12341,10 @@ function_str = def cartesian_product(fwhms, in_files, usans, btthresh):
 
 ignore_exception = False
 
-outputnode = 
+outputnode =
 
 
-smooth = 
+smooth =
 args = &lt;undefined&gt;
 dimension = 3
 environ = {&#39;FSLOUTPUTTYPE&#39;: &#39;NIFTI_GZ&#39;}
@@ -12388,33 +12388,33 @@ use_median = 1
 
 <div class="output_text output_subarea output_execute_result">
 <pre>
-inputnode = 
+inputnode =
 fwhm = None
 in_files = None
 mask_file = None
 
-mask = 
+mask =
 out_file = None
 
-meanfunc2 = 
+meanfunc2 =
 out_file = None
 
-median = 
+median =
 out_stat = None
 
-merge = 
+merge =
 out = None
 
-multi_inputs = 
+multi_inputs =
 cart_btthresh = None
 cart_fwhm = None
 cart_in_file = None
 cart_usans = None
 
-outputnode = 
+outputnode =
 smoothed_files = None
 
-smooth = 
+smooth =
 smoothed_file = None
 </pre>
 </div>
@@ -12560,7 +12560,7 @@ smoothed_file = None
 	 [Node] Outdated cache found for &#34;_median0&#34;.
 180514-09:22:21,421 workflow INFO:
 	 [Node] Running &#34;_median0&#34; (&#34;nipype.interfaces.fsl.utils.ImageStats&#34;), a CommandLine Interface with command:
-fslstats /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -k /output/sub-01_ses-test_task-fingerfootlips_mask.nii.gz -p 99 
+fslstats /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz -k /output/sub-01_ses-test_task-fingerfootlips_mask.nii.gz -p 99
 180514-09:22:22,557 workflow INFO:
 	 [Node] Finished &#34;_median0&#34;.
 180514-09:22:22,562 workflow INFO:
@@ -12751,9 +12751,9 @@ susan /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bo
 </div>
     </div>
   </div>
-</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
- 
+
 
 
 </html>
