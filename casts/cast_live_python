@@ -26,7 +26,7 @@ geometry=${width}x${height}
 this_window=$(xdotool getwindowfocus)
 
 # For consistent appearance
-xterm +sb -fa Hermit -fs $fs -bg black -fg white -geometry $geometry -title Screencast-xterm -e "bash  --rcfile cast_ipython.rc" &
+xterm +sb -fa Hermit -fs $fs -bg white -fg black -geometry $geometry -title Screencast-xterm -e "bash  --rcfile cast_ipython.rc" &
 xterm_pid=$!
 sleep 2
 
