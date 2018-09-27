@@ -1,6 +1,6 @@
 # Nipype Tutorial Notebooks
 
-[![CircleCi](https://img.shields.io/circleci/project/miykael/nipype_tutorial/master.svg?maxAge=2592000)](https://circleci.com/gh/miykael/nipype_tutorial/tree/master)
+[![CircleCi](https://circleci.com/gh/miykael/nipype_tutorial.svg?style=shield)](https://circleci.com/gh/miykael/nipype_tutorial/tree/master)
 [![GitHub issues](https://img.shields.io/github/issues/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/pulls/)
 [![GitHub contributors](https://img.shields.io/github/contributors/miykael/nipype_tutorial.svg)](https://GitHub.com/miykael/nipype_tutorial/graphs/contributors/)
