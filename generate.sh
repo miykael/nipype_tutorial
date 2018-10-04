@@ -11,7 +11,7 @@ generate_docker() {
                      git-annex-standalone vim emacs-nox nano less ncdu \
                      tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
-           --spm12 version=dev \
+           --spm12 version=r7219 \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
@@ -48,7 +48,7 @@ generate_singularity() {
                      git-annex-standalone vim emacs-nox nano less ncdu \
                      tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
-           --spm12 version=dev \
+           --spm12 version=r7219 \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
