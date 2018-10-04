@@ -9,7 +9,7 @@ generate_docker() {
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \
                      git-annex-standalone vim emacs-nox nano less ncdu \
-                     tig git-annex-remote-rclone octave netbase \
+                     tig git-annex-remote-rclone octave netbase libgfortran3:i386 \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
            --spm12 version=r7219 \
            --user=neuro \
@@ -46,7 +46,7 @@ generate_singularity() {
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \
                      git-annex-standalone vim emacs-nox nano less ncdu \
-                     tig git-annex-remote-rclone octave netbase \
+                     tig git-annex-remote-rclone octave netbase libgfortran3:i386 \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
            --spm12 version=r7219 \
            --user=neuro \
