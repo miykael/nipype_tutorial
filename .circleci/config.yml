@@ -16,12 +16,12 @@ jobs:
           name: docker build 1
           no_output_timeout: 60m
           command: |
-            docker build -t miykael/nipype_tutorial:$(sed 's|/|_|g' <<< $CIRCLE_BRANCH) .
+            docker build -t miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') .
       - run:
           name: run tests 1
           no_output_timeout: 120m
           command: |
-            docker run -it --rm miykael/nipype_tutorial:$(sed 's|/|_|g' <<< $CIRCLE_BRANCH) python /home/neuro/nipype_tutorial/test_notebooks.py 1
+            docker run -it --rm miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') python /home/neuro/nipype_tutorial/test_notebooks.py 1
   test_2:
     docker:
       - image: docker:18.05.0-ce-git
@@ -33,12 +33,12 @@ jobs:
           name: docker build 2
           no_output_timeout: 60m
           command: |
-            docker build -t miykael/nipype_tutorial:$(sed 's|/|_|g' <<< $CIRCLE_BRANCH) .
+            docker build -t miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') .
       - run:
           name: run tests 2
           no_output_timeout: 120m
           command: |
-            docker run -it --rm miykael/nipype_tutorial:$(sed 's|/|_|g' <<< $CIRCLE_BRANCH) python /home/neuro/nipype_tutorial/test_notebooks.py 2
+            docker run -it --rm miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') python /home/neuro/nipype_tutorial/test_notebooks.py 2
   test_3:
     docker:
       - image: docker:18.05.0-ce-git
@@ -50,12 +50,12 @@ jobs:
           name: docker build 3
           no_output_timeout: 60m
           command: |
-            docker build -t miykael/nipype_tutorial:$(sed 's|/|_|g' <<< $CIRCLE_BRANCH) .
+            docker build -t miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') .
       - run:
           name: run tests 3
           no_output_timeout: 120m
           command: |
-            docker run -it --rm miykael/nipype_tutorial:$(sed 's|/|_|g' <<< $CIRCLE_BRANCH) python /home/neuro/nipype_tutorial/test_notebooks.py 3
+            docker run -it --rm miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') python /home/neuro/nipype_tutorial/test_notebooks.py 3
 
 workflows:
   version: 2
