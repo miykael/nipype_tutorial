@@ -11,6 +11,7 @@ generate_docker() {
                      git-annex-standalone vim emacs-nox nano less ncdu \
                      tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
+           --env LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro/lib" \
            --spm12 version=r7219 \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
@@ -48,6 +49,7 @@ generate_singularity() {
                      git-annex-standalone vim emacs-nox nano less ncdu \
                      tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
+           --env LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro/lib" \
            --spm12 version=r7219 \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
