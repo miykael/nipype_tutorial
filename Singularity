@@ -204,7 +204,7 @@ echo '{
 \n    [
 \n      "env",
 \n      {
-\n        "LD_LIBRARY_PATH": "/opt/miniconda-latest/envs/neuro/lib"
+\n        "LD_LIBRARY_PATH": "/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH"
 \n      }
 \n    ],
 \n    [
@@ -319,7 +319,7 @@ echo '{
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export ND_ENTRYPOINT="/neurodocker/startup.sh"
-export LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro/lib"
+export LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH"
 export FORCE_SPMMCR="1"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu:/opt/matlabmcr-2010a/v713/runtime/glnxa64:/opt/matlabmcr-2010a/v713/bin/glnxa64:/opt/matlabmcr-2010a/v713/sys/os/glnxa64:/opt/matlabmcr-2010a/v713/extern/bin/glnxa64"
 export MATLABCMD="/opt/matlabmcr-2010a/v713/toolbox/matlab"

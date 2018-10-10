@@ -63,7 +63,7 @@ RUN apt-get update -qq \
 
 RUN sed -i '$isource /etc/fsl/fsl.sh' $ND_ENTRYPOINT
 
-ENV LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro/lib"
+ENV LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH"
 
 ENV FORCE_SPMMCR="1" \
     LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu:/opt/matlabmcr-2010a/v713/runtime/glnxa64:/opt/matlabmcr-2010a/v713/bin/glnxa64:/opt/matlabmcr-2010a/v713/sys/os/glnxa64:/opt/matlabmcr-2010a/v713/extern/bin/glnxa64" \
@@ -212,7 +212,7 @@ RUN echo '{ \
     \n    [ \
     \n      "env", \
     \n      { \
-    \n        "LD_LIBRARY_PATH": "/opt/miniconda-latest/envs/neuro/lib" \
+    \n        "LD_LIBRARY_PATH": "/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH" \
     \n      } \
     \n    ], \
     \n    [ \
