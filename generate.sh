@@ -12,6 +12,7 @@ generate_docker() {
                      tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
            --spm12 version=r7219 \
+           --env LD_LIBRARY_PATH='/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH' \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
@@ -33,7 +34,6 @@ generate_docker() {
            --user=root \
            --run 'chown -R neuro /home/neuro/nipype_tutorial' \
            --run 'rm -rf /opt/conda/pkgs/*' \
-           --env LD_LIBRARY_PATH='/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH' \
            --user=neuro \
            --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
            --workdir /home/neuro/nipype_tutorial \
@@ -50,6 +50,7 @@ generate_singularity() {
                      tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
            --spm12 version=r7219 \
+           --env LD_LIBRARY_PATH='/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH' \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
@@ -71,7 +72,6 @@ generate_singularity() {
            --user=root \
            --run 'chown -R neuro /home/neuro/nipype_tutorial' \
            --run 'rm -rf /opt/conda/pkgs/*' \
-           --env LD_LIBRARY_PATH='/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH' \
            --user=neuro \
            --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
            --workdir /home/neuro/nipype_tutorial
