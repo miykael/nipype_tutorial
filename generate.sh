@@ -33,7 +33,7 @@ generate_docker() {
            --user=root \
            --run 'chown -R neuro /home/neuro/nipype_tutorial' \
            --run 'rm -rf /opt/conda/pkgs/*' \
-           --env LD_LIBRARY_PATH='/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH' \
+           --env LD_LIBRARY_PATH='/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH' \
            --user=neuro \
            --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
            --workdir /home/neuro/nipype_tutorial \
@@ -71,7 +71,7 @@ generate_singularity() {
            --user=root \
            --run 'chown -R neuro /home/neuro/nipype_tutorial' \
            --run 'rm -rf /opt/conda/pkgs/*' \
-           --env LD_LIBRARY_PATH='/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH' \
+           --env LD_LIBRARY_PATH='/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH' \
            --user=neuro \
            --run 'mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupyter_notebook_config.py' \
            --workdir /home/neuro/nipype_tutorial
