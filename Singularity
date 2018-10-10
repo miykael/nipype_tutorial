@@ -69,19 +69,25 @@ apt-get install -y -q --no-install-recommends \
 apt-get clean
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 echo "Downloading MATLAB Compiler Runtime ..."
-curl -fsSL --retry 5 -o /tmp/mcr.zip https://ssd.mathworks.com/supportfiles/downloads/R2018b/deployment_files/R2018b/installers/glnxa64/MCR_R2018b_glnxa64_installer.zip
-unzip -q /tmp/mcr.zip -d /tmp/mcrtmp
-/tmp/mcrtmp/install -destinationFolder /opt/matlabmcr-2018b -mode silent -agreeToLicense yes
+curl -sSL --retry 5 -o /tmp/toinstall.deb http://mirrors.kernel.org/debian/pool/main/libx/libxp/libxp6_1.0.2-2_amd64.deb
+dpkg -i /tmp/toinstall.deb
+rm /tmp/toinstall.deb
+apt-get install -f
+apt-get clean
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+curl -fsSL --retry 5 -o /tmp/MCRInstaller.bin https://dl.dropbox.com/s/zz6me0c3v4yq5fd/MCR_R2010a_glnxa64_installer.bin
+chmod +x /tmp/MCRInstaller.bin
+/tmp/MCRInstaller.bin -silent -P installLocation="/opt/matlabmcr-2010a"
 rm -rf /tmp/*
 echo "Downloading standalone SPM ..."
-curl -fsSL --retry 5 -o /tmp/spm12.zip http://www.fil.ion.ucl.ac.uk/spm/download/restricted/utopia/dev/spm12_latest_Linux_R2018b.zip
+curl -fsSL --retry 5 -o /tmp/spm12.zip http://www.fil.ion.ucl.ac.uk/spm/download/restricted/utopia/previous/spm12_r7219_R2010a.zip
 unzip -q /tmp/spm12.zip -d /tmp
-mkdir -p /opt/spm12-dev
-mv /tmp/spm12/* /opt/spm12-dev/
-chmod -R 777 /opt/spm12-dev
+mkdir -p /opt/spm12-r7219
+mv /tmp/spm12/* /opt/spm12-r7219/
+chmod -R 777 /opt/spm12-r7219
 rm -rf /tmp/*
-/opt/spm12-dev/run_spm12.sh /opt/matlabmcr-2018b/v95 quit
-sed -i '$iexport SPMMCRCMD=\"/opt/spm12-dev/run_spm12.sh /opt/matlabmcr-2018b/v95 script\"' $ND_ENTRYPOINT
+/opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 quit
+sed -i '$iexport SPMMCRCMD=\"/opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 script\"' $ND_ENTRYPOINT
 
 useradd --no-user-group --create-home --shell /bin/bash neuro
 su - neuro
@@ -196,9 +202,15 @@ echo '{
 \n      "source /etc/fsl/fsl.sh"
 \n    ],
 \n    [
+\n      "env",
+\n      {
+\n        "LD_LIBRARY_PATH": "/opt/miniconda-latest/envs/neuro/lib"
+\n      }
+\n    ],
+\n    [
 \n      "spm12",
 \n      {
-\n        "version": "dev"
+\n        "version": "r7219"
 \n      }
 \n    ],
 \n    [
@@ -307,9 +319,10 @@ echo '{
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export ND_ENTRYPOINT="/neurodocker/startup.sh"
+export LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro/lib"
 export FORCE_SPMMCR="1"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu:/opt/matlabmcr-2018b/v95/runtime/glnxa64:/opt/matlabmcr-2018b/v95/bin/glnxa64:/opt/matlabmcr-2018b/v95/sys/os/glnxa64:/opt/matlabmcr-2018b/v95/extern/bin/glnxa64"
-export MATLABCMD="/opt/matlabmcr-2018b/v95/toolbox/matlab"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu:/opt/matlabmcr-2010a/v713/runtime/glnxa64:/opt/matlabmcr-2010a/v713/bin/glnxa64:/opt/matlabmcr-2010a/v713/sys/os/glnxa64:/opt/matlabmcr-2010a/v713/extern/bin/glnxa64"
+export MATLABCMD="/opt/matlabmcr-2010a/v713/toolbox/matlab"
 export CONDA_DIR="/opt/miniconda-latest"
 export PATH="/opt/miniconda-latest/bin:$PATH"
 
