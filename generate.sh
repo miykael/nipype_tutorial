@@ -11,7 +11,6 @@ generate_docker() {
                      git-annex-standalone vim emacs-nox nano less ncdu \
                      tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
-           --env LD_LIBRARY_PATH='/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH' \
            --spm12 version=r7219 \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
@@ -22,6 +21,7 @@ generate_docker() {
                           nilearn datalad[full] nipy duecredit nbval" \
              create_env="neuro" \
              activate=True \
+           --env LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro:$LD_LIBRARY_PATH" \
            --run-bash "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
            --user=root \
            --run 'mkdir /data && chmod 777 /data && chmod a+s /data' \
@@ -49,7 +49,6 @@ generate_singularity() {
                      git-annex-standalone vim emacs-nox nano less ncdu \
                      tig git-annex-remote-rclone octave netbase \
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
-           --env LD_LIBRARY_PATH='/opt/miniconda-latest/envs/neuro/lib:$LD_LIBRARY_PATH' \
            --spm12 version=r7219 \
            --user=neuro \
            --miniconda miniconda_version="4.3.31" \
@@ -60,6 +59,7 @@ generate_singularity() {
                           nilearn datalad[full] nipy duecredit nbval" \
              create_env="neuro" \
              activate=True \
+           --env LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro:$LD_LIBRARY_PATH" \
            --run-bash "source activate neuro && jupyter nbextension enable exercise2/main && jupyter nbextension enable spellchecker/main" \
            --user=root \
            --run 'mkdir /data && chmod 777 /data && chmod a+s /data' \
