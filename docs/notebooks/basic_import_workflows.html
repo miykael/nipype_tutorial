@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11868,7 +11858,7 @@ Outputs:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, we also need a mask file. For the sake of convenience, let's take the mean image of a functional image and threshold it at the 50% percentil:</p>
+<p>As we can see, we also need a mask file. For the sake of convenience, let's take the mean image of a functional image and threshold it at the 50% percentile:</p>
 
 </div>
 </div>
@@ -11926,7 +11916,9 @@ Outputs:
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">plotting</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
 <span class="n">smoothwf</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph2use</span><span class="o">=</span><span class="s1">&#39;colored&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">simple_form</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;/output/susan_smooth/graph.png&#39;</span><span class="p">)</span>
@@ -12178,7 +12170,6 @@ fslmaths /output/susan_smooth/smooth/mapflow/_smooth0/sub-01_ses-test_task-finge
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="k">import</span> <span class="n">image</span><span class="p">,</span> <span class="n">plotting</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 
 </div>
@@ -12491,7 +12482,7 @@ smoothed_file = None
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that we have the node, we can change it's value as we want:</p>
+<p>Now that we have the node, we can change its value as we want:</p>
 
 </div>
 </div>

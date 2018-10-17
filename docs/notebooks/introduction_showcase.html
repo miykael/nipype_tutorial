@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -12054,8 +12044,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Run-the-workflow-on-one-functional-image">Run the workflow on one functional image<a class="anchor-link" href="#Run-the-workflow-on-one-functional-image">&#182;</a></h1><p>Now, that we've create a workflow, let's run it on a functional image.</p>
-<p>For this we first need to specify the input file of the very first node, i.e. the <code>slicetimer</code> node.</p>
+<h1 id="Run-the-workflow-on-one-functional-image">Run the workflow on one functional image<a class="anchor-link" href="#Run-the-workflow-on-one-functional-image">&#182;</a></h1><p>Now, that we've created a workflow, let's run it on a functional image.</p>
+<p>For this, we first need to specify the input file of the very first node, i.e. the <code>slicetimer</code> node.</p>
 
 </div>
 </div>
@@ -12077,7 +12067,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To show off Nipype's parallelization power, let's run the workflow in parallel, on 5 processors and let's stop the execution time:</p>
+<p>To show off Nipype's parallelization power, let's run the workflow in parallel, on 5 processors and let's show the execution time:</p>
 
 </div>
 </div>
@@ -12377,7 +12367,7 @@ Wall time: 14 s
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Ok, ok... Rerunning a workflow again is faster. That's nice and all, but I want more. <strong>You spoke of parallel execution!</strong></p>
-<p>We saw that the <code>preproc01</code> workflow takes about ~2min to execute completely. So, if we would run the workflow on five functional images, it should take about ~10min total. This of course, assuming the execution will be done sequentially. Now, let's see how long it takes if we run it in parallel.</p>
+<p>We saw that the <code>preproc01</code> workflow takes about ~2min to execute completely. So, if we would run the workflow on five functional images, it should take about ~10min total. This, of course, assuming the execution will be done sequentially. Now, let's see how long it takes if we run it in parallel.</p>
 
 </div>
 </div>
@@ -12440,7 +12430,7 @@ Wall time: 14 s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Note:</strong> We know have a workflow (<code>metaflow</code>), that contains five other workflows (<code>preproc0?</code>), each of them containing three nodes.</p>
+<p><strong>Note:</strong> We now have a workflow (<code>metaflow</code>), that contains five other workflows (<code>preproc0?</code>), each of them containing three nodes.</p>
 <p>To better understand this, let's visualize this <code>metaflow</code>.</p>
 
 </div>
@@ -12897,6 +12887,7 @@ Wall time: 2min 6s
     </div>
   </div>
 </body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+
 
 
 

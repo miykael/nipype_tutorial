@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11806,7 +11796,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces</span> <span class="k">import</span> <span class="n">spm</span>
-<span class="n">matlab_cmd</span> <span class="o">=</span> <span class="s1">&#39;/opt/spm12/run_spm12.sh /opt/mcr/v92/ script&#39;</span>
+<span class="n">matlab_cmd</span> <span class="o">=</span> <span class="s1">&#39;/opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713/ script&#39;</span>
 <span class="n">spm</span><span class="o">.</span><span class="n">SPMCommand</span><span class="o">.</span><span class="n">set_mlab_paths</span><span class="p">(</span><span class="n">matlab_cmd</span><span class="o">=</span><span class="n">matlab_cmd</span><span class="p">,</span> <span class="n">use_mcr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 

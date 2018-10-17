@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11851,8 +11841,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nb</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Let&#39;s create a short helper function to plot 3D NIfTI images</span>
 <span class="k">def</span> <span class="nf">plot_slice</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
@@ -11865,8 +11856,8 @@ div#notebook {
     <span class="n">cut</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span>
 
     <span class="c1"># Plot the data</span>
-    <span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">cut</span><span class="p">]),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-    <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">cut</span><span class="p">]),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12066,7 +12057,7 @@ fslmaths /output/<span class="si">${</span><span class="nv">ANAT_NAME</span><spa
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This is more verbose, although it does have its advantages. There's the automated input validation we saw previously, some of the options are named more meaningfully, and you don't need to remember, for example, that fslmaths' smoothing kernel is set in sigma instead of FWHM -- Nipype does that conversion behind the scenes.</p>
-<h3 id="Can't-we-optimize-that-a-bit?">Can't we optimize that a bit?<a class="anchor-link" href="#Can't-we-optimize-that-a-bit?">&#182;</a></h3><p>As we can see above, the inputs for the <strong><code>mask</code></strong> routine <code>in_file</code> and <code>mask_file</code> are actually the output of <strong><code>skullstrip</code></strong> and <strong><code>smooth</code></strong>. We therefore somehow want to connect them. This can be accomplisehd by saving the executed routines under a given object and than using the output of those objects as input for other routines.</p>
+<h3 id="Can't-we-optimize-that-a-bit?">Can't we optimize that a bit?<a class="anchor-link" href="#Can't-we-optimize-that-a-bit?">&#182;</a></h3><p>As we can see above, the inputs for the <strong><code>mask</code></strong> routine <code>in_file</code> and <code>mask_file</code> are actually the output of <strong><code>skullstrip</code></strong> and <strong><code>smooth</code></strong>. We therefore somehow want to connect them. This can be accomplished by saving the executed routines under a given object and then using the output of those objects as input for other routines.</p>
 
 </div>
 </div>
@@ -12141,7 +12132,7 @@ fslmaths /output/<span class="si">${</span><span class="nv">ANAT_NAME</span><spa
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Example-3---Workflow-execution">Example 3 - <code>Workflow</code> execution<a class="anchor-link" href="#Example-3---Workflow-execution">&#182;</a></h1><p>What we've implicitly done above is to encode our processing stream as a directed acyclic graphs: each stage of processing is a node in this graph, and some nodes are unidirectionally dependent on others. In this case there is one input file and several output files, but there are no cycles -- there's a clear line of directionality to the processing. What the Node and Workflow classes do is make these relationships more explicit.</p>
+<h1 id="Example-3---Workflow-execution">Example 3 - <code>Workflow</code> execution<a class="anchor-link" href="#Example-3---Workflow-execution">&#182;</a></h1><p>What we've implicitly done above is to encode our processing stream as a directed acyclic graphs: each stage of processing is a node in this graph, and some nodes are unidirectionally dependent on others. In this case, there is one input file and several output files, but there are no cycles -- there's a clear line of directionality to the processing. What the Node and Workflow classes do is make these relationships more explicit.</p>
 <p>The basic architecture is that the Node provides a light wrapper around an Interface. It exposes the inputs and outputs of the Interface as its own, but it adds some additional functionality that allows you to connect Nodes into a Workflow.</p>
 <p>Let's rewrite the above script with these tools:</p>
 
@@ -12215,7 +12206,7 @@ connect([(source, dest, [("source_output1", "dest_input1"),
          ])
 
 </code></pre>
-<p>With the first approach you can establish one connection at a time. With the second you can establish multiple connects between two nodes at once. In either case, you're providing it with four pieces of information to define the connection:</p>
+<p>With the first approach, you can establish one connection at a time. With the second you can establish multiple connects between two nodes at once. In either case, you're providing it with four pieces of information to define the connection:</p>
 <ul>
 <li>The source node object</li>
 <li>The name of the output field from the source node</li>
@@ -12459,7 +12450,7 @@ fslmaths /output/working_dir/smoothflow/smooth/sub-01_ses-test_T1w_smooth.nii.gz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>The specification of <code>base_dir</code> is very important (and is why we needed to use absolute paths above), because otherwise all the outputs would be saved somewhere in the temporary files.</strong> Unlike interfaces, which by default spit out results to the local directry, the Workflow engine executes things off in its own directory hierarchy.</p>
+<p><strong>The specification of <code>base_dir</code> is very important (and is why we needed to use absolute paths above) because otherwise all the outputs would be saved somewhere in the temporary files.</strong> Unlike interfaces, which by default spit out results to the local directly, the Workflow engine executes things off in its own directory hierarchy.</p>
 <p>Let's take a look at the resulting images to convince ourselves we've done the same thing as before:</p>
 
 </div>
@@ -12510,7 +12501,7 @@ fslmaths /output/working_dir/smoothflow/smooth/sub-01_ses-test_T1w_smooth.nii.gz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Perfet!</p>
+<p>Perfect!</p>
 <p>Let's also have a closer look at the working directory:</p>
 
 </div>
@@ -12577,9 +12568,9 @@ fslmaths /output/working_dir/smoothflow/smooth/sub-01_ses-test_T1w_smooth.nii.gz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-#1-gotcha-of-nipype-Workflows">The #1 gotcha of nipype Workflows<a class="anchor-link" href="#The-#1-gotcha-of-nipype-Workflows">&#182;</a></h1><p>Nipype workflows are just DAGs (Directed Acyclic Graphs) that the runner <code>Plugin</code> takes in and uses to compose an ordered list of nodes for execution. As a matter of fact, running a workflow will return a graph object. That's why you often see something like <code>&lt;networkx.classes.digraph.DiGraph at 0x7f83542f1550&gt;</code> at the end of exectuion stream when running a workflow.</p>
+<h1 id="The-#1-gotcha-of-nipype-Workflows">The #1 gotcha of nipype Workflows<a class="anchor-link" href="#The-#1-gotcha-of-nipype-Workflows">&#182;</a></h1><p>Nipype workflows are just DAGs (Directed Acyclic Graphs) that the runner <code>Plugin</code> takes in and uses to compose an ordered list of nodes for execution. As a matter of fact, running a workflow will return a graph object. That's why you often see something like <code>&lt;networkx.classes.digraph.DiGraph at 0x7f83542f1550&gt;</code> at the end of execution stream when running a workflow.</p>
 <p>The principal implication is that <code>Workflow</code>s <em>don't have inputs and outputs</em>, you can just access them through the <code>Node</code> decoration.</p>
-<p>In practical terms, this has one clear consequence: from the resulting object of the workflow execution you don't generally have access to the value of the outputs of the interfaces. This is particularly true for Plugins with asynchronous execution.</p>
+<p>In practical terms, this has one clear consequence: from the resulting object of the workflow execution, you don't generally have access to the value of the outputs of the interfaces. This is particularly true for Plugins with an asynchronous execution.</p>
 
 </div>
 </div>
@@ -13054,7 +13045,7 @@ use_median = 1
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>That's much more managable. Now let's execute the workflow</p>
+<p>That's much more manageable. Now let's execute the workflow</p>
 
 </div>
 </div>
@@ -13216,8 +13207,7 @@ use_median = 1
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span>
-<span class="n">wf2</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> wf2.run()
 </pre></div>
 
 </div>
@@ -13311,7 +13301,7 @@ Wall time: 12.9 µs
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>That happened quickly! <strong>Workflows (actually this is handled by the Node code) are smart, and know if their inputs have changed from the last time they are run. If they have not, they don't recompute; they just turn around and pass out the resulting files from the previous run.</strong> This is done on a node-by-node basis, also.</p>
+<p>That happened quickly! <strong>Workflows (actually this is handled by the Node code) are smart and know if their inputs have changed from the last time they are run. If they have not, they don't recompute; they just turn around and pass out the resulting files from the previous run.</strong> This is done on a node-by-node basis, also.</p>
 <p>Let's go back to the first workflow example. What happened if we just tweak one thing:</p>
 
 </div>
@@ -13394,8 +13384,8 @@ fslmaths /output/working_dir/smoothflow/smooth/sub-01_ses-test_T1w_smooth.nii.gz
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>By changing an input value of the <code>smooth</code> node, this node will be re-executed. This triggers a cascade such that any file depending on the <code>smooth</code> node (in this case, the <code>mask</code> node, also recompute). However, the <code>skullstrip</code> node hasn't changed since the first time it ran, so it just coughed up its original files.</p>
-<p>That's one of the main benefit of using Workflows: <strong>efficient recomputing</strong>.</p>
-<p>Another benefits of Workflows is parallel execution, which is covered under <a href="./basic_plugins.html">Plugins and Distributed Computing</a>. With Nipype it is very easy to up a workflow to an extremely parallel cluster computing environment.</p>
+<p>That's one of the main benefits of using Workflows: <strong>efficient recomputing</strong>.</p>
+<p>Another benefit of Workflows is parallel execution, which is covered under <a href="./basic_plugins.html">Plugins and Distributed Computing</a>. With Nipype it is very easy to up a workflow to an extremely parallel cluster computing environment.</p>
 <p>In this case, that just means that the <code>skullstrip</code> and <code>smooth</code> Nodes execute together, but when you scale up to Workflows with many subjects and many runs per subject, each can run together, such that (in the case of unlimited computing resources), you could process 50 subjects with 10 runs of functional data in essentially the time it would take to process a single run.</p>
 <p>To emphasize the contribution of Nipype here, you can write and test your workflow on one subject computing on your local CPU, where it is easier to debug. Then, with the change of a single function parameter, you can scale your processing up to a 1000+ node SGE cluster.</p>
 

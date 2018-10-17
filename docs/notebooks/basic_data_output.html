@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11795,7 +11785,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-Output">Data Output<a class="anchor-link" href="#Data-Output">&#182;</a></h1><p>Similarly important to data input is data output. Using a data output module allows you to restructure and rename computed output and to spatial differentiate relevant output files from the temporary computed intermediate files in the working directory. Nipype provides the following modules to handle data stream output:</p>
+<h1 id="Data-Output">Data Output<a class="anchor-link" href="#Data-Output">&#182;</a></h1><p>Similarly important to data input is data output. Using a data output module allows you to restructure and rename computed output and to spatially differentiate relevant output files from the temporary computed intermediate files in the working directory. Nipype provides the following modules to handle data stream output:</p>
 
 <pre><code>DataSink
 JSONFileSink
@@ -11911,7 +11901,7 @@ where parts between paired [] are optional.</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="MapNode">MapNode<a class="anchor-link" href="#MapNode">&#182;</a></h2><p>In order to use <a href="http://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html#datasink">DataSink</a> inside a MapNode, it's inputs have to be defined inside the constructor using the <code>infields</code> keyword arg.</p>
+<h2 id="MapNode">MapNode<a class="anchor-link" href="#MapNode">&#182;</a></h2><p>In order to use <a href="http://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html#datasink">DataSink</a> inside a MapNode, its inputs have to be defined inside the constructor using the <code>infields</code> keyword arg.</p>
 
 </div>
 </div>
@@ -11963,7 +11953,7 @@ where parts between paired [] are optional.</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>First, let's create a <code>SelectFiles</code> node. For an explanation about this step, see the <a href="basic_data_input.html">Data Input</a> tutorial.</p>
+<p>First, let's create a <code>SelectFiles</code> node. For an explanation of this step, see the <a href="basic_data_input.html">Data Input</a> tutorial.</p>
 
 </div>
 </div>
@@ -12145,7 +12135,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree /output/working_dir/preprocWF
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree /output/working_dir/preprocWF
 </pre></div>
 
 </div>
@@ -12213,7 +12203,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, there is way too much content that we might not really care about. To relocate and rename all the files that are relevant for you, you can use <code>DataSink</code>?</p>
+<p>As we can see, there is way too much content that we might not really care about. To relocate and rename all the files that are relevant to you, you can use <code>DataSink</code>.</p>
 
 </div>
 </div>
@@ -12223,7 +12213,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="How-to-use-DataSink">How to use <code>DataSink</code><a class="anchor-link" href="#How-to-use-DataSink">&#182;</a></h2><p><code>DataSink</code> is Nipype's standard output module to restructure your output files. It allows you to relocate and rename files that you deem relevant.</p>
-<p>Based on the preprocessing pipeline above, let's say we want to keep the smoothed functional images as well as the motion correction paramters. To do this, we first need to create the <code>DataSink</code> object.</p>
+<p>Based on the preprocessing pipeline above, let's say we want to keep the smoothed functional images as well as the motion correction parameters. To do this, we first need to create the <code>DataSink</code> object.</p>
 
 </div>
 </div>
@@ -12334,7 +12324,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree /output/working_dir/preprocWF_output
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree /output/working_dir/preprocWF_output
 </pre></div>
 
 </div>
@@ -12479,7 +12469,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree /output/working_dir/preprocWF_output
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree /output/working_dir/preprocWF_output
 </pre></div>
 
 </div>
@@ -12527,7 +12517,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This is already much better. But what if you want to rename the output files to represent something a bit readable. For this <code>DataSink</code> has the <code>substitution</code> input field.</p>
+<p>This is already much better. But what if you want to rename the output files to represent something a bit more readable. For this <code>DataSink</code> has the <code>substitution</code> input field.</p>
 <p>For example, let's assume we want to get rid of the string <code>'task-fingerfootlips'</code> and <code>'bold_mcf'</code> and that we want to rename the mean file, as well as adapt the file ending of the motion parameter file:</p>
 
 </div>
@@ -12643,7 +12633,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree /output/working_dir/preprocWF_output
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> tree /output/working_dir/preprocWF_output
 </pre></div>
 
 </div>
@@ -12691,7 +12681,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Cool, much more clearly!</p>
+<p>Cool, much clearer filenames!</p>
 
 </div>
 </div>
@@ -12700,7 +12690,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1">&#182;</a></h3><p>Create a simple workflow for skullstriping with FSL, the first node should use <code>BET</code> interface and the second node will be a <code>DataSink</code>. Test two method of connecting the nodes and check the content of the output directory.</p>
+<h3 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1">&#182;</a></h3><p>Create a simple workflow for skullstriping with FSL, the first node should use <code>BET</code> interface and the second node will be a <code>DataSink</code>. Test two methods of connecting the nodes and check the content of the output directory.</p>
 
 </div>
 </div>
@@ -12970,6 +12960,7 @@ fslmaths /output/working_dir/preprocWF/mcflirt/sub-01_ses-test_task-fingerfootli
     </div>
   </div>
 </body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
+
 
 
 

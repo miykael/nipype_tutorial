@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11805,12 +11795,12 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Interface-caching:-why-and-how">Interface caching: why and how<a class="anchor-link" href="#Interface-caching:-why-and-how">&#182;</a></h2><ul>
-<li><p><code>Pipelines</code> (also called <code>workflows</code>) specify processing by an execution graph. This is useful because it opens the door to dependency checking and enable</p>
+<li><p><code>Pipelines</code> (also called <code>workflows</code>) specify processing by an execution graph. This is useful because it opens the door to dependency checking and enables</p>
 <ul>
 <li>to minimize recomputations, </li>
 <li>to have the execution engine transparently deal with intermediate file manipulations.</li>
 </ul>
-<p>They however do not blend in well with arbitrary Python code, as they must rely on their own execution engine.</p>
+<p>They, however, do not blend in well with arbitrary Python code, as they must rely on their own execution engine.</p>
 </li>
 </ul>
 <ul>
@@ -11852,7 +11842,7 @@ execution context that is bound to a disk cache:</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note that the caching directory is a subdirectory called <code>nipype_mem</code> of the given <code>base_dir</code>. This is done to avoid polluting the base director.</p>
-<p>In the corresponding execution context, nipype interfaces can be turned into callables that can be used as functions using the <a href="http://nipype.readthedocs.io/en/latest/api/generated/nipype.caching.memory.html#nipype.caching.memory.Memory.cache"><code>Memory.cache</code></a> method. For instance if we want to run the fslMerge command on a set of files:</p>
+<p>In the corresponding execution context, nipype interfaces can be turned into callables that can be used as functions using the <a href="http://nipype.readthedocs.io/en/latest/api/generated/nipype.caching.memory.html#nipype.caching.memory.Memory.cache"><code>Memory.cache</code></a> method. For instance, if we want to run the fslMerge command on a set of files:</p>
 
 </div>
 </div>
@@ -11876,7 +11866,7 @@ execution context that is bound to a disk cache:</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Note that the <a href="http://nipype.readthedocs.io/en/latest/api/generated/nipype.caching.memory.html#nipype.caching.memory.Memory.cache"><code>Memory.cache</code></a> method takes interfaces <strong>classes</strong>, and not instances.</p>
-<p>The resulting <code>fsl_merge</code> object can be applied as a function to parameters, that will form the inputs of the <code>merge</code> fsl commands. Those inputs are given as keyword arguments, bearing the same name as the name in the inputs specs of the interface. In IPython, you can also get the argument list by using the <code>fsl_merge?</code> synthax to inspect the docs:</p>
+<p>The resulting <code>fsl_merge</code> object can be applied as a function to parameters, that will form the inputs of the <code>merge</code> fsl commands. Those inputs are given as keyword arguments, bearing the same name as the name in the inputs specs of the interface. In IPython, you can also get the argument list by using the <code>fsl_merge?</code> syntax to inspect the docs:</p>
 
 </div>
 </div>
@@ -12077,7 +12067,7 @@ fslmerge -t sub-01_ses-test_task-fingerfootlips_bold_merged.nii.gz /data/ds00011
 <h2 id="Usage-patterns:-working-efficiently-with-caching">Usage patterns: working efficiently with caching<a class="anchor-link" href="#Usage-patterns:-working-efficiently-with-caching">&#182;</a></h2><p>The goal of the <code>caching</code> module is to enable writing plain Python code rather than workflows. Use it: instead of data grabber nodes, use for instance the <code>glob</code> module. To vary parameters, use <code>for</code> loops. To make reusable code, write Python functions.</p>
 <p>One good rule of thumb to respect is to avoid the usage of explicit filenames apart from the outermost inputs and outputs of your processing. The reason being that the caching mechanism of <code>nipy.caching</code> takes care of generating the unique hashes, ensuring that, when you vary parameters, files are not overridden by the output of different computations.</p>
 <div class="alert alert-info">
-**Debuging**:
+**Debugging**:
 If you need to inspect the running environment of the nodes, it may be useful to know where they were executed. With `nipype.caching`, you do not control this location as it is encoded by hashes.
 To find out where an operation has been persisted, simply look in it's output variable:
 ```out.runtime.cwd```

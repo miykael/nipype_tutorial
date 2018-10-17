@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11816,49 +11806,49 @@ XNATSource
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dataset-structure">Dataset structure<a class="anchor-link" href="#Dataset-structure">&#182;</a></h1><p>To be able to import data, you first need to be aware about the structure of your dataset. The structure of the dataset for this tutorial is according to BIDS, and looks as follows:</p>
+<h1 id="Dataset-structure">Dataset structure<a class="anchor-link" href="#Dataset-structure">&#182;</a></h1><p>To be able to import data, you first need to be aware of the structure of your dataset. The structure of the dataset for this tutorial is according to BIDS, and looks as follows:</p>
 
 <pre><code>ds000114
 ├── CHANGES
 ├── dataset_description.json
 ├── derivatives
-│   ├── fmriprep
-│   │   └── sub01...sub10
-│   │        └── ...
-│   ├── freesurfer
-│       ├── fsaverage
-│       ├── fsaverage5
-│   │   └── sub01...sub10
-│   │        └── ...
+│   ├── fmriprep
+│   │   └── sub01...sub10
+│   │        └── ...
+│   ├── freesurfer
+│       ├── fsaverage
+│       ├── fsaverage5
+│   │   └── sub01...sub10
+│   │        └── ...
 ├── dwi.bval
 ├── dwi.bvec
 ├── sub-01
-│   ├── ses-retest
-│       ├── anat
-│       │   └── sub-01_ses-retest_T1w.nii.gz
-│       ├──func
-│           ├── sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz
-│           ├── sub-01_ses-retest_task-fingerfootlips_bold.nii.gz
-│           ├── sub-01_ses-retest_task-linebisection_bold.nii.gz
-│           ├── sub-01_ses-retest_task-linebisection_events.tsv
-│           ├── sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz
-│           └── sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz
+│   ├── ses-retest
+│       ├── anat
+│       │   └── sub-01_ses-retest_T1w.nii.gz
+│       ├──func
+│           ├── sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz
+│           ├── sub-01_ses-retest_task-fingerfootlips_bold.nii.gz
+│           ├── sub-01_ses-retest_task-linebisection_bold.nii.gz
+│           ├── sub-01_ses-retest_task-linebisection_events.tsv
+│           ├── sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz
+│           └── sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz
 │       └── dwi
 │           └── sub-01_ses-retest_dwi.nii.gz
-│   ├── ses-test
-│       ├── anat
-│       │   └── sub-01_ses-test_T1w.nii.gz
-│       ├──func
-│           ├── sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
-│           ├── sub-01_ses-test_task-fingerfootlips_bold.nii.gz
-│           ├── sub-01_ses-test_task-linebisection_bold.nii.gz
-│           ├── sub-01_ses-test_task-linebisection_events.tsv
-│           ├── sub-01_ses-test_task-overtverbgeneration_bold.nii.gz
-│           └── sub-01_ses-test_task-overtwordrepetition_bold.nii.gz
+│   ├── ses-test
+│       ├── anat
+│       │   └── sub-01_ses-test_T1w.nii.gz
+│       ├──func
+│           ├── sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
+│           ├── sub-01_ses-test_task-fingerfootlips_bold.nii.gz
+│           ├── sub-01_ses-test_task-linebisection_bold.nii.gz
+│           ├── sub-01_ses-test_task-linebisection_events.tsv
+│           ├── sub-01_ses-test_task-overtverbgeneration_bold.nii.gz
+│           └── sub-01_ses-test_task-overtwordrepetition_bold.nii.gz
 │       └── dwi
 │           └── sub-01_ses-retest_dwi.nii.gz
 ├── sub-02..sub-10
-│   └── ...
+│   └── ...
 ├── task-covertverbgeneration_bold.json
 ├── task-covertverbgeneration_events.tsv
 ├── task-fingerfootlips_bold.json
@@ -11980,8 +11970,8 @@ indicates in which directory to search, while the input <code>template</code> in
 string template to match. So in the previous case <code>DataGrabber</code> is looking for
 path matches of the form <code>/data/ds000114/s*/ses-test/func/*fingerfootlips*.nii.gz</code>.</p>
 <div class="alert alert-info">
-**Note**: When used with wildcards (e.g., `s*` and `*fingerfootlips*` above) `DataGrabber` does not return data in sorted order. In order to force it to return data in sorted order, one needs to set the input `sorted = True`. However, when explicitly specifying an order as we will see below, `sorted` should be set to `False`.
-</div><p>More useful cases arise when the template can be filled by other inputs. In the
+**Note**: When used with wildcards (e.g., `s*` and `*fingerfootlips*` above) `DataGrabber` does not return data in sorted order. In order to force it to return data in a sorted order, one needs to set the input `sorted = True`. However, when explicitly specifying an order as we will see below, `sorted` should be set to `False`.
+</div><p>More use cases arise when the template can be filled by other inputs. In the
 example below, we define an input field for <code>DataGrabber</code> called <code>subject_id</code>. This is
 then used to set the template (see <code>%d</code> in the template).</p>
 
@@ -12200,7 +12190,7 @@ func = /data/ds102/[subject_id]/ses-[ses_name]/func/sub-[subject_id]_ses-[ses_na
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Above, two more fields are introduced: <code>field_template</code> and <code>template_args</code>. These fields are both dictionaries whose keys correspond to the <code>outfields</code> keyword. The <code>field_template</code> reflects the search path for each output field, while the <code>template_args</code> reflect the inputs that satisfy the template. The inputs can either be one of the named inputs specified by the <code>infields</code> keyword arg or it can be raw strings or integers corresponding to the template. For the <code>func</code> output, the <strong>%s</strong> in the <code>field_template</code> is satisfied by <code>subject_id</code> and the <strong>%d</strong> is field in by the list of numbers.</p>
+<p>Above, two more fields are introduced: <code>field_template</code> and <code>template_args</code>. These fields are both dictionaries whose keys correspond to the <code>outfields</code> keyword. The <code>field_template</code> reflects the search path for each output field, while the <code>template_args</code> reflect the inputs that satisfy the template. The inputs can either be one of the named inputs specified by the <code>infields</code> keyword arg or it can be raw strings or integers corresponding to the template. For the <code>func</code> output, the <strong>%s</strong> in the <code>field_template</code> is satisfied by <code>subject_id</code> and the <strong>%d</strong> is filled in by the list of numbers.</p>
 
 </div>
 </div>
@@ -12510,14 +12500,14 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>SelectFiles</code> uses the {}-based string formating syntax to plug values into string templates and collect the data. These templates can also be combined with glob wild cards. The field names in the formatting template (i.e. the terms in braces) will become inputs fields on the interface, and the keys in the templates dictionary will form the output fields.</p>
+<p><code>SelectFiles</code> uses the {}-based string formatting syntax to plug values into string templates and collect the data. These templates can also be combined with glob wild cards. The field names in the formatting template (i.e. the terms in braces) will become inputs fields on the interface, and the keys in the templates dictionary will form the output fields.</p>
 <p>Let's focus again on the data we want to import:</p>
 
 <pre><code>anat = /data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz
 func = /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz
 
 </code></pre>
-<p>Now, we can replace those paths with the accoridng {}-based strings.</p>
+<p>Now, we can replace those paths with the according {}-based strings.</p>
 
 <pre><code>anat = /data/ds000114/sub-{subject_id}/ses-{ses_name}/anat/sub-{subject_id}_ses-{ses_name}_T1w.nii.gz
 func = /data/ds000114/sub-{subject_id}/ses-{ses_name}/func/ \
@@ -12705,7 +12695,7 @@ anat = [&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As you can see, now <code>anat</code> contains ten file paths, T1w images for all ten subject.</p>
-<p>As a side node, you could also use <code>[]</code> string formating for some simple cases, e.g. for loading only subject 1 adn 2:</p>
+<p>As a side note, you could also use <code>[]</code> string formatting for some simple cases, e.g. for loading only subject 1 and 2:</p>
 
 <pre><code>'sub-0[1,2]/ses-test/anat/sub-0[1,2]_ses-test_T1w.nii.gz'</code></pre>
 
@@ -12826,7 +12816,7 @@ anat = [&#39;/data/ds000114/sub-01/ses-retest/anat/sub-01_ses-retest_T1w.nii.gz&
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="FreeSurferSource">FreeSurferSource<a class="anchor-link" href="#FreeSurferSource">&#182;</a></h2><p><code>FreeSurferSource</code> is a specific case of a file grabber that felicitates the data import of outputs from the FreeSurfer recon-all algorithm. This of course requires that you've already run <code>recon-all</code> on your subject.</p>
+<h2 id="FreeSurferSource">FreeSurferSource<a class="anchor-link" href="#FreeSurferSource">&#182;</a></h2><p><code>FreeSurferSource</code> is a specific case of a file grabber that felicitates the data import of outputs from the FreeSurfer recon-all algorithm. This, of course, requires that you've already run <code>recon-all</code> on your subject.</p>
 
 </div>
 </div>
@@ -12845,7 +12835,7 @@ anat = [&#39;/data/ds000114/sub-01/ses-retest/anat/sub-01_ses-retest_T1w.nii.gz&
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalad get -r -J 4 /data/ds000114/derivatives/freesurfer/sub-01
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalad get -r -J <span class="m">4</span> /data/ds000114/derivatives/freesurfer/sub-01
 </pre></div>
 
 </div>

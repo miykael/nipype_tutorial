@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11866,9 +11856,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nb</span>
-<span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">orthoview</span><span class="p">();</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="k">import</span> <span class="n">plot_anat</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 
 </div>
@@ -11891,6 +11880,14 @@ div#notebook {
 "
 >
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_anat</span><span class="p">(</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div></div></div></div>
 
 </div>
 
@@ -11946,7 +11943,7 @@ bet /data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz <span class="
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w_bet.nii.gz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">orthoview</span><span class="p">();</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_anat</span><span class="p">(</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w_bet.nii.gz&#39;</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -12039,7 +12036,7 @@ bet /data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz <span class="
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span><span class="o">.</span><span class="n">orthoview</span><span class="p">();</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_anat</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out_file</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -12197,7 +12194,7 @@ Outputs::
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nipype_ls</span> <span class="o">=</span> <span class="n">CommandLine</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="s1">&#39;-lh /data/ds000114&#39;</span><span class="p">,</span> <span class="n">terminal_output</span><span class="o">=</span><span class="s1">&#39;allatonce&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nipype_ls</span> <span class="o">=</span> <span class="n">CommandLine</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="s1">&#39;-lh&#39;</span><span class="p">,</span> <span class="n">terminal_output</span><span class="o">=</span><span class="s1">&#39;allatonce&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12209,7 +12206,7 @@ Outputs::
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, we have a Python object <code>nipype_ls</code> that is a runnable nipype interface. After execution, Nipype interface return a result object. We can retrieve the output of our <code>ls</code> invocation from the <code>result.runtime</code> property:</p>
+<p>Now, we have a Python object <code>nipype_ls</code> that is a runnable nipype interface. After execution, Nipype interface returns a result object. We can retrieve the output of our <code>ls</code> invocation from the <code>result.runtime</code> property:</p>
 
 </div>
 </div>
@@ -12274,7 +12271,7 @@ drwxr-sr-x 4 neuro root 4.0K May  1 08:21 sub-10
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Create-your-own-CommandLine-interface">Create your own <code>CommandLine</code> interface<a class="anchor-link" href="#Create-your-own-CommandLine-interface">&#182;</a></h2><p>Let's create a Nipype Interface for a very simple tool called <code>antsTransformInfo</code> from the <a href="http://stnava.github.io/ANTs/">ANTs</a> package. This tool is so simple it does not even have an usage description for bash. Using it with a file, gives us the following result:</p>
+<h2 id="Create-your-own-CommandLine-interface">Create your own <code>CommandLine</code> interface<a class="anchor-link" href="#Create-your-own-CommandLine-interface">&#182;</a></h2><p>Let's create a Nipype Interface for a very simple tool called <code>antsTransformInfo</code> from the <a href="http://stnava.github.io/ANTs/">ANTs</a> package. This tool is so simple it does not even have a usage description for bash. Using it with a file, gives us the following result:</p>
 
 </div>
 </div>
@@ -12431,7 +12428,7 @@ Outputs::
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Specifying-the-inputs">Specifying the inputs<a class="anchor-link" href="#Specifying-the-inputs">&#182;</a></h3><p>However, the <code>args</code> argument is too generic and does not deviate much from just running it in bash, or directly using <code>subprocess.Popen</code>. Let's define the intputs specification for the interface, extending the <code>nipype.interfaces.base.CommandLineInputSpec</code> class.</p>
+<h3 id="Specifying-the-inputs">Specifying the inputs<a class="anchor-link" href="#Specifying-the-inputs">&#182;</a></h3><p>However, the <code>args</code> argument is too generic and does not deviate much from just running it in bash, or directly using <code>subprocess.Popen</code>. Let's define the inputs specification for the interface, extending the <code>nipype.interfaces.base.CommandLineInputSpec</code> class.</p>
 <p>The inputs are implemented using the Enthought traits package. For now, we'll use the <code>File</code> trait extension of nipype:</p>
 
 </div>
@@ -12600,7 +12597,7 @@ Outputs::
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Nipype will make sure that the parameters fullfil their prescribed attributes. For instance <code>in_file</code> is mandatory. An error is issued if we build the command line or try to run this interface without it:</p>
+<p>Nipype will make sure that the parameters fulfill their prescribed attributes. For instance, <code>in_file</code> is mandatory. An error is issued if we build the command line or try to run this interface without it:</p>
 
 </div>
 </div>
@@ -12873,7 +12870,7 @@ AffineTransform (0x5577045809d0)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We need to complete the functionallity of the <code>run()</code> member of our interface to parse the standard output. This is done extending its <code>_run_interface()</code> member.</p>
+<p>We need to complete the functionality of the <code>run()</code> member of our interface to parse the standard output. This is done extending its <code>_run_interface()</code> member.</p>
 <p>When we define outputs, generally they need to be explicitly wired in the <code>_list_outputs()</code> member of the core class. Let's see how we can <em>complete</em> those:</p>
 
 </div>
@@ -13141,7 +13138,7 @@ AffineTransform (0x5577045809d0)
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span><span class="o">.</span><span class="n">orthoview</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_anat</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out_file</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -13189,7 +13186,7 @@ AffineTransform (0x5577045809d0)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Create-your-own-Python-interface">Create your own <code>Python</code> interface<a class="anchor-link" href="#Create-your-own-Python-interface">&#182;</a></h1><p><code>CommandLine</code> interface is great, but my tool is already in Python - can I wrap it natively?</p>
-<p>Sure. Let's solve the following problem: Let's say we have a Python function that takes an input image and a list of three translations (x, y, z) in mm, and than writes a resampled image after the translation has been applied:</p>
+<p>Sure. Let's solve the following problem: Let's say we have a Python function that takes an input image and a list of three translations (x, y, z) in mm, and then writes a resampled image after the translation has been applied:</p>
 
 </div>
 </div>
@@ -13288,7 +13285,7 @@ AffineTransform (0x5577045809d0)
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">orig_image</span><span class="p">)</span><span class="o">.</span><span class="n">orthoview</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_anat</span><span class="p">(</span><span class="n">orig_image</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -13336,7 +13333,7 @@ AffineTransform (0x5577045809d0)
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;translated.nii.gz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">orthoview</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_anat</span><span class="p">(</span><span class="s1">&#39;translated.nii.gz&#39;</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -13392,7 +13389,7 @@ AffineTransform (0x5577045809d0)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Quick-approach---Function-interface">Quick approach - <code>Function</code> interface<a class="anchor-link" href="#Quick-approach---Function-interface">&#182;</a></h2><p>Don't reinvent the wheel if it's not necessary. If, like in this case, we have a well-defined function we want to run with Nipype, it is fairly easy to solve it with the <code>Function</code> interface:</p>
+<h2 id="Quick-approach---Function-interface">Quick approach - <code>Function</code> interface<a class="anchor-link" href="#Quick-approach---Function-interface">&#182;</a></h2><p>Don't reinvent the wheel if it's not necessary. If like in this case, we have a well-defined function we want to run with Nipype, it is fairly easy to solve it with the <code>Function</code> interface:</p>
 
 </div>
 </div>
@@ -13422,8 +13419,8 @@ AffineTransform (0x5577045809d0)
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The arguments of <code>translate_image</code> should ideally be listed in the same order and with the same names as in the signature of the function. The same should be the case for the outputs. Finally, the <code>Function</code> interface takes a <code>function</code> input that is pointed to your python code.</p>
 <p><strong><em>Note</em></strong>: The inputs and outputs do not pass any kind of conformity checking: the function node will take any kind of data type for their inputs and outputs.</p>
-<p>There are some other limitations for the <code>Function</code> interface when used inside workflows. Additionally, the function must be totally self-contained, since it will run with no global context. In practice, it means that <strong>all the imported modules and variables must be defined within the context of the function</strong>.</p>
-<p>For more, checkout the <a href="basic_function_nodes.html">Function Node</a> notebook.</p>
+<p>There are some other limitations to the <code>Function</code> interface when used inside workflows. Additionally, the function must be totally self-contained, since it will run with no global context. In practice, it means that <strong>all the imported modules and variables must be defined within the context of the function</strong>.</p>
+<p>For more, check out the <a href="basic_function_nodes.html">Function Node</a> notebook.</p>
 
 </div>
 </div>
@@ -13491,7 +13488,7 @@ AffineTransform (0x5577045809d0)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the result</span>
-<span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;translated_functioninterface.nii.gz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">orthoview</span><span class="p">()</span>
+<span class="n">plot_anat</span><span class="p">(</span><span class="s1">&#39;translated_functioninterface.nii.gz&#39;</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -13539,7 +13536,7 @@ AffineTransform (0x5577045809d0)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Complete-approach---pure-Python-interface">Complete approach - pure <code>Python</code> interface<a class="anchor-link" href="#Complete-approach---pure-Python-interface">&#182;</a></h2><p>Now, we face the problem of interfacing something different from a command line. Therefore, the <code>CommandLine</code> base class will not help us here. The specification of the inputs and outputs, though, will work the same way.</p>
-<p>Let's start from that point. Our Python function takes in three inputs: (1) the input image, (2) the translation and (3) an output image.</p>
+<p>Let's start from that point on. Our Python function takes in three inputs: (1) the input image, (2) the translation and (3) an output image.</p>
 <p>The specification of inputs and outputs must be familiar to you at this point. Please note that now, input specification is derived from <code>BaseInterfaceInputSpec</code>, which is a bit thinner than <code>CommandLineInputSpec</code>. The output specification can be derived from <code>TraitedSpec</code> as before:</p>
 
 </div>
@@ -13917,7 +13914,7 @@ NotImplementedError:
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span><span class="o">.</span><span class="n">orthoview</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_anat</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">out_file</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -13969,7 +13966,7 @@ NotImplementedError:
 
 <pre><code>  load input_image.mat;
   total = sum(data(:) &gt; 0)</code></pre>
-<p>The following example, uses <code>scipy.io.savemat</code> to convert the input image to <code>MATLAB</code> format. Once the file is loaded we can quickly extract the estimated total volume.</p>
+<p>The following example uses <code>scipy.io.savemat</code> to convert the input image to <code>MATLAB</code> format. Once the file is loaded we can quickly extract the estimated total volume.</p>
 <p><strong><em>Note:</em></strong> For the purpose of this example, we will be using the freely available <code>MATLAB</code> alternative <code>Octave</code>. But the implementation of a <code>MATLAB</code> interface will be identical.</p>
 
 </div>
