@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11787,10 +11787,13 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+
+ &lt;!–– TUTORIAL USERS: PLEASE EXECUTE THIS CELL ––&gt;
+
 &lt;style&gt;.container { width:75% !important; }&lt;/style&gt;
 &lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css/mobile.css&#39;&gt;
 &lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;static/css/homepage.css&#39;&gt;
-
+        
 &lt;body&gt;
   &lt;article id=&quot;homepage&quot;&gt;
     &lt;a id=&quot;library-section&quot;&gt;&lt;/a&gt;
@@ -11801,12 +11804,12 @@ div#notebook {
             you everything so that you can start creating your own workflows in no time. We recommend that you start with
             the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
             basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
-            examples section shows you a real example how you can use Nipype to analyze an actual dataset. For a very
-            quick non-imaging introduction, you can check the Nipype Quickstart notebooks in the introduciton section.
+            examples section shows you a real example of how you can use Nipype to analyze an actual dataset. For a very 
+            quick non-imaging introduction, you can check the Nipype Quickstart notebooks in the introduction section.
             &lt;/p&gt;&lt;p&gt;
             All of the notebooks used in this tutorial can be found on &lt;a href=&quot;https://github.com/miykael/nipype_tutorial&quot;&gt;github.com/miykael/nipype_tutorial&lt;/a&gt;.
             But if you want to have the real experience and want to go through the computations by yourself, we highly
-            recommend you to use a Docker container. More about the Docker image that can be used to run the tutorial can be found
+            recommend you to use a Docker container. More about the Docker image that can be used to run the tutorial can be found 
             &lt;a href=&quot;https://miykael.github.io/nipype_tutorial/notebooks/introduction_docker.html&quot;&gt;here&lt;/a&gt;.
             This docker container gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
             Nipype yourself.
@@ -11816,10 +11819,10 @@ div#notebook {
             with working Python 3 software (including Nipype, dipy, matplotlib, nibabel, nipy, numpy, pandas, scipy, seaborn and more),
             FSL, ANTs and SPM12 (no license needed). We used &lt;a href=&quot;https://github.com/kaczmarj/neurodocker&quot;&gt;Neurodocker&lt;/a&gt; to create this docker image.
             &lt;/p&gt;&lt;p&gt;
-            If you do not want to run tutorial locally, you can also use
-            &lt;a href=&quot;https://mybinder.org/v2/gh/miykael/nipype_tutorial/master&quot;&gt;Binder service&lt;/a&gt;.
-            Binder automatically launch the Docker container for you and you have access to all of the notebooks.
-            Note, that Binder provides between 1G and 4G RAM memory, some notebooks from Workflow Examples might not work.
+            If you do not want to run the tutorial locally, you can also use 
+            &lt;a href=&quot;https://mybinder.org/v2/gh/miykael/nipype_tutorial/master&quot;&gt;Binder service&lt;/a&gt;. 
+            Binder automatically launches the Docker container for you and you have access to all of the notebooks. 
+            Note, that Binder provides between 1G and 4G RAM memory, some notebooks from Workflow Examples might not work. 
             All notebooks from Introduction and Basic Concepts parts should work.
            &lt;/p&gt;&lt;p&gt;
             For everything that isn&#39;t covered in this tutorial, check out the &lt;a href=&quot;http://nipype.readthedocs.io/en/latest/&quot;&gt;main homepage&lt;/a&gt;.
@@ -11847,7 +11850,7 @@ div#notebook {
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/introduction_quickstart_non-neuroimaging.html&quot;&gt;Nipype Quickstart (non-neuroimaging examples)&lt;/a&gt;
       &lt;/div&gt;
       &lt;p&gt;This section is meant as a general overview. It should give you a short introduction to the main topics that
-          you need to understand to use Nipype and this tutorial. The section also contains a very short neuroimaging showcase, as well as as quick non-imaging introduction to Nipype workflows.&lt;/p&gt;
+          you need to understand to use Nipype and this tutorial. The section also contains a very short neuroimaging showcase, as well as quick non-imaging introduction to Nipype workflows.&lt;/p&gt;
 
       &lt;h2 class=&quot;domain-header color02&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Basic Concepts&lt;/a&gt;&lt;/h2&gt;
       &lt;div class=&quot;pure-g domain-table-container color02&quot;&gt;
@@ -11882,7 +11885,7 @@ div#notebook {
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/handson_preprocessing.html&quot;&gt;Hands-on 1: Preprocessing&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;notebooks/handson_analysis.html&quot;&gt;Hands-on 1: Analysis&lt;/a&gt;
       &lt;/div&gt;
-      &lt;p&gt;In this section you will find some practical examples and hands-on that show you how to use Nipype in a &quot;real world&quot; scenario.&lt;/p&gt;
+      &lt;p&gt;In this section, you will find some practical examples and hands-on that show you how to use Nipype in a &quot;real world&quot; scenario.&lt;/p&gt;
 
       &lt;h2 class=&quot;domain-header color04&quot;&gt;&lt;a class=&quot;domain-title&quot;&gt;Advanced Concepts&lt;/a&gt;&lt;/h2&gt;
       &lt;div class=&quot;pure-g domain-table-container color04&quot;&gt;
@@ -11914,7 +11917,7 @@ div#notebook {
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://www.mindboggle.info/&quot;&gt;Mindboggle&lt;/a&gt;
         &lt;a class=&quot;subject-link pure-u-1-4&quot; target=&quot;_blank&quot; href=&quot;https://timvanmourik.github.io/Porcupine/&quot;&gt;PORcupine&lt;/a&gt;
       &lt;/div&gt;
-      &lt;p&gt;This section will give you helpful links and resources, so that you always know where to go to learn more.&lt;/p&gt;
+      &lt;p&gt;This section will give you helpful links and resources so that you always know where to go to learn more.&lt;/p&gt;
 
     &lt;/div&gt;
   &lt;/article&gt;
@@ -11923,7 +11926,7 @@ div#notebook {
 &lt;!--The following code will cause the code cell to disappear--&gt;
 
 &lt;script&gt;
-code_show=true;
+code_show=true; 
 function code_toggle() {
  if (code_show){
  $(&#39;div.input&#39;).hide();
@@ -11931,7 +11934,7 @@ function code_toggle() {
  $(&#39;div.input&#39;).show();
  }
  code_show = !code_show
-}
+} 
 $( document ).ready(code_toggle);
 &lt;/script&gt;
 
@@ -11961,7 +11964,7 @@ $( document ).ready(code_toggle);
 <style>.container { width:75% !important; }</style>
 <link rel='stylesheet' type='text/css' href='static/css/mobile.css'>
 <link rel='stylesheet' type='text/css' href='static/css/homepage.css'>
-
+        
 <body>
   <article id="homepage">
     <a id="library-section"></a>
@@ -11972,12 +11975,12 @@ $( document ).ready(code_toggle);
             you everything so that you can start creating your own workflows in no time. We recommend that you start with
             the introduction section to familiarize yourself with the tools used in this tutorial and then move on to the
             basic concepts section to learn everything you need to know for your everyday life with Nipype. The workflow
-            examples section shows you a real example how you can use Nipype to analyze an actual dataset. For a very
-            quick non-imaging introduction, you can check the Nipype Quickstart notebooks in the introduciton section.
+            examples section shows you a real example of how you can use Nipype to analyze an actual dataset. For a very 
+            quick non-imaging introduction, you can check the Nipype Quickstart notebooks in the introduction section.
             </p><p>
             All of the notebooks used in this tutorial can be found on <a href="https://github.com/miykael/nipype_tutorial">github.com/miykael/nipype_tutorial</a>.
             But if you want to have the real experience and want to go through the computations by yourself, we highly
-            recommend you to use a Docker container. More about the Docker image that can be used to run the tutorial can be found
+            recommend you to use a Docker container. More about the Docker image that can be used to run the tutorial can be found 
             <a href="https://miykael.github.io/nipype_tutorial/notebooks/introduction_docker.html">here</a>.
             This docker container gives you the opportunity to adapt the commands to your liking and discover the flexibility and real power of
             Nipype yourself.
@@ -11987,10 +11990,10 @@ $( document ).ready(code_toggle);
             with working Python 3 software (including Nipype, dipy, matplotlib, nibabel, nipy, numpy, pandas, scipy, seaborn and more),
             FSL, ANTs and SPM12 (no license needed). We used <a href="https://github.com/kaczmarj/neurodocker">Neurodocker</a> to create this docker image.
             </p><p>
-            If you do not want to run tutorial locally, you can also use
-            <a href="https://mybinder.org/v2/gh/miykael/nipype_tutorial/master">Binder service</a>.
-            Binder automatically launch the Docker container for you and you have access to all of the notebooks.
-            Note, that Binder provides between 1G and 4G RAM memory, some notebooks from Workflow Examples might not work.
+            If you do not want to run the tutorial locally, you can also use 
+            <a href="https://mybinder.org/v2/gh/miykael/nipype_tutorial/master">Binder service</a>. 
+            Binder automatically launches the Docker container for you and you have access to all of the notebooks. 
+            Note, that Binder provides between 1G and 4G RAM memory, some notebooks from Workflow Examples might not work. 
             All notebooks from Introduction and Basic Concepts parts should work.
            </p><p>
             For everything that isn't covered in this tutorial, check out the <a href="http://nipype.readthedocs.io/en/latest/">main homepage</a>.
@@ -12018,7 +12021,7 @@ $( document ).ready(code_toggle);
         <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/introduction_quickstart_non-neuroimaging.html">Nipype Quickstart (non-neuroimaging examples)</a>
       </div>
       <p>This section is meant as a general overview. It should give you a short introduction to the main topics that
-          you need to understand to use Nipype and this tutorial. The section also contains a very short neuroimaging showcase, as well as as quick non-imaging introduction to Nipype workflows.</p>
+          you need to understand to use Nipype and this tutorial. The section also contains a very short neuroimaging showcase, as well as quick non-imaging introduction to Nipype workflows.</p>
 
       <h2 class="domain-header color02"><a class="domain-title">Basic Concepts</a></h2>
       <div class="pure-g domain-table-container color02">
@@ -12053,7 +12056,7 @@ $( document ).ready(code_toggle);
         <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/handson_preprocessing.html">Hands-on 1: Preprocessing</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="notebooks/handson_analysis.html">Hands-on 1: Analysis</a>
       </div>
-      <p>In this section you will find some practical examples and hands-on that show you how to use Nipype in a "real world" scenario.</p>
+      <p>In this section, you will find some practical examples and hands-on that show you how to use Nipype in a "real world" scenario.</p>
 
       <h2 class="domain-header color04"><a class="domain-title">Advanced Concepts</a></h2>
       <div class="pure-g domain-table-container color04">
@@ -12085,16 +12088,16 @@ $( document ).ready(code_toggle);
         <a class="subject-link pure-u-1-4" target="_blank" href="https://www.mindboggle.info/">Mindboggle</a>
         <a class="subject-link pure-u-1-4" target="_blank" href="https://timvanmourik.github.io/Porcupine/">PORcupine</a>
       </div>
-      <p>This section will give you helpful links and resources, so that you always know where to go to learn more.</p>
+      <p>This section will give you helpful links and resources so that you always know where to go to learn more.</p>
 
     </div>
   </article>
-</body>
+</body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
 <!--The following code will cause the code cell to disappear-->
 
 <script>
-code_show=true;
+code_show=true; 
 function code_toggle() {
  if (code_show){
  $('div.input').hide();
@@ -12102,7 +12105,7 @@ function code_toggle() {
  $('div.input').show();
  }
  code_show = !code_show
-}
+} 
 $( document ).ready(code_toggle);
 </script>
 
@@ -12124,7 +12127,7 @@ $( document ).ready(code_toggle);
   </div>
 </body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
-
+ 
 
 
 </html>

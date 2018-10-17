@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11796,7 +11786,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center><img src="../static/images/logoDocker.png" width=500></center><h1 id="Docker">Docker<a class="anchor-link" href="#Docker">&#182;</a></h1><p><a href="https://www.docker.com">Docker</a> is an open-source project that automates the deployment of applications inside software containers. Those containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, system tools, software libraries, such as Python, FSL, AFNI, SPM, FreeSurfer, ANTs, etc. This guarantees that it will always run the same, regardless of the environment it is running in.</p>
-<p><font color='red'>Important:</font> <strong>You don't need Docker to run Nipype on your system</strong>. For Mac and Linux users, it probably is much simpler to install Nipype directly on your system. For more information on how to do this see the <a href="resources_installation.html">Nipype website</a>. But for Windows user, or users that don't want to setup all the dependencies themselves, Docker is the way to go.</p>
+<p><font color='red'>Important:</font> <strong>You don't need Docker to run Nipype on your system</strong>. For Mac and Linux users, it probably is much simpler to install Nipype directly on your system. For more information on how to do this see the <a href="resources_installation.html">Nipype website</a>. But for Windows users, or users that don't want to set up all the dependencies themselves, Docker is the way to go.</p>
 
 </div>
 </div>
@@ -11805,7 +11795,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Docker-Image-for-the-interactive-Nipype-Tutorial">Docker Image for the interactive Nipype Tutorial<a class="anchor-link" href="#Docker-Image-for-the-interactive-Nipype-Tutorial">&#182;</a></h1><p>If you want to run this Nipype Tutorial with the example dataset locally on your own system, you need to use the docker image, provided under <a href="https://hub.docker.com/r/miykael/nipype_tutorial/">miykael/nipype_tutorial</a>. This docker image sets up a Linux environment on your system, with functioning Python, Nipype, FSL, ANTs and SPM12 software package, some example data and all the tutorial notebooks to learn Nipype. Alternatively, you can also build your own docker image from Dockerfile or create a different Dockerfile using <a href="https://github.com/kaczmarj/neurodocker">Neurodocker</a>.</p>
+<h1 id="Docker-Image-for-the-interactive-Nipype-Tutorial">Docker Image for the interactive Nipype Tutorial<a class="anchor-link" href="#Docker-Image-for-the-interactive-Nipype-Tutorial">&#182;</a></h1><p>If you want to run this Nipype Tutorial with the example dataset locally on your own system, you need to use the docker image, provided under <a href="https://hub.docker.com/r/miykael/nipype_tutorial/">miykael/nipype_tutorial</a>. This docker image sets up a Linux environment on your system, with functioning Python, Nipype, FSL, ANTs and SPM12 software package, some example data, and all the tutorial notebooks to learn Nipype. Alternatively, you can also build your own docker image from Dockerfile or create a different Dockerfile using <a href="https://github.com/kaczmarj/neurodocker">Neurodocker</a>.</p>
 
 </div>
 </div>
@@ -11814,7 +11804,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Install-Docker">Install Docker<a class="anchor-link" href="#Install-Docker">&#182;</a></h1><p>Before you can do anything, you first need to install <a href="https://www.docker.com">Docker</a> on your system. The installation process differes per system. Luckily, the docker homepage has nice instructions for...</p>
+<h1 id="Install-Docker">Install Docker<a class="anchor-link" href="#Install-Docker">&#182;</a></h1><p>Before you can do anything, you first need to install <a href="https://www.docker.com">Docker</a> on your system. The installation process differs per system. Luckily, the docker homepage has nice instructions for...</p>
 <ul>
 <li><a href="https://docs.docker.com/engine/installation/linux/ubuntu/">Ubuntu</a> or <a href="https://docs.docker.com/engine/installation/linux/docker-ce/debian/">Debian</a></li>
 <li><a href="https://docs.docker.com/toolbox/toolbox_install_windows/">Windows 7/8/9/10</a> or <a href="https://docs.docker.com/docker-for-windows/install/">Windows 10Pro</a></li>
@@ -11834,7 +11824,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Pulling-the-Docker-image">Pulling the Docker image<a class="anchor-link" href="#Pulling-the-Docker-image">&#182;</a></h1><p>You can download various Docker images, but for this tutorial we will suggest  <code>miykael/nipype_tutorial</code>:</p>
+<h1 id="Pulling-the-Docker-image">Pulling the Docker image<a class="anchor-link" href="#Pulling-the-Docker-image">&#182;</a></h1><p>You can download various Docker images, but for this tutorial, we will suggest  <code>miykael/nipype_tutorial</code>:</p>
 
 <pre><code>docker pull miykael/nipype_tutorial:latest
 
@@ -11856,7 +11846,7 @@ div#notebook {
 <pre><code>docker run -it --rm -p 8888:8888 miykael/nipype_tutorial jupyter notebook
 
 </code></pre>
-<p>However, if you want to use your version of notebooks, safe notebook outputs locally or use youe local data, you can also mount your local directories, e.g.:</p>
+<p>However, if you want to use your version of notebooks, safe notebook outputs locally or use you local data, you can also mount your local directories, e.g.:</p>
 
 <pre><code>docker run -it --rm -v /path/to/nipype_tutorial/:/home/neuro/nipype_tutorial -v /path/to/data/:/data -v /path/to/output/:/output -p 8888:8888 miykael/nipype_tutorial jupyter notebook
 
@@ -11866,11 +11856,11 @@ div#notebook {
 <li>The <code>-it</code> flag tells docker that it should open an interactive container instance.</li>
 <li>The <code>--rm</code> flag tells docker that the container should automatically be removed after we close docker.</li>
 <li>The <code>-p</code> flag specifies which port we want to make available for docker.</li>
-<li>The <code>-v</code> flag tells docker which folders should be mount to make them accesible inside the container. Here: <code>/path/to/nipype_tutorial</code> is your local directory where you downloaded <a href="https://github.com/miykael/nipype_tutorial/">Nipype Tutorial repository</a>. <code>/path/to/data/</code> is a directory where you have dataset <a href="https://openfmri.org/dataset/ds000114/"><code>ds000114</code></a>, and <code>/path/to/output</code> can be an empty directory that will be used for output. The second part of the <code>-v</code> flag (here: <code>/home/neuro/nipype_tutorial</code>, <code>/data</code> or <code>/output</code>) specifies under which path the mounted folders can be found inside the container. <strong>Important</strong>: To use the <code>tutorial</code>, <code>data</code> and <code>output</code> folder, you first need to create them on your system!</li>
+<li>The <code>-v</code> flag tells docker which folders should be mount to make them accessible inside the container. Here: <code>/path/to/nipype_tutorial</code> is your local directory where you downloaded <a href="https://github.com/miykael/nipype_tutorial/">Nipype Tutorial repository</a>. <code>/path/to/data/</code> is a directory where you have dataset <a href="https://openfmri.org/dataset/ds000114/"><code>ds000114</code></a>, and <code>/path/to/output</code> can be an empty directory that will be used for output. The second part of the <code>-v</code> flag (here: <code>/home/neuro/nipype_tutorial</code>, <code>/data</code> or <code>/output</code>) specifies under which path the mounted folders can be found inside the container. <strong>Important</strong>: To use the <code>tutorial</code>, <code>data</code> and <code>output</code> folder, you first need to create them on your system!</li>
 <li><code>miykael/nipype_tutorial</code> tells docker which image you want to run.</li>
 <li><code>jupyter notebook</code> tells that you want to run directly the jupyter notebook command within the container. Alternatively, you can also use <code>jupyter-lab</code>, <code>bash</code> or <code>ipython</code>.</li>
 </ul>
-<p><strong>Note</strong> that when you run this docker image without any more specification, than it will prompt you a URL link in your terminal that you will need to copy paste into your browser to get to the notebooks.</p>
+<p><strong>Note</strong> that when you run this docker image without any more specification than it will prompt you a URL link in your terminal that you will need to copy paste into your browser to get to the notebooks.</p>
 
 </div>
 </div>
@@ -11879,7 +11869,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Run-a-docker-image-on-Linux-or-Mac">Run a docker image on Linux or Mac<a class="anchor-link" href="#Run-a-docker-image-on-Linux-or-Mac">&#182;</a></h2><p>Running a docker image on a Linux or Mac OS is very simple. Make sure that the folders <code>tutorial</code>, <code>data</code> and <code>output</code> exist. Then just open a new terminal and use the command from above. Once the docker image is downloaded, open the shown URL link in your browser and you are good to go. The URL will look something like:</p>
+<h2 id="Run-a-docker-image-on-Linux-or-Mac">Run a docker image on Linux or Mac<a class="anchor-link" href="#Run-a-docker-image-on-Linux-or-Mac">&#182;</a></h2><p>Running a docker image on a Linux or Mac OS is very simple. Make sure that the folders <code>tutorial</code>, <code>data</code>, and <code>output</code> exist. Then just open a new terminal and use the command from above. Once the docker image is downloaded, open the shown URL link in your browser and you are good to go. The URL will look something like:</p>
 
 <pre><code>http://localhost:8888/?token=0312c1ef3b61d7a44ff5346d3d150c23249a548850e13868</code></pre>
 
@@ -11892,20 +11882,20 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Run-a-docker-image-on-Windows">Run a docker image on Windows<a class="anchor-link" href="#Run-a-docker-image-on-Windows">&#182;</a></h2><p>Running a docker image on Windows is a bit trickier than on Ubuntu. Assuming you've installed the DockerToolbox, open the Docker Quickstart Terminal. Once the docker terminal is ready (when you see the whale), execute the following steps (see also figure):</p>
 <ol>
-<li><p>We need to check the IP adress of your docker machine. For this, use the command:</p>
+<li><p>We need to check the IP address of your docker machine. For this, use the command:</p>
 <p><code>docker-machine ip</code></p>
 <p>In my case, this returned <code>192.168.99.100</code></p>
 </li>
 <li><p>If you haven't already created a new folder to store your container output into, do so. You can create the folder either in the explorer as usual or do it with the command <code>mkdir -p</code> in the docker console. For example like this:</p>
 <p><code>mkdir -p /c/Users/username/output</code></p>
-<p>Please replace <code>username</code> with the name of the current user on your system. <strong>Pay attention</strong> that the folder paths in the docker terminal are not backslash (<code>\</code>) as we usually have in Windows. Also, <code>C:\</code> needs to be specified as <code>/c/</code>.</p>
+<p>Please replace <code>username</code> with the name of the current user on your system. <strong>Pay attention</strong> that the folder paths in the docker terminal are not a backslash (<code>\</code>) as we usually have in Windows. Also, <code>C:\</code> needs to be specified as <code>/c/</code>.</p>
 </li>
 <li><p>Now, we can open run the container with the command from above:</p>
 <p><code>docker run -it --rm -v /c/Users/username/path/to/nipype_tutorial/:/home/neuro/nipype_tutorial -v /c/Users/username/path/to/data/:/data -v /c/Users/username/path/to/output/:/output -p 8888:8888 miykael/nipype_tutorial</code></p>
 </li>
 <li><p>Once the docker image is downloaded, it will show you an URL that looks something like this:</p>
 <p><code>http://localhost:8888/?token=0312c1ef3b61d7a44ff5346d3d150c23249a548850e13868</code></p>
-<p>This URL will not work on a Windows system. To make it work, you need to replace the string <code>localhost</code> with the IP address of your docker machine, that we acquired under step 1. Afterwards, your URL should look something like this:</p>
+<p>This URL will not work on a Windows system. To make it work, you need to replace the string <code>localhost</code> with the IP address of your docker machine, that we acquired under step 1. Afterward, your URL should look something like this:</p>
 <p><code>http://192.168.99.100:8888/?token=0312c1ef3b61d7a44ff5346d3d150c23249a548850e13868</code></p>
 <p>Copy this link into your webbrowser and you're good to go!</p>
 </li>
@@ -11932,7 +11922,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stop-Docker-Container">Stop Docker Container<a class="anchor-link" href="#Stop-Docker-Container">&#182;</a></h2><p>To stop a running docker container, either close the docker terminal or select the terminal and uste the <code>Ctrl-C</code> shortcut multiple times.</p>
+<h2 id="Stop-Docker-Container">Stop Docker Container<a class="anchor-link" href="#Stop-Docker-Container">&#182;</a></h2><p>To stop a running docker container, either close the docker terminal or select the terminal and use the <code>Ctrl-C</code> shortcut multiple times.</p>
 
 </div>
 </div>
@@ -11952,7 +11942,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Delete-a-specific-docker-image">Delete a specific docker image<a class="anchor-link" href="#Delete-a-specific-docker-image">&#182;</a></h2><p>To delete a specific docker image, first use the <code>docker images</code> command to list all installed containers and than use the <code>IMAGE ID</code> and the <code>rmi</code> instruction to delete the container:</p>
+<h2 id="Delete-a-specific-docker-image">Delete a specific docker image<a class="anchor-link" href="#Delete-a-specific-docker-image">&#182;</a></h2><p>To delete a specific docker image, first use the <code>docker images</code> command to list all installed containers and then use the <code>IMAGE ID</code> and the <code>rmi</code> instruction to delete the container:</p>
 
 <pre><code>docker rmi -f 7d9495d03763</code></pre>
 
@@ -11963,7 +11953,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Export-and-Import-a-docker-image">Export and Import a docker image<a class="anchor-link" href="#Export-and-Import-a-docker-image">&#182;</a></h2><p>If you don't want to depend on a internet connection, you can also export an already downloaded docker image and than later on import it on another PC. To do so, use the following two commands:</p>
+<h2 id="Export-and-Import-a-docker-image">Export and Import a docker image<a class="anchor-link" href="#Export-and-Import-a-docker-image">&#182;</a></h2><p>If you don't want to depend on an internet connection, you can also export an already downloaded docker image and then later on import it on another PC. To do so, use the following two commands:</p>
 
 <pre><code># Export docker image miykael/nipype_tutorial
 docker save -o nipype_tutorial.tar miykael/nipype_tutorial
@@ -11972,7 +11962,7 @@ docker save -o nipype_tutorial.tar miykael/nipype_tutorial
 docker load --input nipype_tutorial.tar
 
 </code></pre>
-<p>It might be possible that you run into administrator privileges isssues because you ran your docker command with <code>sudo</code>. This means that other users don't have access rights to <code>nipype_tutorial.tar</code>. To avoid this, just change the rights of <code>nipype_tutorial.tar</code> with the command:</p>
+<p>It might be possible that you run into administrator privileges issues because you ran your docker command with <code>sudo</code>. This means that other users don't have access rights to <code>nipype_tutorial.tar</code>. To avoid this, just change the rights of <code>nipype_tutorial.tar</code> with the command:</p>
 
 <pre><code>sudo chmod 777 nipype_tutorial.tar</code></pre>
 
@@ -11983,7 +11973,7 @@ docker load --input nipype_tutorial.tar
   </div>
 </body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
-
+ 
 
 
 </html>

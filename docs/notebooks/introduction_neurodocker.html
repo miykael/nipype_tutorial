@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11795,12 +11785,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Neurodocker-tutorial">Neurodocker tutorial<a class="anchor-link" href="#Neurodocker-tutorial">&#182;</a></h1><p><a href="https://github.com/kaczmarj/neurodocker">Neurodocker</a> is a brilliant tool to create your own neuroimaging docker container. <a href="https://github.com/kaczmarj/neurodocker">Neurodocker</a> is a command-line program that enables users to generate <a href="http://www.docker.io/">Docker</a> containers that include neuroimaging software. These containers can be
-converted to <a href="http://singularity.lbl.gov/">Singularity</a> containers for use in high-performance computing
-centers.</p>
+<h1 id="Neurodocker-tutorial">Neurodocker tutorial<a class="anchor-link" href="#Neurodocker-tutorial">&#182;</a></h1><p>This page covers the steps to create containers with <a href="https://github.com/kaczmarj/neurodocker">Neurodocker</a>. <a href="https://github.com/kaczmarj/neurodocker">Neurodocker</a> is a brilliant tool to create your own neuroimaging docker container. <a href="https://github.com/kaczmarj/neurodocker">Neurodocker</a> is a command-line program that enables users to generate <a href="http://www.docker.io/">Docker</a> containers and <a href="http://singularity.lbl.gov/">Singularity</a> images that include neuroimaging software.</p>
 <p>Requirements:</p>
 <ul>
-<li><a href="http://www.docker.io/">Docker</a></li>
+<li><a href="http://www.docker.io/">Docker</a> or <a href="http://singularity.lbl.gov/">Singularity</a></li>
 <li>Internet connection</li>
 </ul>
 
@@ -11813,9 +11801,10 @@ centers.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Usage">Usage<a class="anchor-link" href="#Usage">&#182;</a></h2><p>To view the Neurodocker help message</p>
 
-<pre><code>docker run --rm kaczmarj/neurodocker:v0.3.2 generate --help
+<pre><code>docker run --rm kaczmarj/neurodocker:v0.4.0 generate [docker|singularity] --help
 
 </code></pre>
+<p><strong>Note</strong>: choose between <code>docker</code> and <code>singularity</code> in <code>[docker|singularity]</code>.</p>
 <ol>
 <li>Users must specify a base Docker image and the package manager. Any Docker
 image on DockerHub can be used as your base image. Common base images
@@ -11830,8 +11819,10 @@ manager, installing Python and Python packages, copying files from the local
 machine into the container, and other operations. The list of supported
 neuroimaging software packages is available in the <code>neurodocker</code> help
 message.</li>
-<li>The <code>neurodocker</code> command will generate a Dockerfile. This Dockerfile can
-be used to build a Docker image with the <code>docker build</code> command.</li>
+<li>The <code>neurodocker</code> command will generate a Dockerfile or Singularity recipe.
+The Dockerfile can be used with the <code>docker build</code> command to build a
+Docker image. The Singularity recipe can be used to build a Singularity
+container with the <code>singularity build</code> command.</li>
 </ol>
 
 </div>
@@ -11841,13 +11832,14 @@ be used to build a Docker image with the <code>docker build</code> command.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Create-a-Dockerfile-with-FSL,-Python-3.6,-and-Nipype">Create a Dockerfile with FSL, Python 3.6, and Nipype<a class="anchor-link" href="#Create-a-Dockerfile-with-FSL,-Python-3.6,-and-Nipype">&#182;</a></h2><p>This command prints a Dockerfile (the specification for a Docker image) to the
+<h2 id="Create-a-Dockerfile-or-Singularity-recipe-with-FSL,-Python-3.6,-and-Nipype">Create a Dockerfile or Singularity recipe with FSL, Python 3.6, and Nipype<a class="anchor-link" href="#Create-a-Dockerfile-or-Singularity-recipe-with-FSL,-Python-3.6,-and-Nipype">&#182;</a></h2><p>This command prints a Dockerfile (the specification for a Docker image) or a
+Singularity recipe (the specification for a Singularity container) to the
 terminal.</p>
 
-<pre><code>docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
+<pre><code>docker run --rm kaczmarj/neurodocker:0.4.0 generate [docker|singularity] \
            --base debian:stretch --pkg-manager apt \
            --fsl version=5.0.10 \
-           --miniconda env_name=neuro \
+           --miniconda create_env=neuro \
                        conda_install="python=3.6 traits" \
                        pip_install="nipype"</code></pre>
 
@@ -11860,7 +11852,7 @@ terminal.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Build-the-Docker-image">Build the Docker image<a class="anchor-link" href="#Build-the-Docker-image">&#182;</a></h2><p>The Dockerfile can be saved and used to build the Docker image</p>
 
-<pre><code>docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
+<pre><code>docker run --rm kaczmarj/neurodocker:v0.4.0 generate docker \
            --base debian:stretch --pkg-manager apt \
            --fsl version=5.0.10 \
            --miniconda env_name=neuro \
@@ -11878,10 +11870,28 @@ docker build --tag my_image - &lt; Dockerfile</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Build-the-Singularity-container">Build the Singularity container<a class="anchor-link" href="#Build-the-Singularity-container">&#182;</a></h2><p>The Singularity recipe can be saved and used to build the Singularity container</p>
+
+<pre><code>docker run --rm kaczmarj/neurodocker:0.4.0 generate singularity \
+           --base debian:stretch --pkg-manager apt \
+           --fsl version=5.0.10 \
+           --miniconda create_env=neuro \
+                       conda_install="python=3.6 traits" \
+                       pip_install="nipype" &gt; Singularity
+
+singularity build my_nipype.simg Singularity</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Use-NeuroDebian">Use NeuroDebian<a class="anchor-link" href="#Use-NeuroDebian">&#182;</a></h2><p>This example installs AFNI and ANTs from the NeuroDebian repositories. It also
 installs <code>git</code> and <code>vim</code>.</p>
 
-<pre><code>docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
+<pre><code>docker run --rm kaczmarj/neurodocker:v0.4.0 generate [docker|singularity] \
            --base neurodebian:stretch --pkg-manager apt \
            --install afni ants git vim
 
@@ -11902,20 +11912,23 @@ available in the default repositories.</p>
 Miniconda as a non-root user, and activate the Miniconda environment upon
 running the container.</p>
 
-<pre><code>docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
+<pre><code>docker run --rm kaczmarj/neurodocker:v0.4.0 generate docker \
            --base centos:7 --pkg-manager yum \
-           --dcm2niix version=master \
+           --dcm2niix version=master  method=source \
            --user neuro \
-           --miniconda env_name=neuro conda_install="jupyter traits nipype" \
+           --miniconda create_env=neuro conda_install="jupyter traits nipype" \
            &gt; Dockerfile
 docker build --tag my_nipype - &lt; Dockerfile
 
 </code></pre>
 <p>Copy local files into a container.</p>
 
-<pre><code>docker run --rm kaczmarj/neurodocker:v0.3.2 generate \
+<pre><code>docker run --rm kaczmarj/neurodocker:v0.4.0 generate [docker|singularity] \
            --base ubuntu:16.04 --pkg-manager apt \
-           --copy relative/path/to/source.txt /absolute/path/to/destination.txt</code></pre>
+           --copy relative/path/to/source.txt /absolute/path/to/destination.txt
+
+</code></pre>
+<p>See the <a href="https://github.com/kaczmarj/neurodocker/tree/master/examples/">Neurodocker examples page</a> for more.</p>
 
 </div>
 </div>
@@ -11924,7 +11937,7 @@ docker build --tag my_nipype - &lt; Dockerfile
   </div>
 </body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
-
+ 
 
 
 </html>

@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11766,16 +11766,6 @@ div#notebook {
         }
     });
     </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -11826,7 +11816,7 @@ div#notebook {
   (integer, default value: 254000)</li>
 </ul>
 <ul>
-<li><strong><code>log_rotate</code></strong>: How many rotation should the log file make.<br>
+<li><strong><code>log_rotate</code></strong>: How many rotations should the log file make.<br>
   (integer, default value: 4)</li>
 </ul>
 
@@ -11842,12 +11832,12 @@ div#notebook {
   (possible values: <code>Linear</code>, <code>MultiProc</code>, <code>SGE</code>, <code>IPython</code>; default value: <code>Linear</code>)</li>
 </ul>
 <ul>
-<li><strong><code>stop_on_first_crash</code></strong>: Should the workflow stop upon first node crashing or try to execute as many
+<li><strong><code>stop_on_first_crash</code></strong>: Should the workflow stop upon the first node crashing or try to execute as many
   nodes as possible?<br>
   (possible values: <code>true</code> and <code>false</code>; default value: <code>false</code>)</li>
 </ul>
 <ul>
-<li><strong><code>stop_on_first_rerun</code></strong>: Should the workflow stop upon first node trying to recompute (by that we mean rerunning a node that has been run before - this can happen due changed inputs and/or hash_method since the last run).<br>
+<li><strong><code>stop_on_first_rerun</code></strong>: Should the workflow stop upon the first node trying to recompute (by that we mean rerunning a node that has been run before - this can happen due changed inputs and/or hash_method since the last run).<br>
   (possible values: <code>true</code> and <code>false</code>; default value: <code>false</code>)</li>
 </ul>
 <ul>
@@ -11865,7 +11855,7 @@ div#notebook {
 </ul>
 <ul>
 <li><strong><code>display_variable</code></strong>: Override the <code>$DISPLAY</code> environment variable for interfaces that require an X server. This option is useful if there is a running X server, but <code>$DISPLAY</code> was not defined in nipype's environment. For example, if an X server is listening on the default port of 6000, set <code>display_variable = :0</code> to enable nipype interfaces to use it. It may also point to displays provided by VNC, <a href="http://www.x.org/archive/X11R7.5/doc/man/man1/Xnest.1.html">xnest</a> or <a href="http://www.x.org/archive/X11R6.8.1/doc/Xvfb.1.html">Xvfb</a>.<br>
-  If neither <code>display_variable</code> nor the <code>$DISPLAY</code> environment variable are     set, nipype will try to configure a new virtual server using Xvfb.<br>
+  If neither <code>display_variable</code> nor the <code>$DISPLAY</code> environment variable is     set, nipype will try to configure a new virtual server using Xvfb.<br>
    (possible values: any X server address; default value: not set)</li>
 </ul>
 <ul>
@@ -11876,11 +11866,11 @@ div#notebook {
   (possible values: <code>true</code> and <code>false</code>; default value: <code>true</code>)</li>
 </ul>
 <ul>
-<li><strong><code>try_hard_link_datasink</code></strong>: When the DataSink is used to produce an orginized output file outside
+<li><strong><code>try_hard_link_datasink</code></strong>: When the DataSink is used to produce an organized output file outside
   of nipypes internal cache structure, a file system hard link will be
-  attempted first. A hard link allow multiple file paths to point to the
+  attempted first. A hard link allows multiple file paths to point to the
   same physical storage location on disk if the conditions allow. By
-  refering to the same physical file on disk (instead of copying files
+  referring to the same physical file on disk (instead of copying files
   byte-by-byte) we can avoid unnecessary data duplication.  If hard links
   are not supported for the source or destination paths specified, then
   a standard byte-by-byte copy is used.<br>
@@ -11958,7 +11948,7 @@ div#notebook {
 <li><strong><code>summary_file</code></strong>: Indicates where the summary file collecting all profiling information from the
   resource monitor should be stored after execution of a workflow.
   The <code>summary_file</code> does not apply to interfaces run independently.
-  (unset by default, in which case the summary file will be written out to
+  (unset by default, in which case the summary file will be written out to 
   <code>&lt;base_dir&gt;/resource_monitor.json</code> of the top-level workflow).</li>
 </ul>
 <ul>
@@ -12013,7 +12003,7 @@ enabled = false
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You can also directly set global config options in your workflow script. An
 example is shown below. This needs to be called before you import the
-pipeline or the logger. Otherwise logging level will not be reset.</p>
+pipeline or the logger. Otherwise, logging level will not be reset.</p>
 
 </div>
 </div>
@@ -12086,9 +12076,8 @@ output directory, logging level, etc.</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">config</span><span class="p">,</span> <span class="n">logging</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="k">import</span> <span class="n">config</span>
 <span class="n">config</span><span class="o">.</span><span class="n">enable_debug_mode</span><span class="p">()</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">update_logging</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12112,14 +12101,29 @@ output directory, logging level, etc.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;execution&#39;</span><span class="p">,</span> <span class="s1">&#39;stop_on_first_crash&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;execution&#39;</span><span class="p">,</span> <span class="s1">&#39;remove_unnecessary_outputs&#39;</span><span class="p">,</span> <span class="s1">&#39;false&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;execution&#39;</span><span class="p">,</span> <span class="s1">&#39;keep_inputs&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;logging&#39;</span><span class="p">,</span> <span class="s1">&#39;workflow_level&#39;</span><span class="p">,</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;logging&#39;</span><span class="p">,</span> <span class="s1">&#39;interface_level&#39;</span><span class="p">,</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;logging&#39;</span><span class="p">,</span> <span class="s1">&#39;utils_level&#39;</span><span class="p">,</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The primary loggers (<code>workflow</code>, <code>interface</code> and <code>utils</code>) are also reset to level <code>DEBUG</code>.</p>
+<p>You may wish to adjust these manually using:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nipype</span> <span class="kn">import</span> <span class="n">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="o">&lt;</span><span class="n">logger</span><span class="o">&gt;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="o">&lt;</span><span class="n">level</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12234,7 +12238,7 @@ output directory, logging level, etc.</p>
   </div>
 </body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
-
+ 
 
 
 </html>
