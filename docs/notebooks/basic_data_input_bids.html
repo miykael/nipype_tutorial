@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11795,7 +11785,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-input-for-BIDS-datasets">Data input for BIDS datasets<a class="anchor-link" href="#Data-input-for-BIDS-datasets">&#182;</a></h2><p><code>DataGrabber</code> and <code>SelectFiles</code> are great if you are dealing with generic datasets with arbitrary organization. However if you have decided to use Brain Imaging Data Structure (BIDS) to organized your data (or got your hands on a BIDS dataset) you can take advanted of a formal structure BIDS imposes. In this short tutorial you will learn how to do this.</p>
+<h2 id="Data-input-for-BIDS-datasets">Data input for BIDS datasets<a class="anchor-link" href="#Data-input-for-BIDS-datasets">&#182;</a></h2><p><code>DataGrabber</code> and <code>SelectFiles</code> are great if you are dealing with generic datasets with arbitrary organization. However, if you have decided to use Brain Imaging Data Structure (BIDS) to organize your data (or got your hands on a BIDS dataset) you can take advantage of a formal structure BIDS imposes. In this short tutorial, you will learn how to do this.</p>
 
 </div>
 </div>
@@ -11816,7 +11806,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-layout-object-and-simple-queries">The <code>layout</code> object and simple queries<a class="anchor-link" href="#The-layout-object-and-simple-queries">&#182;</a></h2><p>To begin working with pubids we need to initalize a layout object. We will need it to do all of our queries</p>
+<h2 id="The-layout-object-and-simple-queries">The <code>layout</code> object and simple queries<a class="anchor-link" href="#The-layout-object-and-simple-queries">&#182;</a></h2><p>To begin working with pybids we need to initialize a layout object. We will need it to do all of our queries</p>
 
 </div>
 </div>
@@ -11826,11 +11816,457 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bids.layout</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
 <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="s2">&quot;/data/ds000114/&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree -L <span class="m">4</span> /data/ds000114/
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/data/ds000114/
+├── CHANGES
+├── dataset_description.json
+├── derivatives
+│   ├── fmriprep
+│   │   ├── mni_icbm152_nlin_asym_09c
+│   │   │   ├── 1mm_brainmask.nii.gz
+│   │   │   ├── 1mm_T1.nii.gz
+│   │   │   ├── 1mm_tpm_csf.nii.gz
+│   │   │   ├── 1mm_tpm_gm.nii.gz
+│   │   │   ├── 1mm_tpm_wm.nii.gz
+│   │   │   ├── 2mm_brainmask.nii.gz
+│   │   │   ├── 2mm_T1.nii.gz
+│   │   │   ├── 2mm_tpm_csf.nii.gz
+│   │   │   ├── 2mm_tpm_gm.nii.gz
+│   │   │   ├── 2mm_tpm_wm.nii.gz
+│   │   │   └── scripts
+│   │   ├── sub-01
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-01.html -&gt; .git/annex/objects/MF/jw/MD5E-s20077561--03ecea8730492d537e050941bdf654bf.html/MD5E-s20077561--03ecea8730492d537e050941bdf654bf.html
+│   │   ├── sub-02
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-02.html -&gt; .git/annex/objects/99/j3/MD5E-s19975906--5ede67fcdad59b65a02f572360db2863.html/MD5E-s19975906--5ede67fcdad59b65a02f572360db2863.html
+│   │   ├── sub-03
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-03.html -&gt; .git/annex/objects/z4/8w/MD5E-s20227534--64e1a981338e8fb9c87f026a79a34785.html/MD5E-s20227534--64e1a981338e8fb9c87f026a79a34785.html
+│   │   ├── sub-04
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-04.html -&gt; .git/annex/objects/qF/J1/MD5E-s22389786--2954e6ece2a825c0008e9b1dcfcaf0a6.html/MD5E-s22389786--2954e6ece2a825c0008e9b1dcfcaf0a6.html
+│   │   ├── sub-05
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-05.html -&gt; .git/annex/objects/6G/Z6/MD5E-s22109848--70a1908c811102744f39b87ae03216a2.html/MD5E-s22109848--70a1908c811102744f39b87ae03216a2.html
+│   │   ├── sub-06
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-06.html -&gt; .git/annex/objects/k9/gx/MD5E-s21892649--c22445c2264626ea8537b440a280d240.html/MD5E-s21892649--c22445c2264626ea8537b440a280d240.html
+│   │   ├── sub-07
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-07.html -&gt; .git/annex/objects/4v/vV/MD5E-s19939423--f9c96cb528fb62ebde2d33bb6a69cb8b.html/MD5E-s19939423--f9c96cb528fb62ebde2d33bb6a69cb8b.html
+│   │   ├── sub-08
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-08.html -&gt; .git/annex/objects/Kj/P0/MD5E-s21484045--93abf611fe734778dedbfb65ce983e42.html/MD5E-s21484045--93abf611fe734778dedbfb65ce983e42.html
+│   │   ├── sub-09
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   ├── sub-09.html -&gt; .git/annex/objects/9M/J0/MD5E-s21261086--9eaa82886171bc130c560ad95e9399ce.html/MD5E-s21261086--9eaa82886171bc130c560ad95e9399ce.html
+│   │   ├── sub-10
+│   │   │   ├── anat
+│   │   │   ├── ses-retest
+│   │   │   └── ses-test
+│   │   └── sub-10.html -&gt; .git/annex/objects/54/fp/MD5E-s19211083--9cd49ee07578dfdf58246243af5faf16.html/MD5E-s19211083--9cd49ee07578dfdf58246243af5faf16.html
+│   └── freesurfer
+│       ├── fsaverage
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── mri.2mm
+│       │   ├── scripts
+│       │   ├── surf
+│       │   └── xhemi
+│       ├── fsaverage5
+│       │   ├── label
+│       │   ├── lh.reg.template.tif -&gt; ../.git/annex/objects/Z0/0Q/MD5E-s2857556--0ab279c0acf06733b8360e10f9c1f3af.tif/MD5E-s2857556--0ab279c0acf06733b8360e10f9c1f3af.tif
+│       │   ├── mri
+│       │   ├── rh.reg.template.tif -&gt; ../.git/annex/objects/WP/JF/MD5E-s2857636--abeff380f357f736c03bf6d9d6f2a69a.tif/MD5E-s2857636--abeff380f357f736c03bf6d9d6f2a69a.tif
+│       │   ├── scripts
+│       │   ├── stats
+│       │   └── surf
+│       ├── sub-01
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       ├── sub-02
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       ├── sub-03
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       ├── sub-04
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       ├── sub-05
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       ├── sub-06
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       ├── sub-07
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       ├── sub-08
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       ├── sub-09
+│       │   ├── label
+│       │   ├── mri
+│       │   ├── scripts
+│       │   ├── stats
+│       │   ├── surf
+│       │   └── touch
+│       └── sub-10
+│           ├── label
+│           ├── mri
+│           ├── scripts
+│           ├── stats
+│           ├── surf
+│           └── touch
+├── dwi.bval -&gt; .git/annex/objects/JX/4K/MD5E-s335--5bd6fa32ccd0c79e79f9ac63a2c09c1a.bval/MD5E-s335--5bd6fa32ccd0c79e79f9ac63a2c09c1a.bval
+├── dwi.bvec -&gt; .git/annex/objects/Pg/wk/MD5E-s1248--0641c68ff6ee6164928c984541653430.bvec/MD5E-s1248--0641c68ff6ee6164928c984541653430.bvec
+├── sub-01
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-01_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/xm/25/MD5E-s8503839--3b3b49b2396b59ddd5a73b7f596f9e46.nii.gz/MD5E-s8503839--3b3b49b2396b59ddd5a73b7f596f9e46.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-01_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/0K/16/MD5E-s99899518--5ebac8e9e23180638dd68dde10b818be.nii.gz/MD5E-s99899518--5ebac8e9e23180638dd68dde10b818be.nii.gz
+│   │   └── func
+│   │       ├── sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/3q/Qf/MD5E-s22317848--b30f5b2f7a6039a3e384bcb40bec7e55.nii.gz/MD5E-s22317848--b30f5b2f7a6039a3e384bcb40bec7e55.nii.gz
+│   │       ├── sub-01_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/26/6j/MD5E-s23793248--327e42d440f0557105bf7c05a3b9f1e8.nii.gz/MD5E-s23793248--327e42d440f0557105bf7c05a3b9f1e8.nii.gz
+│   │       ├── sub-01_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/qv/gf/MD5E-s30728838--58392e3ead9caeefe148a57c71dd5b44.nii.gz/MD5E-s30728838--58392e3ead9caeefe148a57c71dd5b44.nii.gz
+│   │       ├── sub-01_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/QK/9Q/MD5E-s4934--30ef35f37e4a035beb9105ff6f4e1e1f.tsv/MD5E-s4934--30ef35f37e4a035beb9105ff6f4e1e1f.tsv
+│   │       ├── sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/Fx/6K/MD5E-s11839146--5f62c005467de0dabc6ebcd09c3e7ec3.nii.gz/MD5E-s11839146--5f62c005467de0dabc6ebcd09c3e7ec3.nii.gz
+│   │       └── sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/x3/qW/MD5E-s10162063--a86a0f448872de33a901a6b639e975c9.nii.gz/MD5E-s10162063--a86a0f448872de33a901a6b639e975c9.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-01_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/QP/jm/MD5E-s8677710--d6820f6cb8fb965e864419c14f6a22d5.nii.gz/MD5E-s8677710--d6820f6cb8fb965e864419c14f6a22d5.nii.gz
+│       ├── dwi
+│       │   └── sub-01_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/X2/kJ/MD5E-s104193417--454850ac9ed1c96c40b6b7946e51bf71.nii.gz/MD5E-s104193417--454850ac9ed1c96c40b6b7946e51bf71.nii.gz
+│       └── func
+│           ├── sub-01_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/mx/zJ/MD5E-s22944165--71b1eda077a1003a177552f6c380323a.nii.gz/MD5E-s22944165--71b1eda077a1003a177552f6c380323a.nii.gz
+│           ├── sub-01_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/k6/4f/MD5E-s24454931--e9ab535d84a922b0c7ed52461244cf47.nii.gz/MD5E-s24454931--e9ab535d84a922b0c7ed52461244cf47.nii.gz
+│           ├── sub-01_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/32/Qq/MD5E-s31617092--151bc230c3b577110883369b6fad0daa.nii.gz/MD5E-s31617092--151bc230c3b577110883369b6fad0daa.nii.gz
+│           ├── sub-01_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/vf/x3/MD5E-s4939--e9cef6b5ba48c5e3236747d208cf9668.tsv/MD5E-s4939--e9cef6b5ba48c5e3236747d208cf9668.tsv
+│           ├── sub-01_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/p3/fZ/MD5E-s12048980--648c9094579aa5d047a5f6db468f9bc9.nii.gz/MD5E-s12048980--648c9094579aa5d047a5f6db468f9bc9.nii.gz
+│           └── sub-01_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/56/GV/MD5E-s10362270--6a5c483d118db28ff8a62455def5501c.nii.gz/MD5E-s10362270--6a5c483d118db28ff8a62455def5501c.nii.gz
+├── sub-02
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-02_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/VV/x2/MD5E-s8901003--6ad41304cbd57904227d914c054dcdc3.nii.gz/MD5E-s8901003--6ad41304cbd57904227d914c054dcdc3.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-02_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/ZZ/4X/MD5E-s101314358--9be934908a88073bc070e524651ee665.nii.gz/MD5E-s101314358--9be934908a88073bc070e524651ee665.nii.gz
+│   │   └── func
+│   │       ├── sub-02_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/vk/gK/MD5E-s22730907--26df7900a64e1d9f90e17ad0fa53145d.nii.gz/MD5E-s22730907--26df7900a64e1d9f90e17ad0fa53145d.nii.gz
+│   │       ├── sub-02_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/Jg/vq/MD5E-s24364271--593256c66ce88ed8aaef140a4b37c6ec.nii.gz/MD5E-s24364271--593256c66ce88ed8aaef140a4b37c6ec.nii.gz
+│   │       ├── sub-02_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/pZ/GJ/MD5E-s31238024--929a3999fa92002e571bec60f7343b65.nii.gz/MD5E-s31238024--929a3999fa92002e571bec60f7343b65.nii.gz
+│   │       ├── sub-02_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/3K/wG/MD5E-s4888--e89bad630d80cd29bc3abc4349b0c644.tsv/MD5E-s4888--e89bad630d80cd29bc3abc4349b0c644.tsv
+│   │       ├── sub-02_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/35/2V/MD5E-s12039294--070d0299974f916bdee0791985381593.nii.gz/MD5E-s12039294--070d0299974f916bdee0791985381593.nii.gz
+│   │       └── sub-02_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/Z4/0G/MD5E-s10369674--71d655f61e4ce98ae7761ce76e3c30f9.nii.gz/MD5E-s10369674--71d655f61e4ce98ae7761ce76e3c30f9.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-02_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/qq/gm/MD5E-s10025785--0e790e210a275d76e3f2f4d895df6358.nii.gz/MD5E-s10025785--0e790e210a275d76e3f2f4d895df6358.nii.gz
+│       ├── dwi
+│       │   └── sub-02_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/8x/vp/MD5E-s104222416--86575d07809e9c717079592a12c69344.nii.gz/MD5E-s104222416--86575d07809e9c717079592a12c69344.nii.gz
+│       └── func
+│           ├── sub-02_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/F6/6J/MD5E-s23349944--2a2b8bc1f3d90e84d879bdd4638103c8.nii.gz/MD5E-s23349944--2a2b8bc1f3d90e84d879bdd4638103c8.nii.gz
+│           ├── sub-02_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/pG/k1/MD5E-s24882575--75c39bee9e25e02c629dfcce1b378589.nii.gz/MD5E-s24882575--75c39bee9e25e02c629dfcce1b378589.nii.gz
+│           ├── sub-02_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/WM/m9/MD5E-s32248732--4cd877de7b4c66e073610dffb67dfbcc.nii.gz/MD5E-s32248732--4cd877de7b4c66e073610dffb67dfbcc.nii.gz
+│           ├── sub-02_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/XJ/2g/MD5E-s4882--01bacc601e70a375193045c052d4a5fe.tsv/MD5E-s4882--01bacc601e70a375193045c052d4a5fe.tsv
+│           ├── sub-02_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/Jz/zM/MD5E-s12348374--67f259c7e0bbb0fe39e747be5f905a4b.nii.gz/MD5E-s12348374--67f259c7e0bbb0fe39e747be5f905a4b.nii.gz
+│           └── sub-02_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/6g/Zw/MD5E-s10496422--bae24132d514bb028ca8a3d749363bd9.nii.gz/MD5E-s10496422--bae24132d514bb028ca8a3d749363bd9.nii.gz
+├── sub-03
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-03_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/64/vk/MD5E-s8125470--75575589e60ce58d95b4d72d3b4bf222.nii.gz/MD5E-s8125470--75575589e60ce58d95b4d72d3b4bf222.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-03_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/Pf/07/MD5E-s101660442--50491e142880d5f32b6c33cde372fb05.nii.gz/MD5E-s101660442--50491e142880d5f32b6c33cde372fb05.nii.gz
+│   │   └── func
+│   │       ├── sub-03_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/z1/0p/MD5E-s22709259--a01b5167228be96f007e84bab43e8b60.nii.gz/MD5E-s22709259--a01b5167228be96f007e84bab43e8b60.nii.gz
+│   │       ├── sub-03_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/WG/k5/MD5E-s24175561--769ba7da6cac3318c47bc9215a77359b.nii.gz/MD5E-s24175561--769ba7da6cac3318c47bc9215a77359b.nii.gz
+│   │       ├── sub-03_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/Qf/QX/MD5E-s31217356--89a8e84fbe0b5f019ce69d4ad643863c.nii.gz/MD5E-s31217356--89a8e84fbe0b5f019ce69d4ad643863c.nii.gz
+│   │       ├── sub-03_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/1M/Vm/MD5E-s4877--4e73dbd6d1350b687be811d3d116a689.tsv/MD5E-s4877--4e73dbd6d1350b687be811d3d116a689.tsv
+│   │       ├── sub-03_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/Xx/q2/MD5E-s11992800--894dac07de9c8cddf6ea7e42f39f5c80.nii.gz/MD5E-s11992800--894dac07de9c8cddf6ea7e42f39f5c80.nii.gz
+│   │       └── sub-03_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/7F/8p/MD5E-s10359493--9b3e5cc9933645901049c64c600ec6ca.nii.gz/MD5E-s10359493--9b3e5cc9933645901049c64c600ec6ca.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-03_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/P9/kj/MD5E-s7970968--75bb38265ea96864bfa0b012ba21b0b0.nii.gz/MD5E-s7970968--75bb38265ea96864bfa0b012ba21b0b0.nii.gz
+│       ├── dwi
+│       │   └── sub-03_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/F3/Pf/MD5E-s106544064--badea2659bd4440ff4c20e2f149034cc.nii.gz/MD5E-s106544064--badea2659bd4440ff4c20e2f149034cc.nii.gz
+│       └── func
+│           ├── sub-03_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/J6/f0/MD5E-s23145742--a792c0592cb77a161eb5d000a618c17c.nii.gz/MD5E-s23145742--a792c0592cb77a161eb5d000a618c17c.nii.gz
+│           ├── sub-03_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/gp/QM/MD5E-s24520513--0fd08e07bbee37ac9efe14c7b265299a.nii.gz/MD5E-s24520513--0fd08e07bbee37ac9efe14c7b265299a.nii.gz
+│           ├── sub-03_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/mP/mg/MD5E-s31785134--76856b9d6c90730144196aa48e4d9a9f.nii.gz/MD5E-s31785134--76856b9d6c90730144196aa48e4d9a9f.nii.gz
+│           ├── sub-03_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/2q/qK/MD5E-s4943--df69ebd4a36adefa43dd1e5833a6cc91.tsv/MD5E-s4943--df69ebd4a36adefa43dd1e5833a6cc91.tsv
+│           ├── sub-03_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/w3/XQ/MD5E-s12159084--67f84031d332467dae91107e53f0d89e.nii.gz/MD5E-s12159084--67f84031d332467dae91107e53f0d89e.nii.gz
+│           └── sub-03_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/Qk/kK/MD5E-s10552089--e00b7544d9c44dddcd966e2c1dcd468f.nii.gz/MD5E-s10552089--e00b7544d9c44dddcd966e2c1dcd468f.nii.gz
+├── sub-04
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-04_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/z9/V6/MD5E-s10125819--92fcdbdd50bb334651e474417237a7f2.nii.gz/MD5E-s10125819--92fcdbdd50bb334651e474417237a7f2.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-04_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/0Q/z6/MD5E-s102315940--827455ba66acecb6a2c8b9222bcd9fa1.nii.gz/MD5E-s102315940--827455ba66acecb6a2c8b9222bcd9fa1.nii.gz
+│   │   └── func
+│   │       ├── sub-04_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/6G/PV/MD5E-s24644977--c2411e3bad71cddeb2c083f999d22f93.nii.gz/MD5E-s24644977--c2411e3bad71cddeb2c083f999d22f93.nii.gz
+│   │       ├── sub-04_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/Jf/m1/MD5E-s26197435--1ec999d21c0039897b67f38f5870d70c.nii.gz/MD5E-s26197435--1ec999d21c0039897b67f38f5870d70c.nii.gz
+│   │       ├── sub-04_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/J2/v9/MD5E-s33748727--044de5969956d86b7cdee0eb36e26c9e.nii.gz/MD5E-s33748727--044de5969956d86b7cdee0eb36e26c9e.nii.gz
+│   │       ├── sub-04_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/Pv/Mg/MD5E-s4944--a83df0296cd6fda128072efff0d651ca.tsv/MD5E-s4944--a83df0296cd6fda128072efff0d651ca.tsv
+│   │       ├── sub-04_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/Kf/5K/MD5E-s12862957--a356882c1f18391f2f5215bda39f817f.nii.gz/MD5E-s12862957--a356882c1f18391f2f5215bda39f817f.nii.gz
+│   │       └── sub-04_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/70/k3/MD5E-s11172082--dcd559966a66e0645cb98a9b13c67a6c.nii.gz/MD5E-s11172082--dcd559966a66e0645cb98a9b13c67a6c.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-04_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/mg/5z/MD5E-s9717713--7764ef9c3fb344f69f1c2eb34cd56046.nii.gz/MD5E-s9717713--7764ef9c3fb344f69f1c2eb34cd56046.nii.gz
+│       ├── dwi
+│       │   └── sub-04_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/W0/Gk/MD5E-s104883316--ec0aec8977aa5a5c0901cd9d2e25347c.nii.gz/MD5E-s104883316--ec0aec8977aa5a5c0901cd9d2e25347c.nii.gz
+│       └── func
+│           ├── sub-04_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/GX/QK/MD5E-s24677139--d835385cb69d9907d6b0cb7311a91ff3.nii.gz/MD5E-s24677139--d835385cb69d9907d6b0cb7311a91ff3.nii.gz
+│           ├── sub-04_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/Qv/qX/MD5E-s26270785--61f837b1ef1f667975ab25b820844d93.nii.gz/MD5E-s26270785--61f837b1ef1f667975ab25b820844d93.nii.gz
+│           ├── sub-04_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/gk/3p/MD5E-s33823763--377e091ada8819942070a374b71ea986.nii.gz/MD5E-s33823763--377e091ada8819942070a374b71ea986.nii.gz
+│           ├── sub-04_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/ZF/Pm/MD5E-s4963--df695f2ef7be302fb9ba8f0e03d0c8c8.tsv/MD5E-s4963--df695f2ef7be302fb9ba8f0e03d0c8c8.tsv
+│           ├── sub-04_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/0Q/jG/MD5E-s12907201--46e3c39a8f7ec6c2f5b1ab157efa10d1.nii.gz/MD5E-s12907201--46e3c39a8f7ec6c2f5b1ab157efa10d1.nii.gz
+│           └── sub-04_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/X5/FJ/MD5E-s11171792--bc9ba9ef24fcf364f3057401c17b1c49.nii.gz/MD5E-s11171792--bc9ba9ef24fcf364f3057401c17b1c49.nii.gz
+├── sub-05
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-05_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/JK/PV/MD5E-s9511479--cec6ad961369ea1b21521d33040406d1.nii.gz/MD5E-s9511479--cec6ad961369ea1b21521d33040406d1.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-05_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/Mx/KM/MD5E-s104024235--7a107b0b7d70f0e0a60e5fccbda23f41.nii.gz/MD5E-s104024235--7a107b0b7d70f0e0a60e5fccbda23f41.nii.gz
+│   │   └── func
+│   │       ├── sub-05_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/x3/7x/MD5E-s24240966--89dc3e4888f5788e390be04cc91565ef.nii.gz/MD5E-s24240966--89dc3e4888f5788e390be04cc91565ef.nii.gz
+│   │       ├── sub-05_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/V4/fV/MD5E-s25998505--071b1bd89a8d245b7a7a23323b434706.nii.gz/MD5E-s25998505--071b1bd89a8d245b7a7a23323b434706.nii.gz
+│   │       ├── sub-05_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/3v/1w/MD5E-s33598359--952f5c8625b962a9f5ccb3d2bb58d1aa.nii.gz/MD5E-s33598359--952f5c8625b962a9f5ccb3d2bb58d1aa.nii.gz
+│   │       ├── sub-05_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/vG/xZ/MD5E-s4843--3e56962b347260df61632b6d23853ac6.tsv/MD5E-s4843--3e56962b347260df61632b6d23853ac6.tsv
+│   │       ├── sub-05_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/w0/75/MD5E-s12942731--e26171327d6bbdd4f392e1e327f92850.nii.gz/MD5E-s12942731--e26171327d6bbdd4f392e1e327f92850.nii.gz
+│   │       └── sub-05_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/2V/K8/MD5E-s11109819--e0875ced4e44d9a144316893937a063b.nii.gz/MD5E-s11109819--e0875ced4e44d9a144316893937a063b.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-05_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/f1/XP/MD5E-s9942928--e32c1d5fb1d6db6449b19be10b5efc67.nii.gz/MD5E-s9942928--e32c1d5fb1d6db6449b19be10b5efc67.nii.gz
+│       ├── dwi
+│       │   └── sub-05_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/q3/gK/MD5E-s108049676--0d107c0acf9bed884baedfb7bc6a76e7.nii.gz/MD5E-s108049676--0d107c0acf9bed884baedfb7bc6a76e7.nii.gz
+│       └── func
+│           ├── sub-05_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/0z/1V/MD5E-s24924488--f11c9aec356aa58e53e7a154222f4e74.nii.gz/MD5E-s24924488--f11c9aec356aa58e53e7a154222f4e74.nii.gz
+│           ├── sub-05_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/GK/P9/MD5E-s26693258--a904caebfaa372a21eb37231bae55299.nii.gz/MD5E-s26693258--a904caebfaa372a21eb37231bae55299.nii.gz
+│           ├── sub-05_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/jW/X3/MD5E-s34416273--467b8d34b985d8caa2ac26e93506b775.nii.gz/MD5E-s34416273--467b8d34b985d8caa2ac26e93506b775.nii.gz
+│           ├── sub-05_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/m5/Kg/MD5E-s4950--4603e9f4e09e05f555f8b0e3838c72ab.tsv/MD5E-s4950--4603e9f4e09e05f555f8b0e3838c72ab.tsv
+│           ├── sub-05_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/fZ/Qx/MD5E-s13124683--f6b7dbf08272097300cf977ddc06a3a3.nii.gz/MD5E-s13124683--f6b7dbf08272097300cf977ddc06a3a3.nii.gz
+│           └── sub-05_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/wP/ZP/MD5E-s11526323--f99a4f1f281cc1213c556b1f446724e5.nii.gz/MD5E-s11526323--f99a4f1f281cc1213c556b1f446724e5.nii.gz
+├── sub-06
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-06_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/9W/pF/MD5E-s9712028--b4fbccf8add0667a4cba4306d2609bf6.nii.gz/MD5E-s9712028--b4fbccf8add0667a4cba4306d2609bf6.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-06_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/82/0m/MD5E-s102946238--20e290d95ed62fe68f5c73c3e057aa68.nii.gz/MD5E-s102946238--20e290d95ed62fe68f5c73c3e057aa68.nii.gz
+│   │   └── func
+│   │       ├── sub-06_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/KQ/41/MD5E-s24361814--23edea0b5a1c7b770ae89a700099482a.nii.gz/MD5E-s24361814--23edea0b5a1c7b770ae89a700099482a.nii.gz
+│   │       ├── sub-06_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/MW/2q/MD5E-s26020756--5525a120e543de5a7c561eb0ac058c50.nii.gz/MD5E-s26020756--5525a120e543de5a7c561eb0ac058c50.nii.gz
+│   │       ├── sub-06_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/kz/g4/MD5E-s33607078--55b31ff735c4a5d571e49ca0fa44ef3b.nii.gz/MD5E-s33607078--55b31ff735c4a5d571e49ca0fa44ef3b.nii.gz
+│   │       ├── sub-06_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/2K/0p/MD5E-s4968--7bf3c8727a33112bf9dc55f4455f1fa3.tsv/MD5E-s4968--7bf3c8727a33112bf9dc55f4455f1fa3.tsv
+│   │       ├── sub-06_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/qf/92/MD5E-s12884913--85e85fa3810ffbc274163169994516ce.nii.gz/MD5E-s12884913--85e85fa3810ffbc274163169994516ce.nii.gz
+│   │       └── sub-06_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/zx/Mx/MD5E-s11071105--d4dc6401799624f330849cb2a26ecce0.nii.gz/MD5E-s11071105--d4dc6401799624f330849cb2a26ecce0.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-06_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/gm/9z/MD5E-s10429286--0dcb4734fa4f0bccc2f7b953e630e24d.nii.gz/MD5E-s10429286--0dcb4734fa4f0bccc2f7b953e630e24d.nii.gz
+│       ├── dwi
+│       │   └── sub-06_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/q4/Jf/MD5E-s111500846--b91fca5d1ca3b959becfc5da8923aab1.nii.gz/MD5E-s111500846--b91fca5d1ca3b959becfc5da8923aab1.nii.gz
+│       └── func
+│           ├── sub-06_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/K1/PM/MD5E-s25380586--d07bdf55b059b9532106bdf96c3d5be6.nii.gz/MD5E-s25380586--d07bdf55b059b9532106bdf96c3d5be6.nii.gz
+│           ├── sub-06_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/V9/52/MD5E-s26868014--5c133cbc6d656f72433b1c5da1ea66e7.nii.gz/MD5E-s26868014--5c133cbc6d656f72433b1c5da1ea66e7.nii.gz
+│           ├── sub-06_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/x0/Z9/MD5E-s34846203--cd71c6d597806515b0f8b956637c33a1.nii.gz/MD5E-s34846203--cd71c6d597806515b0f8b956637c33a1.nii.gz
+│           ├── sub-06_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/0G/m9/MD5E-s4959--7e8c63e101c091f98edd21d50f970f91.tsv/MD5E-s4959--7e8c63e101c091f98edd21d50f970f91.tsv
+│           ├── sub-06_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/KV/31/MD5E-s13292168--c6397d91154050fe59a42da6316b0d4b.nii.gz/MD5E-s13292168--c6397d91154050fe59a42da6316b0d4b.nii.gz
+│           └── sub-06_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/6K/wQ/MD5E-s11225007--3a39708bd39fa2e4fadccbbf3056bb4e.nii.gz/MD5E-s11225007--3a39708bd39fa2e4fadccbbf3056bb4e.nii.gz
+├── sub-07
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-07_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/wz/fx/MD5E-s8725991--d2be2d444bca2a33e53521f5aa9fafaa.nii.gz/MD5E-s8725991--d2be2d444bca2a33e53521f5aa9fafaa.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-07_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/wP/wJ/MD5E-s101870616--440ae52ddacae1affe2e1f59ac795dd3.nii.gz/MD5E-s101870616--440ae52ddacae1affe2e1f59ac795dd3.nii.gz
+│   │   └── func
+│   │       ├── sub-07_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/Kk/4J/MD5E-s22958973--c4ed743b362967e6fa2da91f07fb5e4b.nii.gz/MD5E-s22958973--c4ed743b362967e6fa2da91f07fb5e4b.nii.gz
+│   │       ├── sub-07_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/V3/KV/MD5E-s24493127--2a5924ea580a6156a268fd785ed5a920.nii.gz/MD5E-s24493127--2a5924ea580a6156a268fd785ed5a920.nii.gz
+│   │       ├── sub-07_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/Fq/0m/MD5E-s31692006--899332b77616cec163c34a33133db1ad.nii.gz/MD5E-s31692006--899332b77616cec163c34a33133db1ad.nii.gz
+│   │       ├── sub-07_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/53/0x/MD5E-s4911--9bc4d97c02654f838d56464701eb0c72.tsv/MD5E-s4911--9bc4d97c02654f838d56464701eb0c72.tsv
+│   │       ├── sub-07_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/qf/Fx/MD5E-s12040345--b22b478fbe5db9a29a44a6181a9ca742.nii.gz/MD5E-s12040345--b22b478fbe5db9a29a44a6181a9ca742.nii.gz
+│   │       └── sub-07_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/qZ/36/MD5E-s10217500--ff1be72ed50f666ffeca2aec2b33c9ed.nii.gz/MD5E-s10217500--ff1be72ed50f666ffeca2aec2b33c9ed.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-07_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/2Q/jJ/MD5E-s8580756--2f14ce817190386a6b4cbf77f89492e1.nii.gz/MD5E-s8580756--2f14ce817190386a6b4cbf77f89492e1.nii.gz
+│       ├── dwi
+│       │   └── sub-07_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/zG/84/MD5E-s103326300--7fdd20ad61b709937d1cc5bb2e0798c6.nii.gz/MD5E-s103326300--7fdd20ad61b709937d1cc5bb2e0798c6.nii.gz
+│       └── func
+│           ├── sub-07_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/V3/g1/MD5E-s23258547--3eac6de7ef215928b8e3124f19ea8a8c.nii.gz/MD5E-s23258547--3eac6de7ef215928b8e3124f19ea8a8c.nii.gz
+│           ├── sub-07_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/Xf/kK/MD5E-s24751878--661682e4f762d7c99dbf049fcc658c87.nii.gz/MD5E-s24751878--661682e4f762d7c99dbf049fcc658c87.nii.gz
+│           ├── sub-07_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/pG/qJ/MD5E-s32129273--5d4591dadeabaed078c7519da44178fb.nii.gz/MD5E-s32129273--5d4591dadeabaed078c7519da44178fb.nii.gz
+│           ├── sub-07_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/Kp/QF/MD5E-s4929--e53ae38a58e2ca7d0f3736abe2a4dd03.tsv/MD5E-s4929--e53ae38a58e2ca7d0f3736abe2a4dd03.tsv
+│           ├── sub-07_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/x4/J8/MD5E-s12271868--80db70ef7a5e5c78f7a5cdd16a636f11.nii.gz/MD5E-s12271868--80db70ef7a5e5c78f7a5cdd16a636f11.nii.gz
+│           └── sub-07_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/zZ/61/MD5E-s10521017--969638eda30b31ad90b2403d5cc10b20.nii.gz/MD5E-s10521017--969638eda30b31ad90b2403d5cc10b20.nii.gz
+├── sub-08
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-08_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/G3/j0/MD5E-s9815716--3ccef5772c262fd48ee053f97a3381ce.nii.gz/MD5E-s9815716--3ccef5772c262fd48ee053f97a3381ce.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-08_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/QJ/gw/MD5E-s104814386--e6cab512bec21cf56a56833041fb513c.nii.gz/MD5E-s104814386--e6cab512bec21cf56a56833041fb513c.nii.gz
+│   │   └── func
+│   │       ├── sub-08_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/QP/w0/MD5E-s24230763--51bc4ea41cba2f3a9d15be16f6c34d02.nii.gz/MD5E-s24230763--51bc4ea41cba2f3a9d15be16f6c34d02.nii.gz
+│   │       ├── sub-08_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/48/X1/MD5E-s25800747--f446847b95b4e32814564f9197271ed9.nii.gz/MD5E-s25800747--f446847b95b4e32814564f9197271ed9.nii.gz
+│   │       ├── sub-08_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/fP/63/MD5E-s33353778--6a1da1d5367e05e8a62702feeae571d9.nii.gz/MD5E-s33353778--6a1da1d5367e05e8a62702feeae571d9.nii.gz
+│   │       ├── sub-08_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/mz/k6/MD5E-s4900--02b50bb6b5213319f49aad10b73f4a18.tsv/MD5E-s4900--02b50bb6b5213319f49aad10b73f4a18.tsv
+│   │       ├── sub-08_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/75/86/MD5E-s12754775--52ec0425828a22ec5770d853aca3a446.nii.gz/MD5E-s12754775--52ec0425828a22ec5770d853aca3a446.nii.gz
+│   │       └── sub-08_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/gW/KF/MD5E-s10970580--4060fc6ee9f4383aed5c49e4cded633a.nii.gz/MD5E-s10970580--4060fc6ee9f4383aed5c49e4cded633a.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-08_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/85/WP/MD5E-s9325328--35d0ce9fd75157df786d11c84b3c2178.nii.gz/MD5E-s9325328--35d0ce9fd75157df786d11c84b3c2178.nii.gz
+│       ├── dwi
+│       │   └── sub-08_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/MM/v4/MD5E-s102691986--702eadb2a87f9cc17b8c62c64b27a8fb.nii.gz/MD5E-s102691986--702eadb2a87f9cc17b8c62c64b27a8fb.nii.gz
+│       └── func
+│           ├── sub-08_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/4g/25/MD5E-s24002538--085dc82910b78be26a215d4c51194aea.nii.gz/MD5E-s24002538--085dc82910b78be26a215d4c51194aea.nii.gz
+│           ├── sub-08_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/4g/pV/MD5E-s25655723--fddb912934403f6cd56dd32277e4be69.nii.gz/MD5E-s25655723--fddb912934403f6cd56dd32277e4be69.nii.gz
+│           ├── sub-08_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/v0/Vf/MD5E-s33201889--0647f2251ac5f125b4b84ca5a93e37ca.nii.gz/MD5E-s33201889--0647f2251ac5f125b4b84ca5a93e37ca.nii.gz
+│           ├── sub-08_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/46/Qg/MD5E-s4905--09b92244551605e32bbf3cc665c1c748.tsv/MD5E-s4905--09b92244551605e32bbf3cc665c1c748.tsv
+│           ├── sub-08_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/Kf/11/MD5E-s12622070--c140fdd9e3e5747b9c9a8ff8dcc949cf.nii.gz/MD5E-s12622070--c140fdd9e3e5747b9c9a8ff8dcc949cf.nii.gz
+│           └── sub-08_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/8g/2p/MD5E-s10907328--1188c30e16c68cd270d02aa8d554f24d.nii.gz/MD5E-s10907328--1188c30e16c68cd270d02aa8d554f24d.nii.gz
+├── sub-09
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-09_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/XM/9P/MD5E-s9038046--abcb37f89145be848b1b6c19c69b4e66.nii.gz/MD5E-s9038046--abcb37f89145be848b1b6c19c69b4e66.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-09_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/g5/GQ/MD5E-s104913036--9af1945a4e26239a938536e6eb962630.nii.gz/MD5E-s104913036--9af1945a4e26239a938536e6eb962630.nii.gz
+│   │   └── func
+│   │       ├── sub-09_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/qp/56/MD5E-s23883001--7eb7d4a5b01596f680d0d748473f1f38.nii.gz/MD5E-s23883001--7eb7d4a5b01596f680d0d748473f1f38.nii.gz
+│   │       ├── sub-09_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/KM/3m/MD5E-s25333347--98c608533e6f0f0148d1b4223578a7e0.nii.gz/MD5E-s25333347--98c608533e6f0f0148d1b4223578a7e0.nii.gz
+│   │       ├── sub-09_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/jG/KZ/MD5E-s32759028--0e0b0badca8ad941baea5212d0bbd4c8.nii.gz/MD5E-s32759028--0e0b0badca8ad941baea5212d0bbd4c8.nii.gz
+│   │       ├── sub-09_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/QZ/09/MD5E-s4890--7bd3c7254e7aca678da9039d4c62f0ee.tsv/MD5E-s4890--7bd3c7254e7aca678da9039d4c62f0ee.tsv
+│   │       ├── sub-09_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/Wk/x1/MD5E-s12607832--fa71f8dbe19dbb58fc8e56fd4c0d74a9.nii.gz/MD5E-s12607832--fa71f8dbe19dbb58fc8e56fd4c0d74a9.nii.gz
+│   │       └── sub-09_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/1F/Qk/MD5E-s10992778--c0e5683ec6bed25d407e896cef3a4cc3.nii.gz/MD5E-s10992778--c0e5683ec6bed25d407e896cef3a4cc3.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-09_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/0w/6v/MD5E-s9093983--6307afbbcebf1d2bfe945a1e963d3a9d.nii.gz/MD5E-s9093983--6307afbbcebf1d2bfe945a1e963d3a9d.nii.gz
+│       ├── dwi
+│       │   └── sub-09_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/F8/6K/MD5E-s106806289--ed3b50d7d009964e8fbfb2d0250fc67e.nii.gz/MD5E-s106806289--ed3b50d7d009964e8fbfb2d0250fc67e.nii.gz
+│       └── func
+│           ├── sub-09_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/9x/8z/MD5E-s24415813--8c4d3158eda8efb430816469342f2d83.nii.gz/MD5E-s24415813--8c4d3158eda8efb430816469342f2d83.nii.gz
+│           ├── sub-09_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/Pp/J2/MD5E-s25892719--8591a417c483510c6492132b5f0cecb8.nii.gz/MD5E-s25892719--8591a417c483510c6492132b5f0cecb8.nii.gz
+│           ├── sub-09_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/vf/7Z/MD5E-s33605998--6a5422bb4dfded010105d8fd14a3f454.nii.gz/MD5E-s33605998--6a5422bb4dfded010105d8fd14a3f454.nii.gz
+│           ├── sub-09_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/XP/8J/MD5E-s4895--d15d522ac0d8abdb458fbf2bff069aac.tsv/MD5E-s4895--d15d522ac0d8abdb458fbf2bff069aac.tsv
+│           ├── sub-09_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/mV/29/MD5E-s12849009--d9afb889bde8c40bc778bff8ba55060b.nii.gz/MD5E-s12849009--d9afb889bde8c40bc778bff8ba55060b.nii.gz
+│           └── sub-09_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/pk/wX/MD5E-s10859124--729337dd4c06fb3aceae73a91fbd5300.nii.gz/MD5E-s10859124--729337dd4c06fb3aceae73a91fbd5300.nii.gz
+├── sub-10
+│   ├── ses-retest
+│   │   ├── anat
+│   │   │   └── sub-10_ses-retest_T1w.nii.gz -&gt; ../../../.git/annex/objects/pZ/57/MD5E-s8165420--f72be15a6c60658bac5148423087bb85.nii.gz/MD5E-s8165420--f72be15a6c60658bac5148423087bb85.nii.gz
+│   │   ├── dwi
+│   │   │   └── sub-10_ses-retest_dwi.nii.gz -&gt; ../../../.git/annex/objects/v0/JM/MD5E-s101212223--f7d66db879a83e55b4caa332fb60f0a9.nii.gz/MD5E-s101212223--f7d66db879a83e55b4caa332fb60f0a9.nii.gz
+│   │   └── func
+│   │       ├── sub-10_ses-retest_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/kx/8m/MD5E-s22613897--fedb2d74d4c0426bda2660a0194a6e3c.nii.gz/MD5E-s22613897--fedb2d74d4c0426bda2660a0194a6e3c.nii.gz
+│   │       ├── sub-10_ses-retest_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/4j/Q5/MD5E-s24086519--a813253ad6218481c5ac211a7b70cb2a.nii.gz/MD5E-s24086519--a813253ad6218481c5ac211a7b70cb2a.nii.gz
+│   │       ├── sub-10_ses-retest_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/0V/7G/MD5E-s31223672--4817426ded5dcaa26ab61206c8c25a01.nii.gz/MD5E-s31223672--4817426ded5dcaa26ab61206c8c25a01.nii.gz
+│   │       ├── sub-10_ses-retest_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/xz/J5/MD5E-s4896--3d24876cdb335b9c4a4fa0cfa86317aa.tsv/MD5E-s4896--3d24876cdb335b9c4a4fa0cfa86317aa.tsv
+│   │       ├── sub-10_ses-retest_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/PK/m9/MD5E-s12012688--f84bcd3565935a28933f3f6ec778b7e4.nii.gz/MD5E-s12012688--f84bcd3565935a28933f3f6ec778b7e4.nii.gz
+│   │       └── sub-10_ses-retest_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/wj/XP/MD5E-s10205344--4dae96535f63a91e230ceee0567731cb.nii.gz/MD5E-s10205344--4dae96535f63a91e230ceee0567731cb.nii.gz
+│   └── ses-test
+│       ├── anat
+│       │   └── sub-10_ses-test_T1w.nii.gz -&gt; ../../../.git/annex/objects/Mq/mJ/MD5E-s8625770--9aad310eebc17dfa2a14de13ae26c9a0.nii.gz/MD5E-s8625770--9aad310eebc17dfa2a14de13ae26c9a0.nii.gz
+│       ├── dwi
+│       │   └── sub-10_ses-test_dwi.nii.gz -&gt; ../../../.git/annex/objects/vW/Jp/MD5E-s408320142--0e710fe67a26868893112fdbcf441fe1.nii.gz/MD5E-s408320142--0e710fe67a26868893112fdbcf441fe1.nii.gz
+│       └── func
+│           ├── sub-10_ses-test_task-covertverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/p2/69/MD5E-s23125294--db06785e844b7705bf4eb76c3934e515.nii.gz/MD5E-s23125294--db06785e844b7705bf4eb76c3934e515.nii.gz
+│           ├── sub-10_ses-test_task-fingerfootlips_bold.nii.gz -&gt; ../../../.git/annex/objects/wg/wQ/MD5E-s24873409--ef5680f23a727a842c0259fbd38b8207.nii.gz/MD5E-s24873409--ef5680f23a727a842c0259fbd38b8207.nii.gz
+│           ├── sub-10_ses-test_task-linebisection_bold.nii.gz -&gt; ../../../.git/annex/objects/zP/g6/MD5E-s32217029--be5d868e5a99f7ae36db9965035197ba.nii.gz/MD5E-s32217029--be5d868e5a99f7ae36db9965035197ba.nii.gz
+│           ├── sub-10_ses-test_task-linebisection_events.tsv -&gt; ../../../.git/annex/objects/xv/Kp/MD5E-s4919--42e1573869fcdee415544479dfb6c4f1.tsv/MD5E-s4919--42e1573869fcdee415544479dfb6c4f1.tsv
+│           ├── sub-10_ses-test_task-overtverbgeneration_bold.nii.gz -&gt; ../../../.git/annex/objects/xZ/3P/MD5E-s12286926--5194547f3ddf306eca340a7e67ae3376.nii.gz/MD5E-s12286926--5194547f3ddf306eca340a7e67ae3376.nii.gz
+│           └── sub-10_ses-test_task-overtwordrepetition_bold.nii.gz -&gt; ../../../.git/annex/objects/9G/VZ/MD5E-s10338205--6cd9153fc2727a337c055c687c8ef705.nii.gz/MD5E-s10338205--6cd9153fc2727a337c055c687c8ef705.nii.gz
+├── task-covertverbgeneration_bold.json
+├── task-covertverbgeneration_events.tsv
+├── task-fingerfootlips_bold.json
+├── task-fingerfootlips_events.tsv
+├── task-linebisection_bold.json
+├── task-overtverbgeneration_bold.json
+├── task-overtverbgeneration_events.tsv
+├── task-overtwordrepetition_bold.json
+└── task-overtwordrepetition_events.tsv
+
+218 directories, 195 files
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11923,7 +12359,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>What different data types are included in this dataset?</p>
+<p>Which different data types are included in this dataset?</p>
 
 </div>
 </div>
@@ -12040,8 +12476,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[File(filename=&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;T1w&#39;, modality=&#39;anat&#39;),
- File(filename=&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w_bet.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;bet&#39;, modality=&#39;anat&#39;)]</pre>
+<pre>[File(filename=&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;, subject=&#39;01&#39;, session=&#39;test&#39;, type=&#39;T1w&#39;, modality=&#39;anat&#39;)]</pre>
 </div>
 
 </div>
@@ -12179,10 +12614,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bids.layout</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
 <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="s2">&quot;/data/ds000114/&quot;</span><span class="p">)</span>
 
-<span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">&quot;linebisection&quot;</span><span class="p">)]</span>
+<span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">&quot;linebisection&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12227,7 +12662,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Including-pybids-in-your-nipype-workflow">Including <code>pybids</code> in your <code>nipype</code> workflow<a class="anchor-link" href="#Including-pybids-in-your-nipype-workflow">&#182;</a></h2><p>This is great, but what we really want is to include this into our <code>nipype</code> workflows. How to do this? We can create our own custom <code>BIDSDataGrabber</code> using a <code>Function</code> Interface. First we need a plain Python function that for a given subject label and dataset location will return list of BOLD files.</p>
+<h2 id="BIDSDataGrabber:-Including-pybids-in-your-nipype-workflow"><code>BIDSDataGrabber</code>: Including <code>pybids</code> in your <code>nipype</code> workflow<a class="anchor-link" href="#BIDSDataGrabber:-Including-pybids-in-your-nipype-workflow">&#182;</a></h2><p>This is great, but what we really want is to include this into our nipype workflows. To do this, we can import <code>BIDSDataGrabber</code>, which provides an <code>Interface</code> for <code>BIDSLayout.get</code></p>
 
 </div>
 </div>
@@ -12237,60 +12672,15 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_niftis</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
-    <span class="c1"># Remember that all the necesary imports need to be INSIDE the function for the Function Interface to work!</span>
-    <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">BIDSDataGrabber</span>
+<span class="kn">from</span> <span class="nn">nipype.pipeline</span> <span class="k">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="k">import</span> <span class="n">Function</span>
 
-    <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-
-    <span class="n">bolds</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])</span>
-
-    <span class="k">return</span> <span class="n">bolds</span>
+<span class="n">bg</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;bids-grabber&#39;</span><span class="p">)</span>
+<span class="n">bg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114&#39;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_niftis</span><span class="p">(</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;/data/ds000114&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[&nbsp;]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;,
- &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12299,7 +12689,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ok we got our function. Now we need to wrap it inside a Node object.</p>
+<p>You can define static filters, that will apply to all queries, by modifying the appropriate input</p>
 
 </div>
 </div>
@@ -12309,38 +12699,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.pipeline</span> <span class="k">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="k">import</span> <span class="n">IdentityInterface</span><span class="p">,</span> <span class="n">Function</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_niftis</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span>
-                                       <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
-                                   <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bolds&quot;</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;BIDSDataGrabber&quot;</span><span class="p">)</span>
-<span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span><span class="o">=</span><span class="s1">&#39;01&#39;</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="s1">&#39;01&#39;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">bg</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">res</span><span class="o">.</span><span class="n">outputs</span>
 </pre></div>
 
@@ -12358,12 +12718,75 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>180514-09:25:24,613 workflow INFO:
-	 [Node] Setting-up &#34;BIDSDataGrabber&#34; in &#34;/tmp/tmpiexu91zh/BIDSDataGrabber&#34;.
-180514-09:25:24,617 workflow INFO:
-	 [Node] Running &#34;BIDSDataGrabber&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-180514-09:25:26,496 workflow INFO:
-	 [Node] Finished &#34;BIDSDataGrabber&#34;.
+<pre>181017-08:45:20,28 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids-grabber&#34; in &#34;/tmp/tmpokqrrr0e/bids-grabber&#34;.
+181017-08:45:20,33 nipype.workflow INFO:
+	 [Node] Running &#34;bids-grabber&#34; (&#34;nipype.interfaces.io.BIDSDataGrabber&#34;)
+181017-08:45:20,661 nipype.workflow INFO:
+	 [Node] Finished &#34;bids-grabber&#34;.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+anat = [&#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_class-csf_probtissue.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_class-gm_probtissue.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_class-wm_probtissue.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_dtissue.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_space-mni152nlin2009casym_class-csf_probtissue.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_space-mni152nlin2009casym_class-gm_probtissue.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_space-mni152nlin2009casym_class-wm_probtissue.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_space-mni152nlin2009casym_dtissue.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/anat/sub-01_t1w_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/anat/sub-01_ses-retest_T1w.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;]
+func = [&#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold_space-mni152nlin2009casym_brainmask.nii.gz&#39;, &#39;/data/ds000114/derivatives/fmriprep/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold_space-mni152nlin2009casym_preproc.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that by default <code>BIDSDataGrabber</code> will fetch <code>nifti</code> files matching modality <code>func</code> and <code>anat</code>, and output them as two output fields.</p>
+<p>To define custom fields, simply define the arguments to pass to <code>BIDSLayout.get</code> as dictionary, like so:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bg</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">output_query</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bolds&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)}</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">bg</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">res</span><span class="o">.</span><span class="n">outputs</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>181017-08:45:20,671 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids-grabber&#34; in &#34;/tmp/tmpokqrrr0e/bids-grabber&#34;.
+181017-08:45:20,678 nipype.workflow INFO:
+	 [Node] Running &#34;bids-grabber&#34; (&#34;nipype.interfaces.io.BIDSDataGrabber&#34;)
+181017-08:45:21,205 nipype.workflow INFO:
+	 [Node] Finished &#34;bids-grabber&#34;.
 </pre>
 </div>
 </div>
@@ -12390,7 +12813,8 @@ bolds = [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cover
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Works like a charm! (hopefully :) Lets put it in a workflow. We are not going to analyze any data, but for demostrantion purposes we will add a couple of nodes that pretend to analyze their inputs</p>
+<p>This results in a single output field <code>bold</code>, which returns all files with <code>type:bold</code> for <code>subject:"01"</code></p>
+<p>Now, lets put it in a workflow. We are not going to analyze any data, but for demonstration purposes, we will add a couple of nodes that pretend to analyze their inputs</p>
 
 </div>
 </div>
@@ -12402,7 +12826,7 @@ bolds = [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cover
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">printMe</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
+    
 <span class="n">analyzeBOLD</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMe</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;paths&quot;</span><span class="p">],</span>
                             <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeBOLD&quot;</span><span class="p">)</span>
 </pre></div>
@@ -12418,7 +12842,7 @@ bolds = [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cover
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">bg</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
@@ -12436,26 +12860,26 @@ bolds = [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cover
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>180514-09:25:26,534 workflow INFO:
+<pre>181017-08:45:21,257 nipype.workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;, &#39;monitoring&#39;]
-180514-09:25:26,539 workflow INFO:
+181017-08:45:21,265 nipype.workflow INFO:
 	 Running serially.
-180514-09:25:26,540 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.BIDSDataGrabber&#34; in &#34;/tmp/tmpiexu91zh/BIDSDataGrabber&#34;.
-180514-09:25:26,544 workflow INFO:
-	 [Node] Cached &#34;bids_demo.BIDSDataGrabber&#34; - collecting precomputed outputs
-180514-09:25:26,545 workflow INFO:
-	 [Node] &#34;bids_demo.BIDSDataGrabber&#34; found cached.
-180514-09:25:26,546 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.analyzeBOLD&#34; in &#34;/tmp/tmp5aj48z99/bids_demo/analyzeBOLD&#34;.
-180514-09:25:26,552 workflow INFO:
+181017-08:45:21,266 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids_demo.bids-grabber&#34; in &#34;/tmp/tmpokqrrr0e/bids-grabber&#34;.
+181017-08:45:21,273 nipype.workflow INFO:
+	 [Node] Running &#34;bids-grabber&#34; (&#34;nipype.interfaces.io.BIDSDataGrabber&#34;)
+181017-08:45:21,888 nipype.workflow INFO:
+	 [Node] Finished &#34;bids_demo.bids-grabber&#34;.
+181017-08:45:21,888 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids_demo.analyzeBOLD&#34; in &#34;/tmp/tmpg17g1v31/bids_demo/analyzeBOLD&#34;.
+181017-08:45:21,895 nipype.workflow INFO:
 	 [Node] Running &#34;analyzeBOLD&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
 analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
 
 
-180514-09:25:26,558 workflow INFO:
+181017-08:45:21,900 nipype.workflow INFO:
 	 [Node] Finished &#34;bids_demo.analyzeBOLD&#34;.
 </pre>
 </div>
@@ -12469,7 +12893,7 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f33136a4438&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f7caa33e438&gt;</pre>
 </div>
 
 </div>
@@ -12506,24 +12930,13 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.pipeline</span> <span class="k">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="k">import</span> <span class="n">IdentityInterface</span><span class="p">,</span> <span class="n">Function</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">BIDSDataGrabber</span>
 
-<span class="k">def</span> <span class="nf">get_T1w</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
+<span class="n">ex2_BIDSDataGrabber</span> <span class="o">=</span> <span class="n">BIDSDataGrabber</span><span class="p">()</span>
+<span class="n">ex2_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114&#39;</span>
+<span class="n">ex2_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="s1">&#39;10&#39;</span>
+<span class="n">ex2_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">output_query</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;T1w&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">modality</span><span class="o">=</span><span class="s1">&#39;anat&#39;</span><span class="p">)}</span>
 
-    <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-
-    <span class="n">T1w</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">modality</span><span class="o">=</span><span class="s2">&quot;anat&quot;</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">T1w</span>
-
-<span class="n">ex2_BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_T1w</span><span class="p">,</span>
-                                    <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
-                                       <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T1w&quot;</span><span class="p">]),</span>
-                           <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ex2&quot;</span><span class="p">)</span>
-<span class="n">ex2_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114&quot;</span>
-
-<span class="n">ex2_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span><span class="o">=</span><span class="s1">&#39;10&#39;</span>
 <span class="n">ex2_res</span> <span class="o">=</span> <span class="n">ex2_BIDSDataGrabber</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">ex2_res</span><span class="o">.</span><span class="n">outputs</span>
 </pre></div>
@@ -12535,22 +12948,6 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>180514-09:25:26,578 workflow INFO:
-	 [Node] Setting-up &#34;ex2&#34; in &#34;/tmp/tmplxtllkua/ex2&#34;.
-180514-09:25:26,582 workflow INFO:
-	 [Node] Running &#34;ex2&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-180514-09:25:28,418 workflow INFO:
-	 [Node] Finished &#34;ex2&#34;.
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -12574,7 +12971,7 @@ T1w = [&#39;/data/ds000114/derivatives/fmriprep/sub-10/anat/sub-10_t1w_brainmask
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Iterating-over-subject-labels">Iterating over subject labels<a class="anchor-link" href="#Iterating-over-subject-labels">&#182;</a></h2><p>In the previous example we demostrated how to use <code>pybids</code> to "analyze" one subject. How can we scale it for all subjects? Easy - using <code>iterables</code> (more in <a href="basic_iteration.html">Iteration/Iterables</a>.</p>
+<h2 id="Iterating-over-subject-labels">Iterating over subject labels<a class="anchor-link" href="#Iterating-over-subject-labels">&#182;</a></h2><p>In the previous example, we demonstrated how to use <code>pybids</code> to "analyze" one subject. How can we scale it for all subjects? Easy - using <code>iterables</code> (more in <a href="basic_iteration.html">Iteration/Iterables</a>).</p>
 
 </div>
 </div>
@@ -12584,7 +12981,12 @@ T1w = [&#39;/data/ds000114/derivatives/fmriprep/sub-10/anat/sub-10_t1w_brainmask
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">BIDSDataGrabber</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;subject_id&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">.</span><span class="n">get_subjects</span><span class="p">()[:</span><span class="mi">2</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bg_all</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;bids-grabber&#39;</span><span class="p">)</span>
+<span class="n">bg_all</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114&#39;</span>
+<span class="n">bg_all</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">output_query</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bolds&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)}</span>
+<span class="n">bg_all</span><span class="o">.</span><span class="n">iterables</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">.</span><span class="n">get_subjects</span><span class="p">()[:</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">bg_all</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD</span><span class="p">,</span> <span class="s2">&quot;paths&quot;</span><span class="p">)</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
@@ -12602,43 +13004,43 @@ T1w = [&#39;/data/ds000114/derivatives/fmriprep/sub-10/anat/sub-10_t1w_brainmask
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>180514-09:25:28,452 workflow INFO:
+<pre>181017-08:45:22,609 nipype.workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;, &#39;monitoring&#39;]
-180514-09:25:28,460 workflow INFO:
+181017-08:45:22,620 nipype.workflow INFO:
 	 Running serially.
-180514-09:25:28,461 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.BIDSDataGrabber&#34; in &#34;/tmp/tmpiexu91zh/BIDSDataGrabber&#34;.
-180514-09:25:28,464 workflow INFO:
-	 [Node] Cached &#34;bids_demo.BIDSDataGrabber&#34; - collecting precomputed outputs
-180514-09:25:28,465 workflow INFO:
-	 [Node] &#34;bids_demo.BIDSDataGrabber&#34; found cached.
-180514-09:25:28,466 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.analyzeBOLD&#34; in &#34;/tmp/tmp_3_8ujxr/bids_demo/_subject_id_02/analyzeBOLD&#34;.
-180514-09:25:28,473 workflow INFO:
+181017-08:45:22,621 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids_demo.bids-grabber&#34; in &#34;/tmp/tmp08ys5m9q/bids_demo/_subject_02/bids-grabber&#34;.
+181017-08:45:22,626 nipype.workflow INFO:
+	 [Node] Running &#34;bids-grabber&#34; (&#34;nipype.interfaces.io.BIDSDataGrabber&#34;)
+181017-08:45:23,189 nipype.workflow INFO:
+	 [Node] Finished &#34;bids_demo.bids-grabber&#34;.
+181017-08:45:23,190 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids_demo.analyzeBOLD&#34; in &#34;/tmp/tmpls76stlf/bids_demo/_subject_02/analyzeBOLD&#34;.
+181017-08:45:23,196 nipype.workflow INFO:
 	 [Node] Running &#34;analyzeBOLD&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
-analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
+analyzing [&#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-retest/func/sub-02_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-02/ses-test/func/sub-02_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
 
 
-180514-09:25:28,478 workflow INFO:
+181017-08:45:23,201 nipype.workflow INFO:
 	 [Node] Finished &#34;bids_demo.analyzeBOLD&#34;.
-180514-09:25:28,479 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.BIDSDataGrabber&#34; in &#34;/tmp/tmpiexu91zh/BIDSDataGrabber&#34;.
-180514-09:25:28,482 workflow INFO:
-	 [Node] Cached &#34;bids_demo.BIDSDataGrabber&#34; - collecting precomputed outputs
-180514-09:25:28,483 workflow INFO:
-	 [Node] &#34;bids_demo.BIDSDataGrabber&#34; found cached.
-180514-09:25:28,484 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.analyzeBOLD&#34; in &#34;/tmp/tmp0adipapk/bids_demo/_subject_id_01/analyzeBOLD&#34;.
-180514-09:25:28,490 workflow INFO:
+181017-08:45:23,202 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids_demo.bids-grabber&#34; in &#34;/tmp/tmp9jcgulho/bids_demo/_subject_01/bids-grabber&#34;.
+181017-08:45:23,209 nipype.workflow INFO:
+	 [Node] Running &#34;bids-grabber&#34; (&#34;nipype.interfaces.io.BIDSDataGrabber&#34;)
+181017-08:45:23,790 nipype.workflow INFO:
+	 [Node] Finished &#34;bids_demo.bids-grabber&#34;.
+181017-08:45:23,791 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids_demo.analyzeBOLD&#34; in &#34;/tmp/tmpxwmhhy2y/bids_demo/_subject_01/analyzeBOLD&#34;.
+181017-08:45:23,797 nipype.workflow INFO:
 	 [Node] Running &#34;analyzeBOLD&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
 analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz&#39;, &#39;/data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz&#39;]
 
 
-180514-09:25:28,496 workflow INFO:
+181017-08:45:23,802 nipype.workflow INFO:
 	 [Node] Finished &#34;bids_demo.analyzeBOLD&#34;.
 </pre>
 </div>
@@ -12652,7 +13054,7 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f330d272208&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f7caa30a1d0&gt;</pre>
 </div>
 
 </div>
@@ -12740,7 +13142,7 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Can we incorporate this into our pipeline? Yes we can!
+<p>Can we incorporate this into our pipeline? Yes, we can! To do so, let's use a <code>Function</code> node to use <code>BIDSLayout</code> in a custom way.
 (More about MapNode in <a href="basic_mapnodes.html">MapNode</a>)</p>
 
 </div>
@@ -12752,10 +13154,10 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">printMetadata</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
+    <span class="kn">from</span> <span class="nn">bids.layout</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TR: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="s2">&quot;RepetitionTime&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
+    
 <span class="n">analyzeBOLD2</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMetadata</span><span class="p">,</span> <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
                              <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyzeBOLD2&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">)</span>
 <span class="n">analyzeBOLD2</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114/&quot;</span>
@@ -12772,7 +13174,7 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;bids_demo&quot;</span><span class="p">)</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD2</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">)</span>
+<span class="n">wf</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">bg</span><span class="p">,</span> <span class="s2">&quot;bolds&quot;</span><span class="p">,</span> <span class="n">analyzeBOLD2</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">)</span>
 <span class="n">wf</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
@@ -12790,21 +13192,21 @@ analyzing [&#39;/data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-cov
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>180514-09:25:28,580 workflow INFO:
+<pre>181017-08:45:23,857 nipype.workflow INFO:
 	 Workflow bids_demo settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;, &#39;monitoring&#39;]
-180514-09:25:28,589 workflow INFO:
+181017-08:45:23,865 nipype.workflow INFO:
 	 Running serially.
-180514-09:25:28,590 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.BIDSDataGrabber&#34; in &#34;/tmp/tmpiexu91zh/BIDSDataGrabber&#34;.
-180514-09:25:28,593 workflow INFO:
-	 [Node] Cached &#34;bids_demo.BIDSDataGrabber&#34; - collecting precomputed outputs
-180514-09:25:28,593 workflow INFO:
-	 [Node] &#34;bids_demo.BIDSDataGrabber&#34; found cached.
-180514-09:25:28,595 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.analyzeBOLD2&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2&#34;.
-180514-09:25:28,603 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD20&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD20&#34;.
-180514-09:25:28,608 workflow INFO:
+181017-08:45:23,866 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids_demo.bids-grabber&#34; in &#34;/tmp/tmpokqrrr0e/bids-grabber&#34;.
+181017-08:45:23,872 nipype.workflow INFO:
+	 [Node] Running &#34;bids-grabber&#34; (&#34;nipype.interfaces.io.BIDSDataGrabber&#34;)
+181017-08:45:24,522 nipype.workflow INFO:
+	 [Node] Finished &#34;bids_demo.bids-grabber&#34;.
+181017-08:45:24,523 nipype.workflow INFO:
+	 [Node] Setting-up &#34;bids_demo.analyzeBOLD2&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2&#34;.
+181017-08:45:24,531 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD20&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD20&#34;.
+181017-08:45:24,535 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD20&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12812,11 +13214,11 @@ analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertver
 TR: 2.5
 
 
-180514-09:25:30,551 workflow INFO:
+181017-08:45:25,104 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD20&#34;.
-180514-09:25:30,552 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD21&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD21&#34;.
-180514-09:25:30,555 workflow INFO:
+181017-08:45:25,106 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD21&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD21&#34;.
+181017-08:45:25,110 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD21&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12824,11 +13226,11 @@ analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfoo
 TR: 2.5
 
 
-180514-09:25:32,442 workflow INFO:
+181017-08:45:25,685 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD21&#34;.
-180514-09:25:32,443 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD22&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD22&#34;.
-180514-09:25:32,447 workflow INFO:
+181017-08:45:25,687 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD22&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD22&#34;.
+181017-08:45:25,691 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD22&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12836,11 +13238,11 @@ analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisec
 TR: 2.5
 
 
-180514-09:25:34,858 workflow INFO:
+181017-08:45:26,312 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD22&#34;.
-180514-09:25:34,859 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD23&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD23&#34;.
-180514-09:25:34,865 workflow INFO:
+181017-08:45:26,313 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD23&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD23&#34;.
+181017-08:45:26,317 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD23&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12848,11 +13250,11 @@ analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverb
 TR: 5.0
 
 
-180514-09:25:37,79 workflow INFO:
+181017-08:45:26,858 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD23&#34;.
-180514-09:25:37,80 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD24&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD24&#34;.
-180514-09:25:37,84 workflow INFO:
+181017-08:45:26,860 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD24&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD24&#34;.
+181017-08:45:26,863 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD24&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12860,11 +13262,11 @@ analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtword
 TR: 5.0
 
 
-180514-09:25:39,107 workflow INFO:
+181017-08:45:27,363 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD24&#34;.
-180514-09:25:39,108 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD25&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD25&#34;.
-180514-09:25:39,111 workflow INFO:
+181017-08:45:27,365 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD25&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD25&#34;.
+181017-08:45:27,368 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD25&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12872,11 +13274,11 @@ analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgen
 TR: 2.5
 
 
-180514-09:25:41,541 workflow INFO:
+181017-08:45:27,894 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD25&#34;.
-180514-09:25:41,543 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD26&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD26&#34;.
-180514-09:25:41,547 workflow INFO:
+181017-08:45:27,895 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD26&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD26&#34;.
+181017-08:45:27,899 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD26&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12884,11 +13286,11 @@ analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlip
 TR: 2.5
 
 
-180514-09:25:43,859 workflow INFO:
+181017-08:45:28,465 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD26&#34;.
-180514-09:25:43,860 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD27&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD27&#34;.
-180514-09:25:43,863 workflow INFO:
+181017-08:45:28,467 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD27&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD27&#34;.
+181017-08:45:28,471 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD27&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12896,11 +13298,11 @@ analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection
 TR: 2.5
 
 
-180514-09:25:45,783 workflow INFO:
+181017-08:45:28,994 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD27&#34;.
-180514-09:25:45,784 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD28&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD28&#34;.
-180514-09:25:45,788 workflow INFO:
+181017-08:45:28,996 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD28&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD28&#34;.
+181017-08:45:29,0 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD28&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12908,11 +13310,11 @@ analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgene
 TR: 5.0
 
 
-180514-09:25:47,661 workflow INFO:
+181017-08:45:29,516 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD28&#34;.
-180514-09:25:47,662 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD29&#34; in &#34;/tmp/tmpgq9mpxcj/bids_demo/_subject_id_02/analyzeBOLD2/mapflow/_analyzeBOLD29&#34;.
-180514-09:25:47,665 workflow INFO:
+181017-08:45:29,518 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_analyzeBOLD29&#34; in &#34;/tmp/tmpn_5oipba/bids_demo/analyzeBOLD2/mapflow/_analyzeBOLD29&#34;.
+181017-08:45:29,522 nipype.workflow INFO:
 	 [Node] Running &#34;_analyzeBOLD29&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -12920,139 +13322,9 @@ analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepe
 TR: 5.0
 
 
-180514-09:25:49,804 workflow INFO:
+181017-08:45:30,169 nipype.workflow INFO:
 	 [Node] Finished &#34;_analyzeBOLD29&#34;.
-180514-09:25:49,809 workflow INFO:
-	 [Node] Finished &#34;bids_demo.analyzeBOLD2&#34;.
-180514-09:25:49,810 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.BIDSDataGrabber&#34; in &#34;/tmp/tmpiexu91zh/BIDSDataGrabber&#34;.
-180514-09:25:49,813 workflow INFO:
-	 [Node] Cached &#34;bids_demo.BIDSDataGrabber&#34; - collecting precomputed outputs
-180514-09:25:49,813 workflow INFO:
-	 [Node] &#34;bids_demo.BIDSDataGrabber&#34; found cached.
-180514-09:25:49,814 workflow INFO:
-	 [Node] Setting-up &#34;bids_demo.analyzeBOLD2&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2&#34;.
-180514-09:25:49,821 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD20&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD20&#34;.
-180514-09:25:49,824 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD20&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-covertverbgeneration_bold.nii.gz
-TR: 2.5
-
-
-180514-09:25:52,234 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD20&#34;.
-180514-09:25:52,235 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD21&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD21&#34;.
-180514-09:25:52,239 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD21&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-fingerfootlips_bold.nii.gz
-TR: 2.5
-
-
-180514-09:25:54,602 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD21&#34;.
-180514-09:25:54,603 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD22&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD22&#34;.
-180514-09:25:54,606 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD22&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-linebisection_bold.nii.gz
-TR: 2.5
-
-
-180514-09:25:56,532 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD22&#34;.
-180514-09:25:56,534 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD23&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD23&#34;.
-180514-09:25:56,537 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD23&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtverbgeneration_bold.nii.gz
-TR: 5.0
-
-
-180514-09:25:58,471 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD23&#34;.
-180514-09:25:58,472 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD24&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD24&#34;.
-180514-09:25:58,476 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD24&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-retest/func/sub-01_ses-retest_task-overtwordrepetition_bold.nii.gz
-TR: 5.0
-
-
-180514-09:26:00,326 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD24&#34;.
-180514-09:26:00,327 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD25&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD25&#34;.
-180514-09:26:00,330 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD25&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-covertverbgeneration_bold.nii.gz
-TR: 2.5
-
-
-180514-09:26:02,506 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD25&#34;.
-180514-09:26:02,507 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD26&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD26&#34;.
-180514-09:26:02,511 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD26&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-fingerfootlips_bold.nii.gz
-TR: 2.5
-
-
-180514-09:26:04,844 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD26&#34;.
-180514-09:26:04,845 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD27&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD27&#34;.
-180514-09:26:04,848 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD27&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-linebisection_bold.nii.gz
-TR: 2.5
-
-
-180514-09:26:06,982 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD27&#34;.
-180514-09:26:06,983 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD28&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD28&#34;.
-180514-09:26:06,988 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD28&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtverbgeneration_bold.nii.gz
-TR: 5.0
-
-
-180514-09:26:09,74 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD28&#34;.
-180514-09:26:09,75 workflow INFO:
-	 [Node] Setting-up &#34;_analyzeBOLD29&#34; in &#34;/tmp/tmpedg57j0y/bids_demo/_subject_id_01/analyzeBOLD2/mapflow/_analyzeBOLD29&#34;.
-180514-09:26:09,79 workflow INFO:
-	 [Node] Running &#34;_analyzeBOLD29&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-
-
-analyzing /data/ds000114/sub-01/ses-test/func/sub-01_ses-test_task-overtwordrepetition_bold.nii.gz
-TR: 5.0
-
-
-180514-09:26:10,983 workflow INFO:
-	 [Node] Finished &#34;_analyzeBOLD29&#34;.
-180514-09:26:10,987 workflow INFO:
+181017-08:45:30,175 nipype.workflow INFO:
 	 [Node] Finished &#34;bids_demo.analyzeBOLD2&#34;.
 </pre>
 </div>
@@ -13066,7 +13338,7 @@ TR: 5.0
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f330d25ffd0&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f7caa2f6ba8&gt;</pre>
 </div>
 
 </div>
@@ -13103,27 +13375,12 @@ TR: 5.0
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.pipeline</span> <span class="k">import</span> <span class="n">Node</span><span class="p">,</span> <span class="n">MapNode</span><span class="p">,</span> <span class="n">Workflow</span>
-<span class="kn">from</span> <span class="nn">nipype.interfaces.utility</span> <span class="k">import</span> <span class="n">IdentityInterface</span><span class="p">,</span> <span class="n">Function</span>
+<span class="kn">from</span> <span class="nn">nipype.interfaces.io</span> <span class="k">import</span> <span class="n">BIDSDataGrabber</span>
 
-<span class="c1"># let&#39;s start from BidsDataGrabber again</span>
-<span class="k">def</span> <span class="nf">get_niftis</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
-    <span class="c1"># Remember that all the necesary imports need to be INSIDE the function </span>
-    <span class="c1"># for the Function Interface to work!</span>
-    <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
-
-    <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-
-    <span class="n">bolds</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nii&#39;</span><span class="p">,</span> <span class="s1">&#39;nii.gz&#39;</span><span class="p">])</span>
-
-    <span class="k">return</span> <span class="n">bolds</span>
-
-
-<span class="n">ex3_BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">get_niftis</span><span class="p">,</span>
-                                    <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
-                                    <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bolds&quot;</span><span class="p">]),</span>
-                           <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ex3_BIDSDataGrabber&quot;</span><span class="p">)</span>
-<span class="n">ex3_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114&quot;</span>
-<span class="n">ex3_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject_id</span><span class="o">=</span><span class="s1">&#39;01&#39;</span>
+<span class="n">ex3_BIDSDataGrabber</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">BIDSDataGrabber</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;bids-grabber&#39;</span><span class="p">)</span>
+<span class="n">ex3_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;/data/ds000114&#39;</span>
+<span class="n">ex3_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="s1">&#39;01&#39;</span>
+<span class="n">ex3_BIDSDataGrabber</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">output_query</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bolds&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)}</span>
 </pre></div>
 
 </div>
@@ -13138,15 +13395,15 @@ TR: 5.0
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># and now modify analyzeBOLD2</span>
 <span class="k">def</span> <span class="nf">printMetadata_et</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">bids.grabbids</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
+    <span class="kn">from</span> <span class="nn">bids.layout</span> <span class="k">import</span> <span class="n">BIDSLayout</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="n">BIDSLayout</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TR: &quot;</span><span class="o">+</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">analyzing &quot;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">TR: &quot;</span><span class="o">+</span> 
           <span class="nb">str</span><span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="s2">&quot;RepetitionTime&quot;</span><span class="p">])</span> <span class="o">+</span>
           <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">ET: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layout</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="s2">&quot;EchoTime&quot;</span><span class="p">])</span><span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">ex3_analyzeBOLD2</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMetadata_et</span><span class="p">,</span>
+    
+<span class="n">ex3_analyzeBOLD2</span> <span class="o">=</span> <span class="n">MapNode</span><span class="p">(</span><span class="n">Function</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">printMetadata_et</span><span class="p">,</span> 
                                     <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;data_dir&quot;</span><span class="p">],</span>
-                                    <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span>
+                                    <span class="n">output_names</span><span class="o">=</span><span class="p">[]),</span> 
                            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ex3&quot;</span><span class="p">,</span> <span class="n">iterfield</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">)</span>
 <span class="n">ex3_analyzeBOLD2</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/data/ds000114/&quot;</span>
 
@@ -13170,21 +13427,21 @@ TR: 5.0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>180514-09:26:11,27 workflow INFO:
+<pre>181017-08:45:30,219 nipype.workflow INFO:
 	 Workflow ex3 settings: [&#39;check&#39;, &#39;execution&#39;, &#39;logging&#39;, &#39;monitoring&#39;]
-180514-09:26:11,33 workflow INFO:
+181017-08:45:30,225 nipype.workflow INFO:
 	 Running serially.
-180514-09:26:11,34 workflow INFO:
-	 [Node] Setting-up &#34;ex3.ex3_BIDSDataGrabber&#34; in &#34;/tmp/tmpoud444a4/ex3/ex3_BIDSDataGrabber&#34;.
-180514-09:26:11,38 workflow INFO:
-	 [Node] Running &#34;ex3_BIDSDataGrabber&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
-180514-09:26:12,945 workflow INFO:
-	 [Node] Finished &#34;ex3.ex3_BIDSDataGrabber&#34;.
-180514-09:26:12,946 workflow INFO:
-	 [Node] Setting-up &#34;ex3.ex3&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3&#34;.
-180514-09:26:12,953 workflow INFO:
-	 [Node] Setting-up &#34;_ex30&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex30&#34;.
-180514-09:26:12,957 workflow INFO:
+181017-08:45:30,226 nipype.workflow INFO:
+	 [Node] Setting-up &#34;ex3.bids-grabber&#34; in &#34;/tmp/tmp2bjh9w7l/ex3/bids-grabber&#34;.
+181017-08:45:30,233 nipype.workflow INFO:
+	 [Node] Running &#34;bids-grabber&#34; (&#34;nipype.interfaces.io.BIDSDataGrabber&#34;)
+181017-08:45:30,796 nipype.workflow INFO:
+	 [Node] Finished &#34;ex3.bids-grabber&#34;.
+181017-08:45:30,797 nipype.workflow INFO:
+	 [Node] Setting-up &#34;ex3.ex3&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3&#34;.
+181017-08:45:30,804 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex30&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex30&#34;.
+181017-08:45:30,807 nipype.workflow INFO:
 	 [Node] Running &#34;_ex30&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13193,11 +13450,11 @@ TR: 2.5
 ET: 0.05
 
 
-180514-09:26:14,964 workflow INFO:
+181017-08:45:31,398 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex30&#34;.
-180514-09:26:14,966 workflow INFO:
-	 [Node] Setting-up &#34;_ex31&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex31&#34;.
-180514-09:26:14,970 workflow INFO:
+181017-08:45:31,400 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex31&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex31&#34;.
+181017-08:45:31,404 nipype.workflow INFO:
 	 [Node] Running &#34;_ex31&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13206,11 +13463,11 @@ TR: 2.5
 ET: 0.05
 
 
-180514-09:26:17,215 workflow INFO:
+181017-08:45:32,134 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex31&#34;.
-180514-09:26:17,216 workflow INFO:
-	 [Node] Setting-up &#34;_ex32&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex32&#34;.
-180514-09:26:17,219 workflow INFO:
+181017-08:45:32,136 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex32&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex32&#34;.
+181017-08:45:32,140 nipype.workflow INFO:
 	 [Node] Running &#34;_ex32&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13219,11 +13476,11 @@ TR: 2.5
 ET: 0.05
 
 
-180514-09:26:19,297 workflow INFO:
+181017-08:45:32,719 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex32&#34;.
-180514-09:26:19,298 workflow INFO:
-	 [Node] Setting-up &#34;_ex33&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex33&#34;.
-180514-09:26:19,303 workflow INFO:
+181017-08:45:32,721 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex33&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex33&#34;.
+181017-08:45:32,724 nipype.workflow INFO:
 	 [Node] Running &#34;_ex33&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13232,11 +13489,11 @@ TR: 5.0
 ET: 0.05
 
 
-180514-09:26:21,427 workflow INFO:
+181017-08:45:33,309 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex33&#34;.
-180514-09:26:21,428 workflow INFO:
-	 [Node] Setting-up &#34;_ex34&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex34&#34;.
-180514-09:26:21,432 workflow INFO:
+181017-08:45:33,311 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex34&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex34&#34;.
+181017-08:45:33,316 nipype.workflow INFO:
 	 [Node] Running &#34;_ex34&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13245,11 +13502,11 @@ TR: 5.0
 ET: 0.05
 
 
-180514-09:26:23,474 workflow INFO:
+181017-08:45:33,946 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex34&#34;.
-180514-09:26:23,476 workflow INFO:
-	 [Node] Setting-up &#34;_ex35&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex35&#34;.
-180514-09:26:23,479 workflow INFO:
+181017-08:45:33,948 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex35&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex35&#34;.
+181017-08:45:33,952 nipype.workflow INFO:
 	 [Node] Running &#34;_ex35&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13258,11 +13515,11 @@ TR: 2.5
 ET: 0.05
 
 
-180514-09:26:25,348 workflow INFO:
+181017-08:45:34,483 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex35&#34;.
-180514-09:26:25,349 workflow INFO:
-	 [Node] Setting-up &#34;_ex36&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex36&#34;.
-180514-09:26:25,353 workflow INFO:
+181017-08:45:34,485 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex36&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex36&#34;.
+181017-08:45:34,489 nipype.workflow INFO:
 	 [Node] Running &#34;_ex36&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13271,11 +13528,11 @@ TR: 2.5
 ET: 0.05
 
 
-180514-09:26:27,290 workflow INFO:
+181017-08:45:35,86 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex36&#34;.
-180514-09:26:27,291 workflow INFO:
-	 [Node] Setting-up &#34;_ex37&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex37&#34;.
-180514-09:26:27,295 workflow INFO:
+181017-08:45:35,88 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex37&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex37&#34;.
+181017-08:45:35,93 nipype.workflow INFO:
 	 [Node] Running &#34;_ex37&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13284,11 +13541,11 @@ TR: 2.5
 ET: 0.05
 
 
-180514-09:26:29,219 workflow INFO:
+181017-08:45:35,704 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex37&#34;.
-180514-09:26:29,220 workflow INFO:
-	 [Node] Setting-up &#34;_ex38&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex38&#34;.
-180514-09:26:29,224 workflow INFO:
+181017-08:45:35,706 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex38&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex38&#34;.
+181017-08:45:35,710 nipype.workflow INFO:
 	 [Node] Running &#34;_ex38&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13297,11 +13554,11 @@ TR: 5.0
 ET: 0.05
 
 
-180514-09:26:31,98 workflow INFO:
+181017-08:45:36,237 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex38&#34;.
-180514-09:26:31,100 workflow INFO:
-	 [Node] Setting-up &#34;_ex39&#34; in &#34;/tmp/tmpyrtm_o4r/ex3/ex3/mapflow/_ex39&#34;.
-180514-09:26:31,103 workflow INFO:
+181017-08:45:36,239 nipype.workflow INFO:
+	 [Node] Setting-up &#34;_ex39&#34; in &#34;/tmp/tmpaqsetsw_/ex3/ex3/mapflow/_ex39&#34;.
+181017-08:45:36,242 nipype.workflow INFO:
 	 [Node] Running &#34;_ex39&#34; (&#34;nipype.interfaces.utility.wrappers.Function&#34;)
 
 
@@ -13310,9 +13567,9 @@ TR: 5.0
 ET: 0.05
 
 
-180514-09:26:33,72 workflow INFO:
+181017-08:45:36,765 nipype.workflow INFO:
 	 [Node] Finished &#34;_ex39&#34;.
-180514-09:26:33,77 workflow INFO:
+181017-08:45:36,770 nipype.workflow INFO:
 	 [Node] Finished &#34;ex3.ex3&#34;.
 </pre>
 </div>
@@ -13326,7 +13583,7 @@ ET: 0.05
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f32f2f560f0&gt;</pre>
+<pre>&lt;networkx.classes.digraph.DiGraph at 0x7f7cae77bba8&gt;</pre>
 </div>
 
 </div>
@@ -13339,7 +13596,7 @@ ET: 0.05
   </div>
 </body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
-
+ 
 
 
 </html>

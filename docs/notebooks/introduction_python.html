@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11795,7 +11785,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center><img src="../static/images/python.png" width=400></center></div><h1 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h1><p>This section is meant as a general introduction to Python and is by far not complete. It is based amongst others on the <a href="http://github.com/jrjohansson/scientific-python-lectures">IPython notebooks from J. R. Johansson</a>, on <a href="http://www.stavros.io/tutorials/python/">http://www.stavros.io/tutorials/python/</a> and on <a href="http://www.swaroopch.com/notes/python">http://www.swaroopch.com/notes/python</a>.</p>
+<center><img src="../static/images/python.png" width=500></center><h1 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h1><p>This section is meant as a general introduction to Python and is by far not complete. It is based amongst others on the <a href="http://github.com/jrjohansson/scientific-python-lectures">IPython notebooks from J. R. Johansson</a>, on <a href="http://www.stavros.io/tutorials/python/">http://www.stavros.io/tutorials/python/</a> and on <a href="http://www.swaroopch.com/notes/python">http://www.swaroopch.com/notes/python</a>.</p>
 <p><font color='red'>Important:</font> a very good interactive tutorial for Python can also be found on <a href="https://www.codecademy.com/learn/python">https://www.codecademy.com/learn/python</a></p>
 
 </div>
@@ -11863,7 +11853,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Module">Module<a class="anchor-link" href="#Module">&#182;</a></h2><p>Most of the functionality in Python is provided by <em>modules</em>.To use a module in a Python program it first has to be imported. A module can be imported using the <code>import</code> statement. For example, to import the module <code>math</code>, which contains many standard mathematical functions, we can do:</p>
+<h2 id="Module">Module<a class="anchor-link" href="#Module">&#182;</a></h2><p>Most of the functionality in Python is provided by <em>modules</em>. To use a module in a Python program it first has to be imported. A module can be imported using the <code>import</code> statement. For example, to import the module <code>math</code>, which contains many standard mathematical functions, we can do:</p>
 
 </div>
 </div>
@@ -11929,7 +11919,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Importing the whole module us often times unnecessary and can lead to longer loading time or increase the memory consumption. Alternative to the previous method, we can also chose to import only a few selected functions from a module by explicitly listing which ones we want to import:</p>
+<p>Importing the whole module us often times unnecessary and can lead to longer loading time or increase the memory consumption. An alternative to the previous method, we can also choose to import only a few selected functions from a module by explicitly listing which ones we want to import:</p>
 
 </div>
 </div>
@@ -12168,7 +12158,7 @@ log(...)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Although not explicitly specified, a variable does have a type associated with it. The type is derived form the value it was assigned.</p>
+<p>Although not explicitly specified, a variable does have a type associated with it. The type is derived from the value it was assigned.</p>
 
 </div>
 </div>
@@ -12265,7 +12255,7 @@ log(...)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we try to use a variable that has not yet been defined we get an <code>NameError</code> (Note, that we will use in the notebooks <code>try/except</code> blocks to handle the exception, so the notebook doesn't stop. The code below will try to execute <code>print</code> function and if the <code>NameError</code> occurs the error message will be printed. Otherwise an error will be raised. Later in this notebook you will learn more about exception handling.):</p>
+<p>If we try to use a variable that has not yet been defined we get an <code>NameError</code> (Note, that we will use in the notebooks <code>try/except</code> blocks to handle the exception, so the notebook doesn't stop. The code below will try to execute <code>print</code> function and if the <code>NameError</code> occurs the error message will be printed. Otherwise, an error will be raised. Later in this notebook you will learn more about exception handling.):</p>
 
 </div>
 </div>
@@ -12509,7 +12499,7 @@ log(...)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In Python 2.7, what kind of division (<code>/</code>) will be executed, depends on the type of the numbers involved. If all numbers are integers, the division will be an integer division, otherwise it will be a float division. In Python 3 this has been changed and fractions aren't lost when dividing integers (for integer division you can use another operator, <code>//</code>).</p>
+<p>In Python 2.7, what kind of division (<code>/</code>) will be executed, depends on the type of the numbers involved. If all numbers are integers, the division will be an integer division, otherwise, it will be a float division. In Python 3 this has been changed and fractions aren't lost when dividing integers (for integer division you can use another operator, <code>//</code>).</p>
 
 </div>
 </div>
@@ -12554,7 +12544,7 @@ log(...)
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Note! The power operators in python isn&#39;t ^, but **</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Note! The power operator in python isn&#39;t ^, but **</span>
 <span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 
@@ -14092,7 +14082,7 @@ All white space i.e. spaces and tabs, within the quotes, are preserved as-is.</p
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Lists play a very important role in Python, and are for example used in loops and other flow control structures (discussed below). There are number of convenient functions for generating lists of various types, for example the <code>range</code> function (note that in Python 3 <code>range</code> creates a generator, so you have to use <code>list</code> function to get a list):</p>
+<p>Lists play a very important role in Python and are for example used in loops and other flow control structures (discussed below). There are a number of convenient functions for generating lists of various types, for example, the <code>range</code> function (note that in Python 3 <code>range</code> creates a generator, so you have to use <code>list</code> function to get a list):</p>
 
 </div>
 </div>
@@ -15003,7 +14993,7 @@ One thing you should remember is that wrong indentation rises <code>IndentationE
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>for</code> loop iterates over the elements of the supplied list, and executes the containing block once for each element. Any kind of list can be used in the <code>for</code> loop. For example:</p>
+<p>The <code>for</code> loop iterates over the elements of the supplied list and executes the containing block once for each element. Any kind of list can be used in the <code>for</code> loop. For example:</p>
 
 </div>
 </div>
@@ -15376,7 +15366,7 @@ done
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note that the <code>print "done"</code> statement is not part of the <code>while</code> loop body because of the difference in indentation.</p>
+<p>Note that the <code>print "done"</code> statement is not part of the <code>while</code> loop body because of the difference in the indentation.</p>
 
 </div>
 </div>
@@ -15951,7 +15941,7 @@ func1(s)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we explicitly list the name of the arguments in the function calls, they do not need to come in the same order as in the function definition. This is called <em>keyword</em> arguments, and is often very useful in functions that takes a lot of optional arguments.</p>
+<p>If we explicitly list the name of the arguments in the function calls, they do not need to come in the same order as in the function definition. This is called <em>keyword</em> arguments and is often very useful in functions that take a lot of optional arguments.</p>
 
 </div>
 </div>
@@ -16200,7 +16190,7 @@ another keyword arg: myarg3: 3
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Classes">Classes<a class="anchor-link" href="#Classes">&#182;</a></h2><p>Classes are the key features of object-oriented programming. A class is a structure for representing an object and the operations that can be performed on the object.</p>
-<p>In Python a class can contain <em>attributes</em> (variables) and <em>methods</em> (functions).</p>
+<p>In Python, a class can contain <em>attributes</em> (variables) and <em>methods</em> (functions).</p>
 <p>A class is defined almost like a function, but using the <code>class</code> keyword, and the class definition usually contains a number of class method definitions (a function in a class).</p>
 <ul>
 <li><p>Each class method should have an argument <code>self</code> as it first argument. This object is a self-reference.</p>
@@ -16387,8 +16377,8 @@ Point at [10.000000, 0.000000]
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Modules">Modules<a class="anchor-link" href="#Modules">&#182;</a></h2><p>One of the most important concepts in good programming is to reuse code and avoid repetitions.</p>
-<p>The idea is to write functions and classes with a well-defined purpose and scope, and reuse these instead of repeating similar code in different part of a program (modular programming). The result is usually that readability and maintainability of a program is greatly improved. What this means in practice is that our programs have fewer bugs, are easier to extend and debug/troubleshoot.</p>
-<p>Python supports modular programming at different levels. Functions and classes are examples of tools for low-level modular programming. Python modules are a higher-level modular programming construct, where we can collect related variables, functions and classes in a module. A python module is defined in a python file (with file-ending <code>.py</code>), and it can be made accessible to other Python modules and programs using the <code>import</code> statement.</p>
+<p>The idea is to write functions and classes with a well-defined purpose and scope, and reuse these instead of repeating similar code in different part of a program (modular programming). The result is usually that readability and maintainability of a program are greatly improved. What this means in practice is that our programs have fewer bugs, are easier to extend and debug/troubleshoot.</p>
+<p>Python supports modular programming at different levels. Functions and classes are examples of tools for low-level modular programming. Python modules are a higher-level modular programming construct, where we can collect related variables, functions, and classes in a module. A python module is defined in a python file (with file-ending <code>.py</code>), and it can be made accessible to other Python modules and programs using the <code>import</code> statement.</p>
 <p>Consider the following example: the file <code>mymodule.py</code> contains simple example implementations of a variable, function and a class:</p>
 
 </div>
@@ -17054,7 +17044,7 @@ ds102	sub010	D	25.24
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Before you can read or write any kind of file, you first have to open the file and go through it's content with a reader function or write the output line by line with a write function.</p>
+<p>Before you can read or write any kind of file, you first have to open the file and go through its content with a reader function or write the output line by line with a write function.</p>
 
 </div>
 </div>
@@ -17160,7 +17150,7 @@ ds102	sub010	D	25.24
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, we first have to open a file again, but this time with writing permissions = <code>'w'</code>. After it we can go through the file and write each line to the new csv-file.</p>
+<p>Now, we first have to open a file again, but this time with writing permissions = <code>'w'</code>. After it, we can go through the file and write each line to the new csv-file.</p>
 
 </div>
 </div>
@@ -17234,7 +17224,7 @@ ds102	sub010	D	25.24
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Reading-TXT-files">Reading TXT files<a class="anchor-link" href="#Reading-TXT-files">&#182;</a></h3><p>The reading of txt files is quite similar to the reading of csv-files. The only different is in the name of the reading function and the formating that has to be applied to the input or output.</p>
+<h3 id="Reading-TXT-files">Reading TXT files<a class="anchor-link" href="#Reading-TXT-files">&#182;</a></h3><p>The reading of txt files is quite similar to the reading of csv-files. The only difference is in the name of the reading function and the formatting that has to be applied to the input or output.</p>
 
 </div>
 </div>

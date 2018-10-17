@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11798,8 +11788,8 @@ div#notebook {
 <h1 id="Using-Nipype-Plugins">Using Nipype Plugins<a class="anchor-link" href="#Using-Nipype-Plugins">&#182;</a></h1><p>The workflow engine supports a plugin architecture for workflow execution. The available plugins allow local and distributed execution of workflows and debugging. Each available plugin is described below.</p>
 <p>Current plugins are available for Linear, Multiprocessing, <a href="https://ipython.org/">IPython</a> distributed processing platforms and for direct processing on <a href="http://www.oracle.com/us/products/tools/oracle-grid-engine-075549.html">SGE</a>, <a href="http://www.clusterresources.com/products/torque-resource-manager.php">PBS</a>, <a href="http://www.cs.wisc.edu/htcondor/">HTCondor</a>, <a href="http://www.platform.com/Products/platform-lsf">LSF</a>, <code>OAR</code>, and <a href="http://slurm.schedmd.com/">SLURM</a>. We anticipate future plugins for the <a href="http://brainvisa.info/soma/soma-workflow/">Soma</a> workflow.</p>
 <div class="alert alert-info">
-**Note**:
-The current distributed processing plugins rely on the availability of a shared filesystem across computational nodes.
+**Note**:  
+Currently, the distributed processing plugins rely on the availability of a shared filesystem across computational nodes.  
 A variety of config options can control how execution behaves in this distributed context. These are listed later on in this page.
 </div><p>All plugins can be executed with:</p>
 <div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">plugin</span><span class="o">=</span><span class="n">PLUGIN_NAME</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="n">ARGS_DICT</span><span class="p">)</span>
@@ -11828,7 +11818,7 @@ retry_timeout : amount of time to wait between tries
 <pre><code>callable :  A function handle that receives as arguments a node and a graph
 
 </code></pre>
-<p>The function callable will called for every node from a topological sort of the execution graph.</p>
+<p>The function callable will be called for every node from a topological sort of the execution graph.</p>
 
 </div>
 </div>
@@ -11863,7 +11853,7 @@ retry_timeout : amount of time to wait between tries
 <p>To distribute processing on a multicore machine, simply call:</p>
 <div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">)</span>
 </pre></div>
-<p>This will use all available CPUs. If on the other hand you would like to restrict the number of used resources (to say 2 CPUs), you can call:</p>
+<p>This will use all available CPUs. If on the other hand, you would like to restrict the number of used resources (to say 2 CPUs), you can call:</p>
 <div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;MultiProc&#39;</span><span class="p">,</span> <span class="n">plugin_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_procs&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 </pre></div>
 
@@ -11874,10 +11864,10 @@ retry_timeout : amount of time to wait between tries
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="IPython">IPython<a class="anchor-link" href="#IPython">&#182;</a></h2><p>This plugin provide access to distributed computing using <a href="https://ipython.org/">IPython</a> parallel machinery.</p>
+<h2 id="IPython">IPython<a class="anchor-link" href="#IPython">&#182;</a></h2><p>This plugin provides access to distributed computing using <a href="https://ipython.org/">IPython</a> parallel machinery.</p>
 <div class="alert alert-info">
-**Note**:
-Please read the [IPython](https://ipython.org/) documentation to determine how to setup your cluster for distributed processing. This typically involves calling ipcluster.
+**Note**:  
+Please read the [IPython](https://ipython.org/) documentation to determine how to set up your cluster for distributed processing. This typically involves calling ipcluster.
 </div><p>Once the clients have been started, any pipeline executed with:</p>
 <div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;IPython&#39;</span><span class="p">)</span>
 </pre></div>
@@ -11911,7 +11901,7 @@ configuration for PBS/SGE:</p>
 </pre></div>
 <p>this would apply only to the node and is useful in situations, where a particular node might use more resources than other nodes in a workflow.</p>
 <div class="alert alert-info">
-**Note**: Setting the keyword `overwrite` would overwrite any global configuration with this local configuration:
+**Note**: Setting the keyword `overwrite` would overwrite any global configuration with this local configuration:  
 ```node.plugin_args = {'qsub_args': '-l nodes=1:ppn=3', 'overwrite': True}```
 </div>
 </div>
@@ -11921,9 +11911,9 @@ configuration for PBS/SGE:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="SGEGraph">SGEGraph<a class="anchor-link" href="#SGEGraph">&#182;</a></h3><p>SGEGraph is an execution plugin working with Sun Grid Engine that allows for  submitting entire graph of dependent jobs at once. This way Nipype does not need to run a monitoring process - SGE takes care of this. The use of SGEGraph is preferred over SGE since the latter adds unnecessary load on the submit machine.</p>
+<h3 id="SGEGraph">SGEGraph<a class="anchor-link" href="#SGEGraph">&#182;</a></h3><p>SGEGraph is an execution plugin working with Sun Grid Engine that allows for  submitting the entire graph of dependent jobs at once. This way Nipype does not need to run a monitoring process - SGE takes care of this. The use of SGEGraph is preferred over SGE since the latter adds an unnecessary load on the submit machine.</p>
 <div class="alert alert-info">
-**Note**: When rerunning unfinished workflows using SGEGraph you may decide not to submit jobs for Nodes that previously finished running. This can speed up execution, but new or modified inputs that would previously trigger a Node to rerun will be ignored. The following option turns on this functionality:
+**Note**: When rerunning unfinished workflows using SGEGraph you may decide not to submit jobs for Nodes that previously finished running. This can speed up execution, but new or modified inputs that would previously trigger a Node to rerun will be ignored. The following option turns on this functionality:  
 ```workflow.run(plugin='SGEGraph', plugin_args = {'dont_resubmit_completed_jobs': True})```
 </div>
 </div>
@@ -11933,7 +11923,7 @@ configuration for PBS/SGE:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="LSF">LSF<a class="anchor-link" href="#LSF">&#182;</a></h2><p>Submitting via LSF is almost identical to SGE above above except for the optional arguments field:</p>
+<h2 id="LSF">LSF<a class="anchor-link" href="#LSF">&#182;</a></h2><p>Submitting via LSF is almost identical to SGE above except for the optional arguments field:</p>
 <div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;LSF&#39;</span><span class="p">)</span>
 </pre></div>
 <p>Optional arguments:</p>
@@ -11964,9 +11954,9 @@ jobid_re: regular expression for custom job submission id search</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="SLURMGraph">SLURMGraph<a class="anchor-link" href="#SLURMGraph">&#182;</a></h3><p>SLURMGraph is an execution plugin working with SLURM that allows for submitting entire graph of dependent jobs at once. This way Nipype does not need to run a monitoring process - SLURM takes care of this. The use of SLURMGraph plugin is preferred over the vanilla SLURM plugin since the latter adds unnecessary load on the submit machine.</p>
+<h3 id="SLURMGraph">SLURMGraph<a class="anchor-link" href="#SLURMGraph">&#182;</a></h3><p>SLURMGraph is an execution plugin working with SLURM that allows for submitting the entire graph of dependent jobs at once. This way Nipype does not need to run a monitoring process - SLURM takes care of this. The use of SLURMGraph plugin is preferred over the vanilla SLURM plugin since the latter adds an unnecessary load on the submit machine.</p>
 <div class="alert alert-info">
-**Note**: When rerunning unfinished workflows using SLURMGraph you may decide not to submit jobs for Nodes that previously finished running. This can speed up execution, but new or modified inputs that would previously trigger a Node to rerun will be ignored. The following option turns on this functionality:
+**Note**: When rerunning unfinished workflows using SLURMGraph you may decide not to submit jobs for Nodes that previously finished running. This can speed up execution, but new or modified inputs that would previously trigger a Node to rerun will be ignored. The following option turns on this functionality:  
 ```workflow.run(plugin='SLURMGraph', plugin_args = {'dont_resubmit_completed_jobs': True})```
 </div>
 </div>
@@ -11976,23 +11966,23 @@ jobid_re: regular expression for custom job submission id search</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="HTCondor">HTCondor<a class="anchor-link" href="#HTCondor">&#182;</a></h2><h3 id="DAGMan">DAGMan<a class="anchor-link" href="#DAGMan">&#182;</a></h3><p>With its <a href="http://research.cs.wisc.edu/htcondor/dagman/dagman.html">DAGMan</a> component <a href="http://www.cs.wisc.edu/htcondor/">HTCondor</a> (previously Condor) allows for submitting entire graphs of dependent jobs at once (similar to SGEGraph and SLURMGraph). With the <code>CondorDAGMan</code> plug-in Nipype can utilize this functionality to submit complete workflows directly and in a single step.  Consequently, and in contrast to other plug-ins, workflow execution returns almost instantaneously -- Nipype is only used to generate the workflow graph, while job scheduling and dependency resolution are entirely managed by <a href="http://www.cs.wisc.edu/htcondor/">HTCondor</a>.</p>
+<h2 id="HTCondor">HTCondor<a class="anchor-link" href="#HTCondor">&#182;</a></h2><h3 id="DAGMan">DAGMan<a class="anchor-link" href="#DAGMan">&#182;</a></h3><p>With its <a href="http://research.cs.wisc.edu/htcondor/dagman/dagman.html">DAGMan</a> component, <a href="http://www.cs.wisc.edu/htcondor/">HTCondor</a> (previously Condor) allows for submitting the entire graphs of dependent jobs at once (similar to SGEGraph and SLURMGraph). With the <code>CondorDAGMan</code> plug-in, Nipype can utilize this functionality to submit complete workflows directly and in a single step.  Consequently, and in contrast to other plug-ins, workflow execution returns almost instantaneously -- Nipype is only used to generate the workflow graph, while job scheduling and dependency resolution are entirely managed by <a href="http://www.cs.wisc.edu/htcondor/">HTCondor</a>.</p>
 <p>Please note that although <a href="http://research.cs.wisc.edu/htcondor/dagman/dagman.html">DAGMan</a> supports specification of data dependencies as well as data provisioning on compute nodes this functionality is currently not supported by this plug-in. As with all other batch systems supported by Nipype, only HTCondor pools with a shared file system can be used to process Nipype workflows.</p>
 <p>Workflow execution with HTCondor DAGMan is done by calling:</p>
 <div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;CondorDAGMan&#39;</span><span class="p">)</span>
 </pre></div>
-<p>Job execution behavior can be tweaked with the following optional plug-in arguments. The value of most arguments can be a literal string or a filename, where in the latter case the content of the file will be used as the argument value:</p>
+<p>Job execution behavior can be tweaked with the following optional plug-in arguments. The value of most arguments can be a literal string or a filename, wherein the latter case the content of the file will be used as the argument value:</p>
 <ul>
 <li><code>submit_template</code> : submit spec template for individual jobs in a DAG (see CondorDAGManPlugin.default_submit_template for the default.</li>
 <li><code>initial_specs</code> : additional submit specs that are prepended to any job's submit file</li>
 <li><code>override_specs</code> : additional submit specs that are appended to any job's submit file</li>
-<li><code>wrapper_cmd</code> : path to an exectuable that will be started instead of a node script. This is useful for wrapper script that execute certain functionality prior or after a node runs. If this option is given the wrapper command is called with the respective Python exectuable and the path to the node script as final arguments</li>
+<li><code>wrapper_cmd</code> : path to an executable that will be started instead of a node script. This is useful for wrapper script that executes certain functionality prior to or after a node runs. If this option is given the wrapper command is called with the respective Python executable and the path to the node script as final arguments</li>
 <li><code>wrapper_args</code> : optional additional arguments to a wrapper command</li>
 <li><code>dagman_args</code> : arguments to be prepended to the job execution script in the dagman call</li>
-<li><code>block</code> : if True the plugin call will block until Condor has finished prcoessing the entire workflow (default: False)</li>
+<li><code>block</code> : if True the plugin call will block until Condor has finished processing the entire workflow (default: False)</li>
 </ul>
 <p>Please see the <a href="http://research.cs.wisc.edu/htcondor/manual">HTCondor documentation</a> for details on possible configuration options and command line arguments.</p>
-<p>Using the <code>wrapper_cmd</code> argument it is possible to combine Nipype workflow execution with checkpoint/migration functionality offered by, for example, <a href="http://dmtcp.sourceforge.net/">DMTCP</a>. This is especially useful in the case of workflows with long running nodes, such as Freesurfer's recon-all pipeline, where Condor's job prioritization algorithm could lead to jobs being evicted from compute nodes in order to maximize overall troughput. With checkpoint/migration enabled such a job would be checkpointed prior eviction and resume work from the checkpointed state after being rescheduled -- instead of restarting from scratch.</p>
+<p>Using the <code>wrapper_cmd</code> argument it is possible to combine Nipype workflow execution with checkpoint/migration functionality offered by, for example, <a href="http://dmtcp.sourceforge.net/">DMTCP</a>. This is especially useful in the case of workflows with long-running nodes, such as Freesurfer's recon-all pipeline, where Condor's job prioritization algorithm could lead to jobs being evicted from compute nodes in order to maximize overall throughput. With checkpoint/migration enabled such a job would be checkpointed prior eviction and resume work from the checkpointed state after being rescheduled -- instead of restarting from scratch.</p>
 <p>On a Debian system, executing a workflow with support for checkpoint/migration for all nodes could look like this:</p>
 <div class="highlight"><pre><span></span><span class="c1"># define common parameters</span>
 <span class="n">dmtcp_hdr</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -12048,7 +12038,7 @@ a custom template:</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="qsub-emulation"><code>qsub</code> emulation<a class="anchor-link" href="#qsub-emulation">&#182;</a></h3><div class="alert alert-info">
 **Note**: This plug-in is deprecated and users should migrate to the more robust and more versatile ``CondorDAGMan`` plug-in.
-</div><p>Despite the differences between HTCondor and SGE-like batch systems the plugin usage (incl. supported arguments) is almost identical. The HTCondor plugin relies on a <code>qsub</code> emulation script for HTCondor, called <code>condor_qsub</code> that can be obtained from a <a href="http://anonscm.debian.org/gitweb/?p=pkg-exppsy/condor.git;a=blob_plain;f=debian/condor_qsub;hb=HEAD">Git repository on git.debian.org</a>. This script is currently not shipped with a standard HTCondor distribution, but is included in the HTCondor package from <a href="http://neuro.debian.net">http://neuro.debian.net</a>. It is sufficient to download this script and install it in any location on a system that is included in the <code>PATH</code> configuration.</p>
+</div><p>Despite the differences between HTCondor and SGE-like batch systems the plugin usage (incl. supported arguments) is almost identical. The HTCondor plugin relies on a <code>qsub</code> emulation script for HTCondor, called <code>condor_qsub</code> that can be obtained from a <a href="http://anonscm.debian.org/gitweb/?p=pkg-exppsy/condor.git;a=blob_plain;f=debian/condor_qsub;hb=HEAD">Git repository on git.debian.org</a>. This script is currently not shipped with a standard HTCondor distribution but is included in the HTCondor package from <a href="http://neuro.debian.net">http://neuro.debian.net</a>. It is sufficient to download this script and install it in any location on a system that is included in the <code>PATH</code> configuration.</p>
 <p>Running a workflow in a HTCondor pool is done by calling:</p>
 <div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;Condor&#39;</span><span class="p">)</span>
 </pre></div>
@@ -12064,7 +12054,7 @@ a custom template:</p>
   </div>
 </body><div class="h3" style="right:0;bottom:0;left:0;padding:1rem;text-align:center;"><p style="white-space:pre"><a href="https://miykael.github.io/nipype_tutorial/">Home</a>&emsp;|&emsp;<a href="https://github.com/miykael/nipype_tutorial">github</a>&emsp;|&emsp;<a href="http://nipype.readthedocs.io">Nipype</a></p></div>
 
-
+ 
 
 
 </html>

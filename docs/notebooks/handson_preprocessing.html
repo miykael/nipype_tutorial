@@ -11795,8 +11795,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Hands-on-1:-How-to-create-a-fMRI-preprocessing-workflow">Hands-on 1: How to create a fMRI preprocessing workflow<a class="anchor-link" href="#Hands-on-1:-How-to-create-a-fMRI-preprocessing-workflow">&#182;</a></h1><p>The purpose of this section is that you setup a complete fMRI analysis workflow yourself. So that in the end you are able to perform the analysis from A-Z, i.e. from preprocessing to group analysis. This section will cover the preprocessing part, and the section <a href="handson_analysis.html">Hands-on 2: Analysis</a> will handle the analysis part.</p>
-<p>We will use this opportunity to show you some nice additional interfaces/nodes that might not be relevant to your usual analysis. But it's always nice to know that they exist. And hopefully this will encourage you to investigate all other interfaces that Nipype can bring to the tip of your finger.</p>
+<h1 id="Hands-on-1:-How-to-create-a-fMRI-preprocessing-workflow">Hands-on 1: How to create a fMRI preprocessing workflow<a class="anchor-link" href="#Hands-on-1:-How-to-create-a-fMRI-preprocessing-workflow">&#182;</a></h1><p>The purpose of this section is that you set-up a complete fMRI analysis workflow yourself. So that in the end you are able to perform the analysis from A-Z, i.e. from preprocessing to group analysis. This section will cover the preprocessing part, and the section <a href="handson_analysis.html">Hands-on 2: Analysis</a> will handle the analysis part.</p>
+<p>We will use this opportunity to show you some nice additional interfaces/nodes that might not be relevant to your usual analysis. But it's always nice to know that they exist. And hopefully, this will encourage you to investigate all other interfaces that Nipype can bring to the tip of your finger.</p>
 
 </div>
 </div>
@@ -11805,7 +11805,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h2><p>Before we can start with anything we first need to download the data. For this hands-on we will only use the right handed subjects 2-4 and 7-9. This can be done very quickly with the following <code>datalad</code> command.</p>
+<h2 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h2><p>Before we can start with anything we first need to download the data. For this hands-on, we will only use the right-handed subjects 2-4 and 7-9. This can be done very quickly with the following <code>datalad</code> command.</p>
 <p><strong>Note:</strong> This might take a while, as datalad needs to download ~200MB of data</p>
 
 </div>
@@ -11899,7 +11899,7 @@ action summary:
 
 <span class="c1"># Specify which SPM to use</span>
 <span class="kn">from</span> <span class="nn">nipype.interfaces.matlab</span> <span class="k">import</span> <span class="n">MatlabCommand</span>
-<span class="n">MatlabCommand</span><span class="o">.</span><span class="n">set_default_paths</span><span class="p">(</span><span class="s1">&#39;/opt/spm12/spm12_mcr/spm/spm12&#39;</span><span class="p">)</span>
+<span class="n">MatlabCommand</span><span class="o">.</span><span class="n">set_default_paths</span><span class="p">(</span><span class="s1">&#39;/opt/spm12-r7219/spm12_mcr/spm12&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11921,7 +11921,7 @@ action summary:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Create-Nodes-and-Workflow-connections">Create Nodes and Workflow connections<a class="anchor-link" href="#Create-Nodes-and-Workflow-connections">&#182;</a></h2><p>Let's create all the nodes that we need! Make sure to specify all relevant inputs and keep in mind which ones you later on need to connect in your pipeline.</p>
-<h3 id="Workflow">Workflow<a class="anchor-link" href="#Workflow">&#182;</a></h3><p>We recommend to create the workflow and establish all it's connections at a later place in your script. This helps to have everything nicely together. But for this hands-on example it makes sense to establish the connections between the nodes as we go.</p>
+<h3 id="Workflow">Workflow<a class="anchor-link" href="#Workflow">&#182;</a></h3><p>We recommend to create the workflow and establish all its connections at a later place in your script. This helps to have everything nicely together. But for this hands-on example it makes sense to establish the connections between the nodes as we go.</p>
 <p>And for this, we first need to create a workflow:</p>
 
 </div>
@@ -12252,7 +12252,7 @@ action summary:
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initate MCFLIRT node here</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate MCFLIRT node here</span>
 </pre></div>
 
 </div>
@@ -12419,7 +12419,7 @@ action summary:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use the following tissue specification to get a GM and WM probability map</span>
-<span class="n">tpm_img</span> <span class="o">=</span><span class="s1">&#39;/opt/spm12/spm12_mcr/spm/spm12/tpm/TPM.nii&#39;</span>
+<span class="n">tpm_img</span> <span class="o">=</span><span class="s1">&#39;/opt/spm12-r7219/spm12_mcr/spm12/tpm/TPM.nii&#39;</span>
 <span class="n">tissue1</span> <span class="o">=</span> <span class="p">((</span><span class="n">tpm_img</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
 <span class="n">tissue2</span> <span class="o">=</span> <span class="p">((</span><span class="n">tpm_img</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
 <span class="n">tissue3</span> <span class="o">=</span> <span class="p">((</span><span class="n">tpm_img</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
@@ -12439,7 +12439,7 @@ action summary:
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initate NewSegment node here</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate NewSegment node here</span>
 </pre></div>
 
 </div>
@@ -12525,7 +12525,7 @@ action summary:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Compute-Coregistration-Matrix">Compute Coregistration Matrix<a class="anchor-link" href="#Compute-Coregistration-Matrix">&#182;</a></h3><p>As a next step we will make sure that the functional images are coregistered to the anatomical image. For this we will use FSL's <code>FLIRT</code> function. As we just created a white matter probability map, we can use this together with the a Boundary-Based Registration (BBR) cost function do optimize the image coregistration. As some helpful notes...</p>
+<h3 id="Compute-Coregistration-Matrix">Compute Coregistration Matrix<a class="anchor-link" href="#Compute-Coregistration-Matrix">&#182;</a></h3><p>As a next step, we will make sure that the functional images are coregistered to the anatomical image. For this, we will use FSL's <code>FLIRT</code> function. As we just created a white matter probability map, we can use this together with the a Boundary-Based Registration (BBR) cost function do optimize the image coregistration. As some helpful notes...</p>
 <ul>
 <li>use a degree of freedom of 6</li>
 <li>specify the cost function as <code>bbr</code></li>
@@ -12553,7 +12553,7 @@ action summary:
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initate FLIRT node here</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate FLIRT node here</span>
 </pre></div>
 
 </div>
@@ -12610,7 +12610,7 @@ action summary:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As mentioned above, the <code>bbr</code> routine can use the subject specific white matter probability map to guide the coregistration. But for this, we need to create a binary mask out of the WM probability map. This can easily done by FSL's <code>Threshold</code> interface.</p>
+<p>As mentioned above, the <code>bbr</code> routine can use the subject-specific white matter probability map to guide the coregistration. But for this, we need to create a binary mask out of the WM probability map. This can easily be done by FSL's <code>Threshold</code> interface.</p>
 
 </div>
 </div>
@@ -12701,7 +12701,7 @@ action summary:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Apply-Coregistration-Matrix-to-functional-image">Apply Coregistration Matrix to functional image<a class="anchor-link" href="#Apply-Coregistration-Matrix-to-functional-image">&#182;</a></h3><p>Now that we know the coregistration matrix to correctly overlay the functional mean image on the subject specific anatomy, we need to apply to coregistration to the whole time series. This can be achieved with FSL's <code>FLIRT</code> as follows:</p>
+<h3 id="Apply-Coregistration-Matrix-to-functional-image">Apply Coregistration Matrix to functional image<a class="anchor-link" href="#Apply-Coregistration-Matrix-to-functional-image">&#182;</a></h3><p>Now that we know the coregistration matrix to correctly overlay the functional mean image on the subject-specific anatomy, we need to apply to coregistration to the whole time series. This can be achieved with FSL's <code>FLIRT</code> as follows:</p>
 
 </div>
 </div>
@@ -12730,7 +12730,7 @@ action summary:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong><span style="color:red">Important</span></strong>: As you can see above, we also specified a variable <code>desired_voxel_iso</code>. This is very important at this stage, otherwise <code>FLIRT</code> will transform your functional images to a resolution of the anatomical image, which will dramatically increase the file size (e.g. to 1-10GB per file). If you don't want to change the voxel resolution, use the <code>no_resample=True</code> value instead of <code>apply_isoxfm=desired_voxel_iso</code>.</p>
+<p><strong><span style="color:red">Important</span></strong>: As you can see above, we also specified a variable <code>desired_voxel_iso</code>. This is very important at this stage, otherwise <code>FLIRT</code> will transform your functional images to a resolution of the anatomical image, which will dramatically increase the file size (e.g. to 1-10GB per file). If you don't want to change the voxel resolution, use the additional parameter <code>no_resample=True</code>. Important, for this to work, you still need to define <code>apply_isoxfm=desired_voxel_iso</code>.</p>
 
 </div>
 </div>
@@ -12778,7 +12778,7 @@ action summary:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you type <code>create_susan_smooth?</code> you can see how to specify the input variables to the susan workflow. In particular they are...</p>
+<p>If you type <code>create_susan_smooth?</code> you can see how to specify the input variables to the susan workflow. In particular, they are...</p>
 <ul>
 <li><code>fwhm</code>: set this value to 4 (or whichever value you want)</li>
 <li><code>mask_file</code>: will be created in a later step</li>
@@ -12793,7 +12793,7 @@ action summary:
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initate SUSAN workflow here</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate SUSAN workflow here</span>
 </pre></div>
 
 </div>
@@ -12852,7 +12852,7 @@ action summary:
 <li>Threshold this resampled probability map at a specific value</li>
 <li>Dilate this mask by some voxels to make the mask less conservative and more inclusive</li>
 </ol>
-<p>The first step can be done in many ways (eg. using freesurfer's <code>mri_convert</code>, <code>nibabel</code>) but in our case we will use FSL's <code>FLIRT</code>. The trick is to use the probability mask, as input file and reference file.</p>
+<p>The first step can be done in many ways (eg. using freesurfer's <code>mri_convert</code>, <code>nibabel</code>) but in our case, we will use FSL's <code>FLIRT</code>. The trick is to use the probability mask, as input file and a reference file.</p>
 
 </div>
 </div>
@@ -13009,7 +13009,7 @@ action summary:
 
 
 </code></pre>
-<p>To prevent this we will be using a <code>MapNode</code> and specify the <code>in_file</code> as it's iterfield. Like this the node is capable to handle a list of inputs as it will know that it has to apply itself iteratively to the list of inputs.</p>
+<p>To prevent this we will be using a <code>MapNode</code> and specify the <code>in_file</code> as it's iterfield. Like this, the node is capable to handle a list of inputs as it will know that it has to apply itself iteratively to the list of inputs.</p>
 
 </div>
 </div>
@@ -13032,7 +13032,7 @@ action summary:
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initate ApplyMask node here</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate ApplyMask node here</span>
 </pre></div>
 
 </div>
@@ -13087,7 +13087,7 @@ action summary:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Remove-linear-trends-in-functional-images">Remove linear trends in functional images<a class="anchor-link" href="#Remove-linear-trends-in-functional-images">&#182;</a></h3><p>Last but not least. Let's use Nipype's <code>TSNR</code> module to remove linear and quadratic trends in the functionally smoothed images. For this you only have to specify the <code>regress_poly</code> parameter in the node initiation.</p>
+<h3 id="Remove-linear-trends-in-functional-images">Remove linear trends in functional images<a class="anchor-link" href="#Remove-linear-trends-in-functional-images">&#182;</a></h3><p>Last but not least. Let's use Nipype's <code>TSNR</code> module to remove linear and quadratic trends in the functionally smoothed images. For this, you only have to specify the <code>regress_poly</code> parameter in the node initiation.</p>
 
 </div>
 </div>
@@ -13110,7 +13110,7 @@ action summary:
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initate TSNR node here</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate TSNR node here</span>
 </pre></div>
 
 </div>
@@ -14647,7 +14647,7 @@ fslmaths /output/work_preproc/susan/_subject_id_07/smooth/mapflow/_smooth0/asub-
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Masks-and-Probability-maps">Masks and Probability maps<a class="anchor-link" href="#Masks-and-Probability-maps">&#182;</a></h3><p>Let's see what all the masks and probability maps look like. For this we will use <code>nilearn</code>'s <code>plot_anat</code> function.</p>
+<h3 id="Masks-and-Probability-maps">Masks and Probability maps<a class="anchor-link" href="#Masks-and-Probability-maps">&#182;</a></h3><p>Let's see what all the masks and probability maps look like. For this, we will use <code>nilearn</code>'s <code>plot_anat</code> function.</p>
 
 </div>
 </div>
@@ -15575,7 +15575,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Much better! But we're still not there yet. There are many unnecessary file specifiers that we can get rid off. To do so, we can use <code>DataSink</code>'s <code>substitutions</code> parameter. For this, we create a list of tuples: on the left we specify the string that we want to replace and on the right, with what we want to replace it with.</p>
+<p>Much better! But we're still not there yet. There are many unnecessary file specifiers that we can get rid off. To do so, we can use <code>DataSink</code>'s <code>substitutions</code> parameter. For this, we create a list of tuples: on the left, we specify the string that we want to replace and on the right, with what we want to replace it with.</p>
 
 </div>
 </div>
@@ -15800,7 +15800,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Run-Preprocessing-workflow-on-6-right-handed-subjects">Run Preprocessing workflow on 6 right handed subjects<a class="anchor-link" href="#Run-Preprocessing-workflow-on-6-right-handed-subjects">&#182;</a></h2>
+<h2 id="Run-Preprocessing-workflow-on-6-right-handed-subjects">Run Preprocessing workflow on 6 right-handed subjects<a class="anchor-link" href="#Run-Preprocessing-workflow-on-6-right-handed-subjects">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15808,7 +15808,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Perfect! Now let's run the whole workflow for right handed subjects. For this you just need to change the <code>subject_list</code> variable and run again the places where this variable is used (i.e. <code>sf.iterables</code> and in <code>DataSink</code> <code>substitutions</code>.</p>
+<p>Perfect! Now let's run the whole workflow for right-handed subjects. For this, you just need to change the <code>subject_list</code> variable and run again the places where this variable is used (i.e. <code>sf.iterables</code> and in <code>DataSink</code> <code>substitutions</code>.</p>
 
 </div>
 </div>
@@ -15862,7 +15862,7 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we can run the workflow again, this time for all right handed subjects in parallel.</p>
+<p>Now we can run the workflow again, this time for all right-handed subjects in parallel.</p>
 
 </div>
 </div>

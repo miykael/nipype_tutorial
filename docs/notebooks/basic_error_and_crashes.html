@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11798,16 +11788,16 @@ div#notebook {
 <h1 id="Errors-and-Crashes">Errors and Crashes<a class="anchor-link" href="#Errors-and-Crashes">&#182;</a></h1><p>Probably the most important chapter in this section is about how to handle error and crashes. Because at the beginning you will run into a few.</p>
 <p>For example:</p>
 <ol>
-<li>You specified file names or paths that <strong>don't exist</strong>.</li>
+<li>You specified filenames or paths that <strong>don't exist</strong>.</li>
 <li>You try to give an interface a <code>string</code> as input, where a <code>float</code> value is expected or you try to specify a parameter that doesn't exist. Be sure to use the right <strong><code>input type</code></strong> and input name.</li>
-<li>You wanted to give a list of inputs <code>[func1.nii, func2.nii, func3.nii]</code> to a node that only expects one input file . <strong><code>MapNode</code></strong> is your solution.</li>
+<li>You wanted to give a list of inputs <code>[func1.nii, func2.nii, func3.nii]</code> to a node that only expects one input file. <strong><code>MapNode</code></strong> is your solution.</li>
 <li>You wanted to run SPM's motion correction on compressed NIfTI files, i.e. <code>*.nii.gz</code>? <strong>SPM</strong> cannot handle that. Nipype's <strong><code>Gunzip</code></strong> interface can help.</li>
-<li>You haven't set up all necessary <strong>environment variables</strong>. Nipype for example doesn't find your MATLAB or SPM version.</li>
+<li>You haven't set up all necessary <strong>environment variables</strong>. Nipype, for example, doesn't find your MATLAB or SPM version.</li>
 <li>You <strong>forget</strong> to specify a <strong>mandatory input</strong> field.</li>
 <li>You try to <strong>connect</strong> a node to an input field that another node is <strong>already connected</strong> to.</li>
 </ol>
 <p><strong>Important</strong> note about <code>crashfiles</code>. <code>Crashfiles</code> are only created when you run a workflow, not during building a workflow. If you have a typo in a folder path, because they didn't happen during runtime, but still during workflow building.</p>
-<p>We will start from removing old <code>crashfiles</code>:</p>
+<p>We will start by removing old <code>crashfiles</code>:</p>
 
 </div>
 </div>
@@ -12167,7 +12157,7 @@ OSError: No files were found matching func template: /data/ds000114/sub-11/ses-t
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When running in terminal you can also try options that <strong>enable the Python or Ipython debugger when re-executing: <code>-d</code> or <code>-i</code></strong>.</p>
+<p>When running in the terminal you can also try options that <strong>enable the Python or Ipython debugger when re-executing: <code>-d</code> or <code>-i</code></strong>.</p>
 <p><strong>If you don't want to have an option to rerun the crashed workflow, you can change the format of crashfile to a text format.</strong> You can either change this in a configuration file (you can read more <a href="basic_execution_configuration.html">here</a>), or you can directly change the <code>wf.config</code> dictionary before running the workflow.</p>
 
 </div>
@@ -12520,7 +12510,7 @@ BibTeX(&#39;@article{JenkinsonBeckmannBehrensWoolrichSmith2012,author={M. Jenkin
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example-Crash-3:-Giving-an-array-as-input-where-a-single-file-is-expected">Example Crash 3: Giving an array as input where a single file is expected<a class="anchor-link" href="#Example-Crash-3:-Giving-an-array-as-input-where-a-single-file-is-expected">&#182;</a></h2><p>As you an see in the <a href="basic_mapnodes.html">MapNode</a> example, if you try to feed an array as an input into a field that only expects a single file, you will get a <strong><code>TraitError</code></strong>.</p>
+<h2 id="Example-Crash-3:-Giving-an-array-as-input-where-a-single-file-is-expected">Example Crash 3: Giving an array as input where a single file is expected<a class="anchor-link" href="#Example-Crash-3:-Giving-an-array-as-input-where-a-single-file-is-expected">&#182;</a></h2><p>As you can see in the <a href="basic_mapnodes.html">MapNode</a> example, if you try to feed an array as an input into a field that only expects a single file, you will get a <strong><code>TraitError</code></strong>.</p>
 
 </div>
 </div>
@@ -12761,7 +12751,7 @@ BibTeX(&#39;@article{JenkinsonBeckmannBehrensWoolrichSmith2012,author={M. Jenkin
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>This issue can be solved by unzipping the compressed NIfTI file before giving it as an input to an SPM node.</strong> This can either be done by using the <code>Gunzip</code> interface from Nipype or even better, if the input is coming from a FSL interface, most of them have an input filed <code>output_type='NIFTI'</code>, that you can set to NIFIT.</p>
+<p><strong>This issue can be solved by unzipping the compressed NIfTI file before giving it as an input to an SPM node.</strong> This can either be done by using the <code>Gunzip</code> interface from Nipype or even better if the input is coming from a FSL interface, most of them have an input filed <code>output_type='NIFTI'</code>, that you can set to NIFIT.</p>
 
 </div>
 </div>
@@ -12775,7 +12765,7 @@ BibTeX(&#39;@article{JenkinsonBeckmannBehrensWoolrichSmith2012,author={M. Jenkin
 <span class="n">convert</span> <span class="o">=</span> <span class="n">MRIConvert</span><span class="p">(</span><span class="n">in_file</span><span class="o">=</span><span class="s1">&#39;/data/ds000114/sub-01/ses-test/anat/sub-01_ses-test_T1w.nii.gz&#39;</span><span class="p">,</span>
                      <span class="n">out_type</span><span class="o">=</span><span class="s1">&#39;nii&#39;</span><span class="p">)</span>
 </pre></div>
-<p>you migh get an errors, such as:</p>
+<p>you might get an errors, such as:</p>
 
 <pre><code>IOError: command 'mri_convert' could not be found on host mnotter
 Interface MRIConvert failed to run.</code></pre>
@@ -12787,7 +12777,7 @@ Interface MRIConvert failed to run.</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Or if you try to use SPM, but forgot to tell Nipype where to find it. If you forgot to tell the system where to find MATLAB (or MCR), than you will get same kind of error as above. But if you forgot to specify which SPM you want to use, you'll get the following <strong><code>RuntimeError</code></strong>:</p>
+<p>Or if you try to use SPM, but forgot to tell Nipype where to find it. If you forgot to tell the system where to find MATLAB (or MCR), then you will get the same kind of error as above. But if you forgot to specify which SPM you want to use, you'll get the following <strong><code>RuntimeError</code></strong>:</p>
 
 <pre><code>Standard error:
 MATLAB code threw an exception:
@@ -12797,7 +12787,7 @@ SPM not in matlab path
 </code></pre>
 <p>You can solve this issue by specifying the path to your SPM version:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.matlab</span> <span class="kn">import</span> <span class="n">MatlabCommand</span>
-<span class="n">MatlabCommand</span><span class="o">.</span><span class="n">set_default_paths</span><span class="p">(</span><span class="s1">&#39;/usr/local/MATLAB/R2017a/toolbox/spm12&#39;</span><span class="p">)</span>
+<span class="n">MatlabCommand</span><span class="o">.</span><span class="n">set_default_paths</span><span class="p">(</span><span class="s1">&#39;/opt/spm12-r7219/spm12_mcr/spm12&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>

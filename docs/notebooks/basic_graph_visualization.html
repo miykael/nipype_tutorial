@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11795,12 +11785,12 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Graph-Visualization">Graph Visualization<a class="anchor-link" href="#Graph-Visualization">&#182;</a></h1><p>We've learned from the <a href="./basic_workflow.html">Workflow</a> tutorial that every Nipype workflow is a directed acyclic graphs. Some workflow structures are easy to understand directly from the script and some others are too complex for that. Luckily, there is the <code>write_graph</code> method!</p>
+<h1 id="Graph-Visualization">Graph Visualization<a class="anchor-link" href="#Graph-Visualization">&#182;</a></h1><p>We've learned from the <a href="./basic_workflow.html">Workflow</a> tutorial that every Nipype workflow is a directed acyclic graph. Some workflow structures are easy to understand directly from the script and some others are too complex for that. Luckily, there is the <code>write_graph</code> method!</p>
 <h2 id="write_graph"><code>write_graph</code><a class="anchor-link" href="#write_graph">&#182;</a></h2><p><strong><code>write_graph</code></strong> allows us to visualize any workflow in five different ways:</p>
 <ul>
-<li><strong><code>orig</code></strong> - creates a top level graph without expanding internal workflow nodes</li>
+<li><strong><code>orig</code></strong> - creates a top-level graph without expanding internal workflow nodes</li>
 <li><strong><code>flat</code></strong> - expands workflow nodes recursively</li>
-<li><strong><code>hierarchical</code></strong> - expands workflow nodes recursively with a notion on hierarchy</li>
+<li><strong><code>hierarchical</code></strong> - expands workflow nodes recursively with a notion on the hierarchy</li>
 <li><strong><code>colored</code></strong> - expands workflow nodes recursively with a notion on hierarchy in color</li>
 <li><strong><code>exec</code></strong> - expands workflows to depict iterables</li>
 </ul>
@@ -12224,7 +12214,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Such a visualization might be more complicated to read, but it gives you complete overview of a workflow and all its components.</p>
+<p>Such a visualization might be more complicated to read, but it gives you a complete overview of a workflow and all its components.</p>
 
 </div>
 </div>
@@ -12278,7 +12268,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the middle left of the figure we have three <code>preproc.smooth</code> nodes of the <code>spm</code> interface with the names "a0", "a1" and "a2". Those represent the three smoothing nodes with the <code>fwhm</code> parameter set to 4, 6 and 8. Now if those nodes would be connected to another workflow, this would mean that the workflow that follows would be depicted three times, each time for another input coming from the <code>preproc.smooth</code> node.</p>
+<p>In the middle left of the figure, we have three <code>preproc.smooth</code> nodes of the <code>spm</code> interface with the names "a0", "a1" and "a2". Those represent the three smoothing nodes with the <code>fwhm</code> parameter set to 4, 6 and 8. Now if those nodes would be connected to another workflow, this would mean that the workflow that follows would be depicted three times, each time for another input coming from the <code>preproc.smooth</code> node.</p>
 <p>Therefore, the <strong>detailed <code>exec</code></strong> visualization makes all individual execution elements very clear and allows it to see which elements can be executed in parallel.</p>
 
 </div>

@@ -11795,8 +11795,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Hands-on-2:-How-to-create-a-fMRI-analysis-workflow">Hands-on 2: How to create a fMRI analysis workflow<a class="anchor-link" href="#Hands-on-2:-How-to-create-a-fMRI-analysis-workflow">&#182;</a></h1><p>The purpose of this section is that you setup a complete fMRI analysis workflow yourself. So that in the end you are able to perform the analysis from A-Z, i.e. from preprocessing to group analysis. This section will cover the analysis part, the previous section <a href="handson_preprocessing.html">Hands-on 1: Preprocessing</a> handles the preprocessing part.</p>
-<p>We will use this opportunity to show you some nice additional interfaces/nodes that might not be relevant to your usual analysis. But it's always nice to know that they exist. And hopefully this will encourage you to investigate all other interfaces that Nipype can bring to the tip of your finger.</p>
+<h1 id="Hands-on-2:-How-to-create-a-fMRI-analysis-workflow">Hands-on 2: How to create a fMRI analysis workflow<a class="anchor-link" href="#Hands-on-2:-How-to-create-a-fMRI-analysis-workflow">&#182;</a></h1><p>The purpose of this section is that you set-up a complete fMRI analysis workflow yourself. So that in the end, you are able to perform the analysis from A-Z, i.e. from preprocessing to group analysis. This section will cover the analysis part, the previous section <a href="handson_preprocessing.html">Hands-on 1: Preprocessing</a> handles the preprocessing part.</p>
+<p>We will use this opportunity to show you some nice additional interfaces/nodes that might not be relevant to your usual analysis. But it's always nice to know that they exist. And hopefully, this will encourage you to investigate all other interfaces that Nipype can bring to the tip of your finger.</p>
 <p><span style="color:red">Important</span>: You will not be able to go through this notebook if you haven't preprocessed your subjects first.</p>
 
 </div>
@@ -11835,7 +11835,7 @@ div#notebook {
 
 <span class="c1"># Specify which SPM to use</span>
 <span class="kn">from</span> <span class="nn">nipype.interfaces.matlab</span> <span class="k">import</span> <span class="n">MatlabCommand</span>
-<span class="n">MatlabCommand</span><span class="o">.</span><span class="n">set_default_paths</span><span class="p">(</span><span class="s1">&#39;/opt/spm12/spm12_mcr/spm/spm12&#39;</span><span class="p">)</span>
+<span class="n">MatlabCommand</span><span class="o">.</span><span class="n">set_default_paths</span><span class="p">(</span><span class="s1">&#39;/opt/spm12-r7219/spm12_mcr/spm12&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11857,7 +11857,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Create-Nodes-and-Workflow-connections">Create Nodes and Workflow connections<a class="anchor-link" href="#Create-Nodes-and-Workflow-connections">&#182;</a></h2><p>Let's create all the nodes that we need! Make sure to specify all relevant inputs and keep in mind which ones you later on need to connect in your pipeline.</p>
-<h3 id="Workflow-for-the-1st-level-analysis">Workflow for the 1st-level analysis<a class="anchor-link" href="#Workflow-for-the-1st-level-analysis">&#182;</a></h3><p>We recommend to create the workflow and establish all it's connections at a later place in your script. This helps to have everything nicely together. But for this hands-on example it makes sense to establish the connections between the nodes as we go.</p>
+<h3 id="Workflow-for-the-1st-level-analysis">Workflow for the 1st-level analysis<a class="anchor-link" href="#Workflow-for-the-1st-level-analysis">&#182;</a></h3><p>We recommend to create the workflow and establish all its connections at a later place in your script. This helps to have everything nicely together. But for this hands-on example, it makes sense to establish the connections between the nodes as we go.</p>
 <p>And for this, we first need to create a workflow:</p>
 
 </div>
@@ -11902,7 +11902,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The specify the 1st-level model we need the subject specific onset times and durations of the stimuli. Luckily, as we are working with a BIDS dataset, this information is nicely stored in a <code>tsv</code> file:</p>
+<p>The specify the 1st-level model we need the subject-specific onset times and duration of the stimuli. Luckily, as we are working with a BIDS dataset, this information is nicely stored in a <code>tsv</code> file:</p>
 
 </div>
 </div>
@@ -12324,7 +12324,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Estimate-1st-level-contrasts">Estimate 1st-level contrasts<a class="anchor-link" href="#Estimate-1st-level-contrasts">&#182;</a></h3><p>Before we can estimate the 1st-level contrasts, we first need to create the 1st-level design. Here you can also specify what kind of basis function you want (HRF, FIR, Fourier, etc.), if you want to use time and dispersion derivatives and how you want to model the serial correlation.</p>
-<p>In this example I propose that you use an HRF basis function, that we model time derivatives and that we model the serial correlation with AR(1).</p>
+<p>In this example, I propose that you use an HRF basis function, that we model time derivatives and that we model the serial correlation with AR(1).</p>
 
 </div>
 </div>
@@ -12586,8 +12586,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Normalize-1st-level-contrasts">Normalize 1st-level contrasts<a class="anchor-link" href="#Normalize-1st-level-contrasts">&#182;</a></h3><p>Now that the contrasts were estimated in subject space we can put them into a common reference space by normalizing them to a specific template. In this case we will be using SPM12's Normalize routine and normalize to the SPM12 tissue probability map <code>TPM.nii</code>.</p>
-<p>At this step you can also specify the voxel resolution of the output volumes. If you don't specify it, it will normalize to a voxel resolution of 2x2x2mm. As a training exercise, set the voxel resolution to 4x4x4mm.</p>
+<h3 id="Normalize-1st-level-contrasts">Normalize 1st-level contrasts<a class="anchor-link" href="#Normalize-1st-level-contrasts">&#182;</a></h3><p>Now that the contrasts were estimated in subject space we can put them into a common reference space by normalizing them to a specific template. In this case, we will be using SPM12's Normalize routine and normalize to the SPM12 tissue probability map <code>TPM.nii</code>.</p>
+<p>At this step, you can also specify the voxel resolution of the output volumes. If you don't specify it, it will normalize to a voxel resolution of 2x2x2mm. As a training exercise, set the voxel resolution to 4x4x4mm.</p>
 
 </div>
 </div>
@@ -12600,7 +12600,7 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nipype.interfaces.spm</span> <span class="k">import</span> <span class="n">Normalize12</span>
 
 <span class="c1"># Location of the template</span>
-<span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;/opt/spm12/spm12_mcr/spm/spm12/tpm/TPM.nii&#39;</span>
+<span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;/opt/spm12-r7219/spm12_mcr/spm12/tpm/TPM.nii&#39;</span>
 </pre></div>
 
 </div>
@@ -12680,7 +12680,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Datainput-with-SelectFiles-and-iterables">Datainput with <code>SelectFiles</code> and <code>iterables</code><a class="anchor-link" href="#Datainput-with-SelectFiles-and-iterables">&#182;</a></h2><p>As in the preprocessing hands-on, we will again be using <a href="../../../nipype_tutorial/notebooks/basic_data_input.html#SelectFiles"><code>SelectFiles</code></a> and <a href="../../../nipype_tutorial/notebooks/basic_iteration.html"><code>iterables</code></a>. So, what do we need?</p>
-<p>From the preprocessing pipeline, we need the functional images, the motion parameters and the list of outliers. Also, for the normalization we need the subject specific anatomy.</p>
+<p>From the preprocessing pipeline, we need the functional images, the motion parameters and the list of outliers. Also, for the normalization, we need the subject-specific anatomy.</p>
 
 </div>
 </div>
@@ -14121,7 +14121,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load GM probability map of TPM.nii</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/opt/spm12/spm12_mcr/spm/spm12/tpm/TPM.nii&#39;</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/opt/spm12-r7219/spm12_mcr/spm12/tpm/TPM.nii&#39;</span><span class="p">)</span>
 <span class="n">GM_template</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">Nifti1Image</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">img</span><span class="o">.</span><span class="n">affine</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
 
 <span class="c1"># Plot normalized subject anatomy</span>
@@ -14270,7 +14270,7 @@ div#notebook {
 
 <span class="c1"># Specify which SPM to use</span>
 <span class="kn">from</span> <span class="nn">nipype.interfaces.matlab</span> <span class="k">import</span> <span class="n">MatlabCommand</span>
-<span class="n">MatlabCommand</span><span class="o">.</span><span class="n">set_default_paths</span><span class="p">(</span><span class="s1">&#39;/opt/spm12/spm12_mcr/spm/spm12&#39;</span><span class="p">)</span>
+<span class="n">MatlabCommand</span><span class="o">.</span><span class="n">set_default_paths</span><span class="p">(</span><span class="s1">&#39;/opt/spm12-r7219/spm12_mcr/spm12&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14318,8 +14318,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2nd-Level-Design">2nd-Level Design<a class="anchor-link" href="#2nd-Level-Design">&#182;</a></h2><p>This step depends on your study design and the tests you want to perform. If you're using SPM to do the group analysis, you have the liberty to choose between a factorial design, a multiple regression design, one sample T-Test design, a paired T-Test design or a two sample T-Test design.</p>
-<p>For the current example, we will be using a one sample T-Test design.</p>
+<h2 id="2nd-Level-Design">2nd-Level Design<a class="anchor-link" href="#2nd-Level-Design">&#182;</a></h2><p>This step depends on your study design and the tests you want to perform. If you're using SPM to do the group analysis, you have the liberty to choose between a factorial design, a multiple regression design, one-sample T-Test design, a paired T-Test design or a two-sample T-Test design.</p>
+<p>For the current example, we will be using a one-sample T-Test design.</p>
 
 </div>
 </div>
@@ -14419,7 +14419,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To finish the <code>EstimateContrast</code> node, we also need to specify which contrast should be computed. For a 2nd-level one sample t-test design, this is rather straight forward:</p>
+<p>To finish the <code>EstimateContrast</code> node, we also need to specify which contrast should be computed. For a 2nd-level one-sample t-test design, this is rather straightforward:</p>
 
 </div>
 </div>
@@ -14485,7 +14485,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Thresholding-of-output-contrast">Thresholding of output contrast<a class="anchor-link" href="#Thresholding-of-output-contrast">&#182;</a></h2><p>And to close, we will use SPM <code>Threshold</code>. With this routine, we can set a specific voxle threshold (i.e. <em>p</em>&lt;0.001) and apply an FDR cluster threshold (i.e. <em>p</em>&lt;0.05).</p>
+<h2 id="Thresholding-of-output-contrast">Thresholding of output contrast<a class="anchor-link" href="#Thresholding-of-output-contrast">&#182;</a></h2><p>And to close, we will use SPM <code>Threshold</code>. With this routine, we can set a specific voxel threshold (i.e. <em>p</em>&lt;0.001) and apply an FDR cluster threshold (i.e. <em>p</em>&lt;0.05).</p>
 <p>As we only have 5 subjects, I recommend to set the voxel threshold to 0.01 and to leave the cluster threshold at 0.05.</p>
 
 </div>
@@ -14529,7 +14529,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Connect the Threshold node to the EstimateContrast node herer</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Connect the Threshold node to the EstimateContrast node here</span>
 </pre></div>
 
 </div>
@@ -14571,7 +14571,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
-<span class="nv">TEMPLATE</span><span class="o">=</span><span class="s1">&#39;/opt/spm12/spm12_mcr/spm/spm12/tpm/TPM.nii&#39;</span>
+<span class="nv">TEMPLATE</span><span class="o">=</span><span class="s1">&#39;/opt/spm12-r7219/spm12_mcr/spm12/tpm/TPM.nii&#39;</span>
 
 <span class="c1"># Extract the first volume with `fslroi`</span>
 fslroi <span class="nv">$TEMPLATE</span> GM_PM.nii.gz <span class="m">0</span> <span class="m">1</span>
@@ -14652,7 +14652,7 @@ rm GM_PM.nii.gz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we just need to specify this binary mask as an <code>explicit_mask_file</code> for the one sample T-test node.</p>
+<p>Now we just need to specify this binary mask as an <code>explicit_mask_file</code> for the one-sample T-test node.</p>
 
 </div>
 </div>
@@ -15615,7 +15615,7 @@ rm GM_PM.nii.gz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Visualize-results">Visualize results<a class="anchor-link" href="#Visualize-results">&#182;</a></h1><p>Let's take a look at the results. Keep in mind that we only have <em><code>N=6</code></em> subjects and that we set the voxel threshold to a very liberal <code>p&lt;0.01</code>. Interpretation of the results should therefore be taken with a lot of caution.</p>
+<h1 id="Visualize-results">Visualize results<a class="anchor-link" href="#Visualize-results">&#182;</a></h1><p>Let's take a look at the results. Keep in mind that we only have <em><code>N=6</code></em> subjects and that we set the voxel threshold to a very liberal <code>p&lt;0.01</code>. Interpretation of the results should, therefore, be taken with a lot of caution.</p>
 
 </div>
 </div>

@@ -11807,7 +11807,7 @@ div#notebook {
 </li>
 <li><p><a href="https://www.youtube.com/watch?v=cofpD1lhmKU">Visualizing the evolution of Nipype</a></p>
 </li>
-<li><p>This notebook taken from <a href="https://github.com/ReproNim/reproducible-imaging">reproducible-imaging repository</a></p>
+<li><p>This notebook is taken from <a href="https://github.com/ReproNim/reproducible-imaging">reproducible-imaging repository</a></p>
 </li>
 </ul>
 
@@ -12077,8 +12077,8 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Interfaces are the core pieces of Nipype that run the code of your desire. But to streamline your analysis and to execute multiple interfaces in a sensible order, you have to put them in something that we call a Node and create a Workflow.</p>
-<p>In Nipype, a node is an object that executes a certain function. This function can be anything from a Nipype interface to a user specified function or an external script. Each node consists of a name, an interface and at least one input field and at least one output field.</p>
-<p>Once you have multiple nodes you can use <code>Workflow</code> to connect each other and create a directed graph. Nipype workflow will take care of input and output of each interface and arrange the execution of each interface in the most efficient way.</p>
+<p>In Nipype, a node is an object that executes a certain function. This function can be anything from a Nipype interface to a user-specified function or an external script. Each node consists of a name, an interface, and at least one input field and at least one output field.</p>
+<p>Once you have multiple nodes you can use <code>Workflow</code> to connect with each other and create a directed graph. Nipype workflow will take care of input and output of each interface and arrange the execution of each interface in the most efficient way.</p>
 
 </div>
 </div>
@@ -12197,7 +12197,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's check the the interface:</p>
+<p>Let's check the interface:</p>
 
 </div>
 </div>
@@ -12219,7 +12219,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see the interface takes two mandatory inputs: <code>in_file</code> and <code>mask_file</code>. We want to use the output of <code>smooth_node</code> as <code>in_file</code> and on of the output of <code>bet_file</code> (the <code>mask_file</code>) as <code>mask_file</code> input.</p>
+<p>As you can see the interface takes two mandatory inputs: <code>in_file</code> and <code>mask_file</code>. We want to use the output of <code>smooth_node</code> as <code>in_file</code> and one of the output of <code>bet_file</code> (the <code>mask_file</code>) as <code>mask_file</code> input.</p>
 
 </div>
 </div>
@@ -12250,7 +12250,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>if you're lost, full code is here:</p>
+<p>if you're lost, the full code is here:</p>
 
 </div>
 </div>
@@ -12282,7 +12282,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>lets connect the <code>bet_node</code> output to <code>mask_node</code> input`</strong></p>
+<p><strong>let's connect the <code>bet_node</code> output to <code>mask_node</code> input`</strong></p>
 
 </div>
 </div>
@@ -12431,7 +12431,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>if you're lost, full code is here:</p>
+<p>if you're lost, the full code is here:</p>
 
 </div>
 </div>
@@ -12555,7 +12555,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's assume we have a workflow with two nodes, node (A) does simple skull stripping, and is followed by a node (B) that does isometric smoothing. Now, let's say, that we are curious about the effect of different smoothing kernels. Therefore, we want to run the smoothing node with FWHM set to 2mm, 8mm and 16mm.</p>
+<p>Let's assume we have a workflow with two nodes, node (A) does simple skull stripping, and is followed by a node (B) that does isometric smoothing. Now, let's say, that we are curious about the effect of different smoothing kernels. Therefore, we want to run the smoothing node with FWHM set to 2mm, 8mm, and 16mm.</p>
 
 </div>
 </div>
@@ -12732,10 +12732,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MapNode">MapNode<a class="anchor-link" href="#MapNode">&#182;</a></h3><p>If you want to iterate over a list of inputs, but need to feed all iterated outputs afterwards as one input (an array) to the next node, you need to use a <strong><code>MapNode</code></strong>. A <code>MapNode</code> is quite similar to a normal <code>Node</code>, but it can take a list of inputs and operate over each input separately, ultimately returning a list of outputs.</p>
-<p>Imagine that you have a list of items (lets say files) and you want to execute the same node on them (for example some smoothing or masking). Some nodes accept multiple files and do exactly the same thing on them, but some don't (they expect only one file). <code>MapNode</code> can solve this problem. Imagine you have the following workflow:</p>
+<h3 id="MapNode">MapNode<a class="anchor-link" href="#MapNode">&#182;</a></h3><p>If you want to iterate over a list of inputs, but need to feed all iterated outputs afterward as one input (an array) to the next node, you need to use a <strong><code>MapNode</code></strong>. A <code>MapNode</code> is quite similar to a normal <code>Node</code>, but it can take a list of inputs and operate over each input separately, ultimately returning a list of outputs.</p>
+<p>Imagine that you have a list of items (let's say files) and you want to execute the same node on them (for example some smoothing or masking). Some nodes accept multiple files and do exactly the same thing on them, but some don't (they expect only one file). <code>MapNode</code> can solve this problem. Imagine you have the following workflow:</p>
 <p><img src="../static/images/mapnode.png"  width="325"></p>
-<p>Node <code>A</code> outputs a list of files, but node <code>B</code> accepts only one file. Additionally <code>C</code> expects a list of files. What you would like is to run <code>B</code> for every file in the output of <code>A</code> and collect the results as a list and feed it to <code>C</code>.</p>
+<p>Node <code>A</code> outputs a list of files, but node <code>B</code> accepts only one file. Additionally, <code>C</code> expects a list of files. What you would like is to run <code>B</code> for every file in the output of <code>A</code> and collect the results as a list and feed it to <code>C</code>.</p>
 
 </div>
 </div>
@@ -12804,7 +12804,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">square_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_SKIP</span>
+<span class="n">square_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
 <span class="n">square_node</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">square_node</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">res</span><span class="o">.</span><span class="n">outputs</span>

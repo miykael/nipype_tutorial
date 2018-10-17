@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11806,7 +11796,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Realistic-example">Realistic example<a class="anchor-link" href="#Realistic-example">&#182;</a></h2><p>Let's assume we have a workflow with two nodes, node (A) does simple skull stripping, and is followed by a node (B) that does isometric smoothing. Now, let's say, that we are curious about the effect of different smoothing kernels. Therefore, we want to run the smoothing node with FWHM set to 2mm, 8mm and 16mm.</p>
+<h2 id="Realistic-example">Realistic example<a class="anchor-link" href="#Realistic-example">&#182;</a></h2><p>Let's assume we have a workflow with two nodes, node (A) does simple skull stripping, and is followed by a node (B) that does isometric smoothing. Now, let's say, that we are curious about the effect of different smoothing kernels. Therefore, we want to run the smoothing node with FWHM set to 2mm, 8mm, and 16mm.</p>
 
 </div>
 </div>
@@ -12280,7 +12270,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="IdentityInterface-(special-use-case-of-iterables)"><code>IdentityInterface</code> (special use case of <code>iterables</code>)<a class="anchor-link" href="#IdentityInterface-(special-use-case-of-iterables)">&#182;</a></h1><p>We often want to start our worflow from creating subgraphs, e.g. for running preprocessing for all subjects. We can easily do it with setting <code>iterables</code> on the <code>IdentityInterface</code>. The <code>IdentityInterface</code> interface allows you to create <code>Nodes</code> that does simple identity mapping, i.e. <code>Nodes</code> that only work on parameters/strings.</p>
-<p>For example you want to start your workflow from collecting anatomical files for 5 subjects.</p>
+<p>For example, you want to start your workflow by collecting anatomical files for 5 subjects.</p>
 
 </div>
 </div>
@@ -12516,7 +12506,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1">&#182;</a></h2><p>Create a workflow to calculate a various powers of <code>2</code> using  two nodes, one for <code>IdentityInterface</code> with <code>iterables</code>, and one for <code>Function</code> interface to calculate power of <code>2</code>.</p>
+<h2 id="Exercise-1">Exercise 1<a class="anchor-link" href="#Exercise-1">&#182;</a></h2><p>Create a workflow to calculate various powers of <code>2</code> using  two nodes, one for <code>IdentityInterface</code> with <code>iterables</code>, and one for <code>Function</code> interface to calculate the power of <code>2</code>.</p>
 
 </div>
 </div>

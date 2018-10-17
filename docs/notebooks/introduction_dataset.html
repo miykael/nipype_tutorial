@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11805,7 +11795,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The dataset for this tutorial is structured according to the <a href="http://bids.neuroimaging.io/">Brain Imaging Data Structure (BIDS)</a>. BIDS is a simple and intuitive way to organize and describe your neuroimaging and behavioral data. Neuroimaging experiments result in complicated data that can be arranged in many different ways. So far there is no consensus how to organize and share data obtained in neuroimaging experiments. BIDS tackles this problem by suggesting a new standard for the arrangement of neuroimaging datasets.</p>
+<p>The dataset for this tutorial is structured according to the <a href="http://bids.neuroimaging.io/">Brain Imaging Data Structure (BIDS)</a>. BIDS is a simple and intuitive way to organize and describe your neuroimaging and behavioral data. Neuroimaging experiments result in complicated data that can be arranged in many different ways. So far there is no consensus on how to organize and share data obtained in neuroimaging experiments. BIDS tackles this problem by suggesting a new standard for the arrangement of neuroimaging datasets.</p>
 
 </div>
 </div>
@@ -11833,7 +11823,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tutorial-Dataset">Tutorial Dataset<a class="anchor-link" href="#Tutorial-Dataset">&#182;</a></h1><p>For this tutorial we will be using a subset of the <a href="https://openfmri.org/dataset/ds000114/">fMRI dataset (ds000114)</a> publicly available on <a href="https://openfmri.org">openfmri.org</a>. <strong>If you're using the suggested Docker image you probably have all data needed to run the tutorial within the Docker container.</strong>
+<h1 id="Tutorial-Dataset">Tutorial Dataset<a class="anchor-link" href="#Tutorial-Dataset">&#182;</a></h1><p>For this tutorial, we will be using a subset of the <a href="https://openfmri.org/dataset/ds000114/">fMRI dataset (ds000114)</a> publicly available on <a href="https://openfmri.org">openfmri.org</a>. <strong>If you're using the suggested Docker image you probably have all data needed to run the tutorial within the Docker container.</strong>
 If you want to have data locally you can use <a href="http://datalad.org/">Datalad</a> to download a subset of the dataset, via the <a href="http://datasets.datalad.org/?dir=/workshops/nih-2017/ds000114">datalad repository</a>. In order to install dataset with all subrepositories you can run:</p>
 
 </div>
@@ -11894,7 +11884,7 @@ action summary:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In order to download data you can use <code>datalad get foldername</code> command, to download all files in the folder <code>foldername</code>. For this tutorial we only want to download part of the dataset, i.e. the anatomial and the functional <code>fingerfootlips</code> images:</p>
+<p>In order to download data, you can use <code>datalad get foldername</code> command, to download all files in the folder <code>foldername</code>. For this tutorial we only want to download part of the dataset, i.e. the anatomical and the functional <code>fingerfootlips</code> images:</p>
 
 </div>
 </div>
@@ -11906,7 +11896,8 @@ action summary:
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
 <span class="nb">cd</span> /data/ds000114
-datalad get -J 4 /data/ds000114/derivatives/fmriprep/sub-*/anat/*preproc.nii.gz <span class="se">\</span>
+datalad get -J <span class="m">4</span> /data/ds000114/derivatives/fmriprep/sub-*/anat/*preproc.nii.gz <span class="se">\</span>
+                /data/ds000114/sub-01/ses-test/anat <span class="se">\</span>
                 /data/ds000114/sub-*/ses-test/func/*fingerfootlips*
 </pre></div>
 
@@ -12062,7 +12053,7 @@ dataset_description.json  <span class="ansi-blue-intense-fg ansi-bold">sub-09</s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can, for every subject we have one anatomical T1w image, five functional images and one diffusion weighted image.</p>
+<p>As you can, for every subject we have one anatomical T1w image, five functional images, and one diffusion weighted image.</p>
 <p><strong>Note</strong>: If you used <code>datalad</code> or <code>git annex</code> to get the dataset, you can see symlinks for the image files.</p>
 
 </div>
@@ -12073,7 +12064,7 @@ dataset_description.json  <span class="ansi-blue-intense-fg ansi-bold">sub-09</s
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Behavioral-Task">Behavioral Task<a class="anchor-link" href="#Behavioral-Task">&#182;</a></h1><p>Subject from the ds000114 dataset did five behavioral tasks. In our dataset two of them are included.</p>
-<p>The <strong>motor task</strong> consisted of <strong><em>finger tapping</em></strong>, <strong><em>foot twitching</em></strong> and <strong><em>lip poaching</em></strong> interleaved with fixation at a cross.</p>
+<p>The <strong>motor task</strong> consisted of <strong><em>finger tapping</em></strong>, <strong><em>foot twitching</em></strong> and <strong><em>lip pouching</em></strong> interleaved with fixation at a cross.</p>
 <p>The <strong>landmark task</strong> was designed to mimic the <strong><em>line bisection task</em></strong> used in neurological practice to diagnose spatial hemineglect. Two conditions were contrasted, specifically judging if a horizontal line had been bisected exactly in the middle, versus judging if a horizontal line was bisected at all. More about the dataset and studies you can find <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3641991/">here</a>.</p>
 <p>To each of the functional images above, we therefore also have a tab-separated values file (<code>tva</code>), containing information such as stimuli onset, duration, type, etc. So let's have a look at one of them:</p>
 

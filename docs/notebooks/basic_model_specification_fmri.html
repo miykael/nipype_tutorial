@@ -11776,16 +11776,6 @@ div#notebook {
   ga('send', 'pageview');
 
 </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92929997-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
@@ -11795,7 +11785,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Model-Specification-for-1st-Level-fMRI-Analysis">Model Specification for 1st-Level fMRI Analysis<a class="anchor-link" href="#Model-Specification-for-1st-Level-fMRI-Analysis">&#182;</a></h1><p>Nipype provides also an interfaces to create a first level Model for an fMRI analysis. Such a model is needed to specify the study specific information, such as <strong>condition</strong>, their <strong>onsets</strong> and <strong>durations</strong>. For more information, make sure to check out <a href="http://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.algorithms.modelgen.html">nipype.algorithms.modelgen</a>.</p>
+<h1 id="Model-Specification-for-1st-Level-fMRI-Analysis">Model Specification for 1st-Level fMRI Analysis<a class="anchor-link" href="#Model-Specification-for-1st-Level-fMRI-Analysis">&#182;</a></h1><p>Nipype provides also an interfaces to create a first level Model for an fMRI analysis. Such a model is needed to specify the study-specific information, such as <strong>condition</strong>, their <strong>onsets</strong>, and <strong>durations</strong>. For more information, make sure to check out <a href="http://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.algorithms.modelgen.html">nipype.algorithms.modelgen</a>.</p>
 
 </div>
 </div>
@@ -11820,7 +11810,7 @@ div#notebook {
 <li><strong><code>onsets</code></strong> : lists of onsets corresponding to each condition</li>
 </ul>
 <ul>
-<li><strong><code>durations</code></strong> : lists of durations corresponding to each condition. Should be left to a single 0 if all events are being modelled as impulses.</li>
+<li><strong><code>durations</code></strong> : lists of durations corresponding to each condition. Should be left to a single 0 if all events are being modeled as impulses.</li>
 </ul>
 
 </div>
@@ -12254,8 +12244,7 @@ e.g.: <code>Words.run001.txt</code>.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sparse-model-specification">Sparse model specification<a class="anchor-link" href="#Sparse-model-specification">&#182;</a></h1><p>In addition to standard models, <code>SpecifySparseModel</code> allows model generation for sparse and sparse-clustered acquisition experiments. Details of the model generation and utility are provided in <a href="http://dl.dropbox.com/u/363467/OHBM2009_HRF.pdf">Ghosh et al. (2009) OHBM 2009</a></p>
-<p><strong>!! Link is broken !!</strong></p>
+<h1 id="Sparse-model-specification">Sparse model specification<a class="anchor-link" href="#Sparse-model-specification">&#182;</a></h1><p>In addition to standard models, <code>SpecifySparseModel</code> allows model generation for sparse and sparse-clustered acquisition experiments. Details of the model generation and utility are provided in <a href="https://www.researchgate.net/publication/242810827_Incorporating_hemodynamic_response_functions_to_improve_analysis_models_for_sparse-acquisition_experiments">Ghosh et al. (2009) OHBM 2009</a></p>
 
 </div>
 </div>
