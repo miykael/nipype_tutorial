@@ -5,7 +5,7 @@ from glob import glob
 
 def test_version():
     import nipype
-    print("nipype version: ", nipype.__version__)
+    print("test, nipype version: ", nipype.__version__)
 
 
 def reduce_notebook_load(path):
