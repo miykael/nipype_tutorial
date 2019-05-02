@@ -132,7 +132,7 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
     && bash -c "source activate neuro \
     &&   pip install --no-cache-dir  \
              https://github.com/nipy/nipype/tarball/master \
-             https://github.com/INCF/pybids/tarball/0.7 \
+             https://github.com/INCF/pybids/tarball/0.7.1 \
              nilearn \
              datalad[full] \
              nipy \
@@ -240,7 +240,7 @@ RUN echo '{ \
     \n        ], \
     \n        "pip_install": [ \
     \n          "https://github.com/nipy/nipype/tarball/master", \
-    \n          "https://github.com/INCF/pybids/tarball/0.7", \
+    \n          "https://github.com/INCF/pybids/tarball/0.7.1", \
     \n          "nilearn", \
     \n          "datalad[full]", \
     \n          "nipy", \
