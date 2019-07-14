@@ -126,13 +126,13 @@ conda install -y -q --name neuro \
 sync && conda clean --all && sync
 bash -c "source activate neuro
   pip install --no-cache-dir  \
-      'https://github.com/nipy/nipype/tarball/master' \
-      'https://github.com/INCF/pybids/tarball/0.6.5' \
-      'nilearn' \
-      'datalad[full]' \
-      'nipy' \
-      'duecredit' \
-      'nbval'"
+      https://github.com/nipy/nipype/tarball/master \
+      https://github.com/INCF/pybids/tarball/0.7.1 \
+      nilearn \
+      datalad[full] \
+      nipy \
+      duecredit \
+      nbval"
 rm -rf ~/.cache/pip/*
 sync
 sed -i '$isource activate neuro' $ND_ENTRYPOINT
@@ -241,7 +241,7 @@ echo '{
 \n        ],
 \n        "pip_install": [
 \n          "https://github.com/nipy/nipype/tarball/master",
-\n          "https://github.com/INCF/pybids/tarball/0.6.5",
+\n          "https://github.com/INCF/pybids/tarball/0.7.1",
 \n          "nilearn",
 \n          "datalad[full]",
 \n          "nipy",
