@@ -13,6 +13,7 @@ generate_docker() {
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
            --spm12 version=r7219 \
            --user=neuro \
+           --workdir /home/neuro \
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
@@ -51,6 +52,7 @@ generate_singularity() {
            --add-to-entrypoint "source /etc/fsl/fsl.sh" \
            --spm12 version=r7219 \
            --user=neuro \
+           --workdir /home/neuro \
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
