@@ -138,6 +138,7 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
     &&   pip install --no-cache-dir  \
              https://github.com/nipy/nipype/tarball/master \
              https://github.com/INCF/pybids/tarball/0.7.1 \
+             niflow-nipype1-workflows \
              nilearn \
              datalad[full] \
              nipy \
