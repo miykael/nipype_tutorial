@@ -142,3 +142,23 @@ workflows:
       - test_3:
           requires:
             - build
+
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 10 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
+      - test_1:
+          requires:
+            - build
+      - test_2:
+          requires:
+            - build
+      - test_3:
+          requires:
+            - build
