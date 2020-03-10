@@ -4,7 +4,7 @@ set -e
 
 # Generate Dockerfile
 generate_docker() {
-  docker run --rm kaczmarj/neurodocker:master generate docker \
+  docker run --rm kaczmarj/neurodocker:0.6.0 generate docker \
            --base neurodebian:stretch-non-free \
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \
@@ -15,11 +15,11 @@ generate_docker() {
            --user=neuro \
            --workdir /home/neuro \
            --miniconda miniconda_version="4.3.31" \
-             conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
+             conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="https://github.com/nipy/nipype/tarball/master
                           https://github.com/INCF/pybids/tarball/0.7.1
-                          nilearn datalad[full] nipy duecredit nbval" \
+                          niflow-nipype1-workflows nilearn datalad[full] nipy duecredit nbval" \
              create_env="neuro" \
              activate=True \
            --env LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro:$LD_LIBRARY_PATH" \
@@ -43,7 +43,7 @@ generate_docker() {
 
 # Generate Singularity file (does not include last --cmd option)
 generate_singularity() {
-  docker run --rm kaczmarj/neurodocker:master generate singularity \
+  docker run --rm kaczmarj/neurodocker:0.6.0 generate singularity \
            --base neurodebian:stretch-non-free \
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \
@@ -54,11 +54,11 @@ generate_singularity() {
            --user=neuro \
            --workdir /home/neuro \
            --miniconda miniconda_version="4.3.31" \
-             conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
+             conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="https://github.com/nipy/nipype/tarball/master
                           https://github.com/INCF/pybids/tarball/0.7.1
-                          nilearn datalad[full] nipy duecredit nbval" \
+                          niflow-nipype1-workflows nilearn datalad[full] nipy duecredit nbval" \
              create_env="neuro" \
              activate=True \
            --env LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro:$LD_LIBRARY_PATH" \
