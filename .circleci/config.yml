@@ -1,65 +1,156 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: docker:18.05.0-ce-git
+    machine:
+      image: circleci/classic:201808-01
     steps:
-      - checkout
-  test_1:
-    docker:
-      - image: docker:18.05.0-ce-git
-    steps:
-      - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - restore_cache:
+          keys:
+            - build-v1-{{ .Branch }}-{{ epoch }}
+            - build-v1-{{ .Branch }}-
+            - build-v1-master-
+            - build-v1-
+          paths:
+            - /tmp/docker
       - run:
-          name: docker build 1
+          name: Set-up a Docker registry
+          command: |
+            docker run -d -p 5000:5000 --restart=always --name=registry \
+                -v /tmp/docker:/var/lib/registry registry:2
+      - run:
+          name: Pull existing images
+          command: |
+            set +e
+            docker pull localhost:5000/neurodebian
+            success=$?
+            set -e
+            if [[ "$success" = "0" ]]; then
+                echo "Pulling from local registry"
+                docker tag localhost:5000/neurodebian neurodebian:stretch-non-free
+                docker pull localhost:5000/nipype_tutorial
+                docker tag localhost:5000/nipype_tutorial miykael/nipype_tutorial:latest
+            else
+                echo "Pulling from Docker Hub"
+                docker pull neurodebian:stretch-non-free
+                docker tag neurodebian:stretch-non-free localhost:5000/neurodebian
+                docker push localhost:5000/neurodebian
+            fi
+
+      - checkout
+      - run:
+          name: Build Docker image & push to registry
           no_output_timeout: 60m
           command: |
-            docker build -t miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') .
+            docker build --rm --cache-from=miykael/nipype_tutorial:latest \
+                -t miykael/nipype_tutorial:latest .
+            docker tag miykael/nipype_tutorial:latest localhost:5000/nipype_tutorial
+            docker push localhost:5000/nipype_tutorial
+      - run:
+          name: Docker registry garbage collection
+          command: |
+            docker exec -it registry /bin/registry garbage-collect --delete-untagged \
+                /etc/docker/registry/config.yml
+      - save_cache:
+          key: build-v1-{{ .Branch }}-{{ epoch }}
+          paths:
+            - /tmp/docker
+
+  test_1:
+    machine:
+      image: circleci/classic:201808-01
+    steps:
+      - restore_cache:
+          keys:
+            - build-v1-{{ .Branch }}-{{ epoch }}
+            - build-v1-{{ .Branch }}-
+            - build-v1-master-
+            - build-v1-
+          paths:
+            - /tmp/docker
+      - run:
+          name: Set-up a Docker registry & pull
+          command: |
+            docker run -d -p 5000:5000 --restart=always --name=registry \
+                -v /tmp/docker:/var/lib/registry registry:2
+            docker pull localhost:5000/nipype_tutorial
+            docker tag localhost:5000/nipype_tutorial miykael/nipype_tutorial:latest
       - run:
           name: run tests 1
           no_output_timeout: 120m
           command: |
-            docker run -it --rm miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') python /home/neuro/nipype_tutorial/test_notebooks.py 1
+            docker run -it --rm miykael/nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 1
   test_2:
-    docker:
-      - image: docker:18.05.0-ce-git
+    machine:
+      image: circleci/classic:201808-01
     steps:
-      - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - restore_cache:
+          keys:
+            - build-v1-{{ .Branch }}-{{ epoch }}
+            - build-v1-{{ .Branch }}-
+            - build-v1-master-
+            - build-v1-
+          paths:
+            - /tmp/docker
       - run:
-          name: docker build 2
-          no_output_timeout: 60m
+          name: Set-up a Docker registry & pull
           command: |
-            docker build -t miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') .
+            docker run -d -p 5000:5000 --restart=always --name=registry \
+                -v /tmp/docker:/var/lib/registry registry:2
+            docker pull localhost:5000/nipype_tutorial
+            docker tag localhost:5000/nipype_tutorial miykael/nipype_tutorial:latest
       - run:
           name: run tests 2
           no_output_timeout: 120m
           command: |
-            docker run -it --rm miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') python /home/neuro/nipype_tutorial/test_notebooks.py 2
+            docker run -it --rm miykael/nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 2
   test_3:
-    docker:
-      - image: docker:18.05.0-ce-git
+    machine:
+      image: circleci/classic:201808-01
     steps:
-      - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - restore_cache:
+          keys:
+            - build-v1-{{ .Branch }}-{{ epoch }}
+            - build-v1-{{ .Branch }}-
+            - build-v1-master-
+            - build-v1-
+          paths:
+            - /tmp/docker
       - run:
-          name: docker build 3
-          no_output_timeout: 60m
+          name: Set-up a Docker registry & pull
           command: |
-            docker build -t miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') .
+            docker run -d -p 5000:5000 --restart=always --name=registry \
+                -v /tmp/docker:/var/lib/registry registry:2
+            docker pull localhost:5000/nipype_tutorial
+            docker tag localhost:5000/nipype_tutorial miykael/nipype_tutorial:latest
       - run:
           name: run tests 3
           no_output_timeout: 120m
           command: |
-            docker run -it --rm miykael/nipype_tutorial:$(echo $CIRCLE_BRANCH | sed 's|/|_|g') python /home/neuro/nipype_tutorial/test_notebooks.py 3
+            docker run -it --rm miykael/nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 3
 
 workflows:
   version: 2
   build_and_test:
+    jobs:
+      - build
+      - test_1:
+          requires:
+            - build
+      - test_2:
+          requires:
+            - build
+      - test_3:
+          requires:
+            - build
+
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 10 * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - build
       - test_1:
