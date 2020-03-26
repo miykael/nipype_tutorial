@@ -121,13 +121,13 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
     && conda create -y -q --name neuro \
     && conda install -y -q --name neuro \
            'python=3.6' \
-           'pytest' \
+           'pytest=5.3.5' \
            'jupyter' \
            'jupyterlab' \
            'jupyter_contrib_nbextensions' \
            'traits' \
            'pandas' \
-           'matplotlib' \
+           'matplotlib=3.1.3' \
            'scikit-learn' \
            'scikit-image' \
            'seaborn' \
@@ -139,11 +139,11 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
              https://github.com/nipy/nipype/tarball/master \
              https://github.com/INCF/pybids/tarball/0.7.1 \
              niflow-nipype1-workflows \
-             nilearn \
+             nilearn==0.6.0 \
              datalad[full] \
              nipy \
              duecredit \
-             nbval" \
+             nbval==0.9.4" \
     && rm -rf ~/.cache/pip/* \
     && sync \
     && sed -i '$isource activate neuro' $ND_ENTRYPOINT
