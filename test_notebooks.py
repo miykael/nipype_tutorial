@@ -47,6 +47,9 @@ def reduce_notebook_load(path):
                     for s in range(3, 11):
                         line = line.replace('sub-%02d' % s, 'sub-02')
 
+                if "{'n_procs': 4}" in line:
+                    line = line.replace("{'n_procs': 4}", "{'n_procs': 2}")
+
             output_file.write(line)
 
     return path_short
