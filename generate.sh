@@ -4,7 +4,7 @@ set -e
 
 # Generate Dockerfile
 generate_docker() {
-  docker run --rm kaczmarj/neurodocker:0.6.0 generate docker \
+  docker run --rm kaczmarj/neurodocker:0.7.0 generate docker \
            --base neurodebian:stretch-non-free \
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \
@@ -43,7 +43,7 @@ generate_docker() {
 
 # Generate Singularity file (does not include last --cmd option)
 generate_singularity() {
-  docker run --rm kaczmarj/neurodocker:0.6.0 generate singularity \
+  docker run --rm kaczmarj/neurodocker:0.7.0 generate singularity \
            --base neurodebian:stretch-non-free \
            --pkg-manager apt \
            --install convert3d ants fsl gcc g++ graphviz tree \

@@ -84,8 +84,12 @@ if __name__ == '__main__':
     elif test_mode == 3:
 
         # Test hands-on notebooks
-        for n in ["/home/neuro/nipype_tutorial/notebooks/handson_preprocessing.ipynb",
-                  "/home/neuro/nipype_tutorial/notebooks/handson_analysis.ipynb"]:
+        for n in [
+            "/home/neuro/nipype_tutorial/notebooks/handson_preprocessing_tmp.ipynb",
+            "/home/neuro/nipype_tutorial/notebooks/handson_preprocessing_tmp-fails.ipynb",
+            "/home/neuro/nipype_tutorial/notebooks/handson_preprocessing.ipynb",
+            "/home/neuro/nipype_tutorial/notebooks/handson_analysis.ipynb"
+            ]:
 
             print('Reducing: %s' % n)
             notebooks.append(reduce_notebook_load(n))
