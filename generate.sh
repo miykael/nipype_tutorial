@@ -14,7 +14,7 @@ generate_docker() {
            --spm12 version=r7219 \
            --user=neuro \
            --workdir /home/neuro \
-           --miniconda \
+           --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="https://github.com/nipy/nipype/tarball/master
@@ -53,7 +53,7 @@ generate_singularity() {
            --spm12 version=r7219 \
            --user=neuro \
            --workdir /home/neuro \
-           --miniconda \
+           --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="https://github.com/nipy/nipype/tarball/master
