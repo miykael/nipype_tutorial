@@ -14,12 +14,12 @@ generate_docker() {
            --spm12 version=r7219 \
            --user=neuro \
            --workdir /home/neuro \
-           --miniconda miniconda_version="4.3.31" \
-             conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
+           --miniconda \
+             conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="https://github.com/nipy/nipype/tarball/master
                           https://github.com/INCF/pybids/tarball/0.7.1
-                          nilearn datalad[full] nipy duecredit nbval" \
+                          nilearn datalad[full] nipy duecredit nbval niflow-nipype1-workflows" \
              create_env="neuro" \
              activate=True \
            --env LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro:$LD_LIBRARY_PATH" \
@@ -53,12 +53,12 @@ generate_singularity() {
            --spm12 version=r7219 \
            --user=neuro \
            --workdir /home/neuro \
-           --miniconda miniconda_version="4.3.31" \
-             conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
+           --miniconda \
+             conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="https://github.com/nipy/nipype/tarball/master
                           https://github.com/INCF/pybids/tarball/0.7.1
-                          nilearn datalad[full] nipy duecredit nbval" \
+                          nilearn datalad[full] nipy duecredit nbval niflow-nipype1-workflows" \
              create_env="neuro" \
              activate=True \
            --env LD_LIBRARY_PATH="/opt/miniconda-latest/envs/neuro:$LD_LIBRARY_PATH" \
