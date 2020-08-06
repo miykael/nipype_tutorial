@@ -41,8 +41,7 @@ jobs:
           name: Build Docker image & push to registry
           no_output_timeout: 60m
           command: |
-            docker build \ #--rm --cache-from=miykael/nipype_tutorial:latest \
-                -t miykael/nipype_tutorial:latest .
+            docker build -t miykael/nipype_tutorial:latest .
             docker tag miykael/nipype_tutorial:latest localhost:5000/nipype_tutorial
             docker push localhost:5000/nipype_tutorial
       - run:
