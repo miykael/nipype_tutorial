@@ -1,5 +1,5 @@
 # Nipype Tutorial Notebooks
-
+[![Github Action CI](https://github.com/miykael/nipype_tutorial/workflows/CI/badge.svg?branch=master)](https://github.com/miykael/nipype_tutorial/actions?query=workflow%3ACI)
 [![GitHub issues](https://img.shields.io/github/issues/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/miykael/nipype_tutorial.svg)](https://github.com/miykael/nipype_tutorial/pulls/)
 [![GitHub contributors](https://img.shields.io/github/contributors/miykael/nipype_tutorial.svg)](https://GitHub.com/miykael/nipype_tutorial/graphs/contributors/)
