@@ -37,7 +37,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: satackey/action-docker-layer-caching@v0.0.5
     - name: run	test 2
-      run: docker run -it --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 2
+      run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 2
 
   test_3:
     needs: build
