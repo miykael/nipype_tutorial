@@ -90,7 +90,7 @@ if __name__ == '__main__':
             print('Reducing: %s' % n)
             notebooks.append(reduce_notebook_load(n))
 
-    for test in notebooks:
-        pytest_cmd = 'pytest --nbval-lax --nbval-cell-timeout 7200 -v -s %s' % test
-        print(pytest_cmd)
-        os.system(pytest_cmd)
+#    for test in notebooks:
+#        pytest_cmd = 'pytest --nbval-lax --nbval-cell-timeout 7200 -v -s %s' % test
+#        print(pytest_cmd)
+#        os.system(pytest_cmd)
