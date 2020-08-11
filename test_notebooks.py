@@ -90,5 +90,5 @@ if __name__ == '__main__':
             notebooks.append(reduce_notebook_load(n))
 
     # testing all tests from the notebooks list
-    pytest.main(["--nbval-lax",  "--nbval-cell-timeout", "7200", "-vs"] + notebooks)
-
+    pytest_exit_code = pytest.main(["--nbval-lax",  "--nbval-cell-timeout", "7200", "-vs"] + notebooks)
+    sys.exit(pytest_exit_code)
