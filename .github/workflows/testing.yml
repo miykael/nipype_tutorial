@@ -28,11 +28,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: satackey/action-docker-layer-caching@v0.0.5
-    - name: run tests: introduction
+    - name: run introduction
       run: docker run --rm nipype_tutorial:latest pytest --nbval-lax --nbval-cell-timeout 7200 -v -s notebooks/introduction*.ipynb
-    - name: run tests: basic
+    - name: run basic
       run: docker run --rm nipype_tutorial:latest pytest --nbval-lax --nbval-cell-timeout 7200 -v -s notebooks/basic*.ipynb
-    - name: run tests: advanced
+    - name: run advanced
       run: docker run --rm nipype_tutorial:latest pytest --nbval-lax --nbval-cell-timeout 7200 -v -s notebooks/advanced*.ipynb
 
 
@@ -42,9 +42,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: satackey/action-docker-layer-caching@v0.0.5
-    - name: prepare tests: examples
+    - name: prepare examples
       run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 2
-    - name: run the tests: examples
+    - name: run examples
       run: docker run --rm nipype_tutorial:latest pytest --nbval-lax --nbval-cell-timeout 7200 -v -s notebooks/example_preprocessing.ipynb notebooks/example_1stlevel.ipynb notebooks/example_normalize.ipynb notebooks/example_2ndlevel.ipynb
 
 
@@ -54,7 +54,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: satackey/action-docker-layer-caching@v0.0.5
-    - name: prepare tests: handson
+    - name: prepare handsons
       run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 3
-    - name: run the tests: handson
+    - name: run handsons
       run: docker run --rm nipype_tutorial:latest pytest --nbval-lax --nbval-cell-timeout 7200 -v -s notebooks/handson_preprocessing.ipynb notebooks/handson_analysis.ipynb
