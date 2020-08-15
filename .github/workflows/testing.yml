@@ -18,7 +18,7 @@ jobs:
     # In this step, this action saves a list of existing images,
     # the cache is created without them in the post run.
     # It also restores the cache if it exists.
-    - uses: satackey/action-docker-layer-caching@v0.0.5
+    - uses: satackey/action-docker-layer-caching@v0.0.7
     - name: build the image
       run: docker build . --file Dockerfile -t nipype_tutorial:latest
 
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: satackey/action-docker-layer-caching@v0.0.5
+    - uses: satackey/action-docker-layer-caching@v0.0.7
     - name: run test 1
       run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 1
 
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: satackey/action-docker-layer-caching@v0.0.5
+    - uses: satackey/action-docker-layer-caching@v0.0.7
     - name: run	test 2
       run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 2
 
@@ -45,6 +45,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: satackey/action-docker-layer-caching@v0.0.5
+    - uses: satackey/action-docker-layer-caching@v0.0.7
     - name: run	test 3
       run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 3
