@@ -1,7 +1,6 @@
-import os
 import sys
-import time
 from glob import glob
+import pytest
 
 def test_version():
     import nipype
@@ -90,7 +89,6 @@ if __name__ == '__main__':
             print('Reducing: %s' % n)
             notebooks.append(reduce_notebook_load(n))
 
-    for test in notebooks:
-        pytest_cmd = 'pytest --nbval-lax --nbval-cell-timeout 7200 -v -s %s' % test
-        print(pytest_cmd)
-        os.system(pytest_cmd)
+    # testing all tests from the notebooks list
+    pytest_exit_code = pytest.main(["--nbval-lax",  "--nbval-cell-timeout", "7200", "-vs"] + notebooks)
+    sys.exit(pytest_exit_code)
