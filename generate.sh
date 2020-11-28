@@ -17,7 +17,7 @@ generate_docker() {
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
-             pip_install="https://github.com/nipy/nipype/tarball/master
+             pip_install="git+https://github.com/nipy/nipype.git@rel/1.6.0
                           https://github.com/INCF/pybids/tarball/0.7.1
                           nilearn datalad[full] nipy duecredit nbval" \
              create_env="neuro" \
@@ -56,7 +56,7 @@ generate_singularity() {
            --miniconda miniconda_version="4.3.31" \
              conda_install="python=3.6 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
-             pip_install="https://github.com/nipy/nipype/tarball/master
+             pip_install="git+https://github.com/nipy/nipype.git@rel/1.6.0
                           https://github.com/INCF/pybids/tarball/0.7.1
                           nilearn datalad[full] nipy duecredit nbval" \
              create_env="neuro" \
