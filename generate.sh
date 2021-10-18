@@ -18,7 +18,7 @@ generate_docker() {
              conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="git+https://github.com/nipy/nipype.git@rel/1.7.0
-                          https://github.com/INCF/pybids/tarball/0.7.1
+                          pybids==0.13.1
                           nilearn datalad[full] nipy duecredit nbval niflow-nipype1-workflows" \
              create_env="neuro" \
              activate=True \
@@ -57,7 +57,7 @@ generate_singularity() {
              conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="git+https://github.com/nipy/nipype.git@rel/1.7.0
-                          https://github.com/INCF/pybids/tarball/0.7.1
+                          pybids==0.13.1
                           nilearn datalad[full] nipy duecredit nbval niflow-nipype1-workflows" \
              create_env="neuro" \
              activate=True \
