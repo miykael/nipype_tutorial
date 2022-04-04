@@ -54,7 +54,7 @@ generate_singularity() {
            --user=neuro \
            --workdir /home/neuro \
            --miniconda \
-             conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
+             conda_install="python=3.8 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
              pip_install="https://github.com/nipy/nipype/tarball/master
                           pybids==0.13.1
