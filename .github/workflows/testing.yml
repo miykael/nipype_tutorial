@@ -5,6 +5,12 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      nipype_branch:
+        description: 'Build specific Nipype branch'
+        required: true
+        default: 'master'
 
 
 jobs:
@@ -14,7 +20,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: generate the Dockerfile from generate.sh
-      run: bash generate.sh
+      run: |
+        BRANCH=${{ github.event.inputs.nipype_branch }}
+        BRANCH=${BRANCH:-"master"}
+        bash generate.sh $BRANCH
     # In this step, this action saves a list of existing images,
     # the cache is created without them in the post run.
     # It also restores the cache if it exists.

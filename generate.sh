@@ -2,6 +2,16 @@
 
 set -e
 
+NIPYPE_BRANCH=${1:-"master"}
+case $NIPYPE_BRANCH in
+  master)
+    NIPYPE_URL="https://github.com/nipy/nipype/tarball/master"
+  ;;
+  *)
+    NIPYPE_URL="git+https://github.com/nipy/nipype.git@${NIPYPE_BRANCH}"
+  ;;
+esac
+
 # Generate Dockerfile
 generate_docker() {
   docker run --rm kaczmarj/neurodocker:master generate docker \
@@ -17,7 +27,7 @@ generate_docker() {
            --miniconda \
              conda_install="python=3.8 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
-             pip_install="https://github.com/nipy/nipype/tarball/master
+             pip_install="$NIPYPE_URL
                           pybids==0.13.1
                           nilearn datalad[full] nipy duecredit nbval niflow-nipype1-workflows" \
              create_env="neuro" \
@@ -54,9 +64,9 @@ generate_singularity() {
            --user=neuro \
            --workdir /home/neuro \
            --miniconda \
-             conda_install="python=3.7 pytest jupyter jupyterlab jupyter_contrib_nbextensions
+             conda_install="python=3.8 pytest jupyter jupyterlab jupyter_contrib_nbextensions
                             traits pandas matplotlib scikit-learn scikit-image seaborn nbformat nb_conda" \
-             pip_install="https://github.com/nipy/nipype/tarball/master
+             pip_install="$NIPYPE_URL
                           pybids==0.13.1
                           nilearn datalad[full] nipy duecredit nbval niflow-nipype1-workflows" \
              create_env="neuro" \
