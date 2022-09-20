@@ -2,7 +2,7 @@
 
 set -e
 
-NIPYPE_BRANCH=${1:-"master"}
+NIPYPE_BRANCH=${1:-"1.8.5"}
 case $NIPYPE_BRANCH in
   master)
     NIPYPE_URL="https://github.com/nipy/nipype/tarball/master"
