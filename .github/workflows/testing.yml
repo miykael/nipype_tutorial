@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: generate the Dockerfile from generate.sh
       run: |
         BRANCH=${{ github.event.inputs.nipype_branch }}
@@ -27,12 +27,11 @@ jobs:
     # In this step, this action saves a list of existing images,
     # the cache is created without them in the post run.
     # It also restores the cache if it exists.
-    - uses: satackey/action-docker-layer-caching@v0.0.11
+    - uses: jpribyl/action-docker-layer-caching@v0.1.1
       with:
-        key: tutorial-docker-cache-{hash}
+        key: tutorial-dlc-{hash}
         restore-keys: |
-          tutorial-docker-cache-
-          layer-tutorial-docker-cache-
+          tutorial-dlc-
     - name: build the image
       run: docker build . --file Dockerfile -t nipype_tutorial:latest
 
@@ -40,12 +39,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: satackey/action-docker-layer-caching@v0.0.11
+    - uses: jpribyl/action-docker-layer-caching@v0.1.1
       with:
-        key: tutorial-docker-cache-{hash}
+        key: tutorial-dlc-{hash}
         restore-keys: |
-          tutorial-docker-cache-
-          layer-tutorial-docker-cache-
+          tutorial-dlc-
     - name: run test 1
       run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 1
 
@@ -53,12 +51,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: satackey/action-docker-layer-caching@v0.0.11
+    - uses: jpribyl/action-docker-layer-caching@v0.1.1
       with:
-        key: tutorial-docker-cache-{hash}
+        key: tutorial-dlc-{hash}
         restore-keys: |
-          tutorial-docker-cache-
-          layer-tutorial-docker-cache-
+          tutorial-dlc-
     - name: run	test 2
       run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 2
 
@@ -66,11 +63,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: satackey/action-docker-layer-caching@v0.0.11
+    - uses: jpribyl/action-docker-layer-caching@v0.1.1
       with:
-        key: tutorial-docker-cache-{hash}
+        key: tutorial-dlc-{hash}
         restore-keys: |
-          tutorial-docker-cache-
-          layer-tutorial-docker-cache-
+          tutorial-dlc-
     - name: run	test 3
       run: docker run --rm nipype_tutorial:latest python /home/neuro/nipype_tutorial/test_notebooks.py 3
